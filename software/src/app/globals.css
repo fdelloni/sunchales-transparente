@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0F1B3D;
+  --coral: #E8A33D;
+}
+
+html, body { background: #F8FAFC; color: #0F172A; }
+* { -webkit-font-smoothing: antialiased; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #C97B1A;
+}
