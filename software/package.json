@@ -2,12 +2,13 @@
   "name": "sunchales-transparente",
   "version": "0.1.0",
   "private": true,
-  "description": "Plataforma de Transparencia y Eficiencia Operativa — Municipalidad de Sunchales (Fase 1: Cimientos)",
+  "description": "Plataforma de Transparencia y Eficiencia Operativa",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc -p tsconfig.check.json"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
