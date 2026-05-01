@@ -146,17 +146,22 @@ export function buscarRespuestaDemo(textoUsuario: string): RespuestaDemo | null 
   const norm = normalizar(textoUsuario);
 
   // 1) Match en FAQ web (con links a módulos)
-  let mejorWeb: { idx: number; score: number } | null = null;
-  faqWeb.forEach((entry, idx) => {
+  // Usamos for tradicional en vez de forEach porque TypeScript no preserva
+  // el narrowing de variables modificadas dentro de un callback.
+  let mejorIdx = -1;
+  let mejorScore = 0;
+  for (let i = 0; i < faqWeb.length; i++) {
+    const entry = faqWeb[i];
     let score = 0;
     for (const kw of entry.keywords) {
       if (norm.includes(normalizar(kw))) score += kw.split(" ").length;
     }
-    if (score > 0 && (!mejorWeb || score > mejorWeb.score)) {
-      mejorWeb = { idx, score };
+    if (score > 0 && (mejorIdx === -1 || score > mejorScore)) {
+      mejorIdx = i;
+      mejorScore = score;
     }
-  });
-  if (mejorWeb) return faqWeb[mejorWeb.idx].respuesta;
+  }
+  if (mejorIdx !== -1) return faqWeb[mejorIdx].respuesta;
 
   // 2) Fallback al catálogo compartido de WhatsApp
   const compartido = buscarFaq(textoUsuario);
