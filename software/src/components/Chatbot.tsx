@@ -47,7 +47,33 @@ export default function Chatbot() {
   const [mensajes, setMensajes] = useState<Mensaje[]>([]);
   const [input, setInput] = useState("");
   const [cargando, setCargando] = useState(false);
+  // Tooltip que invita a abrir el chat en el primer ingreso a la página.
+  // Aparece a los 3s, se queda 8s visible, y se va sola si no se interactúa.
+  const [mostrarTooltip, setMostrarTooltip] = useState(false);
+  // Si el usuario ya cerró el tooltip o abrió el chat, no lo volvemos a mostrar.
+  const [yaInteractuo, setYaInteractuo] = useState(false);
   const finRef = useRef<HTMLDivElement>(null);
+
+  // Timer del tooltip de bienvenida.
+  useEffect(() => {
+    if (yaInteractuo || abierto) return;
+    const tIn = setTimeout(() => setMostrarTooltip(true), 3000);
+    const tOut = setTimeout(() => setMostrarTooltip(false), 11000);
+    return () => {
+      clearTimeout(tIn);
+      clearTimeout(tOut);
+    };
+  }, [yaInteractuo, abierto]);
+
+  function abrirChat() {
+    setAbierto(true);
+    setMostrarTooltip(false);
+    setYaInteractuo(true);
+  }
+  function cerrarTooltip() {
+    setMostrarTooltip(false);
+    setYaInteractuo(true);
+  }
 
   // Cargar meta cuando se abre por primera vez (lazy: ahorra tiempo de carga inicial).
   useEffect(() => {
@@ -130,24 +156,84 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Botón flotante */}
+      {/* Tooltip de bienvenida — aparece a los 3s la primera vez */}
+      {mostrarTooltip && !abierto && (
+        <div
+          className="fixed bottom-[5.5rem] right-5 z-40 flex max-w-[260px] animate-fade-in items-center gap-2 rounded-2xl rounded-br-sm border border-coral/30 bg-white px-4 py-3 shadow-xl shadow-coral/20 sm:bottom-24 sm:right-6"
+          role="status"
+        >
+          <div className="flex-1">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-coral-dark">
+              Asistente Ciudadano
+            </div>
+            <div className="mt-0.5 text-sm text-navy">
+              ¿Tenés una consulta? Preguntame acá.
+            </div>
+          </div>
+          <button
+            type="button"
+            aria-label="Cerrar aviso"
+            onClick={cerrarTooltip}
+            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+          >
+            <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+              <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+          </button>
+          {/* Punta del globo apuntando al botón */}
+          <span className="absolute -bottom-1 right-6 h-3 w-3 rotate-45 border-b border-r border-coral/30 bg-white" />
+        </div>
+      )}
+
+      {/* Botón flotante con pulse sutil de respiración + badge de "no leído" */}
       <button
         type="button"
-        aria-label={abierto ? "Cerrar asistente" : "Abrir asistente ciudadano"}
-        onClick={() => setAbierto((v) => !v)}
-        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-coral text-zinc-900 shadow-lg shadow-coral/40 transition hover:scale-105 hover:bg-amber-400 focus:outline-none focus:ring-4 focus:ring-coral/40 sm:bottom-6 sm:right-6"
+        aria-label={abierto ? "Cerrar asistente" : "Abrir Asistente Ciudadano"}
+        onClick={() => (abierto ? setAbierto(false) : abrirChat())}
+        className="group fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-coral text-zinc-900 shadow-xl shadow-coral/40 transition-transform duration-200 hover:scale-110 hover:bg-amber-400 focus:outline-none focus:ring-4 focus:ring-coral/40 sm:bottom-6 sm:right-6"
       >
+        {/* Halo animado: dos anillos pulsantes detrás del botón. Solo cuando NO está abierto. */}
+        {!abierto && (
+          <>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inline-flex h-full w-full animate-ping rounded-full bg-coral/40 opacity-60"
+              style={{ animationDuration: "2.6s" }}
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inline-flex h-full w-full animate-ping rounded-full bg-coral/30 opacity-50"
+              style={{ animationDuration: "3.4s", animationDelay: "0.7s" }}
+            />
+          </>
+        )}
+
         {abierto ? (
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          // Icono X (cerrar)
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" className="relative z-10">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" fill="none" />
           </svg>
         ) : (
-          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          // Icono chat con 3 puntitos (más reconocible como "preguntale")
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" className="relative z-10">
             <path
-              d="M4 5a3 3 0 013-3h10a3 3 0 013 3v8a3 3 0 01-3 3H9l-5 4v-4a3 3 0 01 0-3V5z"
+              d="M4 6.5A3.5 3.5 0 017.5 3h9A3.5 3.5 0 0120 6.5v6a3.5 3.5 0 01-3.5 3.5H10l-4 3.5v-3.5H7.5A3.5 3.5 0 014 12.5v-6z"
               fill="currentColor"
             />
+            <circle cx="9" cy="9.5" r="1.2" fill="white" />
+            <circle cx="12" cy="9.5" r="1.2" fill="white" />
+            <circle cx="15" cy="9.5" r="1.2" fill="white" />
           </svg>
+        )}
+
+        {/* Punto de notificación: solo mientras el usuario no haya interactuado */}
+        {!abierto && !yaInteractuo && (
+          <span
+            aria-hidden="true"
+            className="absolute -top-0.5 -right-0.5 z-20 inline-flex h-4 w-4 items-center justify-center rounded-full border-2 border-white bg-rose-500"
+          >
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+          </span>
         )}
       </button>
 
