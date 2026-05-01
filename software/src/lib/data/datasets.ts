@@ -27,6 +27,19 @@ export const datasets: Dataset[] = [
     fuenteId: "presupuesto2026"
   },
   {
+    id: "recaudacion-2026",
+    titulo: "Recaudacion Municipal 2026 - Calculo de Recursos",
+    descripcion: "Recursos clasificados por origen: tributos locales (TGI, DReI, Contribucion por Mejoras), recursos no tributarios, coparticipacion provincial y federal, recursos de capital.",
+    tags: ["recaudacion", "tasas", "tributos", "TGI", "DReI", "coparticipacion", "transparencia"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-01",
+    actualizado: "2026-05-01",
+    endpoint: "/api/v1/recaudacion",
+    totalRegistros: 19,
+    fuenteId: "presupuesto2026"
+  },
+  {
     id: "contrataciones-2026",
     titulo: "Contrataciones 2026",
     descripcion: "Licitaciones y contrataciones directas con cadena hash-chain SHA-256 auditable.",
@@ -60,9 +73,9 @@ export const datasets: Dataset[] = [
     formatos: ["JSON"],
     licencia: "CC-BY-4.0",
     publicado: "2026-04-29",
-    actualizado: "2026-04-29",
+    actualizado: "2026-05-01",
     endpoint: "/api/v1/datasets",
-    totalRegistros: 6,
+    totalRegistros: 8,
     fuenteId: "presupuesto2026"
   }
 ];

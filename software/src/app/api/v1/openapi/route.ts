@@ -65,6 +65,38 @@ const spec = {
         }
       }
     },
+    "/api/v1/recaudacion": {
+      get: {
+        summary: "Cálculo de Recursos: tributos locales, coparticipación y recursos de capital",
+        parameters: [
+          {
+            name: "format",
+            in: "query",
+            schema: { type: "string", enum: ["json", "csv"], default: "json" }
+          },
+          {
+            name: "categoria",
+            in: "query",
+            schema: {
+              type: "string",
+              enum: [
+                "tributarios_propios",
+                "no_tributarios_propios",
+                "coparticipacion_provincial",
+                "coparticipacion_nacional",
+                "recursos_capital"
+              ]
+            }
+          }
+        ],
+        responses: {
+          "200": {
+            description: "Recursos clasificados con KPIs de autonomía fiscal y dependencia de coparticipación",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/contrataciones": {
       get: {
         summary: "Listar contrataciones (licitaciones, concursos, contrataciones directas)",
