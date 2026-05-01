@@ -85,6 +85,12 @@ export default function HomePage() {
             desc="Navegación por finalidad-función con visualización gráfica y exportación."
           />
           <ModuleCard
+            href="/recaudacion"
+            tag="Recaudación"
+            title="Cálculo de Recursos"
+            desc="TGI, DReI, Contribución por Mejoras y demás tributos locales + coparticipación."
+          />
+          <ModuleCard
             href="/personal"
             tag="Personal"
             title="Padrón de Personal"

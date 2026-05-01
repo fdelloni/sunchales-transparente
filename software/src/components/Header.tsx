@@ -12,6 +12,7 @@ export default function Header() {
         </Link>
         <nav className="hidden gap-5 text-sm text-slate-300 md:flex">
           <Link href="/presupuesto" className="hover:text-white">Presupuesto</Link>
+          <Link href="/recaudacion" className="hover:text-white">Recaudación</Link>
           <Link href="/personal" className="hover:text-white">Personal</Link>
           <Link href="/contrataciones" className="hover:text-white">Contrataciones</Link>
           <Link href="/datos-abiertos" className="hover:text-white">Datos Abiertos</Link>
