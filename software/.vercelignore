@@ -1,0 +1,32 @@
+# Archivos y carpetas que NO se suben a Vercel.
+# Estos NO son necesarios en runtime — son artefactos locales o de desarrollo.
+
+# Carpeta de PDFs descargados (solo referencia local, no se sirven desde el sitio)
+data/
+
+# Carpeta de migrations SQL (Supabase no está conectado en producción todavía)
+supabase/
+
+# Scripts auxiliares que no son del sitio
+scripts/
+
+# Builds y dependencias (Vercel los regenera del package.json)
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Logs y locales
+*.log
+.DS_Store
+
+# Archivos de entorno
+.env
+.env.local
+
+# Scripts batch de Windows (solo locales)
+*.bat
+
+# Configs de TypeScript de checking adicional
+tsconfig.check.json
