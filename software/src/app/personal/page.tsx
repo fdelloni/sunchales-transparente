@@ -170,12 +170,11 @@ export default function PersonalPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre el personal del municipio"
-          placeholder="Ej: ¿Quién es el secretario de Hacienda?"
+          placeholder="Buscar sobre personal del municipio…"
           sugerencias={[
             "¿Quién es el intendente actual?",
             "¿Cuántos cargos políticos hay?",
-            "¿Qué información NO publica el municipio sobre personal?",
+            "¿Qué información NO se publica?",
             "¿Cuál es la masa salarial estimada?",
           ]}
           ctaSinResultado={{ label: "Pedir nómina por Ord. 1872/2009", href: "/marco-normativo" }}

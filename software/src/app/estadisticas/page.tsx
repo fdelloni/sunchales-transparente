@@ -41,8 +41,7 @@ export default function EstadisticasPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Buscá un indicador o estadística"
-          placeholder="Ej: ¿Cuántos habitantes tiene Sunchales?"
+          placeholder="Buscar indicadores o estadísticas…"
           sugerencias={[
             "¿Cuántos habitantes tiene Sunchales?",
             "¿Cuál es la tasa de transparencia?",

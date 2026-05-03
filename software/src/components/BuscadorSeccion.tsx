@@ -56,9 +56,9 @@ type RespuestaApi =
   | { error: string };
 
 type Props = {
-  /** Título arriba del buscador */
+  /** Título arriba del buscador (opcional). Si se omite, no se muestra. */
   titulo?: string;
-  /** Texto introductorio */
+  /** Texto introductorio (opcional). Si se omite, no se muestra. */
   descripcion?: string;
   /** Placeholder del input */
   placeholder?: string;
@@ -66,14 +66,17 @@ type Props = {
   sugerencias?: string[];
   /** Link a la sección "completa" cuando no encuentra (override del CTA) */
   ctaSinResultado?: { label: string; href: string };
+  /** Variante visual: "default" (caja con borde coral) o "compacto" (sin caja, más sobrio) */
+  variante?: "default" | "compacto";
 };
 
 export default function BuscadorSeccion({
-  titulo = "Buscar en esta sección",
-  descripcion = "Hacé tu pregunta en lenguaje natural. Buscamos primero en la base documental verificada; si no hay coincidencia directa, una IA sintetiza la respuesta usando solo los documentos del corpus, sin inventar.",
-  placeholder = "Ej: ¿Cuál es el plazo para pedir información pública?",
+  titulo,
+  descripcion,
+  placeholder = "¿Qué querés saber?",
   sugerencias = [],
   ctaSinResultado,
+  variante = "default",
 }: Props) {
   const [pregunta, setPregunta] = useState("");
   const [cargando, setCargando] = useState(false);
@@ -113,19 +116,32 @@ export default function BuscadorSeccion({
     consultar(s);
   }
 
-  return (
-    <section className="rounded-2xl border-2 border-coral/40 bg-gradient-to-br from-coral/5 via-white to-white p-5 shadow-sm sm:p-6">
-      <div className="flex items-start gap-3">
-        <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-coral text-xl font-black text-zinc-900">
-          ?
-        </div>
-        <div>
-          <h2 className="font-serif text-xl font-bold text-navy">{titulo}</h2>
-          <p className="mt-1 text-sm text-slate-700">{descripcion}</p>
-        </div>
-      </div>
+  const esCompacto = variante === "compacto";
+  const wrapperCls = esCompacto
+    ? ""
+    : "rounded-2xl border-2 border-coral/40 bg-gradient-to-br from-coral/5 via-white to-white p-5 shadow-sm sm:p-6";
 
-      <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-2 sm:flex-row">
+  return (
+    <section className={wrapperCls}>
+      {(titulo || descripcion) && (
+        <div className={esCompacto ? "mb-2" : "flex items-start gap-3"}>
+          {!esCompacto && (
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-coral text-xl font-black text-zinc-900">
+              ?
+            </div>
+          )}
+          <div>
+            {titulo && (
+              <h2 className="font-serif text-xl font-bold text-navy">{titulo}</h2>
+            )}
+            {descripcion && (
+              <p className="mt-1 text-sm text-slate-700">{descripcion}</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      <form onSubmit={onSubmit} className={`${(titulo || descripcion) ? "mt-4" : ""} flex flex-col gap-2 sm:flex-row`}>
         <input
           type="text"
           value={pregunta}

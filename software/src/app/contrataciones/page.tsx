@@ -43,13 +43,12 @@ export default function ContratacionesPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre contrataciones y licitaciones"
-          placeholder="Ej: ¿Qué licitaciones hay en ejecución?"
+          placeholder="Buscar sobre contrataciones y licitaciones…"
           sugerencias={[
             "¿Cuántas contrataciones están abiertas?",
             "¿Qué es la cadena SHA-256 de auditoría?",
-            "¿Cómo me suscribo a alertas de nuevas licitaciones?",
-            "¿Qué información debe publicar el municipio sobre contratos?",
+            "¿Cómo me suscribo a alertas?",
+            "¿Qué debe publicarse sobre contratos?",
           ]}
           ctaSinResultado={{ label: "Suscribirme a alertas", href: "/suscripciones" }}
         />

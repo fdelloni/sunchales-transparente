@@ -126,8 +126,7 @@ export default function ConcejoTransparenciaPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Buscá en el archivo del Concejo"
-          placeholder="Ej: ¿Qué boletines bimestrales hay?"
+          placeholder="Buscar en el archivo del Concejo…"
           sugerencias={[
             "¿Qué documentos publica el Concejo?",
             "¿Qué iniciativas ciudadanas se presentaron?",

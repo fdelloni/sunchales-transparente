@@ -59,12 +59,10 @@ export default function MarcoNormativoPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre tu derecho de acceso"
-          descripcion="Preguntá en lenguaje natural sobre la Ord. 1872/2009, los plazos de respuesta, las limitaciones legítimas, qué pasa si no te contestan, etc. Buscamos en la base documental verificada y, si hace falta, una IA sintetiza usando solo esos documentos — sin inventar."
-          placeholder="Ej: ¿Qué hago si no me responden el pedido en 10 días?"
+          placeholder="Buscar sobre acceso a la información…"
           sugerencias={[
             "¿Cuál es el plazo legal para responder?",
-            "¿Pueden negarme información sobre sueldos de funcionarios?",
+            "¿Pueden negarme información de sueldos?",
             "¿Cómo presento una solicitud de acceso?",
             "¿Qué normas rigen en Sunchales?",
           ]}

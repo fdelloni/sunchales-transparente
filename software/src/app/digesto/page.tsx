@@ -35,8 +35,7 @@ export default function DigestoPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Buscá una norma o consultá sobre el Concejo"
-          placeholder="Ej: ¿Qué es la Carta Orgánica?"
+          placeholder="Buscar una norma o tema legislativo…"
           sugerencias={[
             "¿Qué es la Carta Orgánica?",
             "¿Qué normas vigentes hay?",

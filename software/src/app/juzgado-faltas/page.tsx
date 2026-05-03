@@ -31,11 +31,10 @@ export default function JuzgadoFaltasPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre el Juzgado de Faltas"
-          placeholder="Ej: ¿Cuánto recauda el Juzgado por multas?"
+          placeholder="Buscar sobre el Juzgado de Faltas…"
           sugerencias={[
             "¿Quién es el juez de faltas?",
-            "¿Qué información NO publica el Juzgado?",
+            "¿Qué información NO se publica?",
             "¿A dónde van los fondos de las multas?",
             "¿Qué es el Código de Faltas Provincial?",
           ]}
