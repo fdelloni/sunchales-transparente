@@ -162,7 +162,7 @@ export default function ConcejoPage() {
         observatorios. Asignación vigente por Resoluciones N° 878/2025 y
         N° 879/2025 del Concejo.
       </p>
-      <div className="mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="-mx-4 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
         <table className="w-full min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>

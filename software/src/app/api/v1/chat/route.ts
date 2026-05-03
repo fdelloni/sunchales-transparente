@@ -202,11 +202,24 @@ async function consultarLlmConContexto(
         .join("\n");
   }
 
-  const systemPrompt = construirSystemPrompt("web") + contextoTexto;
+  // IMPORTANTE: Gemini 2.5 Flash incluye "thinking tokens" internos dentro
+  // del límite de output. Con 400 tokens, el modelo "piensa" y se queda sin
+  // espacio para escribir la respuesta completa (se corta a media oración).
+  // Subimos a 1200 para garantizar que la respuesta visible llegue completa,
+  // y agregamos una instrucción explícita de concisión al system prompt.
+  const systemPrompt =
+    construirSystemPrompt("web") +
+    contextoTexto +
+    "\n\nINSTRUCCIONES DE FORMATO DE RESPUESTA:\n" +
+    "- Respondé en 2 a 5 oraciones máximo, en español rioplatense.\n" +
+    "- Empezá directamente con el dato o la respuesta. NO digas 'Según los documentos...' ni 'Te informo que...'.\n" +
+    "- Si la respuesta involucra una cifra, presentala con su unidad y formato (ej: '$30.940 millones', '23.416 habitantes').\n" +
+    "- Si NO podés responder con los documentos provistos, decilo en una sola oración y derivá al canal oficial.";
+
   const salida = await proveedor.generar({
     systemPrompt,
     pregunta,
-    maxTokens: 400
+    maxTokens: 1200
   });
   return { texto: salida.texto, modelo: salida.modelo, contextoIds };
 }

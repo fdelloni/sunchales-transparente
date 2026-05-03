@@ -172,7 +172,7 @@ export default function TablaConcejoArchivos({
             type="button"
             onClick={() => setPagina((p) => Math.max(0, p - 1))}
             disabled={paginaActual === 0}
-            className="rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
+            className="min-h-[36px] rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
           >
             ← Anterior
           </button>
@@ -183,7 +183,7 @@ export default function TablaConcejoArchivos({
             type="button"
             onClick={() => setPagina((p) => Math.min(totalPaginas - 1, p + 1))}
             disabled={paginaActual >= totalPaginas - 1}
-            className="rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
+            className="min-h-[36px] rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
           >
             Siguiente →
           </button>
