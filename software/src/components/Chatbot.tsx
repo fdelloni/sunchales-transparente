@@ -82,13 +82,12 @@ export default function Chatbot() {
         .then((r) => r.json())
         .then((d: MetaChat) => {
           setMeta(d);
-          const saludo =
-            d.modo === "ia"
-              ? `Hola, soy el Asistente Ciudadano. Primero busco en una base documental verificada (gratis); si no encuentro, consulto a la IA (${d.proveedor === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}). ¿En qué puedo ayudarte?`
-              : d.modo === "rag"
-                ? "Hola, soy el Asistente Ciudadano. Respondo desde una base documental pública verificada — cada respuesta cita su fuente. Probá:"
-                : "Hola, soy el Asistente Ciudadano. Estoy en modo demo (respuestas pregrabadas). Probá:";
-          setMensajes([{ rol: "asistente", texto: saludo }]);
+          setMensajes([
+            {
+              rol: "asistente",
+              texto: "Hola, soy el Asistente Ciudadano. ¿En qué puedo ayudarte?",
+            },
+          ]);
         })
         .catch(() => {
           setMeta({ modo: "demo", proveedor: null, modelo: null, sugeridas: [] });
@@ -253,22 +252,16 @@ export default function Chatbot() {
               <div>
                 <div className="font-serif text-sm font-bold">Asistente Ciudadano</div>
                 <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-slate-300">
-                  {meta?.modo === "ia" ? (
-                    <>
-                      <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
-                      RAG + {meta.proveedor === "google" ? "Gemini Flash" : "Claude Haiku"}
-                    </>
-                  ) : meta?.modo === "rag" ? (
-                    <>
-                      <span className="inline-block h-2 w-2 rounded-full bg-sky-400" />
-                      Base documental verificada
-                    </>
-                  ) : (
-                    <>
-                      <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
-                      Modo demo
-                    </>
-                  )}
+                  <span
+                    className={`inline-block h-2 w-2 rounded-full ${
+                      meta?.modo === "ia"
+                        ? "bg-emerald-400"
+                        : meta?.modo === "rag"
+                          ? "bg-sky-400"
+                          : "bg-amber-400"
+                    }`}
+                  />
+                  En línea
                 </div>
               </div>
             </div>
@@ -294,22 +287,6 @@ export default function Chatbot() {
                 <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400 [animation-delay:120ms]" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400 [animation-delay:240ms]" />
-              </div>
-            )}
-
-            {/* Sugerencias (solo si nadie escribió aún) */}
-            {meta && mensajes.filter((m) => m.rol === "usuario").length === 0 && meta.sugeridas.length > 0 && (
-              <div className="flex flex-col gap-1.5 pt-1">
-                {meta.sugeridas.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => enviar(s)}
-                    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-[13px] text-navy transition hover:border-coral hover:bg-amber-50"
-                  >
-                    {s}
-                  </button>
-                ))}
               </div>
             )}
 
