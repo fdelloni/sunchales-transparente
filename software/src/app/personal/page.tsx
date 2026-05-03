@@ -37,19 +37,20 @@ function colorJerarquia(j: 1 | 2 | 3 | 4): string {
 /* ------------------------------------------------------------------ */
 
 function NodoCard({ nodo }: { nodo: NodoOrganigrama }) {
+  // Tarjeta más compacta para que el árbol entre sin scroll horizontal.
   return (
     <div
-      className={`min-w-[220px] max-w-[260px] rounded-xl border-2 p-3 shadow-sm ${colorJerarquia(
+      className={`w-[230px] rounded-lg border-2 px-3 py-2 shadow-sm ${colorJerarquia(
         nodo.jerarquia
       )}`}
     >
-      <div className="text-[10px] font-bold uppercase tracking-wider opacity-80">
+      <div className="text-[9px] font-bold uppercase leading-tight tracking-wider opacity-80">
         {nodo.cargo}
       </div>
-      <div className="mt-1 font-serif text-sm font-bold leading-tight">
+      <div className="mt-0.5 font-serif text-[13px] font-bold leading-tight">
         {nodo.apellidoNombre}
       </div>
-      <div className="mt-2 flex items-center justify-between gap-2 text-[11px] opacity-90">
+      <div className="mt-1.5 flex items-center justify-between gap-1.5 text-[10px] leading-tight opacity-90">
         <span>
           Asumió:{" "}
           <strong>
@@ -62,7 +63,7 @@ function NodoCard({ nodo }: { nodo: NodoOrganigrama }) {
           </span>
         ) : (
           <span className="rounded-full bg-amber-500/30 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-900">
-            pendiente
+            pdte
           </span>
         )}
       </div>
@@ -73,23 +74,53 @@ function NodoCard({ nodo }: { nodo: NodoOrganigrama }) {
 /* ------------------------------------------------------------------ */
 /* Organigrama recursivo                                               */
 /* ------------------------------------------------------------------ */
+/*
+ * Estrategia para que entre en el ancho de la página:
+ *  - Si el nodo NO tiene hijos → tarjeta sola.
+ *  - Si todos sus hijos son hojas (Secretaría → Subsecretarías) →
+ *    los hijos se apilan VERTICALMENTE a la derecha del padre,
+ *    con un conector lateral. Así la página crece para abajo.
+ *  - Caso contrario (Intendente → Secretarías) → layout horizontal
+ *    clásico con conectores en T.
+ */
 
 function RamaOrganigrama({ nodo }: { nodo: NodoOrganigrama }) {
+  if (nodo.hijos.length === 0) {
+    return <NodoCard nodo={nodo} />;
+  }
+
+  const todosHijosSonHojas = nodo.hijos.every((h) => h.hijos.length === 0);
+
+  // Padre con sólo hijos-hoja: lista vertical lateral.
+  if (todosHijosSonHojas) {
+    return (
+      <div className="flex flex-col items-start">
+        <NodoCard nodo={nodo} />
+        <div className="ml-6 mt-3 flex flex-col gap-2.5 border-l-2 border-slate-300 pl-5">
+          {nodo.hijos.map((h) => (
+            <div key={h.id} className="relative">
+              <span
+                className="absolute -left-5 top-1/2 h-0.5 w-5 bg-slate-300"
+                aria-hidden
+              />
+              <NodoCard nodo={h} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Niveles superiores: layout horizontal con conectores en T.
   return (
     <div className="flex flex-col items-center">
       <NodoCard nodo={nodo} />
-      {nodo.hijos.length > 0 && (
-        <>
-          <div className="h-6 w-0.5 bg-slate-300" aria-hidden />
-          <div className="relative flex flex-wrap items-start justify-center gap-6 border-t-2 border-slate-300 pt-6">
-            {nodo.hijos.map((h) => (
-              <div key={h.id} className="flex flex-col items-center">
-                <RamaOrganigrama nodo={h} />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+      <div className="h-6 w-0.5 bg-slate-300" aria-hidden />
+      <div className="flex flex-wrap items-start justify-center gap-8 border-t-2 border-slate-300 pt-6">
+        {nodo.hijos.map((h) => (
+          <RamaOrganigrama key={h.id} nodo={h} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -178,8 +209,8 @@ export default function PersonalPage() {
           <SourceTag id="organigramaMunicipal" />
         </div>
 
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm">
-          <div className="flex min-w-max justify-center">
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm">
+          <div className="flex justify-center overflow-x-auto">
             {organigrama.map((raiz) => (
               <RamaOrganigrama key={raiz.id} nodo={raiz} />
             ))}
