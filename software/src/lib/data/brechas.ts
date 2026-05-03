@@ -10,6 +10,27 @@
  *
  * Cada brecha aquí declarada se publica como dato abierto bajo CC-BY-4.0
  * y se sirve por la API REST en /api/v1/brechas (futuro).
+ *
+ * RECALIBRACIÓN 03/05/2026: este archivo se actualizó después de un mapeo
+ * sistemático del sitio del Concejo Municipal (concejosunchales.gob.ar).
+ * Se eliminaron las brechas que NO eran reales (información que SÍ publican)
+ * y quedaron solo las brechas verificadas como ausentes o incompletas.
+ *
+ * Información que el Concejo SÍ publica (verificado al 03/05/2026):
+ *   - Listado completo de concejales con datos de contacto y CV
+ *   - Personal del Concejo
+ *   - 23+ comisiones donde participan concejales (con integrantes y resoluciones)
+ *   - Proyectos en estado parlamentario (con expediente, fecha, autores)
+ *   - Boletín informativo bimestral (publicación regular)
+ *   - Resumen anual desde 2012
+ *   - Ejecución partida presupuestaria mensual desde 2020
+ *   - Movimiento de saldos del presupuesto
+ *   - Histórico de la UCM (todas las ordenanzas que la actualizan)
+ *   - Normativa local con buscador
+ *   - Normativa ambiental, decretos, jurisprudencia local
+ *   - Régimen local de AIP (Ordenanza N° 1872/2009, plazo 10+5 días)
+ *   - Registro de iniciativas ciudadanas
+ *   - Patrimonio cultural sunchalense con detalle
  */
 
 export type BrechaModulo =
@@ -34,6 +55,8 @@ export type BrechaCategoria =
 
 export type BrechaEstado =
   | "no_publicado"
+  | "publicado_formato_cerrado" // existe pero solo en PDF/HTML, no en formatos abiertos
+  | "publicado_parcial" // existe pero le faltan dimensiones clave
   | "pedido_presentado"
   | "pedido_vencido"
   | "respondido_parcial"
@@ -50,115 +73,75 @@ export type Brecha = {
   fundamentoUrl?: string;
   detectadaEl: string; // ISO date
   ultimoSeguimiento?: string;
+  /**
+   * Si la información parcial existe, link a donde se publica hoy.
+   * Útil para demostrar honestidad: NO se acusa lo que ya está publicado.
+   */
+  publicacionParcialUrl?: string;
 };
 
 export const brechas: Brecha[] = [
   // ===== DIGESTO Y CONCEJO =====
+  // (Brechas verificadas tras mapeo del 03/05/2026)
   {
-    id: "dig-votaciones-nominales",
+    id: "dig-datos-abiertos",
     modulo: "digesto",
-    titulo: "Votaciones nominales del Concejo",
+    titulo: "Datos abiertos en formato reutilizable (CSV/JSON)",
     descripcion:
-      "No se publica en formato estructurado el voto individual de cada concejal en cada proyecto. El ciudadano no puede saber con facilidad cómo votó su representante.",
-    categoria: "actividad_legislativa",
-    estado: "no_publicado",
+      "El Concejo publica abundante información (boletines, resúmenes, ejecución presupuestaria, normativa, comisiones), pero exclusivamente en PDF y HTML. No existen datasets en formatos abiertos (CSV, JSON, GeoJSON) reutilizables por periodismo de datos, academia y organizaciones civiles.",
+    categoria: "datos_abiertos",
+    estado: "publicado_formato_cerrado",
     fundamento:
-      "Ley 27.275 art. 5 inc. h (informes, dictámenes y todo tipo de actos administrativos) · principio republicano de responsabilidad de los representantes (CN art. 1).",
+      "Ley 27.275 art. 32 (formatos digitales abiertos por defecto) · principio de máxima divulgación · estándares interamericanos de transparencia activa.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
-  },
-  {
-    id: "dig-asistencia-concejales",
-    modulo: "digesto",
-    titulo: "Asistencia de concejales",
-    descripcion:
-      "No se publica un registro estructurado de asistencias y ausencias de cada concejal a sesiones y comisiones, ni la justificación de las ausencias.",
-    categoria: "actividad_legislativa",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · principio constitucional de responsabilidad de los funcionarios públicos.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
-  },
-  {
-    id: "dig-ddjj-patrimoniales",
-    modulo: "digesto",
-    titulo: "Declaraciones juradas patrimoniales",
-    descripcion:
-      "Las declaraciones juradas patrimoniales de concejales y funcionarios alcanzados no están públicamente disponibles en su versión pública (sin datos sensibles).",
-    categoria: "estructura_organica",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. p · estándares anti-corrupción CICC y MESICIC.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
-  },
-  {
-    id: "dig-orden-del-dia",
-    modulo: "digesto",
-    titulo: "Orden del día anticipado",
-    descripcion:
-      "No se publica con anticipación suficiente y de forma sistemática el orden del día de cada sesión con los proyectos que se tratarán y sus textos. Limita la posibilidad real de control ciudadano.",
-    categoria: "participacion_ciudadana",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · derecho de participación ciudadana derivado del art. 1 CN (forma representativa y republicana).",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
-  },
-  {
-    id: "dig-version-taquigrafica",
-    modulo: "digesto",
-    titulo: "Versiones taquigráficas o transcripciones de sesiones",
-    descripcion:
-      "Las actas no contienen el debate completo y verbatim. No hay versión taquigráfica ni transcripción accesible para que el ciudadano siga los argumentos esgrimidos en la deliberación.",
-    categoria: "actividad_legislativa",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · principio republicano de publicidad del debate legislativo.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/"
   },
   {
     id: "dig-texto-consolidado",
     modulo: "digesto",
     titulo: "Texto consolidado vigente de las normas",
     descripcion:
-      "El digesto publica los textos originales pero no el texto consolidado con todas las modificaciones incorporadas. Para saber qué dice una ordenanza hoy hay que rastrear varias normas posteriores.",
+      "El digesto publica los textos originales de cada ordenanza, pero no el texto consolidado con todas las modificaciones posteriores incorporadas. Para saber qué dice una ordenanza hoy hay que rastrear sucesivas modificaciones por separado, lo que dificulta la accesibilidad efectiva del derecho.",
     categoria: "marco_normativo",
-    estado: "no_publicado",
+    estado: "publicado_parcial",
     fundamento:
-      "Ley 27.275 art. 32 · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas.",
+      "Ley 27.275 art. 32 · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas — art. 2 Código Civil y Comercial.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03",
+    publicacionParcialUrl:
+      "https://concejosunchales.gob.ar/Normativa-local.aspx"
   },
   {
-    id: "dig-audiencias-publicas",
+    id: "dig-voto-nominal-estructurado",
     modulo: "digesto",
-    titulo: "Audiencias públicas y participación ciudadana",
+    titulo: "Voto nominal individual estructurado por concejal y proyecto",
     descripcion:
-      "No hay un registro público estructurado de audiencias públicas convocadas, oradores anotados, intervenciones y resoluciones adoptadas tras la audiencia.",
-    categoria: "participacion_ciudadana",
+      "No se publica en formato estructurado y consultable el voto individual de cada concejal en cada proyecto. La información puede estar dispersa en actas y diarios de sesiones, pero no hay un dataset agregado que permita al ciudadano ver de un vistazo cómo votó su representante.",
+    categoria: "actividad_legislativa",
     estado: "no_publicado",
     fundamento:
-      "Ley 27.275 · estándares de participación ciudadana del Acuerdo de Escazú (Ley nacional 27.566).",
+      "Ley 27.275 art. 5 inc. h · principio republicano de responsabilidad de los representantes (CN art. 1).",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
-    id: "dig-datos-abiertos-concejo",
+    id: "dig-ddjj-patrimoniales",
     modulo: "digesto",
-    titulo: "Datos abiertos del Concejo",
+    titulo: "Declaraciones juradas patrimoniales",
     descripcion:
-      "Dataset estructurado en formatos abiertos (CSV, JSON) con normas, proyectos, sesiones y votaciones, reutilizable por terceros.",
-    categoria: "datos_abiertos",
+      "Las declaraciones juradas patrimoniales de concejales y funcionarios alcanzados no están públicamente disponibles en una versión pública (sin datos sensibles) accesible al ciudadano.",
+    categoria: "estructura_organica",
     estado: "no_publicado",
-    fundamento: "Ley 27.275 art. 32 (formatos abiertos por defecto).",
+    fundamento:
+      "Ley 27.275 art. 5 inc. p · estándares anti-corrupción CICC y MESICIC · Convención Interamericana contra la Corrupción.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
 
   // ===== JUZGADO DE FALTAS =====
+  // (Mantenidas: el sitio del Juzgado de Faltas en sunchales.gob.ar/juzgado-faltas
+  //  publica solo trámites individuales, no datos agregados.)
   {
     id: "juz-estadisticas-actas",
     modulo: "juzgado-faltas",
@@ -170,7 +153,7 @@ export const brechas: Brecha[] = [
     fundamento:
       "Ley 27.275 art. 1 y 5 · principio constitucional de publicidad de los actos de gobierno.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-recaudacion",
@@ -181,9 +164,9 @@ export const brechas: Brecha[] = [
     categoria: "recursos_publicos",
     estado: "no_publicado",
     fundamento:
-      "Ley 27.275 · Constitución de Santa Fe (publicidad de la hacienda pública).",
+      "Ley 27.275 · Constitución de Santa Fe (publicidad de la hacienda pública) · principio de rendición de cuentas.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-destino-fondos",
@@ -196,33 +179,33 @@ export const brechas: Brecha[] = [
     fundamento:
       "Constitución Nacional (forma republicana) · Ley 27.275 · principio de rendición de cuentas inherente a la administración pública.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-ordenanza-organica",
     modulo: "juzgado-faltas",
     titulo: "Ordenanza orgánica del Juzgado de Faltas",
     descripcion:
-      "La ordenanza que organiza el Juzgado, fija su competencia, designa al juez y establece garantías de imparcialidad no se encuentra en buscadores estándar.",
+      "La ordenanza que organiza el Juzgado, fija su competencia, designa al juez y establece garantías de imparcialidad no se encuentra fácilmente accesible en buscadores ni en una sección dedicada del sitio del Juzgado.",
     categoria: "estructura_organica",
     estado: "no_publicado",
     fundamento:
       "Ley 27.275 art. 5 inc. b (estructura orgánica) · art. 2 Código Civil y Comercial (publicidad de las normas).",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-regimen-faltas",
     modulo: "juzgado-faltas",
     titulo: "Régimen Municipal de Faltas consolidado",
     descripcion:
-      "El catálogo de faltas municipales con tipología, escalas de sanciones, plazos y procedimientos no está consolidado y disponible públicamente.",
+      "El catálogo de faltas municipales con tipología, escalas de sanciones, plazos y procedimientos no está consolidado y disponible públicamente en una sección integrada del sitio del Juzgado.",
     categoria: "marco_normativo",
     estado: "no_publicado",
     fundamento:
-      "Ley 27.275 · principio de legalidad sancionatoria (CN art. 18) — no se puede aplicar una sanción sin ley previa, accesible y conocida.",
+      "Ley 27.275 · principio de legalidad sancionatoria (CN art. 18) — no se puede aplicar sanción sin ley previa, accesible y conocida.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-convenio-apsv",
@@ -235,7 +218,7 @@ export const brechas: Brecha[] = [
     fundamento:
       "Ley 27.275 art. 5 inc. f (convenios y contratos celebrados por el Estado).",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-calidad-procesal",
@@ -248,7 +231,7 @@ export const brechas: Brecha[] = [
     fundamento:
       "Ley 27.275 · estándares interamericanos de transparencia activa.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
+    detectadaEl: "2026-05-03"
   },
   {
     id: "juz-datos-abiertos",
@@ -259,98 +242,6 @@ export const brechas: Brecha[] = [
     categoria: "datos_abiertos",
     estado: "no_publicado",
     fundamento: "Ley 27.275 art. 32 · principio de máxima divulgación.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-02"
-  },
-
-  // ===== PERSONAL =====
-  {
-    id: "per-decretos-designacion",
-    modulo: "personal",
-    titulo: "Decretos de designación con fecha exacta",
-    descripcion:
-      "No se publica de forma sistemática y consultable el decreto de designación de cada funcionario con la fecha precisa de asunción del cargo, su número, fundamento y rango remunerativo asignado.",
-    categoria: "estructura_organica",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. b (estructura orgánica y funciones) y art. 5 inc. c (escala salarial y nómina con cargos y remuneraciones) · art. 2 Código Civil y Comercial (publicidad de los actos administrativos).",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-remuneraciones-reales",
-    modulo: "personal",
-    titulo: "Remuneraciones reales por cargo (planta política)",
-    descripcion:
-      "Los importes brutos y netos efectivamente liquidados a cada cargo de planta política no se publican mes a mes en formato estructurado. Lo que hoy se exhibe son estimaciones referenciales, no datos oficiales.",
-    categoria: "recursos_publicos",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. c (escala salarial completa, categorías y remuneraciones de todos los cargos) · principio republicano de publicidad de la hacienda pública.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-planta-permanente",
-    modulo: "personal",
-    titulo: "Nómina de planta permanente (cantidad, antigüedad, sector)",
-    descripcion:
-      "No se publica el número total de agentes de planta permanente, su antigüedad individual (sin nombre) y el sector / dependencia donde prestan funciones. Es el padrón estructural del Estado municipal y debe ser público en formato agregado y respetando datos sensibles.",
-    categoria: "estructura_organica",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. c (nómina, escala salarial y categorías de personal) · Constitución de Santa Fe (publicidad de la hacienda pública) · Ley Orgánica de Municipios N° 14.436. La publicación agregada por sector y antigüedad no expone datos personales y es la regla en estándares OGP/Escazú.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-planta-no-permanente",
-    modulo: "personal",
-    titulo: "Nómina de planta no permanente y contratados",
-    descripcion:
-      "No se publica la cantidad de agentes de planta no permanente y de personal contratado (locaciones de servicios y de obra), su antigüedad, modalidad de vinculación y sector. Tampoco la fecha de inicio y fin de cada contrato ni su renovación. Esta información es de las más sensibles para el control del gasto público y de la rotación funcional.",
-    categoria: "recursos_publicos",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. c (toda forma de vinculación con el Estado, incluidas contrataciones) · Ley Orgánica de Municipios N° 14.436 · estándares MESICIC y OGP sobre transparencia de la fuerza laboral pública.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-masa-salarial-total",
-    modulo: "personal",
-    titulo: "Masa salarial total mensual y anual del municipio",
-    descripcion:
-      "No se publica de forma estructurada el monto total liquidado mensual y anualmente en concepto de personal (planta política + permanente + no permanente + contratados), discriminado por escalafón y por dependencia. Es el dato que permite ciudadanizar la pregunta de cuánto cuesta operar el Estado municipal.",
-    categoria: "recursos_publicos",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. c y art. 5 inc. e (presupuesto y ejecución detallada) · principio republicano de rendición de cuentas.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-concursos-y-acceso",
-    modulo: "personal",
-    titulo: "Concursos públicos e ingresos a la administración",
-    descripcion:
-      "No se publica el listado de concursos públicos abiertos y cerrados, las bases, los jurados, los puntajes obtenidos por cada postulante (sin datos sensibles) ni los actos de designación derivados.",
-    categoria: "calidad_institucional",
-    estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · principio constitucional de idoneidad para el acceso al empleo público (CN art. 16) · Constitución de Santa Fe.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    detectadaEl: "2026-05-03"
-  },
-  {
-    id: "per-datos-abiertos",
-    modulo: "personal",
-    titulo: "Datos abiertos de personal",
-    descripcion:
-      "Dataset estructurado en formatos abiertos (CSV/JSON, CC-BY-4.0) con organigrama, planta permanente y no permanente agregados por sector y antigüedad, y serie histórica de masa salarial.",
-    categoria: "datos_abiertos",
-    estado: "no_publicado",
-    fundamento: "Ley 27.275 art. 32 (formatos abiertos por defecto).",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
     detectadaEl: "2026-05-03"
   }
@@ -366,6 +257,8 @@ export function totalBrechasAbiertas(): number {
 
 export const labelEstado: Record<BrechaEstado, string> = {
   no_publicado: "No publicado",
+  publicado_formato_cerrado: "Publicado solo en PDF (formato cerrado)",
+  publicado_parcial: "Publicado parcial",
   pedido_presentado: "Pedido presentado",
   pedido_vencido: "Plazo vencido sin respuesta",
   respondido_parcial: "Respondido parcialmente",
