@@ -119,50 +119,74 @@ export default function BuscadorSeccion({
   const esCompacto = variante === "compacto";
   const wrapperCls = esCompacto
     ? ""
-    : "rounded-2xl border-2 border-coral/40 bg-gradient-to-br from-coral/5 via-white to-white p-5 shadow-sm sm:p-6";
+    : "relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy via-navy-soft to-deep p-6 shadow-xl ring-1 ring-coral/30 sm:p-7";
 
   return (
     <section className={wrapperCls}>
+      {/* Acento coral lateral, igual que el hero */}
+      {!esCompacto && (
+        <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-coral to-coral-dark" />
+      )}
+
       {(titulo || descripcion) && (
-        <div className={esCompacto ? "mb-2" : "flex items-start gap-3"}>
+        <div className={esCompacto ? "mb-2" : "relative mb-5 flex items-start gap-3"}>
           {!esCompacto && (
-            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-coral text-xl font-black text-zinc-900">
+            <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-coral text-2xl font-black text-zinc-900 shadow-md">
               ?
             </div>
           )}
           <div>
             {titulo && (
-              <h2 className="font-serif text-xl font-bold text-navy">{titulo}</h2>
+              <h2 className={`font-serif text-xl font-bold ${esCompacto ? "text-navy" : "text-white"}`}>
+                {titulo}
+              </h2>
             )}
             {descripcion && (
-              <p className="mt-1 text-sm text-slate-700">{descripcion}</p>
+              <p className={`mt-1 text-sm ${esCompacto ? "text-slate-700" : "text-slate-300"}`}>
+                {descripcion}
+              </p>
             )}
           </div>
         </div>
       )}
 
-      <form onSubmit={onSubmit} className={`${(titulo || descripcion) ? "mt-4" : ""} flex flex-col gap-2 sm:flex-row`}>
-        <input
-          type="text"
-          value={pregunta}
-          onChange={(e) => setPregunta(e.target.value)}
-          placeholder={placeholder}
-          maxLength={600}
-          className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none focus:border-coral focus:ring-2 focus:ring-coral/30"
-          disabled={cargando}
-        />
+      <form onSubmit={onSubmit} className="relative flex flex-col gap-2 sm:flex-row">
+        <div className="relative flex-1">
+          {!esCompacto && (
+            <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-coral-dark">
+              🔍
+            </span>
+          )}
+          <input
+            type="text"
+            value={pregunta}
+            onChange={(e) => setPregunta(e.target.value)}
+            placeholder={placeholder}
+            maxLength={600}
+            className={
+              esCompacto
+                ? "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none focus:border-coral focus:ring-2 focus:ring-coral/30"
+                : "w-full rounded-lg border-2 border-coral/30 bg-white px-4 py-3 pl-11 text-base text-slate-900 shadow-md outline-none placeholder:text-slate-400 focus:border-coral focus:ring-4 focus:ring-coral/30"
+            }
+            disabled={cargando}
+          />
+        </div>
         <button
           type="submit"
           disabled={cargando || !pregunta.trim()}
-          className="rounded-lg bg-coral px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+          className={
+            esCompacto
+              ? "rounded-lg bg-coral px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+              : "rounded-lg bg-coral px-6 py-3 text-sm font-bold uppercase tracking-wider text-zinc-900 shadow-md hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+          }
         >
           {cargando ? "Buscando…" : "Buscar"}
         </button>
       </form>
 
       {sugerencias.length > 0 && !resp && !cargando && (
-        <div className="mt-3">
-          <p className="text-xs uppercase tracking-widest text-slate-500">
+        <div className="relative mt-3">
+          <p className={`text-[11px] font-semibold uppercase tracking-widest ${esCompacto ? "text-slate-500" : "text-coral"}`}>
             Probá con:
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -171,7 +195,11 @@ export default function BuscadorSeccion({
                 key={s}
                 type="button"
                 onClick={() => usarSugerencia(s)}
-                className="rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 hover:border-coral hover:text-coral-dark"
+                className={
+                  esCompacto
+                    ? "rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 hover:border-coral hover:text-coral-dark"
+                    : "rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-slate-100 backdrop-blur transition hover:border-coral hover:bg-coral/20 hover:text-white"
+                }
               >
                 {s}
               </button>
@@ -181,12 +209,16 @@ export default function BuscadorSeccion({
       )}
 
       {errorRed && (
-        <div className="mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-800">
+        <div className="relative mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-800">
           {errorRed}
         </div>
       )}
 
-      {resp && <ResultadoCard resp={resp} ctaSinResultado={ctaSinResultado} />}
+      {resp && (
+        <div className="relative">
+          <ResultadoCard resp={resp} ctaSinResultado={ctaSinResultado} />
+        </div>
+      )}
     </section>
   );
 }
