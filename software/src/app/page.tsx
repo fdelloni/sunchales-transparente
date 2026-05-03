@@ -11,6 +11,19 @@ import { formatARSCompact, formatNumber } from "@/lib/format";
 export default function HomePage() {
   return (
     <>
+      {/* Buscador inteligente — entrada principal del ciudadano (arriba del hero) */}
+      <section className="mx-auto max-w-6xl px-6 pt-8">
+        <BuscadorSeccion
+          placeholder="¿Qué querés saber del municipio?"
+          sugerencias={[
+            "¿Cuál es el presupuesto total de 2026?",
+            "¿Quiénes son los secretarios municipales?",
+            "¿Cómo pido información pública?",
+            "¿Qué contrataciones hay abiertas?",
+          ]}
+        />
+      </section>
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-coral to-coral-dark" />
@@ -38,21 +51,6 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* Buscador inteligente — entrada principal del ciudadano */}
-      <section className="mx-auto max-w-6xl px-6 pt-10">
-        <BuscadorSeccion
-          titulo="¿Qué querés saber del municipio?"
-          descripcion="Hacé tu pregunta en lenguaje natural sobre presupuesto, personal, contrataciones, normas o cualquier dato publicado. Buscamos primero en la base documental verificada (gratis); si no alcanza, una IA sintetiza usando solo esos documentos. Cada respuesta lleva el link a su fuente original."
-          placeholder="Ej: ¿Cuánto se gasta en personal en 2026?"
-          sugerencias={[
-            "¿Cuál es el presupuesto total de 2026?",
-            "¿Quiénes son los secretarios municipales?",
-            "¿Cómo pido información pública al municipio?",
-            "¿Qué contrataciones hay abiertas?",
-          ]}
-        />
       </section>
 
       {/* KPIs */}

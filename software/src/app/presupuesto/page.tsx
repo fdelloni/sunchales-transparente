@@ -31,12 +31,11 @@ export default function PresupuestoPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre el presupuesto"
-          placeholder="Ej: ¿Cuánto se gasta en obras públicas?"
+          placeholder="Buscar sobre presupuesto…"
           sugerencias={[
             "¿Cuál es el total del presupuesto 2026?",
             "¿Cuánto se destina a personal?",
-            "¿Cuánto recibe Sunchales por la Ley 12.385?",
+            "¿Cuánto recibe por Ley 12.385?",
             "¿Cuál es el gasto per cápita?",
           ]}
           ctaSinResultado={{ label: "Ver datasets de presupuesto", href: "/datos-abiertos" }}

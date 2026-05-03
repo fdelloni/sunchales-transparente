@@ -21,8 +21,7 @@ export default function DatosAbiertosPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Buscá un dataset o explicación"
-          placeholder="Ej: ¿Hay dataset de presupuesto en CSV?"
+          placeholder="Buscar datasets o cómo usar la API…"
           sugerencias={[
             "¿Qué datasets están publicados?",
             "¿Cómo uso la API REST?",

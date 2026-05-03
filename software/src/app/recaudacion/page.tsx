@@ -45,8 +45,7 @@ export default function RecaudacionPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre recaudación y recursos"
-          placeholder="Ej: ¿Cuál es la autonomía fiscal de Sunchales?"
+          placeholder="Buscar sobre recaudación y recursos…"
           sugerencias={[
             "¿Cuál es la autonomía fiscal del municipio?",
             "¿Qué porcentaje viene de coparticipación?",

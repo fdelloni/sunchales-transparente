@@ -43,12 +43,11 @@ export default function ConcejoPage() {
       {/* Buscador de la sección */}
       <div className="mt-8">
         <BuscadorSeccion
-          titulo="Consultá sobre el Concejo Municipal"
-          placeholder="Ej: ¿Quiénes son los concejales?"
+          placeholder="Buscar sobre el Concejo Municipal…"
           sugerencias={[
             "¿Quiénes son los concejales actuales?",
             "¿Qué comisiones existen?",
-            "¿Cómo se ejerce el acceso a la información en el Concejo?",
+            "¿Cómo accedo a información del Concejo?",
             "¿Cuáles son los canales de contacto?",
           ]}
         />
