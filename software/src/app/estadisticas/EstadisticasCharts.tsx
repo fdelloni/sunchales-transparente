@@ -25,9 +25,11 @@ import { formatARSCompact } from "@/lib/format";
 
 const COLORS_BRECHAS_ESTADO: Record<BrechaEstado, string> = {
   no_publicado: "#DC2626",
-  pedido_presentado: "#D97706",
+  publicado_formato_cerrado: "#D97706",
+  publicado_parcial: "#F59E0B",
+  pedido_presentado: "#0891B2",
   pedido_vencido: "#7C2D12",
-  respondido_parcial: "#0891B2",
+  respondido_parcial: "#3B82F6",
   subsanado: "#16A34A"
 };
 

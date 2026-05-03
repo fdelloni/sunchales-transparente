@@ -82,14 +82,7 @@ export default function ConcejoPage() {
               className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
             >
               <div className="flex items-start gap-3">
-                {c.fotoUrl && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={c.fotoUrl}
-                    alt={c.nombre}
-                    className="h-16 w-16 rounded-full object-cover"
-                  />
-                )}
+                <Avatar nombre={c.nombre} />
                 <div className="min-w-0 flex-1">
                   <h3 className="font-serif text-base font-bold text-navy">
                     {c.nombre}
@@ -321,6 +314,23 @@ export default function ConcejoPage() {
           </Link>
         </div>
       </section>
+    </div>
+  );
+}
+
+function Avatar({ nombre }: { nombre: string }) {
+  // Iniciales: primera letra del primer nombre + primera letra del último apellido
+  const partes = nombre.trim().split(/\s+/);
+  const ini =
+    partes.length === 1
+      ? partes[0][0]
+      : (partes[0][0] ?? "") + (partes[partes.length - 1][0] ?? "");
+  return (
+    <div
+      aria-label={nombre}
+      className="grid h-16 w-16 flex-shrink-0 place-items-center rounded-full bg-gradient-to-br from-coral to-coral-dark font-serif text-xl font-black text-zinc-900"
+    >
+      {ini.toUpperCase()}
     </div>
   );
 }
