@@ -1,5 +1,6 @@
 import StatCard from "@/components/StatCard";
 import SourceTag from "@/components/SourceTag";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import BudgetCharts from "./BudgetCharts";
 import { partidas, totales } from "@/lib/data/presupuesto";
 import { formatARS, formatARSCompact } from "@/lib/format";
@@ -26,6 +27,21 @@ export default function PresupuestoPage() {
         finalidad-función es una <strong>estructura ejemplificadora</strong> hasta tanto se
         publique el desglose oficial.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre el presupuesto"
+          placeholder="Ej: ¿Cuánto se gasta en obras públicas?"
+          sugerencias={[
+            "¿Cuál es el total del presupuesto 2026?",
+            "¿Cuánto se destina a personal?",
+            "¿Cuánto recibe Sunchales por la Ley 12.385?",
+            "¿Cuál es el gasto per cápita?",
+          ]}
+          ctaSinResultado={{ label: "Ver datasets de presupuesto", href: "/datos-abiertos" }}
+        />
+      </div>
 
       {/* KPIs */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

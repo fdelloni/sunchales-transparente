@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrechasTransparencia from "@/components/BrechasTransparencia";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   juzgadoInfo,
   marcoJuzgado,
@@ -26,6 +27,21 @@ export default function JuzgadoFaltasPage() {
         tipos de faltas, recaudación, destino de los fondos y calidad procesal.
         Datos agregados que protegen al ciudadano y exponen al Estado, no al revés.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre el Juzgado de Faltas"
+          placeholder="Ej: ¿Cuánto recauda el Juzgado por multas?"
+          sugerencias={[
+            "¿Quién es el juez de faltas?",
+            "¿Qué información NO publica el Juzgado?",
+            "¿A dónde van los fondos de las multas?",
+            "¿Qué es el Código de Faltas Provincial?",
+          ]}
+          ctaSinResultado={{ label: "Pedir estadísticas por Ord. 1872/2009", href: "/marco-normativo" }}
+        />
+      </div>
 
       {/* Info institucional */}
       <div className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-4">

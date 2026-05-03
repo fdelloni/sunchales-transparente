@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   concejales,
   comisiones,
@@ -38,6 +39,20 @@ export default function ConcejoPage() {
         </Link>
         .
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre el Concejo Municipal"
+          placeholder="Ej: ¿Quiénes son los concejales?"
+          sugerencias={[
+            "¿Quiénes son los concejales actuales?",
+            "¿Qué comisiones existen?",
+            "¿Cómo se ejerce el acceso a la información en el Concejo?",
+            "¿Cuáles son los canales de contacto?",
+          ]}
+        />
+      </div>
 
       {/* QUE ES EL CONCEJO */}
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

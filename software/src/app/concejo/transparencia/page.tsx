@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   totalesConcejo,
   ucmHistorico,
@@ -121,6 +122,20 @@ export default function ConcejoTransparenciaPage() {
           )}
         </p>
       )}
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Buscá en el archivo del Concejo"
+          placeholder="Ej: ¿Qué boletines bimestrales hay?"
+          sugerencias={[
+            "¿Qué documentos publica el Concejo?",
+            "¿Qué iniciativas ciudadanas se presentaron?",
+            "¿Qué normativa ambiental está vigente?",
+            "¿Cuál es la ejecución presupuestaria?",
+          ]}
+        />
+      </div>
 
       {/* KPIs principales */}
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">

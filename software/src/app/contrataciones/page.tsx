@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   contrataciones,
   labels,
@@ -38,6 +39,21 @@ export default function ContratacionesPage() {
         modificado a posteriori. Las suscripciones por email o WhatsApp
         permiten enterarse al instante de cada nueva publicación.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre contrataciones y licitaciones"
+          placeholder="Ej: ¿Qué licitaciones hay en ejecución?"
+          sugerencias={[
+            "¿Cuántas contrataciones están abiertas?",
+            "¿Qué es la cadena SHA-256 de auditoría?",
+            "¿Cómo me suscribo a alertas de nuevas licitaciones?",
+            "¿Qué información debe publicar el municipio sobre contratos?",
+          ]}
+          ctaSinResultado={{ label: "Suscribirme a alertas", href: "/suscripciones" }}
+        />
+      </div>
 
       <div className="mt-4 inline-flex flex-wrap gap-3">
         <Link

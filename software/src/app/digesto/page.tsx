@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrechasTransparencia from "@/components/BrechasTransparencia";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   normasDemo,
   sesionesDemo,
@@ -30,6 +31,20 @@ export default function DigestoPage() {
         Santa Fe (2025) y la Ley Orgánica de Municipios N° 14.436 (vigente desde
         abril de 2026).
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Buscá una norma o consultá sobre el Concejo"
+          placeholder="Ej: ¿Qué es la Carta Orgánica?"
+          sugerencias={[
+            "¿Qué es la Carta Orgánica?",
+            "¿Qué normas vigentes hay?",
+            "¿Cuál es el marco constitucional?",
+            "¿Qué proyectos están en tratamiento?",
+          ]}
+        />
+      </div>
 
       {/* Submódulos */}
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">

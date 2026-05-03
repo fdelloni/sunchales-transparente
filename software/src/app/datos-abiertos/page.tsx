@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import { datasets } from "@/lib/data/datasets";
 import { sources } from "@/lib/data/sources";
 import { formatNumber } from "@/lib/format";
@@ -16,6 +17,21 @@ export default function DatosAbiertosPage() {
         abiertos (CSV, JSON) y consumibles vía API REST. Cualquier persona puede reutilizar
         estos datos respetando la atribución.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Buscá un dataset o explicación"
+          placeholder="Ej: ¿Hay dataset de presupuesto en CSV?"
+          sugerencias={[
+            "¿Qué datasets están publicados?",
+            "¿Cómo uso la API REST?",
+            "¿Qué es la licencia CC-BY-4.0?",
+            "¿De dónde vienen los datos?",
+          ]}
+          ctaSinResultado={{ label: "Ver especificación OpenAPI", href: "/api/v1/openapi" }}
+        />
+      </div>
 
       {/* KPIs */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

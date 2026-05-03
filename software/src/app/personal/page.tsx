@@ -1,6 +1,7 @@
 import StatCard from "@/components/StatCard";
 import SourceTag from "@/components/SourceTag";
 import BrechasTransparencia from "@/components/BrechasTransparencia";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   empleados,
   aggregadosPorArea,
@@ -165,6 +166,21 @@ export default function PersonalPage() {
         queda <em>manifiestamente declarado como brecha de transparencia</em>, con
         su fundamento normativo.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre el personal del municipio"
+          placeholder="Ej: ¿Quién es el secretario de Hacienda?"
+          sugerencias={[
+            "¿Quién es el intendente actual?",
+            "¿Cuántos cargos políticos hay?",
+            "¿Qué información NO publica el municipio sobre personal?",
+            "¿Cuál es la masa salarial estimada?",
+          ]}
+          ctaSinResultado={{ label: "Pedir nómina por Ord. 1872/2009", href: "/marco-normativo" }}
+        />
+      </div>
 
       {/* KPIs */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,5 +1,6 @@
 import StatCard from "@/components/StatCard";
 import SourceTag from "@/components/SourceTag";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import RecaudacionCharts from "./RecaudacionCharts";
 import {
   recursos,
@@ -40,6 +41,20 @@ export default function RecaudacionPage() {
         relativos típicos hasta tanto el municipio publique el detalle del
         Cálculo de Recursos.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre recaudación y recursos"
+          placeholder="Ej: ¿Cuál es la autonomía fiscal de Sunchales?"
+          sugerencias={[
+            "¿Cuál es la autonomía fiscal del municipio?",
+            "¿Qué porcentaje viene de coparticipación?",
+            "¿Cuál es la TGI?",
+            "¿Cuánto recauda Sunchales en total?",
+          ]}
+        />
+      </div>
 
       <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Nota jurídica:</strong> los municipios argentinos cobran{" "}
