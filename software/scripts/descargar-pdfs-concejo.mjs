@@ -153,11 +153,51 @@ function asegurarDir(d) {
 }
 
 function nombreSeguro(s) {
-  return decodeURIComponent(s)
+  let decoded = s;
+  try {
+    decoded = decodeURIComponent(s);
+  } catch {
+    // URI malformada (p. ej. "O%201370%202001....pdf"). Limpiar manualmente.
+    decoded = s.replace(/%[0-9A-Fa-f]{2}/g, (m) => {
+      try {
+        return decodeURIComponent(m);
+      } catch {
+        return "_";
+      }
+    });
+  }
+  return decoded
     .replace(/[\\/:*?"<>|]+/g, "_")
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 200);
+}
+
+async function fetchConRetry(url, intentos = 3, esperaMs = 1500) {
+  let lastErr;
+  for (let i = 0; i < intentos; i++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          "User-Agent":
+            "SunchalesTransparente/1.0 (cívico, +https://software-sunchales-transparente.vercel.app)"
+        }
+      });
+      if (res.ok) return Buffer.from(await res.arrayBuffer());
+      // 5xx: reintentar; 4xx: no reintentar
+      if (res.status >= 500 && i < intentos - 1) {
+        await new Promise((r) => setTimeout(r, esperaMs * (i + 1)));
+        continue;
+      }
+      throw new Error(`HTTP ${res.status}`);
+    } catch (e) {
+      lastErr = e;
+      if (i < intentos - 1) {
+        await new Promise((r) => setTimeout(r, esperaMs * (i + 1)));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 function sha256(buffer) {
@@ -214,9 +254,18 @@ function extraerPdfs(html) {
 }
 
 function urlAbsoluta(href) {
-  if (/^https?:\/\//i.test(href)) return href;
-  if (href.startsWith("/")) return BASE_URL + href;
-  return BASE_URL + "/" + href.replace(/^\.?\/?/, "");
+  let abs;
+  if (/^https?:\/\//i.test(href)) abs = href;
+  else if (href.startsWith("/")) abs = BASE_URL + href;
+  else abs = BASE_URL + "/" + href.replace(/^\.?\/?/, "");
+  // Forzar https para evitar 404 de URLs viejas con http://
+  abs = abs.replace(/^http:\/\//i, "https://");
+  // Normalizar dominio (con o sin www)
+  abs = abs.replace(
+    /^https:\/\/www\.concejosunchales\.gob\.ar/i,
+    "https://concejosunchales.gob.ar"
+  );
+  return abs;
 }
 
 function leerIndice() {
@@ -266,54 +315,69 @@ async function procesarCategoria(cat, indice) {
     errores = 0;
 
   for (const p of pdfs) {
-    const urlAbs = urlAbsoluta(p.url);
-    const nombreArchivo = nombreSeguro(
-      path.basename(urlAbs.split("?")[0])
-    );
-    const destino = path.join(carpetaDestino, nombreArchivo);
-
-    const yaExiste = fs.existsSync(destino);
-    let bytes;
+    // Bloque protegido: ningún PDF malo puede matar el script.
     try {
+      const urlAbs = urlAbsoluta(p.url);
+      const nombreArchivo = nombreSeguro(
+        path.basename(urlAbs.split("?")[0])
+      );
+      if (!nombreArchivo || !nombreArchivo.toLowerCase().endsWith(".pdf")) {
+        // Saltar entradas inválidas
+        errores++;
+        log(`  ERROR URL no válida: ${p.url}`);
+        continue;
+      }
+      const destino = path.join(carpetaDestino, nombreArchivo);
+
+      const yaExiste = fs.existsSync(destino);
+      let bytes;
       if (!yaExiste) {
-        bytes = await fetchBytes(urlAbs);
-        fs.writeFileSync(destino, bytes);
-        nuevos++;
-        if (VERBOSE) log(`  + ${nombreArchivo}`);
+        try {
+          bytes = await fetchConRetry(urlAbs);
+          fs.writeFileSync(destino, bytes);
+          nuevos++;
+          if (VERBOSE) log(`  + ${nombreArchivo}`);
+        } catch (e) {
+          errores++;
+          log(`  ERROR descargando ${urlAbs}: ${e.message}`);
+          continue;
+        }
+        // Pequeño delay para no atosigar al servidor
+        await new Promise((r) => setTimeout(r, 150));
       } else {
         omitidos++;
       }
+
+      // Actualizar/crear entrada en el índice
+      const tamanio = fs.statSync(destino).size;
+      const hash = bytes
+        ? sha256(bytes)
+        : indice.pdfs.find(
+            (x) => x.rutaLocal === path.relative(DATA_DIR, destino)
+          )?.hashSha256 ?? null;
+
+      const existente = indice.pdfs.find((x) => x.urlOriginal === urlAbs);
+      const meta = {
+        urlOriginal: urlAbs,
+        categoria: cat.id,
+        categoriaDescripcion: cat.descripcion,
+        rutaLocal: path
+          .relative(DATA_DIR, destino)
+          .replace(/\\/g, "/"),
+        nombreArchivo,
+        textoEnlace: p.textoEnlace,
+        fechaContexto: p.fechaContexto,
+        tamanioBytes: tamanio,
+        hashSha256: hash,
+        descargadoEl: existente?.descargadoEl ?? new Date().toISOString()
+      };
+      if (existente) Object.assign(existente, meta);
+      else indice.pdfs.push(meta);
     } catch (e) {
       errores++;
-      log(`  ERROR descargando ${urlAbs}: ${e.message}`);
+      log(`  ERROR procesando entrada (${p.url}): ${e.message}`);
       continue;
     }
-
-    // Actualizar/crear entrada en el índice
-    const tamanio = fs.statSync(destino).size;
-    const hash = bytes
-      ? sha256(bytes)
-      : indice.pdfs.find(
-          (x) => x.rutaLocal === path.relative(DATA_DIR, destino)
-        )?.hashSha256 ?? null;
-
-    const existente = indice.pdfs.find((x) => x.urlOriginal === urlAbs);
-    const meta = {
-      urlOriginal: urlAbs,
-      categoria: cat.id,
-      categoriaDescripcion: cat.descripcion,
-      rutaLocal: path
-        .relative(DATA_DIR, destino)
-        .replace(/\\/g, "/"),
-      nombreArchivo,
-      textoEnlace: p.textoEnlace,
-      fechaContexto: p.fechaContexto,
-      tamanioBytes: tamanio,
-      hashSha256: hash,
-      descargadoEl: existente?.descargadoEl ?? new Date().toISOString()
-    };
-    if (existente) Object.assign(existente, meta);
-    else indice.pdfs.push(meta);
   }
 
   log(`  → nuevos: ${nuevos}  omitidos: ${omitidos}  errores: ${errores}`);

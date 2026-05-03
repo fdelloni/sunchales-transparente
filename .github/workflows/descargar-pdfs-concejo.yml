@@ -26,12 +26,17 @@ jobs:
           node-version: "20"
 
       - name: Ejecutar descarga
+        # No fallar el job si la descarga tiene errores parciales: queremos
+        # commitear igual lo que sí se haya bajado.
+        continue-on-error: true
         run: |
           cd software
           node scripts/descargar-pdfs-concejo.mjs
 
       - name: Detectar cambios
         id: cambios
+        # Siempre se ejecuta, incluso si el step anterior tuvo errores.
+        if: always()
         run: |
           git add -A software/data/concejo
           if git diff --cached --quiet; then
@@ -43,7 +48,7 @@ jobs:
           fi
 
       - name: Commit + Push si hay cambios
-        if: steps.cambios.outputs.hay_cambios == 'true'
+        if: always() && steps.cambios.outputs.hay_cambios == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
