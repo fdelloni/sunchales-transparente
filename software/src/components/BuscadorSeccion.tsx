@@ -119,7 +119,7 @@ export default function BuscadorSeccion({
   const esCompacto = variante === "compacto";
   const wrapperCls = esCompacto
     ? ""
-    : "relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy via-navy-soft to-deep p-6 shadow-xl ring-1 ring-coral/30 sm:p-7";
+    : "relative overflow-hidden rounded-xl bg-navy p-4 shadow-lg ring-1 ring-coral/30 sm:p-5";
 
   return (
     <section className={wrapperCls}>
@@ -129,20 +129,20 @@ export default function BuscadorSeccion({
       )}
 
       {(titulo || descripcion) && (
-        <div className={esCompacto ? "mb-2" : "relative mb-5 flex items-start gap-3"}>
+        <div className={esCompacto ? "mb-2" : "relative mb-3 flex items-start gap-3"}>
           {!esCompacto && (
-            <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-coral text-2xl font-black text-zinc-900 shadow-md">
+            <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-coral text-lg font-black text-zinc-900 shadow-md">
               ?
             </div>
           )}
           <div>
             {titulo && (
-              <h2 className={`font-serif text-xl font-bold ${esCompacto ? "text-navy" : "text-white"}`}>
+              <h2 className={`font-serif text-lg font-bold ${esCompacto ? "text-navy" : "text-white"}`}>
                 {titulo}
               </h2>
             )}
             {descripcion && (
-              <p className={`mt-1 text-sm ${esCompacto ? "text-slate-700" : "text-slate-300"}`}>
+              <p className={`mt-0.5 text-xs ${esCompacto ? "text-slate-700" : "text-slate-300"}`}>
                 {descripcion}
               </p>
             )}
@@ -153,7 +153,7 @@ export default function BuscadorSeccion({
       <form onSubmit={onSubmit} className="relative flex flex-col gap-2 sm:flex-row">
         <div className="relative flex-1">
           {!esCompacto && (
-            <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-coral-dark">
+            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-coral-dark">
               🔍
             </span>
           )}
@@ -166,7 +166,7 @@ export default function BuscadorSeccion({
             className={
               esCompacto
                 ? "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none focus:border-coral focus:ring-2 focus:ring-coral/30"
-                : "w-full rounded-lg border-2 border-coral/30 bg-white px-4 py-3 pl-11 text-base text-slate-900 shadow-md outline-none placeholder:text-slate-400 focus:border-coral focus:ring-4 focus:ring-coral/30"
+                : "w-full rounded-md border border-coral/40 bg-white px-3 py-2 pl-10 text-sm text-slate-900 shadow-sm outline-none placeholder:text-slate-400 focus:border-coral focus:ring-2 focus:ring-coral/40"
             }
             disabled={cargando}
           />
@@ -177,7 +177,7 @@ export default function BuscadorSeccion({
           className={
             esCompacto
               ? "rounded-lg bg-coral px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
-              : "rounded-lg bg-coral px-6 py-3 text-sm font-bold uppercase tracking-wider text-zinc-900 shadow-md hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+              : "rounded-md bg-coral px-5 py-2 text-xs font-bold uppercase tracking-wider text-zinc-900 shadow-sm hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
           }
         >
           {cargando ? "Buscando…" : "Buscar"}
@@ -185,11 +185,11 @@ export default function BuscadorSeccion({
       </form>
 
       {sugerencias.length > 0 && !resp && !cargando && (
-        <div className="relative mt-3">
-          <p className={`text-[11px] font-semibold uppercase tracking-widest ${esCompacto ? "text-slate-500" : "text-coral"}`}>
-            Probá con:
-          </p>
-          <div className="mt-2 flex flex-wrap gap-2">
+        <div className="relative mt-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className={`text-[10px] font-semibold uppercase tracking-widest ${esCompacto ? "text-slate-500" : "text-coral"}`}>
+              Probá:
+            </span>
             {sugerencias.map((s) => (
               <button
                 key={s}
@@ -197,8 +197,8 @@ export default function BuscadorSeccion({
                 onClick={() => usarSugerencia(s)}
                 className={
                   esCompacto
-                    ? "rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 hover:border-coral hover:text-coral-dark"
-                    : "rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-slate-100 backdrop-blur transition hover:border-coral hover:bg-coral/20 hover:text-white"
+                    ? "rounded-full border border-slate-300 bg-white px-2.5 py-0.5 text-[11px] text-slate-700 hover:border-coral hover:text-coral-dark"
+                    : "rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[11px] text-slate-100 transition hover:border-coral hover:bg-coral/20 hover:text-white"
                 }
               >
                 {s}
