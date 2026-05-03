@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": [
-    "src/lib/data/brechas.ts",
-    "src/lib/data/digesto.ts",
-    "src/lib/data/juzgado.ts"
-  ]
-}
