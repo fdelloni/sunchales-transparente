@@ -68,6 +68,21 @@ export default function Header() {
   const [openMobile, setOpenMobile] = useState<string | null>(null);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Helpers para hover con delay (evita cierre accidental al saltar
+  // del button al dropdown).
+  function abrirGrupo(id: string) {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setOpenDesktop(id);
+  }
+  function cerrarGrupoConDelay() {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpenDesktop(null), 150);
+  }
 
   // Cerrar dropdown desktop al click fuera o ESC
   useEffect(() => {
@@ -86,6 +101,7 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", onClickOutside);
       document.removeEventListener("keydown", onKey);
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, []);
 
@@ -137,10 +153,16 @@ export default function Header() {
             const open = openDesktop === g.id;
             const hasActive = grupoTieneActivo(g);
             return (
-              <div key={g.id} className="relative">
+              <div
+                key={g.id}
+                className="relative"
+                onMouseEnter={() => abrirGrupo(g.id)}
+                onMouseLeave={cerrarGrupoConDelay}
+              >
                 <button
                   type="button"
                   onClick={() => setOpenDesktop(open ? null : g.id)}
+                  onFocus={() => abrirGrupo(g.id)}
                   aria-expanded={open}
                   className={`flex items-center gap-1 rounded-md px-3 py-2 hover:bg-white/5 hover:text-white ${
                     open || hasActive ? "text-white" : ""
