@@ -7,6 +7,7 @@ import { contrataciones } from "@/lib/data/contrataciones";
 import { datasets } from "@/lib/data/datasets";
 import { brechas, totalBrechasAbiertas } from "@/lib/data/brechas";
 import { normasDemo } from "@/lib/data/digesto";
+import { totalPdfsConcejo, totalesConcejo } from "@/lib/data/concejo-archivos.generated";
 import { formatARSCompact, formatARS, formatNumber } from "@/lib/format";
 
 export const metadata = {
@@ -40,7 +41,7 @@ export default function EstadisticasPage() {
       <h2 className="mt-10 font-serif text-2xl font-bold text-navy">
         Indicadores principales
       </h2>
-      <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-3">
         <StatCard
           value={formatNumber(totales.habitantes)}
           label="Habitantes"
@@ -72,6 +73,24 @@ export default function EstadisticasPage() {
           value={String(datasets.length)}
           label="Datasets abiertos"
           hint="CSV/JSON con licencia CC-BY-4.0."
+          verified
+        />
+        <StatCard
+          value={String(totalPdfsConcejo())}
+          label="Documentos del Concejo"
+          hint="Sincronizados diariamente desde concejosunchales.gob.ar."
+          verified
+        />
+        <StatCard
+          value={String(totalesConcejo["proyectos-en-tratamiento"] ?? 0)}
+          label="Proyectos en tratamiento"
+          hint="En estado parlamentario al día de hoy."
+          verified
+        />
+        <StatCard
+          value={String(totalesConcejo["ucm"] ?? 0)}
+          label="Ordenanzas que actualizan la UCM"
+          hint="Histórico desde 2011."
           verified
         />
       </div>
