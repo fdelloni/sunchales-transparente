@@ -194,27 +194,35 @@ export const baseDocumental: Documento[] = [
     keywords: ["autonomia", "autonomía", "carta organica", "carta orgánica", "constitución municipal", "constitucion municipal"]
   },
 
-  // ====== NORMATIVA DE TRANSPARENCIA ======
+  // ====== NORMATIVA DE TRANSPARENCIA APLICABLE A SUNCHALES ======
   {
-    id: "ley_27275_acceso_informacion",
-    titulo: "Ley nacional 27.275 — Acceso a la Información Pública",
+    id: "ord_1872_2009_acceso_informacion_sunchales",
+    titulo: "Ordenanza Sunchales N° 1872/2009 — Acceso a la Información Pública",
     texto:
-      "La Ley 27.275 de Acceso a la Información Pública garantiza el derecho de toda persona a buscar, recibir y difundir " +
-      "información en poder del Estado. Establece el principio de máxima divulgación, el carácter gratuito del acceso, " +
-      "y plazos máximos de respuesta. Aplica formalmente al Estado nacional; los municipios pueden adherir o adoptar " +
-      "estándares equivalentes.",
-    fuente: "Ley 27.275 — Boletín Oficial República Argentina",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+      "La Ordenanza Municipal N° 1872/2009, sancionada el 09/03/2009 por el Concejo Municipal de Sunchales, reconoce el " +
+      "derecho de toda persona física o jurídica a solicitar y recibir información completa, veraz, adecuada y oportuna " +
+      "de cualquier órgano de la Municipalidad de Sunchales, sus entes autárquicos o descentralizados, el Concejo Municipal, " +
+      "el Juzgado de Faltas y las prestatarias de servicios públicos con participación municipal. Su fundamento expreso es " +
+      "el principio republicano de publicidad de los actos de gobierno (Art. 1° CN). El acceso es gratuito, sin patrocinio " +
+      "letrado y sin necesidad de expresar motivos. Plazo de respuesta: 10 días hábiles, prorrogables por única vez por 5 " +
+      "días hábiles más mediante decisión fundada (Art. 7°). Las limitaciones son taxativas (Art. 4°: intimidad, sumarios " +
+      "secretos, secretos profesional y bancario, estrategia procesal del Municipio, normas especiales). El incumplimiento " +
+      "del agente público constituye falta grave con responsabilidad administrativa, civil, penal, disciplinaria y/o política " +
+      "(Art. 9°). NOTA: la Ley nacional 27.275 NO rige para municipios — su jurisdicción es el sector público nacional.",
+    fuente: "Concejo Municipal de Sunchales · Ordenanza N° 1872/2009 (PDF oficial)",
+    url: "https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf",
     categoria: "normativa",
     keywords: [
       "transparencia",
-      "ley 27275",
-      "ley 27.275",
+      "ordenanza 1872",
+      "ord 1872/2009",
       "acceso informacion",
       "acceso información",
       "máxima divulgación",
       "maxima divulgacion",
-      "derecho a saber"
+      "derecho a saber",
+      "publicidad de los actos de gobierno",
+      "marco normativo"
     ]
   },
   {

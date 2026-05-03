@@ -23,7 +23,8 @@ type Props = {
  * Renderiza, dentro de cualquier módulo, la lista de información de publicación
  * obligatoria que el Estado municipal aún no expone. Cada brecha muestra su
  * fundamento normativo y un CTA para sumar firmas a un pedido formal de acceso
- * a la información (Ley 27.275). NO expone datos personales de ciudadanos privados.
+ * a la información (Ordenanza Sunchales N° 1872/2009 y concordantes).
+ * NO expone datos personales de ciudadanos privados.
  */
 export default function BrechasTransparencia({ modulo, titulo, intro }: Props) {
   const items = brechasPorModulo(modulo);
@@ -57,19 +58,19 @@ export default function BrechasTransparencia({ modulo, titulo, intro }: Props) {
           </p>
           <div className="mt-4 rounded-lg border border-amber-200 bg-white p-4 text-[13px] text-amber-900">
             <strong className="text-amber-900">Fundamento normativo: </strong>
-            Constitución Nacional arts. 1, 14 y 75 inc. 22 · CADH art. 13 ·{" "}
+            Constitución Nacional arts. 1°, 33° y 75 inc. 22 (forma republicana
+            y publicidad de los actos de gobierno) · CADH art. 13 ·{" "}
             <Link
-              href="https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/marco-normativo"
               className="text-amber-800 underline"
             >
-              Ley 27.275
+              Ordenanza Sunchales N° 1872/2009
             </Link>{" "}
-            (máxima divulgación) · Constitución de Santa Fe (reforma 2025) · Ley
-            Orgánica de Municipios N° 14.436 · Decreto provincial 0692/2009. La
-            negativa o demora en publicar configura incumplimiento del deber estatal
-            y habilita acciones administrativas y judiciales del ciudadano.
+            (acceso a la información pública municipal) · Decreto Provincial
+            Santa Fe N° 0692/2009 (mecanismo provincial supletorio). La negativa
+            o demora en publicar configura incumplimiento del deber estatal y
+            habilita acciones administrativas y judiciales del ciudadano (Art. 9°
+            de la Ord. 1872/2009).
           </div>
         </div>
 

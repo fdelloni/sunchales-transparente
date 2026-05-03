@@ -10,7 +10,8 @@
 -- Marco normativo aplicable (verificado al 02/05/2026):
 --   - Constitución Nacional, Constitución de Santa Fe (reforma 2025)
 --   - Ley provincial 14.436 (LOM, Decreto 711/2026)
---   - Ley nacional 27.275 (acceso a la información pública)
+--   - Ordenanza Sunchales N° 1872/2009 (acceso a la información pública municipal)
+--   - Decreto Pcial. Santa Fe N° 0692/2009 (mecanismo provincial supletorio)
 --   - Ley nacional 25.326 (protección de datos personales)
 -- =====================================================================
 

@@ -35,11 +35,33 @@ export const sources: Record<string, Source> = {
     fetchedAt: "2026-04-29",
     notes: "Estructura de Secretarias y Subsecretarias con sus titulares."
   },
-  ley27275: {
-    id: "ley27275",
-    title: "Ley 27.275 - Derecho de Acceso a la Informacion Publica",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
-    fetchedAt: "2026-04-29"
+  ordenanza1872: {
+    id: "ordenanza1872",
+    title: "Ordenanza Sunchales N° 1872/2009 - Acceso a la Informacion Publica",
+    url: "https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf",
+    fetchedAt: "2026-05-03",
+    notes: "Norma municipal vigente. Sancionada el 09/03/2009. 10 articulos. Plazo respuesta 10 dias habiles + 5 prorroga unica (Art. 7°). Limitaciones taxativas (Art. 4°). Gratuita y sin patrocinio (Arts. 3 y 6). Incumplimiento = falta grave (Art. 9°)."
+  },
+  decreto0692: {
+    id: "decreto0692",
+    title: "Decreto Provincial Santa Fe N° 0692/2009 - Mecanismo de acceso a la informacion publica",
+    url: "https://www.santafe.gov.ar/index.php/web/content/view/full/199538/(subtema)/93811",
+    fetchedAt: "2026-05-03",
+    notes: "Aplicable supletoriamente. Principios de igualdad, publicidad, celeridad, informalidad, gratuidad y maxima divulgacion. Plazos: 15 + 5 + 10 dias habiles."
+  },
+  concejoAccesoInfoPagina: {
+    id: "concejoAccesoInfoPagina",
+    title: "Concejo Municipal Sunchales - Pagina oficial de Acceso a la Informacion Publica",
+    url: "https://concejosunchales.gob.ar/acceso-informacion-publica.aspx",
+    fetchedAt: "2026-05-03",
+    notes: "Comunicacion institucional del derecho de acceso. Incluye formulario de solicitud."
+  },
+  ley25326: {
+    id: "ley25326",
+    title: "Ley Nacional 25.326 - Proteccion de Datos Personales",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-25326-64790",
+    fetchedAt: "2026-05-03",
+    notes: "Limite legitimo a la transparencia activa cuando comprometeria intimidad o datos personales sensibles de terceros."
   },
   ley26037: {
     id: "ley26037",

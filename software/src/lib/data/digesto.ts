@@ -9,10 +9,12 @@
  * - https://concejosunchales.gob.ar/
  * - https://sunchales.miportal.ar/digesto
  *
- * Marco aplicable verificado al 02/05/2026:
- * - Constitución de Santa Fe (reforma 2025)
- * - Ley Orgánica de Municipios N° 14.436 (Decreto 711/2026)
- * - Ley Nacional 27.275 (Acceso a la Información Pública)
+ * Marco aplicable verificado al 03/05/2026:
+ * - Constitución Nacional Art. 1° (forma republicana → publicidad de los actos
+ *   de gobierno) y Art. 75 inc. 22 (CADH Art. 13)
+ * - Constitución de Santa Fe
+ * - Ordenanza Sunchales N° 1872/2009 (Acceso a la Información Pública)
+ * - Decreto Pcial. Santa Fe N° 0692/2009 (mecanismo provincial supletorio)
  */
 
 export type EstadoNorma = "vigente" | "modificada" | "derogada";
