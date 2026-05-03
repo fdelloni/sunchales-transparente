@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       {/* Buscador inteligente — entrada principal del ciudadano (arriba del hero) */}
-      <section className="mx-auto max-w-6xl px-6 pt-8">
+      <section className="mx-auto max-w-6xl px-6 pt-6 pb-8">
         <BuscadorSeccion
           placeholder="¿Qué querés saber del municipio?"
           sugerencias={[
