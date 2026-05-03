@@ -18,6 +18,12 @@ export type EmpleadoMunicipal = {
   cargo: string;
   area: string;
   jerarquia: 1 | 2 | 3 | 4; // 1: Intendente, 2: Secretaría, 3: Subsecretaría, 4: Dirección/Coordinación
+  /** Reporta a (id de otro empleado). Null para el Intendente. Habilita el organigrama. */
+  reportaA: string | null;
+  /** Fecha de asunción del cargo (ISO). Null cuando no fue oficialmente publicada. */
+  fechaInicio: string | null;
+  /** Trazabilidad de la fecha de inicio. */
+  fuenteFecha: "verificado_publico" | "pendiente_oficial";
   remuneracionBruta: number | null; // ARS mensual; null si pendiente de informar
   fuenteCargo: "verificado_publico" | "pendiente_oficial";
   fuenteRemuneracion: "estimacion_referencial" | "verificado_oficial" | "pendiente_oficial";
@@ -37,6 +43,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Intendente Municipal",
     area: "Departamento Ejecutivo",
     jerarquia: 1,
+    reportaA: null,
+    fechaInicio: "2023-12-10",
+    fuenteFecha: "verificado_publico", // inicio del período constitucional 2023-2027
     remuneracionBruta: 4_800_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -50,6 +59,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Secretario de Gestión",
     area: "Secretaría de Gestión",
     jerarquia: 2,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 3_600_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -61,6 +73,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Subsecretaria de Infraestructura Urbana y Rural",
     area: "Secretaría de Gestión",
     jerarquia: 3,
+    reportaA: "emp_002",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 2_900_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -72,6 +87,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Subsecretaria de Ambiente y Servicios a la Comunidad",
     area: "Secretaría de Gestión",
     jerarquia: 3,
+    reportaA: "emp_002",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 2_900_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -83,6 +101,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Subsecretaria de Hacienda y Finanzas",
     area: "Secretaría de Gestión",
     jerarquia: 3,
+    reportaA: "emp_002",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 2_900_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -96,6 +117,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Secretaria de Desarrollo",
     area: "Secretaría de Desarrollo",
     jerarquia: 2,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 3_600_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -107,6 +131,9 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Subsecretario de Educación, Salud y Convivencia",
     area: "Secretaría de Desarrollo",
     jerarquia: 3,
+    reportaA: "emp_006",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 2_900_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
@@ -118,12 +145,44 @@ export const empleados: EmpleadoMunicipal[] = [
     cargo: "Subsecretaria de Producción y Cooperativismo",
     area: "Secretaría de Desarrollo",
     jerarquia: 3,
+    reportaA: "emp_006",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
     remuneracionBruta: 2_900_000,
     fuenteCargo: "verificado_publico",
     fuenteRemuneracion: "estimacion_referencial",
     ejercicio: 2026
   }
 ];
+
+/**
+ * Construye el árbol jerárquico (organigrama) a partir de la lista plana
+ * usando el campo `reportaA`. Útil para renderizar visualmente.
+ */
+export type NodoOrganigrama = EmpleadoMunicipal & { hijos: NodoOrganigrama[] };
+
+export function construirOrganigrama(): NodoOrganigrama[] {
+  const mapa = new Map<string, NodoOrganigrama>();
+  for (const e of empleados) mapa.set(e.id, { ...e, hijos: [] });
+
+  const raices: NodoOrganigrama[] = [];
+  for (const nodo of mapa.values()) {
+    if (nodo.reportaA == null) {
+      raices.push(nodo);
+    } else {
+      const padre = mapa.get(nodo.reportaA);
+      if (padre) padre.hijos.push(nodo);
+      else raices.push(nodo); // huérfano: lo subimos a raíz para no perderlo
+    }
+  }
+  // Ordenamos hijos por jerarquía y luego por apellido
+  const ordenar = (nodos: NodoOrganigrama[]) => {
+    nodos.sort((a, b) => a.jerarquia - b.jerarquia || a.apellidoNombre.localeCompare(b.apellidoNombre, "es"));
+    nodos.forEach((n) => ordenar(n.hijos));
+  };
+  ordenar(raices);
+  return raices;
+}
 
 /**
  * Estadísticas agregadas (sin exponer datos individuales sensibles).

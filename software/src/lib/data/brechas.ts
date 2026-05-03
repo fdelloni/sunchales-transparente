@@ -261,6 +261,98 @@ export const brechas: Brecha[] = [
     fundamento: "Ley 27.275 art. 32 · principio de máxima divulgación.",
     fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
     detectadaEl: "2026-05-02"
+  },
+
+  // ===== PERSONAL =====
+  {
+    id: "per-decretos-designacion",
+    modulo: "personal",
+    titulo: "Decretos de designación con fecha exacta",
+    descripcion:
+      "No se publica de forma sistemática y consultable el decreto de designación de cada funcionario con la fecha precisa de asunción del cargo, su número, fundamento y rango remunerativo asignado.",
+    categoria: "estructura_organica",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 art. 5 inc. b (estructura orgánica y funciones) y art. 5 inc. c (escala salarial y nómina con cargos y remuneraciones) · art. 2 Código Civil y Comercial (publicidad de los actos administrativos).",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-remuneraciones-reales",
+    modulo: "personal",
+    titulo: "Remuneraciones reales por cargo (planta política)",
+    descripcion:
+      "Los importes brutos y netos efectivamente liquidados a cada cargo de planta política no se publican mes a mes en formato estructurado. Lo que hoy se exhibe son estimaciones referenciales, no datos oficiales.",
+    categoria: "recursos_publicos",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 art. 5 inc. c (escala salarial completa, categorías y remuneraciones de todos los cargos) · principio republicano de publicidad de la hacienda pública.",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-planta-permanente",
+    modulo: "personal",
+    titulo: "Nómina de planta permanente (cantidad, antigüedad, sector)",
+    descripcion:
+      "No se publica el número total de agentes de planta permanente, su antigüedad individual (sin nombre) y el sector / dependencia donde prestan funciones. Es el padrón estructural del Estado municipal y debe ser público en formato agregado y respetando datos sensibles.",
+    categoria: "estructura_organica",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 art. 5 inc. c (nómina, escala salarial y categorías de personal) · Constitución de Santa Fe (publicidad de la hacienda pública) · Ley Orgánica de Municipios N° 14.436. La publicación agregada por sector y antigüedad no expone datos personales y es la regla en estándares OGP/Escazú.",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-planta-no-permanente",
+    modulo: "personal",
+    titulo: "Nómina de planta no permanente y contratados",
+    descripcion:
+      "No se publica la cantidad de agentes de planta no permanente y de personal contratado (locaciones de servicios y de obra), su antigüedad, modalidad de vinculación y sector. Tampoco la fecha de inicio y fin de cada contrato ni su renovación. Esta información es de las más sensibles para el control del gasto público y de la rotación funcional.",
+    categoria: "recursos_publicos",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 art. 5 inc. c (toda forma de vinculación con el Estado, incluidas contrataciones) · Ley Orgánica de Municipios N° 14.436 · estándares MESICIC y OGP sobre transparencia de la fuerza laboral pública.",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-masa-salarial-total",
+    modulo: "personal",
+    titulo: "Masa salarial total mensual y anual del municipio",
+    descripcion:
+      "No se publica de forma estructurada el monto total liquidado mensual y anualmente en concepto de personal (planta política + permanente + no permanente + contratados), discriminado por escalafón y por dependencia. Es el dato que permite ciudadanizar la pregunta de cuánto cuesta operar el Estado municipal.",
+    categoria: "recursos_publicos",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 art. 5 inc. c y art. 5 inc. e (presupuesto y ejecución detallada) · principio republicano de rendición de cuentas.",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-concursos-y-acceso",
+    modulo: "personal",
+    titulo: "Concursos públicos e ingresos a la administración",
+    descripcion:
+      "No se publica el listado de concursos públicos abiertos y cerrados, las bases, los jurados, los puntajes obtenidos por cada postulante (sin datos sensibles) ni los actos de designación derivados.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento:
+      "Ley 27.275 · principio constitucional de idoneidad para el acceso al empleo público (CN art. 16) · Constitución de Santa Fe.",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
+  },
+  {
+    id: "per-datos-abiertos",
+    modulo: "personal",
+    titulo: "Datos abiertos de personal",
+    descripcion:
+      "Dataset estructurado en formatos abiertos (CSV/JSON, CC-BY-4.0) con organigrama, planta permanente y no permanente agregados por sector y antigüedad, y serie histórica de masa salarial.",
+    categoria: "datos_abiertos",
+    estado: "no_publicado",
+    fundamento: "Ley 27.275 art. 32 (formatos abiertos por defecto).",
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    detectadaEl: "2026-05-03"
   }
 ];
 
