@@ -23,6 +23,8 @@ import { partidas, totales } from "@/lib/data/presupuesto";
 import { normasDemo } from "@/lib/data/digesto";
 import { formatARSCompact } from "@/lib/format";
 
+// Mapeo de colores por estado de brecha. Debe cubrir TODAS las keys del enum
+// `BrechaEstado` (Record exhaustivo, exigido por TypeScript estricto).
 const COLORS_BRECHAS_ESTADO: Record<BrechaEstado, string> = {
   no_publicado: "#DC2626",
   publicado_formato_cerrado: "#D97706",
