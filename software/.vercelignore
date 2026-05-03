@@ -1,14 +1,15 @@
 # Archivos y carpetas que NO se suben a Vercel.
-# Estos NO son necesarios en runtime — son artefactos locales o de desarrollo.
+# IMPORTANTE: las reglas SIN "/" inicial matchean en cualquier nivel.
+# Para excluir solo en la raíz del proyecto, prefijar con "/".
 
-# Carpeta de PDFs descargados (solo referencia local, no se sirven desde el sitio)
-data/
+# PDFs descargados (referencia local, no del sitio) — solo en raíz
+/data/
 
-# Carpeta de migrations SQL (Supabase no está conectado en producción todavía)
-supabase/
+# Migrations SQL — Supabase no está conectado en producción todavía
+/supabase/
 
-# Scripts auxiliares que no son del sitio
-scripts/
+# Scripts auxiliares (descargas de PDFs, etc.) — no del sitio
+/scripts/
 
 # Builds y dependencias (Vercel los regenera del package.json)
 node_modules/
@@ -17,7 +18,7 @@ out/
 build/
 dist/
 
-# Logs y locales
+# Logs y archivos del sistema
 *.log
 .DS_Store
 
@@ -28,5 +29,5 @@ dist/
 # Scripts batch de Windows (solo locales)
 *.bat
 
-# Configs de TypeScript de checking adicional
-tsconfig.check.json
+# Config de TypeScript de checking adicional
+/tsconfig.check.json
