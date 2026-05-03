@@ -33,17 +33,39 @@ jobs:
           cd software
           node scripts/descargar-pdfs-concejo.mjs
 
+      - name: Instalar dependencias para procesar PDFs
+        # Solo instalamos pdfjs-dist (las demás ya están en package.json del software)
+        continue-on-error: true
+        run: |
+          cd software
+          npm install --no-audit --no-fund --silent
+
+      - name: Procesar PDFs (extraer texto)
+        # Genera .txt al lado de cada PDF. Idempotente.
+        continue-on-error: true
+        run: |
+          cd software
+          node scripts/procesar-pdfs-concejo.mjs
+
+      - name: Indexar resúmenes anuales
+        # Regenera src/lib/data/resumenes-anuales.generated.ts a partir del
+        # índice y los textos extraídos.
+        continue-on-error: true
+        run: |
+          cd software
+          node scripts/indexar-resumenes-anuales.mjs
+
       - name: Detectar cambios
         id: cambios
         # Siempre se ejecuta, incluso si el step anterior tuvo errores.
         if: always()
         run: |
-          git add -A software/data/concejo
+          git add -A software/data/concejo software/src/lib/data/resumenes-anuales.generated.ts
           if git diff --cached --quiet; then
             echo "hay_cambios=false" >> $GITHUB_OUTPUT
           else
             echo "hay_cambios=true" >> $GITHUB_OUTPUT
-            CANTIDAD=$(git diff --cached --numstat software/data/concejo | wc -l)
+            CANTIDAD=$(git diff --cached --numstat | wc -l)
             echo "cantidad=$CANTIDAD" >> $GITHUB_OUTPUT
           fi
 

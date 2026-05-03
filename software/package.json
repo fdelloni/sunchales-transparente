@@ -10,11 +10,14 @@
     "lint": "next lint",
     "typecheck": "tsc -p tsconfig.check.json",
     "descargar-pdfs": "node scripts/descargar-pdfs-concejo.mjs",
-    "descargar-pdfs:listar": "node scripts/descargar-pdfs-concejo.mjs --listar"
+    "descargar-pdfs:listar": "node scripts/descargar-pdfs-concejo.mjs --listar",
+    "procesar-pdfs": "node scripts/procesar-pdfs-concejo.mjs",
+    "indexar-resumenes": "node scripts/indexar-resumenes-anuales.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
     "next": "14.2.5",
+    "pdfjs-dist": "4.7.76",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "recharts": "2.12.7"
