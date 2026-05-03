@@ -122,6 +122,7 @@ export default function BuscadorSeccion({
     : "relative overflow-hidden rounded-xl bg-navy p-4 shadow-lg ring-1 ring-coral/30 sm:p-5";
 
   return (
+    <div>
     <section className={wrapperCls}>
       {/* Acento coral lateral, igual que el hero */}
       {!esCompacto && (
@@ -213,13 +214,12 @@ export default function BuscadorSeccion({
           {errorRed}
         </div>
       )}
-
-      {resp && (
-        <div className="relative">
-          <ResultadoCard resp={resp} ctaSinResultado={ctaSinResultado} />
-        </div>
-      )}
     </section>
+
+    {/* Resultado FUERA del wrapper navy: así no lo recorta el overflow-hidden
+        y la respuesta puede tener cualquier longitud. */}
+    {resp && <ResultadoCard resp={resp} ctaSinResultado={ctaSinResultado} />}
+    </div>
   );
 }
 
