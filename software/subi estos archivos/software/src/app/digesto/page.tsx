@@ -103,8 +103,8 @@ export default function DigestoPage() {
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
         Próximas sesiones del Concejo
       </h2>
-      <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full min-w-[640px] text-sm">
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <table className="w-full text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Fecha</th>
@@ -203,8 +203,8 @@ export default function DigestoPage() {
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
         Últimas normas (vista demo)
       </h2>
-      <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full min-w-[640px] text-sm">
+      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <table className="w-full text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Norma</th>
