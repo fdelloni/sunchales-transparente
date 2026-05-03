@@ -129,9 +129,15 @@ export default function HomePage() {
           />
           <ModuleCard
             href="/digesto"
-            tag="Digesto y Concejo"
-            title="Normativa y actividad legislativa"
+            tag="Digesto Normativo"
+            title="Cuerpo normativo y actividad legislativa"
             desc="Búsqueda de ordenanzas, decretos y proyectos en tratamiento. Jerarquía normativa, análisis de coherencia y seguimiento de la Carta Orgánica."
+          />
+          <ModuleCard
+            href="/concejo"
+            tag="Concejo Municipal"
+            title="Concejales, comisiones y régimen institucional"
+            desc="Los 6 concejales actuales con su bloque y mandato, las 23 comisiones donde participan, personal, AIP local y datos institucionales."
           />
           <ModuleCard
             href="/juzgado-faltas"

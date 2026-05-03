@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc -p tsconfig.check.json"
+    "typecheck": "tsc -p tsconfig.check.json",
+    "descargar-pdfs": "node scripts/descargar-pdfs-concejo.mjs",
+    "descargar-pdfs:listar": "node scripts/descargar-pdfs-concejo.mjs --listar"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
