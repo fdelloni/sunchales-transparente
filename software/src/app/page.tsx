@@ -140,6 +140,12 @@ export default function HomePage() {
             desc="Cantidad y tipos de faltas, recaudación, destino de los fondos y calidad procesal. Datos agregados que protegen al ciudadano."
           />
           <ModuleCard
+            href="/estadisticas"
+            tag="Estadísticas"
+            title="Panorama de transparencia"
+            desc="KPIs, salud de transparencia, gráficos del presupuesto y resumen por módulo en una sola vista."
+          />
+          <ModuleCard
             href="/datos-abiertos"
             tag="Datos Abiertos"
             title="Catálogo de Datos"
