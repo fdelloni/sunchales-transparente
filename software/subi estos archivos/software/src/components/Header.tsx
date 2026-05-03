@@ -15,13 +15,4 @@ export default function Header() {
           <Link href="/recaudacion" className="hover:text-white">Recaudación</Link>
           <Link href="/personal" className="hover:text-white">Personal</Link>
           <Link href="/contrataciones" className="hover:text-white">Contrataciones</Link>
-          <Link href="/digesto" className="hover:text-white">Digesto</Link>
-          <Link href="/juzgado-faltas" className="hover:text-white">Juzgado</Link>
-          <Link href="/datos-abiertos" className="hover:text-white">Datos Abiertos</Link>
-          <Link href="/suscripciones" className="hover:text-white">Suscribirme</Link>
-          <Link href="/api/v1/openapi" className="hover:text-white">API</Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
+          <Link href="/digesto" className="
