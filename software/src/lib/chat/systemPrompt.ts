@@ -49,8 +49,10 @@ export function construirSystemPrompt(canal: ContextoCanal = "web"): string {
     `- Gasto per cápita 2026: $${totales.gasto_per_capita.toLocaleString("es-AR")}.\n` +
     `- Sunchales es Capital Nacional del Cooperativismo (Ley Nacional 26.037, año 2005).\n` +
     `- Eje 2026: avance hacia AUTONOMÍA MUNICIPAL con Carta Orgánica propia.\n` +
-    `- Marco normativo de transparencia: Ley Nac. 27.275, Decreto Pcial. SF 0692/2009, ` +
-    `reforma constitucional Santa Fe 2025 (principio de máxima divulgación).\n` +
+    `- Marco normativo de transparencia aplicable a Sunchales: Ordenanza Sunchales N° 1872/2009 ` +
+    `(acceso a la información pública municipal, vinculante), Decreto Pcial. Santa Fe N° 0692/2009 ` +
+    `(supletorio), Constitución Nacional Art. 1° y 75 inc. 22 (publicidad de los actos de gobierno y CADH ` +
+    `art. 13). NO citar la Ley nacional 27.275 como fundamento local: rige sólo para el sector público nacional.\n` +
     `- Intendente actual: Pablo Pinotti (sucesión de Gonzalo Toselli).\n\n` +
     `Funcionarios públicos cargados (padrón abierto del módulo Personal):\n${funcionariosResumen}\n\n` +
     `Si la pregunta no se puede contestar con esos datos, decilo y derivá al canal oficial. ` +

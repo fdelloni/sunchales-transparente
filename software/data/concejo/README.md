@@ -59,6 +59,7 @@ se le asigna un nombre estable basado en su URL.
 
 Los PDFs son documentos públicos producidos por el Concejo Municipal de
 Sunchales. Su republicación es lícita en virtud del derecho de acceso a la
-información pública (Ley 27.275, Constitución de Santa Fe). Esta carpeta
-los reúne para facilitar consultas, análisis automatizado y reutilización
-ciudadana, sin alterar su contenido.
+información pública (Ordenanza Sunchales N° 1872/2009, Decreto Pcial. Santa
+Fe N° 0692/2009 y principio constitucional de publicidad de los actos de
+gobierno — Art. 1° CN). Esta carpeta los reúne para facilitar consultas,
+análisis automatizado y reutilización ciudadana, sin alterar su contenido.

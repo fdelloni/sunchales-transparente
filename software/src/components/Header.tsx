@@ -11,8 +11,10 @@ const links = [
   { href: "/contrataciones", label: "Contrataciones" },
   { href: "/digesto", label: "Digesto" },
   { href: "/concejo", label: "Concejo" },
+  { href: "/concejo/transparencia", label: "Transparencia Concejo" },
   { href: "/juzgado-faltas", label: "Juzgado" },
   { href: "/datos-abiertos", label: "Datos Abiertos" },
+  { href: "/marco-normativo", label: "Marco Normativo" },
   { href: "/suscripciones", label: "Suscribirme" },
   { href: "/api/v1/openapi", label: "API" }
 ];

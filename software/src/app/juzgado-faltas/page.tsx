@@ -231,12 +231,10 @@ export default function JuzgadoFaltasPage() {
             Sumarme al pedido
           </Link>
           <Link
-            href="https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/marco-normativo"
             className="rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
           >
-            Leer la Ley 27.275
+            Ver marco normativo
           </Link>
         </div>
         <p className="mt-4 max-w-2xl text-xs text-slate-400">

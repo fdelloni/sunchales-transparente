@@ -249,6 +249,28 @@ export default function ConcejoPage() {
         ))}
       </div>
 
+      {/* CTA Transparencia */}
+      <section className="mt-12 overflow-hidden rounded-2xl border-2 border-coral/40 bg-gradient-to-br from-amber-50 to-white p-6">
+        <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+          Datos completos
+        </span>
+        <h2 className="mt-1 font-serif text-2xl font-bold text-navy">
+          Toda la actividad del Concejo en un panel
+        </h2>
+        <p className="mt-2 max-w-3xl text-slate-600">
+          924 documentos sincronizados desde concejosunchales.gob.ar — actividad
+          anual desde 2011, ejecución presupuestaria mensual, 30 ordenanzas que
+          actualizan la UCM, proyectos en tratamiento, boletines, iniciativas
+          ciudadanas, resúmenes anuales y más.
+        </p>
+        <Link
+          href="/concejo/transparencia"
+          className="mt-4 inline-block rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy-soft"
+        >
+          Ver panel de transparencia completo →
+        </Link>
+      </section>
+
       {/* TRANSPARENCIA ECONÓMICA */}
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
         Transparencia económica del Concejo

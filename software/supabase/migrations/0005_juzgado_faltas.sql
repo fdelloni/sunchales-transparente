@@ -14,7 +14,8 @@
 --   - Ley provincial 10.703 (Código de Faltas)
 --   - Ley provincial 13.169 (tránsito), 13.133 (convenios)
 --   - Ley 14.436 (LOM, Decreto 711/2026)
---   - Ley nacional 27.275 (acceso a la información pública)
+--   - Ordenanza Sunchales N° 1872/2009 (acceso a la información pública municipal)
+--   - Decreto Pcial. Santa Fe N° 0692/2009 (mecanismo provincial supletorio)
 --   - Ley nacional 25.326 (protección de datos personales)
 -- =====================================================================
 
@@ -188,7 +189,7 @@ create table if not exists juzgado_brechas (
     detectada_el        date not null,
     ultimo_seguimiento  date,
     pedido_aip_id       uuid,                              -- si se presentó AIP, ref a juzgado_pedidos_aip
-    plazo_legal_dias    integer,                           -- plazo de respuesta según Ley 27.275 (15 hábiles)
+    plazo_legal_dias    integer,                           -- plazo de respuesta según Ord. 1872/2009 (10 hábiles + 5 prórroga)
     plazo_vence_el      date,                              -- calculado al presentar el AIP
     respuesta_municipal text,                              -- contenido recibido (si la hubo)
     visibilidad         text not null default 'publica',
@@ -320,60 +321,62 @@ select
 from juzgado_brechas b
 where b.visibilidad = 'publica';
 
--- ============== SEED DE BRECHAS DETECTADAS AL 02/05/2026 =========
+-- ============== SEED DE BRECHAS DETECTADAS AL 03/05/2026 =========
 -- Estas brechas reflejan información que el Municipio está obligado a
--- publicar por Ley 27.275 y normas concordantes, y que al 02/05/2026
--- no se encuentra accesible.
+-- publicar por la Ord. Sunchales 1872/2009 y normas concordantes, y que
+-- al 03/05/2026 no se encuentra accesible. Cada fundamento_url apunta al
+-- texto oficial del PDF de la Ordenanza 1872/2009 alojado por el propio
+-- Concejo Municipal de Sunchales.
 insert into juzgado_brechas (titulo, descripcion, categoria, estado, fundamento_normativo, fundamento_url, detectada_el)
 values
 ('Estadísticas agregadas de actas labradas y resueltas',
  'No se publica la cantidad anual y mensual de actas labradas, resueltas, archivadas o prescriptas por tipo de falta.',
  'actividad_sancionatoria','no_publicado',
- 'Ley 27.275 art. 1 y 5 — máxima divulgación; principio constitucional de publicidad de los actos de gobierno.',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 (Art. 1°) — derecho de acceso fundado en el principio constitucional de publicidad de los actos de gobierno (CN Art. 1°).',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Recaudación por multas y sanciones',
  'No se publica el monto recaudado mensual y anual, tasa de cobrabilidad y montos pendientes.',
  'recursos_publicos','no_publicado',
- 'Ley 27.275; Constitución de Santa Fe (publicidad de la hacienda pública).',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 · Constitución de Santa Fe (publicidad de la hacienda pública) · CN Art. 1°.',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Destino y afectación de los fondos recaudados',
  'No se publica si la recaudación tiene afectación específica o va a Rentas Generales, ni la trazabilidad ingreso → ejecución.',
  'trazabilidad_fondos','no_publicado',
- 'Constitución Nacional (forma republicana); Ley 27.275; principio de rendición de cuentas.',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Constitución Nacional Art. 1° (forma republicana → publicidad de los actos de gobierno) · Ordenanza Sunchales 1872/2009 · principio de rendición de cuentas.',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Ordenanza orgánica del Juzgado de Faltas',
  'La ordenanza que organiza el Juzgado, fija competencia y garantías de imparcialidad no se encuentra en buscadores estándar.',
  'estructura_organica','no_publicado',
- 'Ley 27.275 art. 5 inc. b (estructura orgánica); art. 2 Código Civil y Comercial (publicidad de las normas).',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 (toda información en poder del municipio incluye su estructura orgánica) · art. 2 Código Civil y Comercial (publicidad de las normas).',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Régimen Municipal de Faltas consolidado',
  'El catálogo de faltas municipales con tipología, escalas, plazos y procedimientos no está consolidado y disponible.',
  'marco_normativo','no_publicado',
- 'Ley 27.275; principio de legalidad sancionatoria (CN art. 18) — no hay sanción sin ley previa accesible.',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 · principio de legalidad sancionatoria (CN art. 18) — no hay sanción sin ley previa accesible.',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Convenio con la Agencia Provincial de Seguridad Vial',
  'No se publica si el Juzgado está habilitado bajo Ley 13.133 ni el texto del convenio con la APSV.',
  'convenios_publicos','no_publicado',
- 'Ley 27.275 art. 5 inc. f (convenios y contratos celebrados por el Estado).',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 (los convenios y contratos celebrados por el municipio son información pública por regla).',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Indicadores de calidad procesal',
  'Tiempo medio de tramitación, tasa de recursos, tasa de revocaciones por la justicia ordinaria.',
  'calidad_institucional','no_publicado',
- 'Ley 27.275 (información generada y custodiada por el Estado); estándares interamericanos de transparencia activa.',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02'),
+ 'Ordenanza Sunchales 1872/2009 (información generada y custodiada por el municipio) · estándares interamericanos de transparencia activa (CADH Art. 13).',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03'),
 ('Datos abiertos del Juzgado',
  'Dataset agregado y anonimizado en formatos abiertos (CSV/JSON, CC-BY-4.0) reutilizable por terceros.',
  'datos_abiertos','no_publicado',
- 'Ley 27.275 art. 32 (formatos abiertos por defecto); principio de máxima divulgación.',
- array['https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949'],
- '2026-05-02');
+ 'Decreto Pcial. Santa Fe 0692/2009 (principio de máxima divulgación) · Ordenanza Sunchales 1872/2009 (información en cualquier soporte).',
+ array['https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf'],
+ '2026-05-03');
 
 -- =====================================================================
 -- FIN DE LA MIGRACIÓN

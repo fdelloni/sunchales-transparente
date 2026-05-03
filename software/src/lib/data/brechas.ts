@@ -4,33 +4,36 @@
  * Una "brecha" es información de publicación obligatoria que el Estado municipal
  * aún no expone públicamente. Hacer visible la omisión —con su fundamento normativo—
  * es parte del deber estatal de publicidad de los actos de gobierno y refuerza el
- * principio de máxima divulgación (Ley 27.275, CADH art. 13, CN arts. 1, 14 y 75
- * inc. 22; Constitución de Santa Fe reforma 2025; Ley Orgánica de Municipios
- * N° 14.436). NO expone datos personales de ciudadanos privados.
+ * principio de máxima divulgación.
+ *
+ * MARCO NORMATIVO REAL aplicable a Sunchales (verificado contra fuentes oficiales):
+ *
+ *  1. Ordenanza Sunchales N° 1872/2009 (vinculante local) — Acceso a la Información
+ *     Pública. Sancionada el 09/03/2009. 10 artículos. Plazo: 10 días hábiles + 5
+ *     de prórroga (Art. 7). Sujetos obligados: Municipalidad, entes autárquicos
+ *     o descentralizados, Concejo Municipal, Juzgado de Faltas, prestatarias de
+ *     servicios públicos con participación municipal. Gratuita, sin patrocinio,
+ *     sin necesidad de motivos (Arts. 3 y 6).
+ *     PDF: https://concejosunchales.gob.ar/documentos/digesto/O18722009.pdf
+ *     Página oficial: https://concejosunchales.gob.ar/acceso-informacion-publica.aspx
+ *
+ *  2. Decreto Pcial. Santa Fe N° 0692/2009 (supletorio provincial) — plazos
+ *     15+5+10 días hábiles. Principios: igualdad, publicidad, celeridad,
+ *     informalidad, gratuidad, máxima divulgación.
+ *     URL: https://www.santafe.gov.ar/index.php/web/content/view/full/199538/(subtema)/93811
+ *
+ *  3. Fundamento constitucional general — Constitución Nacional Art. 1 (forma
+ *     republicana de gobierno → publicidad de los actos de gobierno), Art. 33
+ *     (derechos no enumerados), Art. 75 inc. 22 (CADH Art. 13 y DUDH con jerarquía
+ *     constitucional).
+ *
+ *  4. Límite legítimo: Ley Nacional 25.326 (Protección de Datos Personales).
+ *
+ * NO se cita la Ley 27.275 porque su jurisdicción es el sector público NACIONAL,
+ * no rige para municipios — citarla como obligación local sería un error técnico-jurídico.
  *
  * Cada brecha aquí declarada se publica como dato abierto bajo CC-BY-4.0
  * y se sirve por la API REST en /api/v1/brechas (futuro).
- *
- * RECALIBRACIÓN 03/05/2026: este archivo se actualizó después de un mapeo
- * sistemático del sitio del Concejo Municipal (concejosunchales.gob.ar).
- * Se eliminaron las brechas que NO eran reales (información que SÍ publican)
- * y quedaron solo las brechas verificadas como ausentes o incompletas.
- *
- * Información que el Concejo SÍ publica (verificado al 03/05/2026):
- *   - Listado completo de concejales con datos de contacto y CV
- *   - Personal del Concejo
- *   - 23+ comisiones donde participan concejales (con integrantes y resoluciones)
- *   - Proyectos en estado parlamentario (con expediente, fecha, autores)
- *   - Boletín informativo bimestral (publicación regular)
- *   - Resumen anual desde 2012
- *   - Ejecución partida presupuestaria mensual desde 2020
- *   - Movimiento de saldos del presupuesto
- *   - Histórico de la UCM (todas las ordenanzas que la actualizan)
- *   - Normativa local con buscador
- *   - Normativa ambiental, decretos, jurisprudencia local
- *   - Régimen local de AIP (Ordenanza N° 1872/2009, plazo 10+5 días)
- *   - Registro de iniciativas ciudadanas
- *   - Patrimonio cultural sunchalense con detalle
  */
 
 export type BrechaModulo =
@@ -80,9 +83,18 @@ export type Brecha = {
   publicacionParcialUrl?: string;
 };
 
+const FUND_LOCAL =
+  "Ordenanza Sunchales 1872/2009 (acceso a la información pública municipal). Plazo de respuesta 10 días hábiles + 5 de prórroga.";
+const FUND_PROV =
+  "Decreto Pcial. Santa Fe 0692/2009 (supletorio): principios de máxima divulgación, gratuidad, celeridad, informalidad.";
+const FUND_CONST =
+  "Constitución Nacional art. 1 (publicidad de los actos de gobierno) · art. 75 inc. 22 (CADH art. 13).";
+
+const URL_OAIP_LOCAL =
+  "https://concejosunchales.gob.ar/acceso-informacion-publica.aspx";
+
 export const brechas: Brecha[] = [
   // ===== DIGESTO Y CONCEJO =====
-  // (Brechas verificadas tras mapeo del 03/05/2026)
   {
     id: "dig-datos-abiertos",
     modulo: "digesto",
@@ -91,9 +103,8 @@ export const brechas: Brecha[] = [
       "El Concejo publica abundante información (boletines, resúmenes, ejecución presupuestaria, normativa, comisiones), pero exclusivamente en PDF y HTML. No existen datasets en formatos abiertos (CSV, JSON, GeoJSON) reutilizables por periodismo de datos, academia y organizaciones civiles.",
     categoria: "datos_abiertos",
     estado: "publicado_formato_cerrado",
-    fundamento:
-      "Ley 27.275 art. 32 (formatos digitales abiertos por defecto) · principio de máxima divulgación · estándares interamericanos de transparencia activa.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03",
     publicacionParcialUrl: "https://concejosunchales.gob.ar/"
   },
@@ -105,9 +116,8 @@ export const brechas: Brecha[] = [
       "El digesto publica los textos originales de cada ordenanza, pero no el texto consolidado con todas las modificaciones posteriores incorporadas. Para saber qué dice una ordenanza hoy hay que rastrear sucesivas modificaciones por separado, lo que dificulta la accesibilidad efectiva del derecho.",
     categoria: "marco_normativo",
     estado: "publicado_parcial",
-    fundamento:
-      "Ley 27.275 art. 32 · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas — art. 2 Código Civil y Comercial.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas (art. 2 Código Civil y Comercial).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03",
     publicacionParcialUrl:
       "https://concejosunchales.gob.ar/Normativa-local.aspx"
@@ -120,9 +130,8 @@ export const brechas: Brecha[] = [
       "No se publica en formato estructurado y consultable el voto individual de cada concejal en cada proyecto. La información puede estar dispersa en actas y diarios de sesiones, pero no hay un dataset agregado que permita al ciudadano ver de un vistazo cómo votó su representante.",
     categoria: "actividad_legislativa",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. h · principio republicano de responsabilidad de los representantes (CN art. 1).",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio republicano de responsabilidad de los representantes.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -133,15 +142,16 @@ export const brechas: Brecha[] = [
       "Las declaraciones juradas patrimoniales de concejales y funcionarios alcanzados no están públicamente disponibles en una versión pública (sin datos sensibles) accesible al ciudadano.",
     categoria: "estructura_organica",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. p · estándares anti-corrupción CICC y MESICIC · Convención Interamericana contra la Corrupción.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · estándares anti-corrupción CICC y MESICIC · Convención Interamericana contra la Corrupción.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
 
   // ===== JUZGADO DE FALTAS =====
-  // (Mantenidas: el sitio del Juzgado de Faltas en sunchales.gob.ar/juzgado-faltas
-  //  publica solo trámites individuales, no datos agregados.)
+  // El sitio del Juzgado en sunchales.gob.ar/juzgado-faltas publica solo
+  // trámites individuales (comparecencia, certificados de libre multa), no
+  // datos agregados sobre actividad sancionatoria, recaudación y destino.
+  // El Juzgado de Faltas es sujeto obligado expreso de la Ord. 1872/2009.
   {
     id: "juz-estadisticas-actas",
     modulo: "juzgado-faltas",
@@ -150,9 +160,8 @@ export const brechas: Brecha[] = [
       "No se publica la cantidad anual y mensual de actas labradas, resueltas, archivadas o prescriptas, desagregadas por tipo de falta. Son datos agregados que no exponen a ningún ciudadano individual.",
     categoria: "actividad_sancionatoria",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 1 y 5 · principio constitucional de publicidad de los actos de gobierno.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} (Juzgado de Faltas es sujeto obligado expreso) · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -163,9 +172,8 @@ export const brechas: Brecha[] = [
       "No se publica el monto recaudado mensual y anual por multas y sanciones aplicadas, ni la tasa de cobrabilidad o los montos pendientes.",
     categoria: "recursos_publicos",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · Constitución de Santa Fe (publicidad de la hacienda pública) · principio de rendición de cuentas.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de rendición de cuentas.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -176,9 +184,8 @@ export const brechas: Brecha[] = [
       "No se publica si la recaudación de multas tiene afectación específica (por ejemplo, seguridad vial) o se imputa a Rentas Generales, ni el rastreo desde el ingreso hasta la ejecución.",
     categoria: "trazabilidad_fondos",
     estado: "no_publicado",
-    fundamento:
-      "Constitución Nacional (forma republicana) · Ley 27.275 · principio de rendición de cuentas inherente a la administración pública.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} (forma republicana → rendición de cuentas).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -189,9 +196,8 @@ export const brechas: Brecha[] = [
       "La ordenanza que organiza el Juzgado, fija su competencia, designa al juez y establece garantías de imparcialidad no se encuentra fácilmente accesible en buscadores ni en una sección dedicada del sitio del Juzgado.",
     categoria: "estructura_organica",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. b (estructura orgánica) · art. 2 Código Civil y Comercial (publicidad de las normas).",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · publicidad de las normas (art. 2 Código Civil y Comercial).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -202,9 +208,8 @@ export const brechas: Brecha[] = [
       "El catálogo de faltas municipales con tipología, escalas de sanciones, plazos y procedimientos no está consolidado y disponible públicamente en una sección integrada del sitio del Juzgado.",
     categoria: "marco_normativo",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · principio de legalidad sancionatoria (CN art. 18) — no se puede aplicar sanción sin ley previa, accesible y conocida.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · principio de legalidad sancionatoria (CN art. 18) — no se puede aplicar sanción sin ley previa, accesible y conocida.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -215,9 +220,8 @@ export const brechas: Brecha[] = [
       "No se publica si el Juzgado está habilitado bajo Ley provincial 13.133 ni el texto del convenio que delimita competencias y reparto de fondos.",
     categoria: "convenios_publicos",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 art. 5 inc. f (convenios y contratos celebrados por el Estado).",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · convenios y contratos celebrados por el Estado son información pública por regla.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -228,9 +232,8 @@ export const brechas: Brecha[] = [
       "Tiempos medios de tramitación, tasa de recursos interpuestos, tasa de revocaciones por la justicia ordinaria. Indicadores de calidad institucional —no de productividad sancionatoria—.",
     categoria: "calidad_institucional",
     estado: "no_publicado",
-    fundamento:
-      "Ley 27.275 · estándares interamericanos de transparencia activa.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · estándares interamericanos de transparencia activa.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
   {
@@ -241,8 +244,8 @@ export const brechas: Brecha[] = [
       "Dataset agregado y anonimizado en formatos abiertos (CSV/JSON, CC-BY-4.0) reutilizable por periodismo de datos, academia y organizaciones civiles.",
     categoria: "datos_abiertos",
     estado: "no_publicado",
-    fundamento: "Ley 27.275 art. 32 · principio de máxima divulgación.",
-    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} (principio de máxima divulgación).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   }
 ];
@@ -275,5 +278,5 @@ export const labelCategoria: Record<BrechaCategoria, string> = {
   datos_abiertos: "Datos abiertos",
   estructura_organica: "Estructura orgánica",
   participacion_ciudadana: "Participación ciudadana",
-  actividad_legislativa: "Actividad legislativa"
+  actividad_legislativa: "Actividad legislativa",
 };

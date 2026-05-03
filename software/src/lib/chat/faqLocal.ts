@@ -109,11 +109,23 @@ const faqWeb: Array<{
     }
   },
   {
-    keywords: ["transparencia", "ley 27275", "acceso informacion", "acceso a la información"],
+    keywords: [
+      "transparencia",
+      "acceso informacion",
+      "acceso a la información",
+      "ordenanza 1872",
+      "marco normativo",
+      "fundamento legal",
+      "publicidad actos de gobierno"
+    ],
     respuesta: {
       texto:
-        "El marco aplicable combina la Ley nacional 27.275 (acceso a la información pública), el Decreto provincial " +
-        "Santa Fe 0692/2009 y el principio de máxima divulgación incorporado en la reforma constitucional santafesina de 2025."
+        "El marco aplicable a Sunchales es: (1) Ordenanza Municipal N° 1872/2009 — vinculante, regula directamente el " +
+        "derecho de acceso a la información pública en el municipio, plazo de respuesta 10 días hábiles + 5 de prórroga; " +
+        "(2) Decreto Provincial Santa Fe N° 0692/2009 — supletorio, principios de máxima divulgación y gratuidad; " +
+        "(3) fundamento constitucional: Art. 1° y 75 inc. 22 CN (forma republicana → publicidad de los actos de gobierno; " +
+        "CADH Art. 13). La Ley nacional 27.275 NO se aplica a municipios.",
+      links: [{ label: "Ver marco normativo completo", href: "/marco-normativo" }]
     }
   },
   {

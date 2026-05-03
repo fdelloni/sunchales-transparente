@@ -467,13 +467,15 @@ export default function PersonalPage() {
 
             <div className="mt-5 rounded-md border-l-2 border-amber-500 bg-amber-50 p-3 text-[13px] text-amber-900">
               <strong>Obliga a publicar: </strong>
-              Ley 27.275 art. 5 inc. c (nómina, escala salarial y categorías de
-              personal del Estado en cualquiera de sus formas de contratación) ·
-              Constitución de Santa Fe (publicidad de la hacienda pública) · Ley
-              Orgánica de Municipios N° 14.436 · Ley provincial 9.286 (Estatuto
-              y Escalafón). La publicación agregada por sector y antigüedad{" "}
-              <strong>no expone datos personales</strong> y es la regla en
-              estándares OGP / Escazú.
+              Ordenanza Sunchales N° 1872/2009 (derecho de acceso a información
+              pública municipal, fundado en el principio de publicidad de los
+              actos de gobierno) · Constitución de Santa Fe (publicidad de la
+              hacienda pública) · Constitución Nacional Art. 1° (forma
+              republicana) · estándares interamericanos de transparencia activa.
+              La publicación agregada por sector y antigüedad{" "}
+              <strong>no expone datos personales</strong> protegidos por la Ley
+              25.326: la remuneración y el cargo en el ejercicio de funciones
+              públicas son información pública.
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -484,12 +486,10 @@ export default function PersonalPage() {
                 Sumarme al pedido de acceso
               </a>
               <a
-                href="https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/marco-normativo"
                 className="rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
               >
-                Ver Ley 27.275
+                Ver marco normativo
               </a>
             </div>
           </div>
@@ -576,9 +576,10 @@ export default function PersonalPage() {
 
             <div className="mt-5 rounded-md border-l-2 border-amber-500 bg-amber-50 p-3 text-[13px] text-amber-900">
               <strong>Obliga a publicar: </strong>
-              Ley 27.275 art. 5 inc. c (toda forma de vinculación con el
-              Estado, incluidas contrataciones) · Ley Orgánica de Municipios
-              N° 14.436 · estándares MESICIC y OGP sobre transparencia de la
+              Ordenanza Sunchales N° 1872/2009 (toda información en poder del
+              municipio, incluida la relativa a vinculaciones contractuales) ·
+              principio republicano de publicidad de los actos de gobierno (Art.
+              1° CN) · estándares interamericanos sobre transparencia de la
               fuerza laboral pública. La publicación agregada por modalidad,
               antigüedad y sector <strong>no expone datos personales</strong>.
             </div>
@@ -591,12 +592,10 @@ export default function PersonalPage() {
                 Sumarme al pedido de acceso
               </a>
               <a
-                href="https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/marco-normativo"
                 className="rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
               >
-                Ver Ley 27.275
+                Ver marco normativo
               </a>
             </div>
           </div>

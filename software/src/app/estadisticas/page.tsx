@@ -182,9 +182,10 @@ export default function EstadisticasPage() {
           (proyecto remitido al Concejo Municipal). Los datos de Personal son
           verificables públicamente respecto a los cargos; las remuneraciones son
           referenciales hasta que se publique la nómina oficial. Las brechas
-          están construidas con fundamento legal específico (Ley 27.275 y
-          concordantes) y se subsanan cuando el municipio publica la información
-          correspondiente.
+          están construidas con fundamento legal específico (Ordenanza Sunchales
+          N° 1872/2009, Decreto Pcial. 0692/2009 y principio constitucional de
+          publicidad de los actos de gobierno) y se subsanan cuando el municipio
+          publica la información correspondiente.
         </p>
         <p className="mt-3">
           Última actualización del panel:{" "}
