@@ -1,0 +1,60 @@
+name: Descargar PDFs del Concejo (diario)
+
+# Cron diario: 09:00 UTC = 06:00 Argentina (ART, UTC-3).
+# También se puede correr manualmente desde la pestaña Actions.
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+# Permisos para que la Action pueda commitear y pushear.
+permissions:
+  contents: write
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ejecutar descarga
+        run: |
+          cd software
+          node scripts/descargar-pdfs-concejo.mjs
+
+      - name: Detectar cambios
+        id: cambios
+        run: |
+          git add -A software/data/concejo
+          if git diff --cached --quiet; then
+            echo "hay_cambios=false" >> $GITHUB_OUTPUT
+          else
+            echo "hay_cambios=true" >> $GITHUB_OUTPUT
+            CANTIDAD=$(git diff --cached --numstat software/data/concejo | wc -l)
+            echo "cantidad=$CANTIDAD" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit + Push si hay cambios
+        if: steps.cambios.outputs.hay_cambios == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(concejo): actualización automática de PDFs (${{ steps.cambios.outputs.cantidad }} archivos)"
+          git push
+
+      - name: Resumen
+        run: |
+          echo "## Resultado de la sincronización" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.cambios.outputs.hay_cambios }}" = "true" ]; then
+            echo "Se commitearon **${{ steps.cambios.outputs.cantidad }}** archivos nuevos o modificados en \`software/data/concejo/\`." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No hubo cambios. El repo ya estaba sincronizado con concejosunchales.gob.ar." >> $GITHUB_STEP_SUMMARY
+          fi

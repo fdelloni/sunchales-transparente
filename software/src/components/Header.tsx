@@ -10,6 +10,7 @@ const links = [
   { href: "/personal", label: "Personal" },
   { href: "/contrataciones", label: "Contrataciones" },
   { href: "/digesto", label: "Digesto" },
+  { href: "/concejo", label: "Concejo" },
   { href: "/juzgado-faltas", label: "Juzgado" },
   { href: "/datos-abiertos", label: "Datos Abiertos" },
   { href: "/suscripciones", label: "Suscribirme" },
