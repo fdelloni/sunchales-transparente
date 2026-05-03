@@ -5,23 +5,29 @@ import SuscripcionForm from "./SuscripcionForm";
 export default function SuscripcionesPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
-      <span className="eyebrow">Módulo · Suscripciones a alertas</span>
+      <span className="eyebrow">Módulo · Alertas ciudadanas</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
-        Recibí cada nueva licitación apenas se publica
+        Enterate apenas pasa algo en el municipio
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
-        Suscribite con tu correo electrónico o WhatsApp y recibí una alerta
-        cuando se publique una contratación que coincida con tus filtros.
-        Podés filtrar por categoría, área, tipo de procedimiento y monto
-        mínimo. La suscripción es gratuita, opt-in y revocable en cualquier
-        momento desde el mismo enlace que llega en cada alerta.
+        Suscribite con tu correo electrónico o WhatsApp y elegí qué tipos de
+        alertas querés recibir: nuevas contrataciones, sesiones del Concejo,
+        cambios al presupuesto, modificaciones del régimen de faltas o avances
+        en transparencia. Cada alerta es <strong>gratuita</strong>, requiere{" "}
+        <strong>opt-in con doble confirmación</strong> y es revocable en un click
+        desde cualquier mensaje recibido.
+      </p>
+      <p className="mt-2 max-w-3xl text-xs text-slate-500">
+        Hoy las alertas de <strong>Contrataciones</strong> ya están operativas. El
+        resto de las categorías están "en desarrollo": tu suscripción captura la
+        preferencia y se activará automáticamente cuando se conecte el disparador
+        en Fase 2 — sin necesidad de que vuelvas a registrarte.
       </p>
 
       {/* KPIs */}
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <StatCard value="Email" label="Notificación por correo" />
         <StatCard value="WhatsApp" label="Notificación por mensajería" />
-        <StatCard value="0 spam" label="Solo cuando hay coincidencia" />
       </div>
 
       {/* Form */}
