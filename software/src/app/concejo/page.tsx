@@ -8,6 +8,7 @@ import {
   aipLocal,
   concejoInfo
 } from "@/lib/data/concejo";
+import { resumenesAnuales } from "@/lib/data/resumenes-anuales.generated";
 
 export const metadata = {
   title: "Concejo Municipal · Sunchales Transparente",
@@ -247,6 +248,142 @@ export default function ConcejoPage() {
           </div>
         ))}
       </div>
+
+      {/* TRANSPARENCIA ECONÓMICA */}
+      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+        Transparencia económica del Concejo
+      </h2>
+      <p className="mt-2 max-w-3xl text-slate-600">
+        El Concejo publica mensualmente la ejecución de su partida
+        presupuestaria, los movimientos de saldos y las ordenanzas que
+        actualizan la Unidad de Cuenta Municipal (UCM). Datos descargados
+        diariamente desde el sitio oficial.
+      </p>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        <Link
+          href="https://concejosunchales.gob.ar/ejecucion-partida-presupuestaria.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <div className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+            Mensual
+          </div>
+          <h3 className="mt-1 font-serif text-lg font-bold text-navy">
+            Ejecución partida presupuestaria
+          </h3>
+          <div className="mt-2 font-serif text-3xl font-bold text-navy">
+            183
+          </div>
+          <p className="text-xs text-slate-500">PDFs sincronizados (mensual desde 2010)</p>
+        </Link>
+        <Link
+          href="https://concejosunchales.gob.ar/movimiento-de-saldos.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <div className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+            Mensual
+          </div>
+          <h3 className="mt-1 font-serif text-lg font-bold text-navy">
+            Movimientos de saldos
+          </h3>
+          <div className="mt-2 font-serif text-3xl font-bold text-navy">
+            123
+          </div>
+          <p className="text-xs text-slate-500">Estados de Ejecución del Presupuesto</p>
+        </Link>
+        <Link
+          href="https://concejosunchales.gob.ar/valor-de-la-ucm.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <div className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+            Histórico
+          </div>
+          <h3 className="mt-1 font-serif text-lg font-bold text-navy">
+            Valor de la UCM
+          </h3>
+          <div className="mt-2 font-serif text-3xl font-bold text-navy">
+            30
+          </div>
+          <p className="text-xs text-slate-500">Ordenanzas que actualizan la UCM (última: 3281/2026)</p>
+        </Link>
+      </div>
+
+      {/* RESÚMENES ANUALES */}
+      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+        Resúmenes anuales del Concejo
+      </h2>
+      <p className="mt-2 max-w-3xl text-slate-600">
+        El Concejo Municipal publica un resumen oficial de su actividad cada
+        año desde 2012. Acceso directo a los {resumenesAnuales.length}{" "}
+        resúmenes con su fecha de publicación oficial.
+      </p>
+      {resumenesAnuales[0] && (
+        <article className="mt-5 rounded-2xl border-2 border-coral/40 bg-gradient-to-br from-amber-50 to-white p-6 shadow-sm">
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+            Más reciente
+          </span>
+          <h3 className="mt-1 font-serif text-2xl font-bold text-navy">
+            {resumenesAnuales[0].titulo}
+          </h3>
+          <p className="mt-1 text-sm text-slate-600">
+            Publicado el {resumenesAnuales[0].fechaPublicacion} ·{" "}
+            {(resumenesAnuales[0].tamanioBytes / 1024 / 1024).toFixed(1)} MB
+          </p>
+          {resumenesAnuales[0].fragmento && (
+            <p className="mt-3 text-sm text-slate-700 line-clamp-4">
+              {resumenesAnuales[0].fragmento}
+            </p>
+          )}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link
+              href={resumenesAnuales[0].urlOriginal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-coral px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
+            >
+              Descargar PDF
+            </Link>
+          </div>
+        </article>
+      )}
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {resumenesAnuales.slice(1).map((r) => (
+          <Link
+            key={r.id}
+            href={r.urlOriginal}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div className="font-serif text-2xl font-bold text-navy">
+              {r.anio}
+            </div>
+            <div className="mt-0.5 text-xs text-slate-500">
+              Publicado el {r.fechaPublicacion}
+            </div>
+            <div className="mt-1 text-xs text-slate-500">
+              {(r.tamanioBytes / 1024 / 1024).toFixed(1)} MB · PDF
+            </div>
+          </Link>
+        ))}
+      </div>
+      <p className="mt-3 text-xs text-slate-500">
+        Los resúmenes se sincronizan automáticamente cada día desde{" "}
+        <Link
+          href="https://concejosunchales.gob.ar/resumen-anual.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-coral-dark"
+        >
+          concejosunchales.gob.ar/resumen-anual.aspx
+        </Link>
+        .
+      </p>
 
       {/* INFO INSTITUCIONAL */}
       <section className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
