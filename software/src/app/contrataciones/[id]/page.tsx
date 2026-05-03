@@ -45,8 +45,8 @@ export default async function ContratacionDetallePage({
       {c.oferentes.length > 0 && (
         <>
           <h2 className="mt-10 font-serif text-2xl font-bold text-navy">Oferentes</h2>
-          <div className="mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <table className="w-full text-sm">
+          <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+            <table className="w-full min-w-[640px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">CUIT</th>
@@ -84,8 +84,8 @@ export default async function ContratacionDetallePage({
       {c.pagos && c.pagos.length > 0 && (
         <>
           <h2 className="mt-10 font-serif text-2xl font-bold text-navy">Pagos efectuados</h2>
-          <div className="mt-3 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <table className="w-full text-sm">
+          <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+            <table className="w-full min-w-[480px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">Fecha</th>

@@ -206,7 +206,7 @@ export default function ConcejoTransparenciaPage() {
         2011, ordenadas de la más nueva a la más antigua. Cada actualización
         impacta directamente en las tasas, multas y derechos municipales.
       </p>
-      <div className="mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="-mx-4 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
         <table className="w-full min-w-[600px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>

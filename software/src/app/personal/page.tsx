@@ -263,8 +263,8 @@ export default function PersonalPage() {
           la nómina salarial estructurada (ver brecha #per-remuneraciones-reales).
         </p>
 
-        <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="w-full text-sm">
+        <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+          <table className="w-full min-w-[600px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Área</th>
@@ -336,8 +336,8 @@ export default function PersonalPage() {
             Descargar CSV
           </a>
         </div>
-        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="w-full text-sm">
+        <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+          <table className="w-full min-w-[820px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Apellido y nombre</th>
@@ -496,13 +496,13 @@ export default function PersonalPage() {
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="/suscripciones"
-                className="rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
+                className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
               >
                 Sumarme al pedido de acceso
               </a>
               <a
                 href="/marco-normativo"
-                className="rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
+                className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
               >
                 Ver marco normativo
               </a>
@@ -602,13 +602,13 @@ export default function PersonalPage() {
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="/suscripciones"
-                className="rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
+                className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
               >
                 Sumarme al pedido de acceso
               </a>
               <a
                 href="/marco-normativo"
-                className="rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
+                className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
               >
                 Ver marco normativo
               </a>
