@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import EstadisticasCharts from "./EstadisticasCharts";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
@@ -36,6 +37,20 @@ export default function EstadisticasPage() {
         Cada cifra está atada a su fuente. Lo verificado se etiqueta como tal; lo
         pendiente, también.
       </p>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Buscá un indicador o estadística"
+          placeholder="Ej: ¿Cuántos habitantes tiene Sunchales?"
+          sugerencias={[
+            "¿Cuántos habitantes tiene Sunchales?",
+            "¿Cuál es la tasa de transparencia?",
+            "¿Cuántas brechas hay sin subsanar?",
+            "¿Cuántas contrataciones se publicaron?",
+          ]}
+        />
+      </div>
 
       {/* KPIs principales */}
       <h2 className="mt-10 font-serif text-2xl font-bold text-navy">

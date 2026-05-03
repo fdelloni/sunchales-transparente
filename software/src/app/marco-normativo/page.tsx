@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
   cadhArt13,
   decreto0692_2009,
@@ -53,6 +54,22 @@ export default function MarcoNormativoPage() {
           Fundamento general del proyecto
         </p>
         <p className="mt-2 text-base text-slate-800">{fundamentoCorto}</p>
+      </div>
+
+      {/* Buscador de la sección */}
+      <div className="mt-8">
+        <BuscadorSeccion
+          titulo="Consultá sobre tu derecho de acceso"
+          descripcion="Preguntá en lenguaje natural sobre la Ord. 1872/2009, los plazos de respuesta, las limitaciones legítimas, qué pasa si no te contestan, etc. Buscamos en la base documental verificada y, si hace falta, una IA sintetiza usando solo esos documentos — sin inventar."
+          placeholder="Ej: ¿Qué hago si no me responden el pedido en 10 días?"
+          sugerencias={[
+            "¿Cuál es el plazo legal para responder?",
+            "¿Pueden negarme información sobre sueldos de funcionarios?",
+            "¿Cómo presento una solicitud de acceso?",
+            "¿Qué normas rigen en Sunchales?",
+          ]}
+          ctaSinResultado={{ label: "Ver Ord. 1872/2009 (PDF oficial)", href: ordenanza1872_2009.url }}
+        />
       </div>
 
       {/* Principio constitucional destacado */}

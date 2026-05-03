@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
+import BuscadorSeccion from "@/components/BuscadorSeccion";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
 import { datasets } from "@/lib/data/datasets";
@@ -37,6 +38,21 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Buscador inteligente — entrada principal del ciudadano */}
+      <section className="mx-auto max-w-6xl px-6 pt-10">
+        <BuscadorSeccion
+          titulo="¿Qué querés saber del municipio?"
+          descripcion="Hacé tu pregunta en lenguaje natural sobre presupuesto, personal, contrataciones, normas o cualquier dato publicado. Buscamos primero en la base documental verificada (gratis); si no alcanza, una IA sintetiza usando solo esos documentos. Cada respuesta lleva el link a su fuente original."
+          placeholder="Ej: ¿Cuánto se gasta en personal en 2026?"
+          sugerencias={[
+            "¿Cuál es el presupuesto total de 2026?",
+            "¿Quiénes son los secretarios municipales?",
+            "¿Cómo pido información pública al municipio?",
+            "¿Qué contrataciones hay abiertas?",
+          ]}
+        />
       </section>
 
       {/* KPIs */}
