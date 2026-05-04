@@ -297,12 +297,10 @@ export default function SuscripcionForm({
       {/* Aviso si seleccionó alguna categoría "en desarrollo" */}
       {cantEnDesarrollo > 0 && (
         <div className="rounded-lg border-l-4 border-amber-400 bg-amber-50 p-3 text-sm text-amber-900">
-          <strong>Importante:</strong> al enviar este formulario vas a recibir
-          un email de doble opt-in para confirmar tu suscripción. Una vez
-          confirmada, las alertas empezarán a llegarte automáticamente cuando
-          los <em>detectores de eventos</em> de cada categoría estén
-          operativos (Fase 2). No tenés que volver a registrarte cuando eso
-          ocurra.
+          <strong>Importante:</strong> te vamos a mandar un email para que
+          confirmes tu suscripción. <strong>Revisá tu carpeta de SPAM</strong>{" "}
+          o Correo no deseado si no lo ves en la bandeja de entrada — es común
+          que llegue ahí la primera vez.
         </div>
       )}
 

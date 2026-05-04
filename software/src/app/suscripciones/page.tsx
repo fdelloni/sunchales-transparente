@@ -10,21 +10,10 @@ export default function SuscripcionesPage() {
         Enterate apenas pasa algo en el municipio
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
-        Suscribite con tu correo electrónico o WhatsApp y elegí qué tipos de
-        alertas querés recibir: nuevas contrataciones, sesiones del Concejo,
-        cambios al presupuesto, modificaciones del régimen de faltas o avances
-        en transparencia. Cada alerta es <strong>gratuita</strong>, requiere{" "}
-        <strong>opt-in con doble confirmación</strong> y es revocable en un click
-        desde cualquier mensaje recibido.
-      </p>
-      <p className="mt-2 max-w-3xl text-xs text-slate-500">
-        <strong>Estado actual</strong>: la infraestructura de persistencia y de envío
-        de emails ya funciona end-to-end. Vas a recibir un email de doble opt-in al
-        suscribirte, y podrás darte de baja en un click desde cualquier mensaje. Lo
-        que aún está "en desarrollo" son los <em>detectores de eventos</em> por
-        categoría — los disparadores que detectan cuándo hay un dato nuevo para
-        avisarte. A medida que se activen, las alertas empiezan a llegar
-        automáticamente: no tenés que volver a registrarte.
+        Dejanos tu correo y elegí sobre qué temas querés que te avisemos:
+        nuevas contrataciones, sesiones del Concejo, cambios al presupuesto o
+        avances en transparencia. Es <strong>gratis</strong> y te podés dar de
+        baja en un click desde cualquier mensaje que recibas.
       </p>
 
       {/* KPIs */}
@@ -47,22 +36,12 @@ export default function SuscripcionesPage() {
       </div>
 
       {/* Privacidad */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Cómo cuidamos tus datos</h2>
+      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Tu privacidad</h2>
       <ul className="mt-3 space-y-2 text-sm text-slate-700">
-        <li>• Almacenamos solo el contacto (email/WhatsApp) y tus filtros.</li>
-        <li>
-          • <strong>Opt-in con doble confirmación</strong>: al suscribirte recibís un
-          enlace que tenés que clickear para activar la suscripción.
-        </li>
-        <li>• Cada alerta incluye un enlace para darte de baja en un click.</li>
-        <li>
-          • <strong>Datos cifrados en tránsito</strong> (HTTPS) y en reposo (Supabase RLS,
-          ver migraciones SQL del proyecto).
-        </li>
-        <li>
-          • <strong>No compartimos tus datos con terceros</strong>. Cumplimos Ley 25.326 de
-          Protección de Datos Personales.
-        </li>
+        <li>• Solo guardamos tu email (o WhatsApp) y los temas que elegiste.</li>
+        <li>• Para activar tu suscripción tenés que confirmar con un click en el email que te llega.</li>
+        <li>• Cada mensaje que recibas tiene un link para darte de baja al toque.</li>
+        <li>• <strong>Nunca compartimos tus datos con nadie.</strong></li>
       </ul>
     </div>
   );

@@ -161,7 +161,7 @@ export async function POST(req: Request) {
         });
         if (envio.ok) {
           mensajeEnvio =
-            "Te enviamos un email de confirmación. Hacé click en el enlace para activar tu suscripción.";
+            "Te enviamos un email de confirmación. Hacé click en el enlace para activar tu suscripción. ⚠ Revisá tu carpeta de SPAM o Correo no deseado si no lo ves en la bandeja de entrada — es común que llegue ahí la primera vez.";
         } else {
           console.error("[/api/v1/suscripciones] Brevo error:", envio.motivo);
           mensajeEnvio =
