@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import { partidas, totales } from "@/lib/data/presupuesto";
 import { formatARSCompact } from "@/lib/format";
+import ChartTooltip from "@/components/ChartTooltip";
 
 const COLORS = ["#0F1B3D", "#0C4A6E", "#1C7293", "#E8A33D", "#C97B1A", "#475569", "#94A3B8"];
 
@@ -54,10 +55,7 @@ export default function BudgetCharts() {
                   <Cell key={i} fill={COLORS[i % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip
-                formatter={(v: number) => formatARSCompact(v)}
-                contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              />
+              <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -99,10 +97,7 @@ export default function BudgetCharts() {
                 width={140}
                 tick={{ fontSize: 11, fill: "#0F172A" }}
               />
-              <Tooltip
-                formatter={(v: number) => formatARSCompact(v)}
-                contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              />
+              <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
               <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>

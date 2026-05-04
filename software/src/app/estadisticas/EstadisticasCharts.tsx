@@ -9,8 +9,7 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Legend
+  CartesianGrid
 } from "recharts";
 import {
   brechas,
@@ -20,9 +19,9 @@ import {
   type BrechaEstado
 } from "@/lib/data/brechas";
 import { partidas, totales } from "@/lib/data/presupuesto";
-import { normasDemo } from "@/lib/data/digesto";
 import { actividadPorAnio, totalesConcejo } from "@/lib/data/concejo-archivos.generated";
 import { formatARSCompact } from "@/lib/format";
+import ChartTooltip from "@/components/ChartTooltip";
 
 // Mapeo de colores por estado de brecha. Debe cubrir TODAS las keys del enum
 // `BrechaEstado` (Record exhaustivo, exigido por TypeScript estricto).
@@ -86,17 +85,6 @@ export default function EstadisticasCharts() {
     .sort((a, b) => b.value - a.value)
     .slice(0, 5);
 
-  // Normas por estado (vista demo)
-  const normasPorEstado = Object.entries(
-    normasDemo.reduce<Record<string, number>>((acc, n) => {
-      acc[n.estado] = (acc[n.estado] ?? 0) + 1;
-      return acc;
-    }, {})
-  ).map(([estado, value]) => ({
-    name: estado.charAt(0).toUpperCase() + estado.slice(1),
-    value
-  }));
-
   // Actividad legislativa anual (Concejo): documentos publicados por año
   const actividadConcejo = actividadPorAnio()
     .filter((s) => s.anio >= 2011)
@@ -131,7 +119,7 @@ export default function EstadisticasCharts() {
                     <Cell key={d.estado} fill={COLORS_BRECHAS_ESTADO[d.estado]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                <Tooltip content={<ChartTooltip />} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -168,7 +156,7 @@ export default function EstadisticasCharts() {
                   width={140}
                   tick={{ fontSize: 10, fill: "#0F172A" }}
                 />
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                <Tooltip content={<ChartTooltip />} />
                 <Bar dataKey="value" fill="#D97706" radius={[0, 6, 6, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -176,7 +164,7 @@ export default function EstadisticasCharts() {
         </ChartCard>
       </div>
 
-      {/* Brechas por módulo + Normas por estado */}
+      {/* Brechas por módulo + Actividad legislativa anual del Concejo */}
       <div className="grid gap-6 lg:grid-cols-2">
         <ChartCard
           titulo="Brechas por módulo"
@@ -188,33 +176,13 @@ export default function EstadisticasCharts() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
                 <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                <Tooltip content={<ChartTooltip />} />
                 <Bar dataKey="value" fill="#1C7293" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </ChartCard>
 
-        <ChartCard
-          titulo="Normas en el digesto por estado (vista demo)"
-          hint="Vigentes, modificadas y derogadas — datos ilustrativos"
-        >
-          <div className="h-64 w-full sm:h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={normasPorEstado} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
-                <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
-                <Bar dataKey="value" fill="#0F1B3D" radius={[6, 6, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </ChartCard>
-      </div>
-
-      {/* Actividad legislativa anual del Concejo */}
-      <div className="grid gap-6 lg:grid-cols-2">
         <ChartCard
           titulo="Actividad legislativa anual del Concejo"
           hint="Documentos publicados por año (todas las categorías)"
@@ -225,39 +193,40 @@ export default function EstadisticasCharts() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
                 <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                <Tooltip content={<ChartTooltip />} />
                 <Bar dataKey="value" fill="#E8A33D" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </ChartCard>
-
-        <ChartCard
-          titulo="Documentos del Concejo por categoría"
-          hint={`${distribucionConcejo.reduce((s, d) => s + d.value, 0)} PDFs sincronizados`}
-        >
-          <div className="h-64 w-full sm:h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={distribucionConcejo}
-                layout="vertical"
-                margin={{ top: 5, right: 20, bottom: 5, left: 8 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-                <YAxis
-                  dataKey="name"
-                  type="category"
-                  width={150}
-                  tick={{ fontSize: 10, fill: "#0F172A" }}
-                />
-                <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
-                <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </ChartCard>
       </div>
+
+      {/* Documentos del Concejo por categoría */}
+      <ChartCard
+        titulo="Documentos del Concejo por categoría"
+        hint={`${distribucionConcejo.reduce((s, d) => s + d.value, 0)} PDFs sincronizados`}
+      >
+        <div className="h-72 w-full sm:h-80">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={distribucionConcejo}
+              layout="vertical"
+              margin={{ top: 5, right: 20, bottom: 5, left: 8 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+              <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
+              <YAxis
+                dataKey="name"
+                type="category"
+                width={150}
+                tick={{ fontSize: 10, fill: "#0F172A" }}
+              />
+              <Tooltip content={<ChartTooltip />} />
+              <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </ChartCard>
 
       {/* Top finalidades del presupuesto */}
       <ChartCard
@@ -283,10 +252,7 @@ export default function EstadisticasCharts() {
                 width={130}
                 tick={{ fontSize: 10, fill: "#0F172A" }}
               />
-              <Tooltip
-                formatter={(v: number) => formatARSCompact(v)}
-                contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              />
+              <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
               <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]}>
                 {topFinalidades.map((_, i) => (
                   <Cell key={i} fill={COLORS_GENERICOS[i % COLORS_GENERICOS.length]} />

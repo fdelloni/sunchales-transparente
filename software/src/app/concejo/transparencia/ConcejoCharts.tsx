@@ -13,6 +13,7 @@ import {
   Cell,
   Legend
 } from "recharts";
+import ChartTooltip from "@/components/ChartTooltip";
 
 type SerieAnual = { anio: number; total: number };
 
@@ -52,8 +53,9 @@ export function ActividadAnualChart({ data }: { data: SerieAnual[] }) {
               tick={{ fontSize: 11, fill: "#64748B" }}
             />
             <Tooltip
-              contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              formatter={(v: number) => [`${v} documentos`, "Total"]}
+              content={
+                <ChartTooltip formatValue={(v) => `${v} documentos`} />
+              }
             />
             <Bar dataKey="total" fill="#E8A33D" radius={[6, 6, 0, 0]} />
           </BarChart>
@@ -92,7 +94,7 @@ export function CategoriasChart({
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Pie>
-            <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+            <Tooltip content={<ChartTooltip />} />
             <Legend
               wrapperStyle={{ fontSize: 11 }}
               iconSize={10}
@@ -127,7 +129,7 @@ export function UcmFrecuenciaChart({
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
             <XAxis dataKey="anio" tick={{ fontSize: 11, fill: "#0F172A" }} />
             <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-            <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+            <Tooltip content={<ChartTooltip />} />
             <Bar dataKey="cantidad" fill="#1C7293" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
