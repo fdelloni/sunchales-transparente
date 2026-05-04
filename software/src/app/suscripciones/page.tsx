@@ -18,10 +18,12 @@ export default function SuscripcionesPage() {
         desde cualquier mensaje recibido.
       </p>
       <p className="mt-2 max-w-3xl text-xs text-slate-500">
-        Hoy las alertas de <strong>Contrataciones</strong> ya están operativas. El
-        resto de las categorías están "en desarrollo": tu suscripción captura la
-        preferencia y se activará automáticamente cuando se conecte el disparador
-        en Fase 2 — sin necesidad de que vuelvas a registrarte.
+        <strong>Estado actual: todas las categorías están "en desarrollo"</strong>.
+        La infraestructura de persistencia ya funciona — tu suscripción se guarda
+        de forma segura en la base de datos del proyecto. Lo que falta conectar es
+        el despachador de email/WhatsApp (Fase 2). Cuando se active, todas las
+        suscripciones pendientes se activan automáticamente: no tenés que volver
+        a registrarte.
       </p>
 
       {/* KPIs */}
