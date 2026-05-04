@@ -18,12 +18,13 @@ export default function SuscripcionesPage() {
         desde cualquier mensaje recibido.
       </p>
       <p className="mt-2 max-w-3xl text-xs text-slate-500">
-        <strong>Estado actual: todas las categorías están "en desarrollo"</strong>.
-        La infraestructura de persistencia ya funciona — tu suscripción se guarda
-        de forma segura en la base de datos del proyecto. Lo que falta conectar es
-        el despachador de email/WhatsApp (Fase 2). Cuando se active, todas las
-        suscripciones pendientes se activan automáticamente: no tenés que volver
-        a registrarte.
+        <strong>Estado actual</strong>: la infraestructura de persistencia y de envío
+        de emails ya funciona end-to-end. Vas a recibir un email de doble opt-in al
+        suscribirte, y podrás darte de baja en un click desde cualquier mensaje. Lo
+        que aún está "en desarrollo" son los <em>detectores de eventos</em> por
+        categoría — los disparadores que detectan cuándo hay un dato nuevo para
+        avisarte. A medida que se activen, las alertas empiezan a llegar
+        automáticamente: no tenés que volver a registrarte.
       </p>
 
       {/* KPIs */}

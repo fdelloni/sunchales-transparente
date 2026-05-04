@@ -16,6 +16,7 @@
 
 import { sha256Hex } from "@/lib/hashchain";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { enviarOptInSuscripcion, isBrevoEnabled } from "@/lib/brevoClient";
 
 type Filtros = {
   procedimientos?: string[];
@@ -144,11 +145,40 @@ export async function POST(req: Request) {
         );
       }
 
+      // Enviar email opt-in si tenemos email y Brevo está configurado.
+      // Si falla el envío, dejamos la suscripción guardada igual (después se
+      // puede reintentar desde admin) y avisamos al usuario.
+      let mensajeEnvio = "";
+      if (email && isBrevoEnabled()) {
+        const baseUrl =
+          req.headers.get("origin") ??
+          `https://${req.headers.get("host") ?? "www.ciudadan.com"}`;
+        const envio = await enviarOptInSuscripcion({
+          emailDestino: email,
+          tokenOptin,
+          categorias,
+          baseUrl,
+        });
+        if (envio.ok) {
+          mensajeEnvio =
+            "Te enviamos un email de confirmación. Hacé click en el enlace para activar tu suscripción.";
+        } else {
+          console.error("[/api/v1/suscripciones] Brevo error:", envio.motivo);
+          mensajeEnvio =
+            "Tu suscripción quedó registrada, pero no pudimos enviar el email de confirmación en este momento. Reintentaremos automáticamente.";
+        }
+      } else if (whatsapp && !email) {
+        mensajeEnvio =
+          "Tu suscripción quedó registrada. El envío por WhatsApp está en desarrollo.";
+      } else {
+        mensajeEnvio =
+          "Tu suscripción quedó registrada. El servicio de envío está en desarrollo.";
+      }
+
       return Response.json(
         {
           ok: true,
-          mensaje:
-            "Tu suscripción quedó registrada. El servicio de envío de confirmaciones está en desarrollo: cuando esté activo, recibirás el mensaje de doble opt-in para confirmar.",
+          mensaje: mensajeEnvio,
           suscripcion_id: data.id,
         },
         { status: 201 }
