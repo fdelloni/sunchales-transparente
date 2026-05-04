@@ -297,11 +297,12 @@ export default function SuscripcionForm({
       {/* Aviso si seleccionó alguna categoría "en desarrollo" */}
       {cantEnDesarrollo > 0 && (
         <div className="rounded-lg border-l-4 border-amber-400 bg-amber-50 p-3 text-sm text-amber-900">
-          <strong>Importante:</strong> tu suscripción se guarda en la base de
-          datos, pero <strong>el envío de alertas todavía no está activo</strong>.
-          Cuando se conecte el sistema de email/WhatsApp en Fase 2, todas las
-          suscripciones pendientes se activan automáticamente — no tenés que
-          volver a registrarte. Hasta entonces, no recibirás mensajes.
+          <strong>Importante:</strong> al enviar este formulario vas a recibir
+          un email de doble opt-in para confirmar tu suscripción. Una vez
+          confirmada, las alertas empezarán a llegarte automáticamente cuando
+          los <em>detectores de eventos</em> de cada categoría estén
+          operativos (Fase 2). No tenés que volver a registrarte cuando eso
+          ocurra.
         </div>
       )}
 
