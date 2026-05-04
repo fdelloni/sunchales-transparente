@@ -18,6 +18,7 @@ import {
   totalesRecaudacion
 } from "@/lib/data/recaudacion";
 import { formatARSCompact } from "@/lib/format";
+import ChartTooltip from "@/components/ChartTooltip";
 
 const COLORS_CATEGORIA: Record<string, string> = {
   tributarios_propios: "#10B981",         // emerald
@@ -71,10 +72,7 @@ export default function RecaudacionCharts() {
                   <Cell key={entry.categoria} fill={COLORS_CATEGORIA[entry.categoria] ?? "#94A3B8"} />
                 ))}
               </Pie>
-              <Tooltip
-                formatter={(v: number) => formatARSCompact(v)}
-                contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              />
+              <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -120,10 +118,7 @@ export default function RecaudacionCharts() {
                 width={150}
                 tick={{ fontSize: 11, fill: "#0F172A" }}
               />
-              <Tooltip
-                formatter={(v: number) => formatARSCompact(v)}
-                contentStyle={{ borderRadius: 8, fontSize: 12 }}
-              />
+              <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
               <Bar dataKey="value" fill="#10B981" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
