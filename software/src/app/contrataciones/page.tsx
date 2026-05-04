@@ -27,6 +27,14 @@ export default function ContratacionesPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion
+          placeholder="Buscar sobre contrataciones y licitaciones…"
+          ctaSinResultado={{ label: "Suscribirme a alertas", href: "/suscripciones" }}
+        />
+      </div>
+
       <span className="eyebrow">Módulo · Licitaciones y Contrataciones</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Contrataciones del Estado Municipal
@@ -39,20 +47,6 @@ export default function ContratacionesPage() {
         modificado a posteriori. Las suscripciones por email o WhatsApp
         permiten enterarse al instante de cada nueva publicación.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre contrataciones y licitaciones…"
-          sugerencias={[
-            "¿Cuántas contrataciones están abiertas?",
-            "¿Qué es la cadena SHA-256 de auditoría?",
-            "¿Cómo me suscribo a alertas?",
-            "¿Qué debe publicarse sobre contratos?",
-          ]}
-          ctaSinResultado={{ label: "Suscribirme a alertas", href: "/suscripciones" }}
-        />
-      </div>
 
       <div className="mt-4 inline-flex flex-wrap gap-3">
         <Link

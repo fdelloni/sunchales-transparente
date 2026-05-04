@@ -8,6 +8,14 @@ import { formatNumber } from "@/lib/format";
 export default function DatosAbiertosPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion
+          placeholder="Buscar datasets o cómo usar la API…"
+          ctaSinResultado={{ label: "Ver especificación OpenAPI", href: "/api/v1/openapi" }}
+        />
+      </div>
+
       <span className="eyebrow">Módulo · Datos Abiertos</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Catálogo de Datos Abiertos
@@ -17,20 +25,6 @@ export default function DatosAbiertosPage() {
         abiertos (CSV, JSON) y consumibles vía API REST. Cualquier persona puede reutilizar
         estos datos respetando la atribución.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar datasets o cómo usar la API…"
-          sugerencias={[
-            "¿Qué datasets están publicados?",
-            "¿Cómo uso la API REST?",
-            "¿Qué es la licencia CC-BY-4.0?",
-            "¿De dónde vienen los datos?",
-          ]}
-          ctaSinResultado={{ label: "Ver especificación OpenAPI", href: "/api/v1/openapi" }}
-        />
-      </div>
 
       {/* KPIs */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

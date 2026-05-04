@@ -151,6 +151,14 @@ export default function PersonalPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion
+          placeholder="Buscar sobre personal del municipio…"
+          ctaSinResultado={{ label: "Pedir nómina por Ord. 1872/2009", href: "/marco-normativo" }}
+        />
+      </div>
+
       <span className="eyebrow">Módulo · Personal</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Personal del Municipio
@@ -166,20 +174,6 @@ export default function PersonalPage() {
         queda <em>manifiestamente declarado como brecha de transparencia</em>, con
         su fundamento normativo.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre personal del municipio…"
-          sugerencias={[
-            "¿Quién es el intendente actual?",
-            "¿Cuántos cargos políticos hay?",
-            "¿Qué información NO se publica?",
-            "¿Cuál es la masa salarial estimada?",
-          ]}
-          ctaSinResultado={{ label: "Pedir nómina por Ord. 1872/2009", href: "/marco-normativo" }}
-        />
-      </div>
 
       {/* KPIs */}
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

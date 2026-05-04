@@ -185,29 +185,7 @@ export default function BuscadorSeccion({
         </button>
       </form>
 
-      {sugerencias.length > 0 && !resp && !cargando && (
-        <div className="relative mt-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className={`text-[10px] font-semibold uppercase tracking-widest ${esCompacto ? "text-slate-500" : "text-coral"}`}>
-              Probá:
-            </span>
-            {sugerencias.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => usarSugerencia(s)}
-                className={
-                  esCompacto
-                    ? "rounded-full border border-slate-300 bg-white px-2.5 py-0.5 text-[11px] text-slate-700 hover:border-coral hover:text-coral-dark"
-                    : "rounded-full border border-white/25 bg-white/10 px-2.5 py-0.5 text-[11px] text-slate-100 transition hover:border-coral hover:bg-coral/20 hover:text-white"
-                }
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Sugerencias removidas: el buscador queda más compacto y mobile-friendly. */}
 
       {errorRed && (
         <div className="relative mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-800">

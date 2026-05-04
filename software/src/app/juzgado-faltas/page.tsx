@@ -18,6 +18,14 @@ export const metadata = {
 export default function JuzgadoFaltasPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion
+          placeholder="Buscar sobre el Juzgado de Faltas…"
+          ctaSinResultado={{ label: "Pedir estadísticas por Ord. 1872/2009", href: "/marco-normativo" }}
+        />
+      </div>
+
       <span className="eyebrow">Módulo · Juzgado Municipal de Faltas</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Juzgado Municipal de Faltas
@@ -27,20 +35,6 @@ export default function JuzgadoFaltasPage() {
         tipos de faltas, recaudación, destino de los fondos y calidad procesal.
         Datos agregados que protegen al ciudadano y exponen al Estado, no al revés.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre el Juzgado de Faltas…"
-          sugerencias={[
-            "¿Quién es el juez de faltas?",
-            "¿Qué información NO se publica?",
-            "¿A dónde van los fondos de las multas?",
-            "¿Qué es el Código de Faltas Provincial?",
-          ]}
-          ctaSinResultado={{ label: "Pedir estadísticas por Ord. 1872/2009", href: "/marco-normativo" }}
-        />
-      </div>
 
       {/* Info institucional */}
       <div className="mt-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-4">

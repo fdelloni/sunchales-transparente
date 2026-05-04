@@ -93,6 +93,11 @@ export default function ConcejoTransparenciaPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion placeholder="Buscar en el archivo del Concejo…" />
+      </div>
+
       <div className="text-xs text-slate-500">
         <Link href="/concejo" className="hover:underline">
           ← Volver a Concejo Municipal
@@ -122,19 +127,6 @@ export default function ConcejoTransparenciaPage() {
           )}
         </p>
       )}
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar en el archivo del Concejo…"
-          sugerencias={[
-            "¿Qué documentos publica el Concejo?",
-            "¿Qué iniciativas ciudadanas se presentaron?",
-            "¿Qué normativa ambiental está vigente?",
-            "¿Cuál es la ejecución presupuestaria?",
-          ]}
-        />
-      </div>
 
       {/* KPIs principales */}
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">

@@ -37,6 +37,14 @@ const jerarquiaColor: Record<Norma["jerarquia"], string> = {
 export default function MarcoNormativoPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion
+          placeholder="Buscar sobre acceso a la información…"
+          ctaSinResultado={{ label: "Ver Ord. 1872/2009 (PDF oficial)", href: ordenanza1872_2009.url }}
+        />
+      </div>
+
       <span className="eyebrow">Fundamento legal</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Marco normativo aplicable
@@ -54,20 +62,6 @@ export default function MarcoNormativoPage() {
           Fundamento general del proyecto
         </p>
         <p className="mt-2 text-base text-slate-800">{fundamentoCorto}</p>
-      </div>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre acceso a la información…"
-          sugerencias={[
-            "¿Cuál es el plazo legal para responder?",
-            "¿Pueden negarme información de sueldos?",
-            "¿Cómo presento una solicitud de acceso?",
-            "¿Qué normas rigen en Sunchales?",
-          ]}
-          ctaSinResultado={{ label: "Ver Ord. 1872/2009 (PDF oficial)", href: ordenanza1872_2009.url }}
-        />
       </div>
 
       {/* Principio constitucional destacado */}
