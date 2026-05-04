@@ -12,14 +12,14 @@ export default function HomePage() {
   return (
     <>
       {/* Buscador inteligente — entrada principal del ciudadano (arriba del hero) */}
-      <section className="mx-auto max-w-6xl px-6 pt-6 pb-8">
+      <section className="mx-auto max-w-6xl px-6 pt-6 pb-6">
         <BuscadorSeccion placeholder="¿Qué querés saber del municipio?" />
       </section>
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-coral to-coral-dark" />
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-6 pt-8 pb-12">
           <span className="eyebrow text-coral">Plataforma cívica · Fase 1</span>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight md:text-5xl">
             Cada peso público, cada acto y cada cronograma trazables por cualquier vecino.
