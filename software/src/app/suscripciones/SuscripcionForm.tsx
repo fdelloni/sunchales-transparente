@@ -36,8 +36,8 @@ const CATEGORIAS: CategoriaAlerta[] = [
     id: "contrataciones",
     titulo: "Contrataciones y licitaciones",
     descripcion:
-      "Tu suscripción se guarda en la base de datos del proyecto. Cuando se conecte el despachador de email/WhatsApp (en desarrollo), te llegarán las alertas.",
-    disponible: true,
+      "Avisame cuando se publique una nueva licitación, concurso de precios o contratación directa que coincida con mis filtros.",
+    disponible: false,
   },
   {
     id: "concejo",
@@ -297,11 +297,11 @@ export default function SuscripcionForm({
       {/* Aviso si seleccionó alguna categoría "en desarrollo" */}
       {cantEnDesarrollo > 0 && (
         <div className="rounded-lg border-l-4 border-amber-400 bg-amber-50 p-3 text-sm text-amber-900">
-          <strong>Aviso:</strong> seleccionaste {cantEnDesarrollo}{" "}
-          {cantEnDesarrollo === 1 ? "categoría que está" : "categorías que están"} "en
-          desarrollo". Vamos a registrar tu preferencia para activar esos
-          disparadores en cuanto estén listos. Mientras tanto, no recibirás alertas
-          de esas categorías.
+          <strong>Importante:</strong> tu suscripción se guarda en la base de
+          datos, pero <strong>el envío de alertas todavía no está activo</strong>.
+          Cuando se conecte el sistema de email/WhatsApp en Fase 2, todas las
+          suscripciones pendientes se activan automáticamente — no tenés que
+          volver a registrarte. Hasta entonces, no recibirás mensajes.
         </div>
       )}
 
