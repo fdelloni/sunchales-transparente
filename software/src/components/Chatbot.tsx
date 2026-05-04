@@ -241,7 +241,7 @@ export default function Chatbot() {
         <div
           role="dialog"
           aria-label="Asistente Ciudadano"
-          className="fixed bottom-24 right-3 z-50 flex h-[78vh] max-h-[600px] w-[calc(100vw-1.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:right-6 sm:w-[380px]"
+          className="fixed bottom-24 right-3 z-50 flex h-[60vh] max-h-[480px] w-[calc(100vw-1.5rem)] max-w-[320px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:right-6 sm:w-[340px]"
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-3 bg-navy px-4 py-3 text-white">
