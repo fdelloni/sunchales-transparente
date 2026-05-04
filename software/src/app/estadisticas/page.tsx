@@ -27,6 +27,11 @@ export default function EstadisticasPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion placeholder="Buscar indicadores o estadísticas…" />
+      </div>
+
       <span className="eyebrow">Sección · Estadísticas</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Estadísticas y panorama de transparencia
@@ -37,19 +42,6 @@ export default function EstadisticasPage() {
         Cada cifra está atada a su fuente. Lo verificado se etiqueta como tal; lo
         pendiente, también.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar indicadores o estadísticas…"
-          sugerencias={[
-            "¿Cuántos habitantes tiene Sunchales?",
-            "¿Cuál es la tasa de transparencia?",
-            "¿Cuántas brechas hay sin subsanar?",
-            "¿Cuántas contrataciones se publicaron?",
-          ]}
-        />
-      </div>
 
       {/* KPIs principales */}
       <h2 className="mt-10 font-serif text-2xl font-bold text-navy">

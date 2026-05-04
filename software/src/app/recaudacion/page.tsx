@@ -28,6 +28,11 @@ export default function RecaudacionPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion placeholder="Buscar sobre recaudación y recursos…" />
+      </div>
+
       <span className="eyebrow">Módulo · Recaudación municipal</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Cálculo de Recursos 2026
@@ -41,19 +46,6 @@ export default function RecaudacionPage() {
         relativos típicos hasta tanto el municipio publique el detalle del
         Cálculo de Recursos.
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre recaudación y recursos…"
-          sugerencias={[
-            "¿Cuál es la autonomía fiscal del municipio?",
-            "¿Qué porcentaje viene de coparticipación?",
-            "¿Cuál es la TGI?",
-            "¿Cuánto recauda Sunchales en total?",
-          ]}
-        />
-      </div>
 
       <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Nota jurídica:</strong> los municipios argentinos cobran{" "}

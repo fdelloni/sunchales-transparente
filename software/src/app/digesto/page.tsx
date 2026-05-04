@@ -20,6 +20,11 @@ export const metadata = {
 export default function DigestoPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion placeholder="Buscar una norma o tema legislativo…" />
+      </div>
+
       <span className="eyebrow">Módulo · Digesto y Concejo Deliberante</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Digesto Normativo y Concejo Deliberante
@@ -31,19 +36,6 @@ export default function DigestoPage() {
         Santa Fe (2025) y la Ley Orgánica de Municipios N° 14.436 (vigente desde
         abril de 2026).
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar una norma o tema legislativo…"
-          sugerencias={[
-            "¿Qué es la Carta Orgánica?",
-            "¿Qué normas vigentes hay?",
-            "¿Cuál es el marco constitucional?",
-            "¿Qué proyectos están en tratamiento?",
-          ]}
-        />
-      </div>
 
       {/* Submódulos */}
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">

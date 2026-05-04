@@ -20,6 +20,11 @@ export const metadata = {
 export default function ConcejoPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+      {/* Buscador arriba del título — entrada principal de la sección */}
+      <div className="mb-8">
+        <BuscadorSeccion placeholder="Buscar sobre el Concejo Municipal…" />
+      </div>
+
       <span className="eyebrow">Sección · Concejo Municipal</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Concejo Municipal de Sunchales
@@ -39,19 +44,6 @@ export default function ConcejoPage() {
         </Link>
         .
       </p>
-
-      {/* Buscador de la sección */}
-      <div className="mt-8">
-        <BuscadorSeccion
-          placeholder="Buscar sobre el Concejo Municipal…"
-          sugerencias={[
-            "¿Quiénes son los concejales actuales?",
-            "¿Qué comisiones existen?",
-            "¿Cómo accedo a información del Concejo?",
-            "¿Cuáles son los canales de contacto?",
-          ]}
-        />
-      </div>
 
       {/* QUE ES EL CONCEJO */}
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
