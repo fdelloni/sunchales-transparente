@@ -36,7 +36,7 @@ const CATEGORIAS: CategoriaAlerta[] = [
     id: "contrataciones",
     titulo: "Contrataciones y licitaciones",
     descripcion:
-      "Avisame cuando se publique una nueva licitación, concurso de precios o contratación directa que coincida con mis filtros.",
+      "Tu suscripción se guarda en la base de datos del proyecto. Cuando se conecte el despachador de email/WhatsApp (en desarrollo), te llegarán las alertas.",
     disponible: true,
   },
   {
