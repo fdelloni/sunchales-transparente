@@ -9,3 +9,9 @@ build
 dist
 
 .vercel
+
+# Cache intermedio del sincronizador del Digesto y del análisis Gemini.
+# Los archivos consolidados (items_completos.json, relaciones.json, estados.json)
+# SÍ se commitean — son la fuente de verdad para el build de Vercel.
+/data/digesto-oficial/detalles/
+/data/digesto-oficial/analisis-gemini/

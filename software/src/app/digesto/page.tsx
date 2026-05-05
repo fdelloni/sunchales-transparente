@@ -2,7 +2,6 @@ import Link from "next/link";
 import BrechasTransparencia from "@/components/BrechasTransparencia";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
 import {
-  normasDemo,
   sesionesDemo,
   proyectosDemo,
   jerarquia,
@@ -10,6 +9,9 @@ import {
   etapasCartaOrganica,
   fuentesDigesto
 } from "@/lib/data/digesto";
+import { normasOficiales } from "@/lib/data/digesto-oficial.generated";
+import { conteoEstados } from "@/lib/data/digesto-estados.generated";
+import ExploradorDigesto from "./ExploradorDigesto";
 
 export const metadata = {
   title: "Digesto y Concejo Deliberante · Sunchales Transparente",
@@ -205,57 +207,51 @@ export default function DigestoPage() {
         </section>
       </div>
 
-      {/* Últimas normas */}
+      {/* Explorador del Digesto oficial — datos REALES sincronizados */}
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
-        Últimas normas (vista demo)
+        Explorador del Digesto oficial
       </h2>
-      <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full min-w-[640px] text-sm">
-          <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
-            <tr>
-              <th className="px-4 py-3">Norma</th>
-              <th className="px-4 py-3">Tema</th>
-              <th className="px-4 py-3">Sanción</th>
-              <th className="px-4 py-3">Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            {normasDemo.map((n, i) => (
-              <tr key={i} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium text-navy">
-                  Ord. N° {n.numero}
-                </td>
-                <td className="px-4 py-3 text-slate-600">{n.titulo}</td>
-                <td className="px-4 py-3 text-slate-600">{n.fechaSancion}</td>
-                <td className="px-4 py-3">
-                  <EstadoBadge estado={n.estado} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p className="mt-2 text-xs text-slate-500">
-        Los números son ilustrativos. La numeración real proviene del{" "}
-        <Link
-          href={fuentesDigesto.digesto.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-coral-dark underline"
-        >
-          Digesto Municipal
-        </Link>{" "}
-        y del sitio del{" "}
-        <Link
-          href={fuentesDigesto.concejo.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-coral-dark underline"
-        >
-          Concejo Municipal
-        </Link>
-        .
+      <p className="mt-2 max-w-3xl text-sm text-slate-600">
+        <strong className="text-navy tabular-nums">{normasOficiales.length}</strong>{" "}
+        normas reales sincronizadas directamente del Digesto Municipal oficial. De
+        ellas, <strong className="text-emerald-700">{conteoEstados.vigente} vigentes</strong>,{" "}
+        <strong className="text-amber-700">{conteoEstados.modificada} modificadas</strong>{" "}
+        y <strong className="text-red-700">{conteoEstados.derogada} derogadas</strong>{" "}
+        según análisis algorítmico del texto de cada norma. Hacé click sobre el
+        número o el título para ver el detalle, el texto completo y la cita textual
+        de quién la afecta.
       </p>
+
+      <div className="mt-6">
+        <ExploradorDigesto />
+      </div>
+
+      <div className="mt-3 rounded-lg border-l-4 border-slate-300 bg-slate-50 p-3 text-xs text-slate-600">
+        <p>
+          <strong>Fuente:</strong>{" "}
+          <Link
+            href={fuentesDigesto.digesto.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-coral-dark underline"
+          >
+            Digesto Municipal de Sunchales
+          </Link>{" "}
+          (sunchales.miportal.ar/digesto). Sincronizado vía API pública del sistema
+          de e-gobierno municipal. Re-sincronizable corriendo{" "}
+          <code className="rounded bg-white px-1 py-0.5 font-mono text-[11px]">
+            npm run sincronizar-digesto
+          </code>
+          .
+        </p>
+        <p className="mt-1.5">
+          <strong>Clasificación de vigencia:</strong> análisis algorítmico con
+          Gemini 2.5 Flash sobre el texto de cada norma. Detecta derogaciones y
+          modificaciones <strong>EXPLÍCITAS</strong> (ej. <em>"Derógase la Ord. N°
+          X"</em>, <em>"Modifícase el art. Y de la Ord. Z"</em>). Las relaciones
+          tácitas requieren revisión legal humana y no se cuentan acá.
+        </p>
+      </div>
 
       {/* Proyectos en tratamiento */}
       <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
@@ -328,20 +324,6 @@ function Submodulo({
       <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
       <p className="mt-1 text-sm text-slate-600">{desc}</p>
     </div>
-  );
-}
-
-function EstadoBadge({ estado }: { estado: "vigente" | "modificada" | "derogada" }) {
-  const cfg = {
-    vigente: { cls: "bg-emerald-50 text-emerald-700", lbl: "Vigente" },
-    modificada: { cls: "bg-amber-50 text-amber-700", lbl: "Modificada" },
-    derogada: { cls: "bg-red-50 text-red-700", lbl: "Derogada" }
-  } as const;
-  const c = cfg[estado];
-  return (
-    <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${c.cls}`}>
-      {c.lbl}
-    </span>
   );
 }
 
