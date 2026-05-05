@@ -146,6 +146,19 @@ export const brechas: Brecha[] = [
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
   },
+  {
+    id: "dig-normas-pre-2022",
+    modulo: "digesto",
+    titulo: "Normas anteriores a 2022 no sincronizadas en el Digesto oficial",
+    descripcion:
+      'El Digesto Municipal oficial (sunchales.miportal.ar/digesto) contiene 964 normas reales del período 2022-2026 (479 Decretos + 296 Ordenanzas + 189 Resoluciones). Sin embargo, el análisis algorítmico del texto detectó 87 relaciones de derogación o modificación entre normas, de las cuales 51 (58%) apuntan a normas anteriores a 2022 que NO están sincronizadas en el sistema oficial. Eso significa que cualquier ciudadano que quiera saber el texto consolidado de una ordenanza histórica vigente debe rastrearla por fuera del Digesto. Es un déficit de accesibilidad efectiva del derecho.',
+    categoria: "marco_normativo",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas (art. 2 CCyCN) · publicidad y máxima divulgación de los actos de gobierno.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-05",
+    publicacionParcialUrl: "https://sunchales.miportal.ar/digesto"
+  },
 
   // ===== JUZGADO DE FALTAS =====
   // El sitio del Juzgado en sunchales.gob.ar/juzgado-faltas publica solo

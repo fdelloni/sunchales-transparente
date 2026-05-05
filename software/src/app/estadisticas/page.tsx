@@ -7,7 +7,7 @@ import { empleados } from "@/lib/data/personal";
 import { contrataciones } from "@/lib/data/contrataciones";
 import { datasets } from "@/lib/data/datasets";
 import { brechas, totalBrechasAbiertas } from "@/lib/data/brechas";
-import { normasDemo } from "@/lib/data/digesto";
+import { normasOficiales } from "@/lib/data/digesto-oficial.generated";
 import { totalPdfsConcejo, totalesConcejo } from "@/lib/data/concejo-archivos.generated";
 import { formatARSCompact, formatARS, formatNumber } from "@/lib/format";
 
@@ -178,7 +178,7 @@ export default function EstadisticasPage() {
         <ResumenCard
           tag="Digesto y Concejo"
           titulo="Normativa local"
-          valor={`${normasDemo.length} en muestra`}
+          valor={`${normasOficiales.length} normas`}
           desc="Búsqueda de ordenanzas, jerarquía normativa y análisis de coherencia."
           href="/digesto"
         />

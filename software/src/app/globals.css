@@ -18,3 +18,47 @@ html, body { background: #F8FAFC; color: #0F172A; }
   font-weight: 700;
   color: #C97B1A;
 }
+
+/* Estilos para el HTML del Digesto Municipal renderizado en /digesto/[id]
+   Las normas vienen como HTML simple con <p>, <strong>, <u>, etc.
+   Sin Tailwind Typography, definimos estilos básicos acá. */
+.texto-norma p { margin: 0 0 0.85em 0; }
+.texto-norma p:last-child { margin-bottom: 0; }
+.texto-norma strong, .texto-norma b { color: #0F1B3D; font-weight: 600; }
+.texto-norma u { text-decoration: underline; }
+.texto-norma em, .texto-norma i { font-style: italic; }
+.texto-norma h1, .texto-norma h2, .texto-norma h3,
+.texto-norma h4, .texto-norma h5, .texto-norma h6 {
+  font-family: Georgia, Cambria, serif;
+  color: #0F1B3D;
+  font-weight: 700;
+  margin: 1.4em 0 0.5em 0;
+}
+.texto-norma h1 { font-size: 1.4em; }
+.texto-norma h2 { font-size: 1.2em; }
+.texto-norma h3 { font-size: 1.1em; }
+.texto-norma ul, .texto-norma ol { margin: 0.5em 0 0.85em 1.5em; }
+.texto-norma li { margin: 0.25em 0; }
+.texto-norma table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+  font-size: 0.92em;
+}
+.texto-norma th, .texto-norma td {
+  border: 1px solid #E2E8F0;
+  padding: 0.4em 0.6em;
+  text-align: left;
+}
+.texto-norma th {
+  background: #F8FAFC;
+  font-weight: 600;
+  color: #0F1B3D;
+}
+.texto-norma blockquote {
+  border-left: 3px solid #CDE7F0;
+  padding-left: 0.8em;
+  margin: 0.5em 0;
+  color: #475569;
+  font-style: italic;
+}
