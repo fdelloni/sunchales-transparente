@@ -1,0 +1,21 @@
+{
+  "id": 545,
+  "tipo": "Ordenanza",
+  "numero": "3105",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2403",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "5"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 5° de la Ordenanza N°2403"
+    }
+  ]
+}

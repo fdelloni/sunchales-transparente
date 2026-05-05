@@ -1,0 +1,19 @@
+{
+  "id": 724,
+  "tipo": "Ordenanza",
+  "numero": "3068",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1294",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [],
+      "citaTextual": "Modifíquese el título DRe CC - DISTRITO DE RESERVA, del punto 3.2.11) DRe - DISTRITO DE RESERVA, de la Ordenanza N°1294"
+    }
+  ]
+}

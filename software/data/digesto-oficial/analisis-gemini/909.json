@@ -1,0 +1,21 @@
+{
+  "id": 909,
+  "tipo": "Ordenanza",
+  "numero": "3020",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2434",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "8"
+      ],
+      "citaTextual": "Modifiquese el ARTICULO 8° de la Ordenanza N°2434"
+    }
+  ]
+}

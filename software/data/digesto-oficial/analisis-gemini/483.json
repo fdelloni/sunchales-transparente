@@ -1,0 +1,19 @@
+{
+  "id": 483,
+  "tipo": "Ordenanza",
+  "numero": "3117",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "294",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza N° 294"
+    }
+  ]
+}

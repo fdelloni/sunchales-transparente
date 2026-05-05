@@ -1,0 +1,21 @@
+{
+  "id": 618,
+  "tipo": "Ordenanza",
+  "numero": "3238",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2027",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3 BIS"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 3 BIS de la Ordenanza N° 2027"
+    }
+  ]
+}

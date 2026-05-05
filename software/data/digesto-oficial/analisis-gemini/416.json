@@ -1,0 +1,19 @@
+{
+  "id": 416,
+  "tipo": "Ordenanza",
+  "numero": "3139",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3130",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza 3130 en todos sus términos."
+    }
+  ]
+}

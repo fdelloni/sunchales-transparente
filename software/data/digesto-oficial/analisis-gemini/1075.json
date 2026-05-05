@@ -1,0 +1,19 @@
+{
+  "id": 1075,
+  "tipo": "Ordenanza",
+  "numero": "3261",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3260",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza 3260"
+    }
+  ]
+}

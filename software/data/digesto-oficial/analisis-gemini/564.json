@@ -1,0 +1,21 @@
+{
+  "id": 564,
+  "tipo": "Ordenanza",
+  "numero": "3095",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1939",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "1"
+      ],
+      "citaTextual": "Modificase el ARTICULO 1° de la Ordenanza 1939"
+    }
+  ]
+}

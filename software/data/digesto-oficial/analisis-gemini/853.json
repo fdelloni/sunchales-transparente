@@ -1,0 +1,19 @@
+{
+  "id": 853,
+  "tipo": "Resolución",
+  "numero": "4192",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Resolución",
+        "numero": "4167",
+        "anio": 2022
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Déjase sin efecto la Resolución N° 4167/22 mediante la cual se concede licencia sin goce de haberes al agente municipal Sr. Erico ALCARAZ (DNI. 32.259.268) a partir del 15 de Octubre de 2022."
+    }
+  ]
+}

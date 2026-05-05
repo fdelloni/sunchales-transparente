@@ -1,0 +1,19 @@
+{
+  "id": 510,
+  "tipo": "Resolución",
+  "numero": "4230",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Resolución",
+        "numero": "4209",
+        "anio": 2023
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Dejase sin efecto la Resolución N° 4209/23 mediante la cual se concede licencia sin goce de haberes a la agente municipal Sra. Gabriela OCAMPO (DNI. 32.703.400) a partir del 01 de Agosto de 2023."
+    }
+  ]
+}

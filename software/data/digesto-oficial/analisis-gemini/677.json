@@ -1,0 +1,19 @@
+{
+  "id": 677,
+  "tipo": "Ordenanza",
+  "numero": "3249",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "544",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Derógase la Ordenanza N° 544"
+    }
+  ]
+}

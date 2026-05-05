@@ -1,0 +1,19 @@
+{
+  "id": 443,
+  "tipo": "Ordenanza",
+  "numero": "3132",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3074",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza N°3074"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": 293,
+  "tipo": "Ordenanza",
+  "numero": "3200",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2225",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "1"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 1° de la Ordenanza N°2225"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2225",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "1 BIS"
+      ],
+      "citaTextual": "Incorpórese como ARTÍCULO 1° BIS de la Ordenanza N° 2225"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2225",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 3° de la Ordenanza N° 2225"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2225",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "6"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 6° de la Ordenanza N° 2225"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2225",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "7"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 7° de la Ordenanza N° 2225"
+    }
+  ]
+}

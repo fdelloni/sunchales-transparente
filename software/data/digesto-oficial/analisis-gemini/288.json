@@ -1,0 +1,60 @@
+{
+  "id": 288,
+  "tipo": "Ordenanza",
+  "numero": "3195",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2207",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "20"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 20 de la Ordenanza N°2207"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2207",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "21"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 21 de la Ordenanza N° 2207"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2207",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "22"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 22 de la Ordenanza N°2207"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2207",
+        "anio": 2012
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "23"
+      ],
+      "citaTextual": "Se incorpora a la Ordenanza N° 2207/2012 el siguiente ARTÍCULO 23°"
+    }
+  ]
+}

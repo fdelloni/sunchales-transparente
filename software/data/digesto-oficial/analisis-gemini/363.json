@@ -1,0 +1,34 @@
+{
+  "id": 363,
+  "tipo": "Ordenanza",
+  "numero": "3211",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "499",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "5"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 5° de la Ordenanza N° 499"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2484",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "8 BIS"
+      ],
+      "citaTextual": "Incorpórese como ARTÍCULO 8 BIS de la Ordenanza N° 2484"
+    }
+  ]
+}

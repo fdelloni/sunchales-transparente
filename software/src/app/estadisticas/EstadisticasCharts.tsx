@@ -20,6 +20,11 @@ import {
 } from "@/lib/data/brechas";
 import { partidas, totales } from "@/lib/data/presupuesto";
 import { actividadPorAnio, totalesConcejo } from "@/lib/data/concejo-archivos.generated";
+import {
+  conteoPorTipo as conteoNormasOficiales,
+  normasOficiales
+} from "@/lib/data/digesto-oficial.generated";
+import { conteoEstados } from "@/lib/data/digesto-estados.generated";
 import { formatARSCompact } from "@/lib/format";
 import ChartTooltip from "@/components/ChartTooltip";
 
@@ -94,6 +99,22 @@ export default function EstadisticasCharts() {
   const distribucionConcejo = Object.entries(totalesConcejo)
     .map(([k, v]) => ({ name: k.replace(/-/g, " "), value: v }))
     .sort((a, b) => b.value - a.value);
+
+  // Normas en el Digesto oficial por tipo (datos REALES sincronizados desde
+  // sunchales.miportal.ar/digesto)
+  const normasOficialesPorTipo = (
+    Object.entries(conteoNormasOficiales) as [string, number][]
+  )
+    .map(([tipo, value]) => ({ name: tipo, value }))
+    .sort((a, b) => b.value - a.value);
+
+  // Estado de vigencia (computado por análisis NLP de Gemini sobre el TEXTO
+  // de las normas: detecta "Derógase la Ord. N° X" y "Modifícase el art. Y de…")
+  const normasPorEstado = [
+    { name: "Vigentes", value: conteoEstados.vigente },
+    { name: "Modificadas", value: conteoEstados.modificada },
+    { name: "Derogadas", value: conteoEstados.derogada }
+  ];
 
   return (
     <div className="space-y-6">
@@ -201,31 +222,92 @@ export default function EstadisticasCharts() {
         </ChartCard>
       </div>
 
-      {/* Documentos del Concejo por categoría */}
+      {/* Documentos del Concejo por categoría + Normas oficiales del Digesto por tipo */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ChartCard
+          titulo="Documentos del Concejo por categoría"
+          hint={`${distribucionConcejo.reduce((s, d) => s + d.value, 0)} PDFs sincronizados`}
+        >
+          <div className="h-64 w-full sm:h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={distribucionConcejo}
+                layout="vertical"
+                margin={{ top: 5, right: 20, bottom: 5, left: 8 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
+                <YAxis
+                  dataKey="name"
+                  type="category"
+                  width={150}
+                  tick={{ fontSize: 10, fill: "#0F172A" }}
+                />
+                <Tooltip content={<ChartTooltip />} />
+                <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </ChartCard>
+
+        <ChartCard
+          titulo="Normas en el Digesto oficial por tipo"
+          hint={`${normasOficiales.length} normas sincronizadas desde el Digesto Municipal (2022 — actualidad)`}
+        >
+          <div className="h-64 w-full sm:h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={normasOficialesPorTipo}
+                margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
+                <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
+                <Tooltip content={<ChartTooltip />} />
+                <Bar dataKey="value" fill="#0F1B3D" radius={[6, 6, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </ChartCard>
+      </div>
+
+      {/* Estado de vigencia (análisis IA) */}
       <ChartCard
-        titulo="Documentos del Concejo por categoría"
-        hint={`${distribucionConcejo.reduce((s, d) => s + d.value, 0)} PDFs sincronizados`}
+        titulo="Normas por estado de vigencia"
+        hint={`Clasificación algorítmica con Gemini 2.5 Flash sobre el texto de cada norma. Detecta derogaciones y modificaciones EXPLÍCITAS (ej. "Derógase la Ord. N° X"). Las relaciones tácitas no se cuentan.`}
       >
-        <div className="h-72 w-full sm:h-80">
+        <div className="h-64 w-full sm:h-72">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              data={distribucionConcejo}
-              layout="vertical"
-              margin={{ top: 5, right: 20, bottom: 5, left: 8 }}
+              data={normasPorEstado}
+              margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-              <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
-              <YAxis
-                dataKey="name"
-                type="category"
-                width={150}
-                tick={{ fontSize: 10, fill: "#0F172A" }}
-              />
+              <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
+              <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
               <Tooltip content={<ChartTooltip />} />
-              <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="value" radius={[6, 6, 0, 0]}>
+                {normasPorEstado.map((d, i) => (
+                  <Cell
+                    key={i}
+                    fill={
+                      d.name === "Vigentes"
+                        ? "#16A34A"
+                        : d.name === "Modificadas"
+                        ? "#F59E0B"
+                        : "#DC2626"
+                    }
+                  />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
+        <p className="mt-3 text-xs text-slate-500">
+          ⚠ El Digesto oficial cubre 2022 — actualidad. Muchas normas anteriores
+          no están sincronizadas, por lo que las modificaciones/derogaciones que
+          afectan a normas pre-2022 no aparecen acá.
+        </p>
       </ChartCard>
 
       {/* Top finalidades del presupuesto */}

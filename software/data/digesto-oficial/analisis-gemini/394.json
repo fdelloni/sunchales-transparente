@@ -1,0 +1,47 @@
+{
+  "id": 394,
+  "tipo": "Ordenanza",
+  "numero": "3203",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2989",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "17"
+      ],
+      "citaTextual": "Modificase el ARTÍCULO 17 de la Ordenanza N°2989"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2989",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "18"
+      ],
+      "citaTextual": "Modifícase el ARTÍCULO 18 de la Ordenanza N°2989"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2989",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "19"
+      ],
+      "citaTextual": "Modifícase el ARTÍCULO 19 de la Ordenanza N°2989"
+    }
+  ]
+}

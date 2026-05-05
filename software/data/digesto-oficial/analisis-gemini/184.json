@@ -1,0 +1,19 @@
+{
+  "id": 184,
+  "tipo": "Ordenanza",
+  "numero": "3167",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3003",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Derógase la Ordenanza 3003 en todos sus términos."
+    }
+  ]
+}

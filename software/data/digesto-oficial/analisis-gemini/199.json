@@ -1,0 +1,47 @@
+{
+  "id": 199,
+  "tipo": "Ordenanza",
+  "numero": "3168",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2550",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "2"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 2° de la Ordenanza N° 2550"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2550",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 3° de la Ordenanza N° 2550"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2550",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "4"
+      ],
+      "citaTextual": "Incorpórese como ARTÍCULO 4° de la Ordenanza N° 2550"
+    }
+  ]
+}
