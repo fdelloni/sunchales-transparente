@@ -1,0 +1,19 @@
+{
+  "id": 307,
+  "tipo": "Ordenanza",
+  "numero": "3220",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3206",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza N°3206"
+    }
+  ]
+}

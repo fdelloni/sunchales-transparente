@@ -12,7 +12,9 @@
     "descargar-pdfs": "node scripts/descargar-pdfs-concejo.mjs",
     "descargar-pdfs:listar": "node scripts/descargar-pdfs-concejo.mjs --listar",
     "procesar-pdfs": "node scripts/procesar-pdfs-concejo.mjs",
-    "indexar-resumenes": "node scripts/indexar-resumenes-anuales.mjs"
+    "indexar-resumenes": "node scripts/indexar-resumenes-anuales.mjs",
+    "sincronizar-digesto": "node scripts/sincronizar-digesto-oficial.mjs",
+    "analizar-derogaciones": "node scripts/analizar-derogaciones-gemini.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",

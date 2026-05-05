@@ -1,0 +1,21 @@
+{
+  "id": 910,
+  "tipo": "Ordenanza",
+  "numero": "3021",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2550",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "2"
+      ],
+      "citaTextual": "Modifiquese el ARTICUL0 2° de la Ordenanza N° 2550"
+    }
+  ]
+}

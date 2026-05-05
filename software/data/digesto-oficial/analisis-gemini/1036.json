@@ -1,0 +1,19 @@
+{
+  "id": 1036,
+  "tipo": "Ordenanza",
+  "numero": "2991",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2886",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Derogase la Ordenanza N° 2886 y modificatorias."
+    }
+  ]
+}

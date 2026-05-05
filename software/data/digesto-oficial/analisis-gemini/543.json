@@ -1,0 +1,21 @@
+{
+  "id": 543,
+  "tipo": "Ordenanza",
+  "numero": "3103",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1831",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3"
+      ],
+      "citaTextual": "Modifícase el ARTICULO 3° de la Ordenanza N° 1831"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": 966,
+  "tipo": "Ordenanza",
+  "numero": "3007",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2905",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Derogase la Ordenanza N° 2905"
+    }
+  ]
+}

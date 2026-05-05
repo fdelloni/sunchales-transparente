@@ -1,0 +1,21 @@
+{
+  "id": 666,
+  "tipo": "Ordenanza",
+  "numero": "3247",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3224",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "5"
+      ],
+      "citaTextual": "Modifíquese por sustitución el Anexo III del Artículo 5° de la Ordenanza N° 3224"
+    }
+  ]
+}

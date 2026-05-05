@@ -1,0 +1,19 @@
+{
+  "id": 667,
+  "tipo": "Ordenanza",
+  "numero": "3248",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3241",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza N° 3241"
+    }
+  ]
+}

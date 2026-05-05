@@ -1,0 +1,21 @@
+{
+  "id": 35,
+  "tipo": "Decreto",
+  "numero": "3471",
+  "anio": 2025,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Decreto",
+        "numero": "3366",
+        "anio": 2024
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "15"
+      ],
+      "citaTextual": "Modifíquese el artículo 15 del Decreto N° 3366/2024"
+    }
+  ]
+}

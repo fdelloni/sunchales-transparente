@@ -1,0 +1,19 @@
+{
+  "id": 96,
+  "tipo": "Ordenanza",
+  "numero": "3156",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3034",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Derógase la Ordenanza 3034"
+    }
+  ]
+}

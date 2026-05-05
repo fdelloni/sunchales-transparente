@@ -1,0 +1,19 @@
+{
+  "id": 85,
+  "tipo": "Ordenanza",
+  "numero": "3149",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1918",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese la Ordenanza N° 1918"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 889,
+  "tipo": "Ordenanza",
+  "numero": "3031",
+  "anio": 2022,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2917",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "4"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 4° de la Ordenanza N° 2917"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2917",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "5"
+      ],
+      "citaTextual": "Modifiquese el ARTICULO 5° de la Ordenanza N° 2917"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2918",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "4"
+      ],
+      "citaTextual": "Modifíquese el ARTICULO 4° de la Ordenanza N° 2918"
+    }
+  ]
+}

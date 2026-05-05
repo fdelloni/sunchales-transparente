@@ -1,0 +1,21 @@
+{
+  "id": 447,
+  "tipo": "Ordenanza",
+  "numero": "3136",
+  "anio": 2023,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3051",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "25"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 25 de la Ordenanza 3051"
+    }
+  ]
+}

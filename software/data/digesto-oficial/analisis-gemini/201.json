@@ -1,0 +1,21 @@
+{
+  "id": 201,
+  "tipo": "Ordenanza",
+  "numero": "3170",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2989",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "24"
+      ],
+      "citaTextual": "Modifíquese el inciso D del ARTÍCULO 24° de la Ordenanza N° 2989"
+    }
+  ]
+}

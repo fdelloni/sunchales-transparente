@@ -1,0 +1,47 @@
+{
+  "id": 336,
+  "tipo": "Ordenanza",
+  "numero": "3213",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2671",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "2"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 2° de la Ordenanza N°2671"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2671",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 3° de la Ordenanza N°2671"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "2671",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "9"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 9° de la Ordenanza N°2671"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": 235,
+  "tipo": "Ordenanza",
+  "numero": "3178",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1053",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "1"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 1° de la Ordenanza N° 1053"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1053",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "2"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 2° de la Ordenanza N° 1053"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1053",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "3"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 3° de la Ordenanza N° 1053"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1053",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "13"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 13 de la Ordenanza N° 1053"
+    },
+    {
+      "tipo": "modifica",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "1053",
+        "anio": null
+      },
+      "alcance": "parcial",
+      "articulos": [
+        "24"
+      ],
+      "citaTextual": "Modifíquese el ARTÍCULO 24 de la Ordenanza N°1053"
+    }
+  ]
+}

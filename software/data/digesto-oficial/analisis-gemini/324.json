@@ -1,0 +1,19 @@
+{
+  "id": 324,
+  "tipo": "Resolución",
+  "numero": "4281",
+  "anio": 2024,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Resolución",
+        "numero": "4273",
+        "anio": 2024
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Déjase sin efecto la Resolución N° 4273/24 mediante la cual se concede licencia sin goce de haberes municipal al Sr. Joaquín CARRANZA (DNI: 37050192) a partir del 20 de Enero de 2025."
+    }
+  ]
+}

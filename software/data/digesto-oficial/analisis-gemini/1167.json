@@ -1,0 +1,19 @@
+{
+  "id": 1167,
+  "tipo": "Ordenanza",
+  "numero": "3281",
+  "anio": 2026,
+  "relaciones": [
+    {
+      "tipo": "deroga",
+      "normaAfectada": {
+        "tipo": "Ordenanza",
+        "numero": "3276",
+        "anio": null
+      },
+      "alcance": "total",
+      "articulos": [],
+      "citaTextual": "Deróguese Ordenanza 3276"
+    }
+  ]
+}
