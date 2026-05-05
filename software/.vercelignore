@@ -2,8 +2,14 @@
 # IMPORTANTE: las reglas SIN "/" inicial matchean en cualquier nivel.
 # Para excluir solo en la raíz del proyecto, prefijar con "/".
 
-# PDFs descargados (referencia local, no del sitio) — solo en raíz
+# PDFs descargados (referencia local, no del sitio) — solo en raíz.
+# IMPORTANTE: el build de Vercel SÍ necesita los JSON consolidados del Digesto
+# oficial (los lee /digesto/[id] en build time para generar 964 páginas estáticas).
+# Por eso después de excluir /data/ re-incluimos explícitamente esos archivos.
 /data/
+!/data/digesto-oficial/
+/data/digesto-oficial/detalles/
+/data/digesto-oficial/analisis-gemini/
 
 # Migrations SQL — Supabase no está conectado en producción todavía
 /supabase/
