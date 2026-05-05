@@ -363,47 +363,60 @@ function BloqueRelaciones({
         {titulo}
       </h3>
       <ul className="mt-3 space-y-3">
-        {relaciones.map((r, i) => (
-          <li key={i} className="border-t border-slate-100 pt-3 first:border-t-0 first:pt-0">
-            <div className="flex flex-wrap items-baseline gap-2 text-sm">
-              <span
-                className={`rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-                  r.tipo === "deroga"
-                    ? "bg-red-100 text-red-700"
-                    : "bg-amber-100 text-amber-700"
-                }`}
-              >
-                {r.tipo === "deroga" ? "Deroga" : "Modifica"}
-                {r.alcance === "parcial" ? " (parcial)" : ""}
-              </span>
-              {r.otra.idDestino ? (
-                <Link
-                  href={`/digesto/${r.otra.idDestino}`}
-                  className="font-semibold text-navy hover:text-coral-dark hover:underline"
+        {relaciones.map((r, i) => {
+          // En el bloque "esta norma fue afectada por" (tono=destino), el
+          // verbo de la otra norma actúa SOBRE esta norma → mostrarlo en voz
+          // pasiva ("Derogada por", "Modificada por") para evitar la confusión
+          // de leer "Deroga la Ord. N° XXXX" como si la XXXX fuera la derogada.
+          let verbo: string;
+          if (tono === "origen") {
+            verbo = r.tipo === "deroga" ? "Deroga" : "Modifica";
+          } else {
+            verbo = r.tipo === "deroga" ? "Derogada por" : "Modificada por";
+          }
+          if (r.alcance === "parcial") verbo += " (parcial)";
+
+          return (
+            <li key={i} className="border-t border-slate-100 pt-3 first:border-t-0 first:pt-0">
+              <div className="flex flex-wrap items-baseline gap-2 text-sm">
+                <span
+                  className={`rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                    r.tipo === "deroga"
+                      ? "bg-red-100 text-red-700"
+                      : "bg-amber-100 text-amber-700"
+                  }`}
                 >
-                  {r.otra.tipo} N° {r.otra.numero}
-                  {r.otra.anio ? `/${r.otra.anio}` : ""}
-                </Link>
-              ) : (
-                <span className="font-semibold text-slate-500">
-                  {r.otra.tipo} N° {r.otra.numero}
-                  {r.otra.anio ? `/${r.otra.anio}` : ""}
-                  <span className="ml-1 text-[10px] font-normal text-slate-400">
-                    (no sincronizada — anterior a 2022)
+                  {verbo}
+                </span>
+                {r.otra.idDestino ? (
+                  <Link
+                    href={`/digesto/${r.otra.idDestino}`}
+                    className="font-semibold text-navy hover:text-coral-dark hover:underline"
+                  >
+                    {r.otra.tipo} N° {r.otra.numero}
+                    {r.otra.anio ? `/${r.otra.anio}` : ""}
+                  </Link>
+                ) : (
+                  <span className="font-semibold text-slate-500">
+                    {r.otra.tipo} N° {r.otra.numero}
+                    {r.otra.anio ? `/${r.otra.anio}` : ""}
+                    <span className="ml-1 text-[10px] font-normal text-slate-400">
+                      (no sincronizada — anterior a 2022)
+                    </span>
                   </span>
-                </span>
-              )}
-              {r.articulos.length > 0 && (
-                <span className="text-xs text-slate-500">
-                  art. {r.articulos.join(", ")}
-                </span>
-              )}
-            </div>
-            <blockquote className="mt-2 border-l-2 border-slate-200 pl-3 text-xs italic text-slate-600">
-              “{r.citaTextual}”
-            </blockquote>
-          </li>
-        ))}
+                )}
+                {r.articulos.length > 0 && (
+                  <span className="text-xs text-slate-500">
+                    art. {r.articulos.join(", ")}
+                  </span>
+                )}
+              </div>
+              <blockquote className="mt-2 border-l-2 border-slate-200 pl-3 text-xs italic text-slate-600">
+                “{r.citaTextual}”
+              </blockquote>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
