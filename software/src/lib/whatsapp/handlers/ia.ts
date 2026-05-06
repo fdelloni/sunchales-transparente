@@ -39,10 +39,11 @@ export const manejarIa: Handler = async (ctx) => {
 
   try {
     // 1. RAG: recuperar contexto
-    // Umbral bajo (0.1) para asegurar contexto disponible cuando hay afinidad
-    // temática. La calidad la garantiza Gemini con las reglas duras del prompt:
-    // si los chunks no responden la pregunta, el modelo lo dice y deriva.
-    const chunks = await recuperar(pregunta, { topK: 6, umbral: 0.1 });
+    // topK alto (12) y umbral muy bajo (0.05) porque el corpus indexado tiene
+    // 1850+ chunks dominados por el Digesto: chunks especificos como FAQ,
+    // funcionarios individuales y normativa marco compiten contra mucho ruido
+    // tematico. Mejor traer mas y dejar que Gemini filtre.
+    const chunks = await recuperar(pregunta, { topK: 12, umbral: 0.05 });
 
     if (chunks.length === 0) {
       return {
@@ -59,7 +60,7 @@ export const manejarIa: Handler = async (ctx) => {
     const systemInstruction = construirSystemInstruction(chunks);
     const respuestaCruda = await generar(pregunta, {
       systemInstruction,
-      maxOutputTokens: 500,
+      maxOutputTokens: 1000,
       temperatura: 0.2
     });
 
@@ -89,16 +90,19 @@ function construirSystemInstruction(chunks: ChunkRecuperado[]): string {
 
   return (
     `Sos el asistente virtual oficial de la Municipalidad de Sunchales (Santa Fe, Argentina).\n` +
-    `Respondes en español rioplatense, breve y claro. Maximo 4 oraciones o 500 caracteres.\n\n` +
-    `REGLAS DURAS — son inviolables:\n` +
-    `1. Solo respondes con informacion contenida en el bloque [CONTEXTO RECUPERADO] de abajo. NO inventes cifras, nombres, fechas ni normativa.\n` +
-    `2. Si la pregunta no se puede contestar con el contexto, lo decis directamente y derivas a sunchales.gob.ar. NO confabules.\n` +
-    `3. Citas la fuente entre parentesis al final, usando el titulo de la FUENTE relevante (ej: "(Ord. 1872/2009)" o "(Padron Municipal)").\n` +
-    `4. NO opines sobre temas politicos partidarios. Solo das hechos verificables del contexto.\n` +
-    `5. Si detectas un reclamo concreto del ciudadano (bache, luminaria), invitas a escribir *reclamo* para abrir el flujo formal.\n` +
-    `6. Tono profesional y cordial, sin formalismos excesivos.\n\n` +
-    `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]\n\n` +
-    `Si el contexto contradice la pregunta o es insuficiente, decilo. NO completes con conocimiento general.`
+    `Respondes en español rioplatense, claro y util. Maximo 5-6 oraciones, ~700 caracteres para que entre en WhatsApp sin problema.\n\n` +
+    `REGLAS — en orden de prioridad:\n` +
+    `1. Tu mision es SER UTIL al ciudadano usando la información del [CONTEXTO RECUPERADO]. Si los chunks contienen info aunque sea parcialmente relevante, USALA. Solo decis "no tengo info" si verdaderamente NINGUNO de los chunks tiene nada relacionado.\n` +
+    `2. NO inventes cifras, nombres, fechas o normativa que NO esten en el contexto. Pero SI podes combinar datos de varios chunks para armar una respuesta completa.\n` +
+    `3. Cuando hay datos contradictorios entre chunks, preferi:\n` +
+    `   a) datos mas recientes (ej: Censo 2022 sobre Plan Base 2014).\n` +
+    `   b) chunks de tipo "presupuesto", "funcionario" o "normativa-marco" sobre menciones tangenciales en PDFs del Concejo.\n` +
+    `   c) datos verificados oficialmente sobre estimaciones referenciales.\n` +
+    `4. Citas la fuente entre parentesis al final, breve y legible. Ejemplos buenos: "(Ord. 1872/2009)", "(Presupuesto 2026)", "(Censo INDEC 2022)", "(Padrón Municipal)". NO uses la pregunta como cita.\n` +
+    `5. Si la pregunta es claramente fuera de scope municipal (deportes, clima, opinion politica partidaria), decis amablemente que ese tipo de info no esta en tus datos y derivas al canal correspondiente.\n` +
+    `6. Si detectas un reclamo concreto del ciudadano (bache, luminaria, recoleccion), invitas a escribir *reclamo* para abrir el flujo formal.\n` +
+    `7. Tono profesional pero cordial, sin formalismos burocraticos.\n\n` +
+    `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]`
   );
 }
 
