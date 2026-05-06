@@ -39,11 +39,16 @@ export const manejarIa: Handler = async (ctx) => {
 
   try {
     // 1. RAG: recuperar contexto
-    // topK alto (12) y umbral muy bajo (0.05) porque el corpus indexado tiene
-    // 1850+ chunks dominados por el Digesto: chunks especificos como FAQ,
-    // funcionarios individuales y normativa marco compiten contra mucho ruido
-    // tematico. Mejor traer mas y dejar que Gemini filtre.
-    const chunks = await recuperar(pregunta, { topK: 12, umbral: 0.05 });
+    // - poolInicial=30: traer un pool grande para que el reranking tenga
+    //   suficiente material curado entre el ruido del Digesto/PDFs.
+    // - topK=10: pasamos al modelo los 10 chunks mas relevantes despues
+    //   del reranking (los curados con boost 1.4x quedan al frente).
+    // - umbral=0.05: muy permisivo, dejamos que el reranking decida.
+    const chunks = await recuperar(pregunta, {
+      topK: 10,
+      poolInicial: 30,
+      umbral: 0.05
+    });
 
     if (chunks.length === 0) {
       return {
@@ -60,7 +65,7 @@ export const manejarIa: Handler = async (ctx) => {
     const systemInstruction = construirSystemInstruction(chunks);
     const respuestaCruda = await generar(pregunta, {
       systemInstruction,
-      maxOutputTokens: 1000,
+      maxOutputTokens: 1500,
       temperatura: 0.2
     });
 

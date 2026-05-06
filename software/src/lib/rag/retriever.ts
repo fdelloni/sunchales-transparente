@@ -27,13 +27,26 @@ export type ChunkRecuperado = {
 };
 
 export type OpcionesRecuperacion = {
-  /** cuantos chunks devolver (default 5) */
+  /** cuantos chunks devolver despues del reranking (default 8) */
   topK?: number;
+  /** cuantos chunks pedir a Supabase ANTES del reranking (default 25) */
+  poolInicial?: number;
   /** filtrar por tipo de fuente (digesto, funcionario, etc.) */
   filtroTipo?: string;
-  /** umbral minimo de similitud (0..1). default 0.5 */
+  /** umbral minimo de similitud (0..1). default 0.05 */
   umbral?: number;
 };
+
+// Tipos de fuente "curados" — informacion verificada y actualizada manualmente
+// por el equipo del proyecto. Reciben boost de relevancia sobre PDFs del Concejo
+// y normas del Digesto para evitar que chunks viejos opaquen datos actuales.
+const TIPOS_CURADOS = new Set([
+  "presupuesto",
+  "funcionario",
+  "faq",
+  "normativa-marco"
+]);
+const BOOST_CURADO = 1.4; // multiplicador de similitud para tipos curados
 
 export async function recuperar(
   pregunta: string,
@@ -52,11 +65,14 @@ export async function recuperar(
     return [];
   }
 
+  const topK = opts.topK ?? 8;
+  const poolInicial = opts.poolInicial ?? 25;
+
   const { data, error } = await supabase.rpc("match_chunks_rag", {
     query_embedding: embedding,
-    match_count: opts.topK ?? 5,
+    match_count: poolInicial,
     filter_tipo: opts.filtroTipo ?? null,
-    threshold: opts.umbral ?? 0.5
+    threshold: opts.umbral ?? 0.05
   });
 
   if (error) {
@@ -67,17 +83,26 @@ export async function recuperar(
   if (!Array.isArray(data)) return [];
   const filas = data as Array<Record<string, unknown>>;
 
-  return filas.map((row) => ({
-    id: String(row.id ?? ""),
-    fuenteTipo: String(row.fuente_tipo ?? ""),
-    fuenteId: String(row.fuente_id ?? ""),
-    fuenteTitulo: String(row.fuente_titulo ?? ""),
-    fuenteUrl: (row.fuente_url as string | null) ?? null,
-    fuenteFecha: (row.fuente_fecha as string | null) ?? null,
-    texto: String(row.texto ?? ""),
-    metadata: (row.metadata as Record<string, unknown>) ?? {},
-    similarity: Number(row.similarity ?? 0)
-  }));
+  // Mapear y aplicar boost a tipos curados, despues reordenar y devolver topK.
+  const chunks = filas.map((row) => {
+    const tipo = String(row.fuente_tipo ?? "");
+    const simBase = Number(row.similarity ?? 0);
+    const simBoosted = TIPOS_CURADOS.has(tipo) ? simBase * BOOST_CURADO : simBase;
+    return {
+      id: String(row.id ?? ""),
+      fuenteTipo: tipo,
+      fuenteId: String(row.fuente_id ?? ""),
+      fuenteTitulo: String(row.fuente_titulo ?? ""),
+      fuenteUrl: (row.fuente_url as string | null) ?? null,
+      fuenteFecha: (row.fuente_fecha as string | null) ?? null,
+      texto: String(row.texto ?? ""),
+      metadata: (row.metadata as Record<string, unknown>) ?? {},
+      similarity: simBoosted
+    };
+  });
+
+  chunks.sort((a, b) => b.similarity - a.similarity);
+  return chunks.slice(0, topK);
 }
 
 /**
