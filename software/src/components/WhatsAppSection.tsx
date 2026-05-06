@@ -69,13 +69,6 @@ export default function WhatsAppSection() {
               </span>
             </div>
 
-            {ES_SANDBOX && (
-              <p className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs text-amber-900">
-                <strong>Versión piloto:</strong> al hacer clic se abre WhatsApp con un mensaje de
-                activación pre-cargado. <strong>Solo enviá ese mensaje tal cual</strong> — el
-                asistente te confirma la activación y ya podés chatear con él libremente.
-              </p>
-            )}
           </div>
 
           {/* Lado derecho: ejemplo visual */}
