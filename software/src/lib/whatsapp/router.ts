@@ -1,105 +1,64 @@
 /**
- * Router de intents.
+ * Router de intents — version conversacional pura.
  *
- * Estrategia:
- *   1) Si el usuario tiene un sub-flujo activo (ej: alta de reclamo),
- *      esa conversacion mantiene la prioridad hasta que termine o cancele.
- *   2) Comandos explicitos (numeros 1-5, "menu", "ayuda", "salir") se
- *      atienden primero.
- *   3) Despues, matching de palabras clave para FAQ y transparencia.
- *   4) Fallback: handler de IA con Claude.
+ * Filosofia: el bot es un asistente conversacional, NO un menu numerado.
+ * Por default TODO mensaje del usuario va al handler IA (RAG + Gemini 2.5 Flash).
  *
- * Mantenemos el clasificador deliberadamente simple y deterministico para
- * que el comportamiento sea auditable. La IA es solo el ultimo recurso.
+ * Excepciones (hardcoded):
+ *   1. Salir / cancelar / chau / fin     → cierra la conversacion.
+ *   2. "hola", "menu", "ayuda", saludos  → mensaje breve de bienvenida.
+ *   3. Sub-flujo de reclamo activo       → continua el flujo guiado.
+ *   4. "reclamo", "denuncia", "bache",
+ *      "luminaria", etc.                  → arranca flujo de reclamo guiado.
+ *   5. (Atajo) "3" → tambien dispara flujo de reclamo (compatibilidad).
+ *
+ * Cualquier otro texto va al handler IA. Eso permite preguntas naturales
+ * tipo: "que dice la ord 1872/2009?", "quien es el intendente?",
+ * "cuanto se gasta en salud?", etc.
  */
 
 import type { ContextoHandler, Handler, Intent } from "@/lib/whatsapp/types";
 import { manejarMenu } from "@/lib/whatsapp/handlers/menu";
-import { manejarFaq, intentaCoincidirFaq } from "@/lib/whatsapp/handlers/faq";
-import { manejarTransparencia, intentaCoincidirTransparencia } from "@/lib/whatsapp/handlers/transparencia";
 import { manejarReclamo, esComienzoDeReclamo } from "@/lib/whatsapp/handlers/reclamos";
 import { manejarIa } from "@/lib/whatsapp/handlers/ia";
 
-const TRIGGERS_MENU = ["menu", "menú", "ayuda", "help", "hola", "buenas", "buenos dias", "buenos días", "buenas tardes", "buenas noches", "/start"];
 const TRIGGERS_SALIR = ["salir", "cancelar", "chau", "gracias", "fin"];
+const TRIGGERS_SALUDO = [
+  "hola", "menu", "menú", "ayuda", "help",
+  "buenas", "buenos dias", "buenos días", "buenas tardes", "buenas noches",
+  "/start", "inicio"
+];
 
 export async function rutearMensaje(ctx: ContextoHandler): Promise<{ handler: Handler; intent: Intent }> {
   const texto = ctx.entrada.body.trim();
   const norm = texto.toLowerCase();
 
-  // 0. Comandos universales que rompen cualquier flujo en curso.
+  // 1. Comandos universales (salir) — cortan cualquier flujo en curso.
   if (TRIGGERS_SALIR.includes(norm)) {
     return {
       intent: "salir",
-      handler: async (c) => ({
-        respuesta: { texto: "Listo, salimos del flujo. Escribí *menú* cuando quieras volver." },
+      handler: async () => ({
+        respuesta: { texto: "Listo, cerramos la conversación. Cuando quieras volver, escribime de nuevo." },
         nuevoEstado: { intentActivo: null, pasoReclamo: null, reclamoBorrador: {} }
       })
     };
   }
 
-  // 1. Sub-flujo activo (alta de reclamo) tiene prioridad
+  // 2. Sub-flujo de reclamo activo: prioridad maxima hasta que termine.
   if (ctx.sesion.intentActivo === "reclamo" && ctx.sesion.pasoReclamo !== null) {
     return { intent: "reclamo", handler: manejarReclamo };
   }
 
-  // 2. Menu / ayuda explicito
-  if (TRIGGERS_MENU.includes(norm)) {
+  // 3. Saludos / pedido de menu → mensaje breve de bienvenida.
+  if (TRIGGERS_SALUDO.includes(norm)) {
     return { intent: "menu", handler: manejarMenu };
   }
 
-  // 2.5 Modo IA "pegajoso": si el usuario entro a opcion 4, todos sus mensajes
-  //     siguientes van al handler IA hasta que escriba "menu" o "salir".
-  //     Excepcion: opciones numeradas 1-4 cambian de modo.
-  if (ctx.sesion.intentActivo === "ia" && !["1", "2", "3", "4"].includes(norm)) {
-    return { intent: "ia", handler: manejarIa };
-  }
-
-  // 3. Opciones numeradas del menu
-  switch (norm) {
-    case "1":
-      return { intent: "faq", handler: async () => ({
-        respuesta: { texto: "Decime tu consulta sobre *trámites* (TGI, licencias, habilitaciones, horarios). Por ejemplo: \"¿cómo pago la TGI?\"" },
-        nuevoEstado: { intentActivo: "faq" }
-      })};
-    case "2":
-      return { intent: "transparencia", handler: async () => ({
-        respuesta: { texto:
-          "📊 *Transparencia* — escribí lo que querés saber:\n" +
-          "• \"presupuesto\" — totales 2026 y desglose\n" +
-          "• \"intendente\" o un nombre de funcionario\n" +
-          "• \"sueldos\" o \"personal\"\n" +
-          "• \"obra pública\"" },
-        nuevoEstado: { intentActivo: "transparencia" }
-      })};
-    case "3":
-      return { intent: "reclamo", handler: manejarReclamo };
-    case "4":
-      return { intent: "ia", handler: async () => ({
-        respuesta: { texto: "Hacé tu pregunta en lenguaje natural y te respondo con la información del municipio que tengo cargada. Para volver al menú escribí *menú*." },
-        nuevoEstado: { intentActivo: "ia" }
-      })};
-  }
-
-  // 4. Inicio de reclamo por keyword
-  if (esComienzoDeReclamo(texto)) {
+  // 4. Inicio explicito de reclamo (palabra clave o atajo numerico).
+  if (norm === "3" || esComienzoDeReclamo(texto)) {
     return { intent: "reclamo", handler: manejarReclamo };
   }
 
-  // 5. Match de transparencia (presupuesto, sueldos, etc.)
-  if (intentaCoincidirTransparencia(texto)) {
-    return { intent: "transparencia", handler: manejarTransparencia };
-  }
-
-  // 6. Match de FAQ
-  if (intentaCoincidirFaq(texto)) {
-    return { intent: "faq", handler: manejarFaq };
-  }
-
-  // 7. Si no tenemos nada, primer turno → menu; turno siguiente → IA
-  if (ctx.sesion.intentActivo === null) {
-    return { intent: "menu", handler: manejarMenu };
-  }
-
+  // 5. Default: TODO va al handler IA con RAG + Gemini.
   return { intent: "ia", handler: manejarIa };
 }
