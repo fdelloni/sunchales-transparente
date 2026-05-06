@@ -1,9 +1,12 @@
 /**
- * Handler de IA (fallback / opcion 4 del menu).
+ * Handler de IA — pipeline conversacional principal del bot.
+ *
+ * Toda pregunta natural del ciudadano pasa por aca. El bot es 100% conversacional;
+ * no hay menu numerado.
  *
  * Pipeline:
- *   1. Recibe la pregunta del ciudadano.
- *   2. Recupera top-5 chunks relevantes con RAG (Supabase pgvector + Gemini embeddings).
+ *   1. Recibe la pregunta del ciudadano en lenguaje natural.
+ *   2. Recupera top-K chunks relevantes con RAG (Supabase pgvector + Gemini embeddings).
  *   3. Construye prompt con reglas duras + chunks + pregunta.
  *   4. Genera respuesta con Gemini 2.5 Flash.
  *   5. Devuelve respuesta + cita de fuente al ciudadano.
@@ -14,8 +17,6 @@
  *   - Nunca inventar cifras, nombres, normativa o fechas.
  *   - Respuestas concisas (~3-4 oraciones), max 600 caracteres.
  *   - Citar la fuente al final.
- *
- * Si GOOGLE_API_KEY no esta configurada, devuelve mensaje de fallback.
  */
 
 import type { Handler } from "@/lib/whatsapp/types";
@@ -27,8 +28,8 @@ export const manejarIa: Handler = async (ctx) => {
   if (!apiKey) {
     return {
       respuesta: { texto:
-        "El modo IA todavia no esta activo en esta instancia. Usa el menu numerado escribiendo *menu*, " +
-        "o consulta con palabras clave como *presupuesto*, *intendente*, *tramites*."
+        "El motor de IA no está disponible temporalmente. Por favor probá de nuevo en unos minutos, " +
+        "o consultá directamente en sunchales.gob.ar."
       },
       nuevoEstado: { intentActivo: "ia" }
     };
@@ -38,17 +39,17 @@ export const manejarIa: Handler = async (ctx) => {
 
   try {
     // 1. RAG: recuperar contexto
-    // Umbral bajo (0.1) para asegurar que siempre haya contexto disponible
-    // cuando exista alguna afinidad temática. La calidad la dicta Gemini con
-    // las reglas duras del system prompt: si el chunk no responde, lo dice.
+    // Umbral bajo (0.1) para asegurar contexto disponible cuando hay afinidad
+    // temática. La calidad la garantiza Gemini con las reglas duras del prompt:
+    // si los chunks no responden la pregunta, el modelo lo dice y deriva.
     const chunks = await recuperar(pregunta, { topK: 6, umbral: 0.1 });
 
     if (chunks.length === 0) {
       return {
         respuesta: { texto:
-          "No encuentro informacion verificable sobre eso en los datos publicos cargados. " +
-          "Puedo ayudarte con consultas sobre presupuesto, normativa del Digesto, padron de funcionarios, " +
-          "obra publica o tramites comunes. Tambien podes consultar en sunchales.gob.ar o escribir *menu*."
+          "No encuentro información verificable sobre eso en los datos públicos cargados. " +
+          "Probá reformulando tu pregunta o consultá en sunchales.gob.ar. " +
+          "Si querés abrir un reclamo (bache, luminaria, recolección), escribí *reclamo*."
         },
         nuevoEstado: { intentActivo: "ia" }
       };
@@ -73,8 +74,8 @@ export const manejarIa: Handler = async (ctx) => {
     console.error("[ia] error en pipeline RAG:", err);
     return {
       respuesta: { texto:
-        "Tuve un problema tecnico generando la respuesta. Probá de nuevo en un momento, " +
-        "o escribi *menu* para usar las opciones predefinidas."
+        "Tuve un problema técnico generando la respuesta. Probá de nuevo en un momento. " +
+        "Si el problema persiste, consultá directamente en sunchales.gob.ar."
       },
       nuevoEstado: { intentActivo: "ia" }
     };
@@ -91,10 +92,10 @@ function construirSystemInstruction(chunks: ChunkRecuperado[]): string {
     `Respondes en español rioplatense, breve y claro. Maximo 4 oraciones o 500 caracteres.\n\n` +
     `REGLAS DURAS — son inviolables:\n` +
     `1. Solo respondes con informacion contenida en el bloque [CONTEXTO RECUPERADO] de abajo. NO inventes cifras, nombres, fechas ni normativa.\n` +
-    `2. Si la pregunta no se puede contestar con el contexto, lo decis directamente y derivas a sunchales.gob.ar o al *menu* del bot. NO confabules.\n` +
+    `2. Si la pregunta no se puede contestar con el contexto, lo decis directamente y derivas a sunchales.gob.ar. NO confabules.\n` +
     `3. Citas la fuente entre parentesis al final, usando el titulo de la FUENTE relevante (ej: "(Ord. 1872/2009)" o "(Padron Municipal)").\n` +
     `4. NO opines sobre temas politicos partidarios. Solo das hechos verificables del contexto.\n` +
-    `5. Si detectas un reclamo concreto del ciudadano (bache, luminaria), invitas a escribir *3* o *reclamo* para abrir el flujo formal.\n` +
+    `5. Si detectas un reclamo concreto del ciudadano (bache, luminaria), invitas a escribir *reclamo* para abrir el flujo formal.\n` +
     `6. Tono profesional y cordial, sin formalismos excesivos.\n\n` +
     `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]\n\n` +
     `Si el contexto contradice la pregunta o es insuficiente, decilo. NO completes con conocimiento general.`
