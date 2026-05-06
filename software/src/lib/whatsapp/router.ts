@@ -48,6 +48,13 @@ export async function rutearMensaje(ctx: ContextoHandler): Promise<{ handler: Ha
     return { intent: "menu", handler: manejarMenu };
   }
 
+  // 2.5 Modo IA "pegajoso": si el usuario entro a opcion 4, todos sus mensajes
+  //     siguientes van al handler IA hasta que escriba "menu" o "salir".
+  //     Excepcion: opciones numeradas 1-4 cambian de modo.
+  if (ctx.sesion.intentActivo === "ia" && !["1", "2", "3", "4"].includes(norm)) {
+    return { intent: "ia", handler: manejarIa };
+  }
+
   // 3. Opciones numeradas del menu
   switch (norm) {
     case "1":

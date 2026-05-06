@@ -38,7 +38,10 @@ export const manejarIa: Handler = async (ctx) => {
 
   try {
     // 1. RAG: recuperar contexto
-    const chunks = await recuperar(pregunta, { topK: 5, umbral: 0.4 });
+    // Umbral bajo (0.1) para asegurar que siempre haya contexto disponible
+    // cuando exista alguna afinidad temática. La calidad la dicta Gemini con
+    // las reglas duras del system prompt: si el chunk no responde, lo dice.
+    const chunks = await recuperar(pregunta, { topK: 6, umbral: 0.1 });
 
     if (chunks.length === 0) {
       return {

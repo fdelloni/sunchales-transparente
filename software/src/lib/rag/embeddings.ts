@@ -12,7 +12,7 @@
  */
 
 const ENDPOINT_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
-const MODELO = "text-embedding-004";
+const MODELO = "gemini-embedding-001";
 const DIMENSIONES = 768;
 
 export type TaskType =
@@ -38,7 +38,8 @@ export async function embeddearTexto(
   const body = {
     model: `models/${MODELO}`,
     content: { parts: [{ text: truncar(texto) }] },
-    taskType
+    taskType,
+    outputDimensionality: DIMENSIONES
   };
 
   const res = await fetch(url, {
@@ -59,7 +60,17 @@ export async function embeddearTexto(
       `Embedding invalido: esperaba ${DIMENSIONES} dim, llegaron ${vector?.length ?? 0}`
     );
   }
-  return vector;
+  // Con outputDimensionality < 3072, gemini-embedding-001 NO devuelve los vectores
+  // pre-normalizados. Para que la distancia coseno funcione bien, normalizamos a L2=1.
+  return normalizarL2(vector);
+}
+
+function normalizarL2(v: number[]): number[] {
+  let suma = 0;
+  for (const x of v) suma += x * x;
+  const norma = Math.sqrt(suma);
+  if (norma === 0) return v;
+  return v.map((x) => x / norma);
 }
 
 /**

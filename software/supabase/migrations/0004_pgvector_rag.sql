@@ -110,12 +110,14 @@ $$;
 alter table chunks_rag enable row level security;
 
 -- Lectura publica: la informacion indexada es 100% publica por diseno.
-create policy if not exists "Lectura publica chunks_rag"
+drop policy if exists "Lectura publica chunks_rag" on chunks_rag;
+create policy "Lectura publica chunks_rag"
     on chunks_rag for select
     using (true);
 
 -- Escritura solo service_role (el indexer corre con service_role key).
-create policy if not exists "Escritura admin chunks_rag"
+drop policy if exists "Escritura admin chunks_rag" on chunks_rag;
+create policy "Escritura admin chunks_rag"
     on chunks_rag for all
     using (auth.role() = 'service_role')
     with check (auth.role() = 'service_role');
