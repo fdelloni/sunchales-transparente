@@ -1,6 +1,7 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
+import WhatsAppSection from "@/components/WhatsAppSection";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
 import { datasets } from "@/lib/data/datasets";
@@ -75,7 +76,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Banner Asistente */}
+      {/* Sección WhatsApp — canal directo con el bot */}
+      <WhatsAppSection />
+
+      {/* Banner Asistente Web */}
       <section className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col items-start gap-3 rounded-2xl border border-coral/30 bg-amber-50/60 p-5 sm:flex-row sm:items-center sm:gap-5">
           <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-gradient-to-br from-coral to-coral-dark text-zinc-900">
