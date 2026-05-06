@@ -17,7 +17,8 @@
     "analizar-derogaciones": "node scripts/analizar-derogaciones-gemini.mjs",
     "indexar-rag": "node scripts/indexar-rag.mjs",
     "indexar-rag:reset": "node scripts/indexar-rag.mjs --reset",
-    "indexar-rag:smoke": "node scripts/indexar-rag.mjs --limite=10"
+    "indexar-rag:smoke": "node scripts/indexar-rag.mjs --limite=10",
+    "test-bot": "node scripts/test-bot.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",

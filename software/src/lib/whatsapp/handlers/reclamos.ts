@@ -58,6 +58,25 @@ export const manejarReclamo: Handler = async (ctx) => {
   if (paso === "esperando_categoria") {
     const elegida = CATEGORIAS.find((c) => c.id === texto);
     if (!elegida) {
+      // Heuristica de escape: si lo que escribio claramente NO es un numero
+      // sino una pregunta o frase, salir del flujo y dejar que el proximo mensaje
+      // lo agarre el handler IA. Asi evitamos que la sesion se quede atrapada.
+      const pareceConsulta =
+        texto.length > 5 &&
+        !/^[1-8]$/.test(texto) &&
+        (texto.includes("?") || texto.includes("¿") || texto.length > 18);
+
+      if (pareceConsulta) {
+        return {
+          respuesta: { texto:
+            "Disculpá, te había abierto el flujo de reclamos. Cancelo el reclamo. " +
+            "Si querías hacerme una consulta, *volvé a escribirla* y te respondo. " +
+            "Si querías abrir un reclamo, escribí *reclamo* y arrancamos de nuevo."
+          },
+          nuevoEstado: { intentActivo: null, pasoReclamo: null, reclamoBorrador: {} }
+        };
+      }
+
       return {
         respuesta: { texto: "No entendí. Respondé con un número del 1 al 8 (o *salir* para cancelar)." },
         nuevoEstado: {}
