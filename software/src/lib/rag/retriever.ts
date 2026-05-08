@@ -39,8 +39,8 @@ export type OpcionesRecuperacion = {
 const TIPOS_CURADOS = ["presupuesto", "funcionario", "faq", "normativa-marco"];
 const TIPOS_CURADOS_SET = new Set(TIPOS_CURADOS);
 
-const MIN_CURADOS_TOP = 5;
-const MAX_KEYWORD_HITS = 6;
+const MIN_CURADOS_TOP = 4;
+const MAX_KEYWORD_HITS = 8;
 
 export async function recuperar(
   pregunta: string,
@@ -116,32 +116,89 @@ async function busquedaPorPalabrasClave(
   const palabras = extraerPalabrasClave(pregunta);
   if (palabras.length === 0) return [];
 
-  // Construir filtro OR con ilike sobre el campo texto.
+  const tiposPreferidos = detectarTiposObjetivo(pregunta);
+
   // Sintaxis Supabase: .or("texto.ilike.%p1%,texto.ilike.%p2%")
   const orClause = palabras
     .map((p) => `texto.ilike.%${escaparILike(p)}%`)
     .join(",");
 
-  const { data, error } = await supabase
-    .from("chunks_rag")
-    .select("*")
-    .in("fuente_tipo", TIPOS_CURADOS)
-    .or(orClause)
-    .limit(limit);
+  // Lanzar UNA query por cada tipo curado, en paralelo.
+  // Asi garantizamos diversidad: un tipo no copa todo el limit.
+  // Limit por tipo: max(3, limit/4 + 1) para distribuir bien.
+  const limitPorTipo = Math.max(3, Math.ceil(limit / TIPOS_CURADOS.length) + 1);
 
-  if (error) {
-    console.error("[rag] error en keyword search:", error);
-    return [];
+  const consultas = TIPOS_CURADOS.map((tipo) =>
+    supabase!
+      .from("chunks_rag")
+      .select("*")
+      .eq("fuente_tipo", tipo)
+      .or(orClause)
+      .limit(limitPorTipo)
+  );
+
+  const resultados = await Promise.all(consultas);
+
+  // Recolectar todos los hits con marca de "preferido" segun el tipo de pregunta.
+  type Row = Record<string, unknown>;
+  const hits: Array<{ row: Row; preferido: boolean }> = [];
+
+  for (let i = 0; i < resultados.length; i++) {
+    const r = resultados[i];
+    if (r.error) {
+      console.warn(`[rag] keyword search fallo para tipo ${TIPOS_CURADOS[i]}:`, r.error);
+      continue;
+    }
+    if (!Array.isArray(r.data)) continue;
+    const esPreferido = tiposPreferidos.includes(TIPOS_CURADOS[i]);
+    for (const row of r.data as Row[]) {
+      hits.push({ row, preferido: esPreferido });
+    }
   }
-  if (!Array.isArray(data)) return [];
 
-  // Asignar similarity sintetica alta (0.95) para que aparezcan al frente
-  // cuando el handler los formatee. Los keyword hits son por definicion
-  // mas relevantes para queries especificas que cualquier match semantico.
-  return (data as Array<Record<string, unknown>>).map((row) => ({
-    ...mapearChunk(row),
-    similarity: 0.95
-  }));
+  // Ordenar: preferidos primero (sin importar el orden interno por tipo).
+  hits.sort((a, b) => Number(b.preferido) - Number(a.preferido));
+
+  // Dedupe por id y aplicar limit.
+  const yaVistos = new Set<string>();
+  const final: ChunkRecuperado[] = [];
+  for (const { row, preferido } of hits) {
+    const id = String(row.id ?? "");
+    if (!id || yaVistos.has(id)) continue;
+    yaVistos.add(id);
+    final.push({
+      ...mapearChunk(row),
+      // Similarity sintetica: tipos preferidos = 0.97, otros curados = 0.92
+      similarity: preferido ? 0.97 : 0.92
+    });
+    if (final.length >= limit) break;
+  }
+
+  return final;
+}
+
+/**
+ * Heuristica para detectar que tipo(s) de fuente curada es mas probable que
+ * responda la pregunta. Devuelve array vacio si no hay señal clara.
+ */
+function detectarTiposObjetivo(pregunta: string): string[] {
+  const norm = pregunta.toLowerCase();
+  const tipos: string[] = [];
+
+  if (/(presupuesto|gasto|gasta|gastos|recurso|partida|partidas|invierte|invertir|inversi[oó]n|mill[oó]n|millones|presupuestad|ejecuci[oó]n)/.test(norm)) {
+    tipos.push("presupuesto");
+  }
+  if (/(intendente|secretari|subsecretari|funcionari|empleado|cargo|sueldo|salari|remunera|gabinete|organigrama|planta|pinotti|martinez|girard|gabiani|diaz|grande|ghiano|prados)/.test(norm)) {
+    tipos.push("funcionario");
+  }
+  if (/(ordenanza|decreto|ley|norma|reglament|resoluci[oó]n|digesto|articulo|c[oó]digo)/.test(norm)) {
+    tipos.push("normativa-marco");
+  }
+  if (/(tgi|tasa|tr[aá]mite|licencia|habilitaci[oó]n|horario|atenci[oó]n|pagar|pago|p[uú]blico|donde|c[oó]mo)/.test(norm)) {
+    tipos.push("faq");
+  }
+
+  return tipos;
 }
 
 /**
