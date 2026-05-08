@@ -46,7 +46,7 @@ export const manejarIa: Handler = async (ctx) => {
     // - umbral=0.05: muy permisivo, dejamos que el reranking decida.
     const chunks = await recuperar(pregunta, {
       topK: 10,
-      poolInicial: 30,
+      poolInicial: 50,
       umbral: 0.05
     });
 

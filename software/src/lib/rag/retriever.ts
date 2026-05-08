@@ -38,15 +38,18 @@ export type OpcionesRecuperacion = {
 };
 
 // Tipos de fuente "curados" — informacion verificada y actualizada manualmente
-// por el equipo del proyecto. Reciben boost de relevancia sobre PDFs del Concejo
-// y normas del Digesto para evitar que chunks viejos opaquen datos actuales.
+// por el equipo del proyecto. Estos chunks tienen prioridad GARANTIZADA en el
+// resultado final: si aparecen en el pool inicial, llegan al topK aunque
+// su similitud bruta sea menor que PDFs largos del Concejo.
 const TIPOS_CURADOS = new Set([
   "presupuesto",
   "funcionario",
   "faq",
   "normativa-marco"
 ]);
-const BOOST_CURADO = 1.4; // multiplicador de similitud para tipos curados
+// Cuantos chunks curados incluir como minimo en el resultado final.
+// Si hay menos curados en el pool, se incluyen todos los que haya.
+const MIN_CURADOS_TOP = 5;
 
 export async function recuperar(
   pregunta: string,
@@ -83,26 +86,41 @@ export async function recuperar(
   if (!Array.isArray(data)) return [];
   const filas = data as Array<Record<string, unknown>>;
 
-  // Mapear y aplicar boost a tipos curados, despues reordenar y devolver topK.
-  const chunks = filas.map((row) => {
-    const tipo = String(row.fuente_tipo ?? "");
-    const simBase = Number(row.similarity ?? 0);
-    const simBoosted = TIPOS_CURADOS.has(tipo) ? simBase * BOOST_CURADO : simBase;
-    return {
-      id: String(row.id ?? ""),
-      fuenteTipo: tipo,
-      fuenteId: String(row.fuente_id ?? ""),
-      fuenteTitulo: String(row.fuente_titulo ?? ""),
-      fuenteUrl: (row.fuente_url as string | null) ?? null,
-      fuenteFecha: (row.fuente_fecha as string | null) ?? null,
-      texto: String(row.texto ?? ""),
-      metadata: (row.metadata as Record<string, unknown>) ?? {},
-      similarity: simBoosted
-    };
-  });
+  // Mapear chunks crudos del pool inicial.
+  const todos: ChunkRecuperado[] = filas.map((row) => ({
+    id: String(row.id ?? ""),
+    fuenteTipo: String(row.fuente_tipo ?? ""),
+    fuenteId: String(row.fuente_id ?? ""),
+    fuenteTitulo: String(row.fuente_titulo ?? ""),
+    fuenteUrl: (row.fuente_url as string | null) ?? null,
+    fuenteFecha: (row.fuente_fecha as string | null) ?? null,
+    texto: String(row.texto ?? ""),
+    metadata: (row.metadata as Record<string, unknown>) ?? {},
+    similarity: Number(row.similarity ?? 0)
+  }));
 
-  chunks.sort((a, b) => b.similarity - a.similarity);
-  return chunks.slice(0, topK);
+  // Estratificar: separar curados (informacion oficial actualizada) de
+  // no-curados (PDFs historicos del Concejo, normas del Digesto). Garantizamos
+  // que si hay curados en el pool, lleguen al topK final aunque su similitud
+  // bruta sea menor.
+  const curados = todos
+    .filter((c) => TIPOS_CURADOS.has(c.fuenteTipo))
+    .sort((a, b) => b.similarity - a.similarity);
+
+  const noCurados = todos
+    .filter((c) => !TIPOS_CURADOS.has(c.fuenteTipo))
+    .sort((a, b) => b.similarity - a.similarity);
+
+  // Reservar al menos MIN_CURADOS_TOP slots para curados (o todos los que haya).
+  const tomarCurados = Math.min(curados.length, MIN_CURADOS_TOP);
+  const tomarNoCurados = Math.max(0, topK - tomarCurados);
+
+  // Mezclar: primero los curados (mas relevantes para info oficial), despues
+  // los no-curados como contexto adicional.
+  return [
+    ...curados.slice(0, tomarCurados),
+    ...noCurados.slice(0, tomarNoCurados)
+  ];
 }
 
 /**
