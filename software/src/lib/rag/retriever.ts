@@ -185,10 +185,10 @@ function detectarTiposObjetivo(pregunta: string): string[] {
   const norm = pregunta.toLowerCase();
   const tipos: string[] = [];
 
-  if (/(presupuesto|gasto|gasta|gastos|recurso|partida|partidas|invierte|invertir|inversi[oó]n|mill[oó]n|millones|presupuestad|ejecuci[oó]n)/.test(norm)) {
+  if (/(presupuesto|gasto|gasta|gastos|recurso|partida|partidas|invierte|invertir|inversi[oó]n|mill[oó]n|millones|presupuestad|ejecuci[oó]n|obra|obras|infraestructura|pavimento|iluminaci[oó]n|construcci[oó]n|girsu|ferroviario|salud|educaci[oó]n|ambiente|vivienda|cultura|seguridad|transito|tr[aá]nsito|producci[oó]n|cooperativismo)/.test(norm)) {
     tipos.push("presupuesto");
   }
-  if (/(intendente|secretari|subsecretari|funcionari|empleado|cargo|sueldo|salari|remunera|gabinete|organigrama|planta|pinotti|martinez|girard|gabiani|diaz|grande|ghiano|prados)/.test(norm)) {
+  if (/(intendente|secretari|subsecretari|funcionari|empleado|cargo|sueldo|salari|remunera|gana|cobra|gabinete|organigrama|planta|pinotti|martinez|girard|gabiani|diaz|grande|ghiano|prados)/.test(norm)) {
     tipos.push("funcionario");
   }
   if (/(ordenanza|decreto|ley|norma|reglament|resoluci[oó]n|digesto|articulo|c[oó]digo)/.test(norm)) {

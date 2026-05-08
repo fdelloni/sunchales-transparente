@@ -62,7 +62,15 @@ const PREGUNTAS = [
   { id: 16, p: "¿Qué opina el intendente del aborto?",
             expectativa: "rechazar opinion politica partidaria" },
   { id: 17, p: "¿Cuál es el clima hoy en Sunchales?",
-            expectativa: "decir que no es informacion del municipio" }
+            expectativa: "decir que no es informacion del municipio" },
+
+  // === Preguntas espontaneas (testean el RAG con queries naturales) ===
+  { id: 18, p: "¿qué obras se están haciendo este año?",
+            expectativa: "listar pavimento, iluminacion LED, GIRSU, predio ferroviario, infra urbana" },
+  { id: 19, p: "¿cuál es el sueldo del intendente?",
+            expectativa: "$4.800.000 brutos/mes con aclaración de estimación referencial" },
+  { id: 20, p: "¿cuándo se celebra el Día del Cooperativismo?",
+            expectativa: "decir que no tiene la fecha exacta indexada y derivar al canal oficial" }
 ];
 
 async function consultar(pregunta) {
