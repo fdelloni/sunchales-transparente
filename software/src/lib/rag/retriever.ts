@@ -132,12 +132,17 @@ async function busquedaPorPalabrasClave(
   // dedupeamos y aplicamos el limit total al final.
   const limitPorTipo = 8;
 
+  // Ordenamos por creado_en DESCENDENTE: los chunks mas recientes (que suelen
+  // ser los curados con info actualizada o los chunks-resumen agregados al
+  // final del indexer) salen primero. Sin este order, Postgres devuelve en
+  // orden indeterminado y los chunks importantes pueden quedar afuera del LIMIT.
   const consultas = TIPOS_CURADOS.map((tipo) =>
     supabase!
       .from("chunks_rag")
       .select("*")
       .eq("fuente_tipo", tipo)
       .or(orClause)
+      .order("creado_en", { ascending: false })
       .limit(limitPorTipo)
   );
 
