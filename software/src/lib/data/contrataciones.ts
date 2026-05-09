@@ -107,70 +107,10 @@ const dia = (n: number) => {
 };
 
 export const contrataciones: Contratacion[] = [
-  // ---- 0. CASO REAL — Licitación Pública N° 04/2025: 261 luminarias NAOS 220W ----
-  // Datos verbatim del listado oficial: sunchales.gob.ar/.../licitaciones-y-contrataciones/
-  // Decreto N° 3537/2025; presupuesto oficial $56.714.843,25; apertura 04/12/2025.
-  // Los oferentes y la adjudicación NO se cargan porque el municipio no los publica
-  // (brecha id "contr-adjudicaciones").
-  {
-    id: "lp-2025-004",
-    expediente: "DECRETO N° 3537/2025",
-    ejercicio: 2025,
-    procedimiento: "licitacion_publica",
-    numero: "Licitación Pública N° 04/2025",
-    objeto:
-      "Adquisición de 261 luminarias NAOS 220W para alumbrado público — plan de recambio LED",
-    categoria: "bienes",
-    area: "Departamento Ejecutivo Municipal",
-    presupuestoOficial: 56_714_843.25,
-    estado: "evaluacion",
-    fechaApertura: "2025-12-04T11:00:00.000Z",
-    fechaAdjudicacion: null,
-    oferentes: [],
-    documentos: [
-      {
-        nombre: "Pliego de Bases y Condiciones — LP 04/2025",
-        tipo: "pliego",
-        publicado: "2025-11-15T00:00:00.000Z",
-        hashSha256: "sin_calcular_pliego_oficial",
-        bytes: 0
-      }
-    ],
-    cadenaSinSellar: [
-      {
-        id: "ev-1",
-        ts: "2025-11-10T00:00:00.000Z",
-        tipo: "creacion_expediente",
-        actor: "departamento_ejecutivo",
-        payload: {
-          decreto: "Decreto N° 3537/2025",
-          presupuesto_oficial: 56_714_843.25
-        }
-      },
-      {
-        id: "ev-2",
-        ts: "2025-11-15T00:00:00.000Z",
-        tipo: "publicacion_pliego",
-        actor: "departamento_ejecutivo",
-        payload: {
-          documento: "Pliego de Bases y Condiciones — LP 04/2025",
-          hash_pliego: "sin_calcular_pliego_oficial"
-        }
-      },
-      {
-        id: "ev-3",
-        ts: "2025-12-04T11:00:00.000Z",
-        tipo: "apertura_ofertas",
-        actor: "comision_apertura",
-        payload: {
-          observacion:
-            "Apertura realizada en la fecha indicada por el pliego. Cantidad de oferentes y montos no publicados por el municipio."
-        }
-      }
-    ],
-    verificado: true,
-    fuenteId: "licitacionesOficial"
-  },
+  // NOTA: la Licitación Pública N° 04/2025 (luminarias NAOS) y los otros 63
+  // procesos reales se sirven desde licitaciones.generated.ts (auto-sincronizado
+  // con sunchales.gob.ar). Este array conserva sólo los 4 casos demostrativos
+  // que ilustran la cadena hash-chain, oferentes, adjudicaciones y pagos.
 
   // ---- 1. Licitación Pública: Pavimento (alineado con anuncio público de POU 2026 ~$1.000M) ----
   {

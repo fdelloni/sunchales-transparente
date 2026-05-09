@@ -1,3 +1,4 @@
+import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import SourceTag from "@/components/SourceTag";
 import BrechasTransparencia from "@/components/BrechasTransparencia";
@@ -198,6 +199,32 @@ export default function PersonalPage() {
           verified={fechasVerificadas === total}
           hint="Decretos de designación pendientes de publicar."
         />
+      </div>
+
+      {/* CTA — Histórico de remuneraciones (PDFs oficiales sincronizados) */}
+      <div className="mt-8 rounded-2xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-white p-5 sm:p-6">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-emerald-700">
+              Datos verificados · sincronizados con sunchales.gob.ar
+            </span>
+            <h3 className="mt-1 font-serif text-xl font-bold text-navy">
+              Histórico mensual de remuneraciones de funcionarios
+            </h3>
+            <p className="mt-2 max-w-2xl text-sm text-slate-700">
+              140 PDFs oficiales publicados por el municipio entre 2014 y
+              2026, navegables mes a mes con link directo al archivo
+              original. La brecha de formato (PDF cerrado, no CSV) sigue
+              declarada.
+            </p>
+          </div>
+          <Link
+            href="/personal/remuneraciones"
+            className="rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+          >
+            Ver histórico →
+          </Link>
+        </div>
       </div>
 
       {/* ============================================================ */}

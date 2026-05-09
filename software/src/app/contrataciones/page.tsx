@@ -6,6 +6,10 @@ import {
   labels,
   totalesContrataciones
 } from "@/lib/data/contrataciones";
+import {
+  licitacionesOficiales,
+  licitacionesMeta,
+} from "@/lib/data/licitaciones.generated";
 import { formatARS, formatARSCompact, formatNumber } from "@/lib/format";
 
 const ESTADO_COLOR: Record<string, string> = {
@@ -129,34 +133,154 @@ export default function ContratacionesPage() {
         </table>
       </div>
 
-      <div className="mt-6 space-y-2 text-xs text-slate-500">
-        <p>
-          <strong className="text-emerald-700">Caso real (verificado):</strong>{" "}
-          Licitación Pública N° 04/2025 — Decreto N° 3537/2025 — adquisición
-          de 261 luminarias NAOS 220W — presupuesto oficial $56.714.843,25 —
-          apertura 04/12/2025. Datos verbatim del listado oficial de
-          licitaciones del municipio.
-        </p>
-        <p>
-          <strong>Lo que falta del caso real:</strong> oferentes, montos
-          ofertados, decreto de adjudicación, monto final contratado y
-          documentos firmados. El municipio no los publica online; esa
-          opacidad se declara como brecha en{" "}
-          <a className="underline" href="/brechas?modulo=contrataciones">
-            /brechas?modulo=contrataciones
-          </a>
-          .
-        </p>
-        <p>
-          <strong>Los demás casos</strong> (LP 01/2026 pavimento, LPR 02/2026
-          luminarias, CP 03/2026 informática y CD 12/2026 reparación EDS) son{" "}
-          <strong>ejemplos demostrativos</strong> que ilustran el
-          funcionamiento del módulo (oferentes, adjudicaciones, ampliaciones,
-          pagos y auditoría criptográfica). La estructura sigue la lógica de
-          la Ley provincial N° 12.510 y la práctica habitual del régimen
-          municipal santafesino.
-        </p>
+      <p className="mt-6 text-xs text-slate-500">
+        Los 4 procesos de la tabla son <strong>ejemplos demostrativos</strong>{" "}
+        que ilustran cómo funciona la cadena hash-chain (oferentes,
+        adjudicaciones, ampliaciones, pagos y auditoría criptográfica). La
+        estructura sigue la lógica de la Ley provincial N° 12.510 y la
+        práctica habitual del régimen municipal santafesino.
+      </p>
+
+      {/* ============================================================ */}
+      {/*  Listado oficial sincronizado                                  */}
+      {/* ============================================================ */}
+      <h2 id="oficiales" className="mt-16 font-serif text-2xl font-bold text-navy">
+        Listado oficial sincronizado — {licitacionesOficiales.length} procesos
+      </h2>
+      <p className="mt-2 max-w-3xl text-slate-600">
+        Sincronizado con el listado oficial del municipio. Cada fila incluye
+        número, decreto de llamado, objeto, presupuesto oficial, fecha de
+        apertura y links directos a los pliegos publicados. Lo que el
+        municipio no publica (oferentes, monto final adjudicado, decreto de
+        adjudicación) se declara como{" "}
+        <Link href="/brechas?modulo=contrataciones" className="underline">
+          brecha de contrataciones
+        </Link>
+        .
+      </p>
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        <a
+          href={licitacionesMeta.fuenteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          Ver listado oficial →
+        </a>
+        <a
+          href="/api/v1/licitaciones?format=csv"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          Descargar CSV
+        </a>
+        <a
+          href="/api/v1/licitaciones"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          API JSON
+        </a>
       </div>
+
+      <div className="-mx-6 mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+        <table className="w-full min-w-[820px] text-sm">
+          <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+            <tr>
+              <th className="px-4 py-3">Número</th>
+              <th className="px-4 py-3">Decreto</th>
+              <th className="px-4 py-3">Objeto</th>
+              <th className="px-4 py-3 text-right">Presup. oficial</th>
+              <th className="px-4 py-3">Apertura</th>
+              <th className="px-4 py-3 text-right">Pliego</th>
+            </tr>
+          </thead>
+          <tbody>
+            {licitacionesOficiales.map((l) => (
+              <tr key={l.id} className="border-t border-slate-100 align-top">
+                <td className="px-4 py-3 font-medium text-navy whitespace-nowrap">
+                  {l.numero}
+                </td>
+                <td className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                  {l.decreto ?? "—"}
+                </td>
+                <td className="px-4 py-3 text-sm text-slate-700">
+                  {l.objeto ?? (
+                    <span className="text-slate-400">
+                      Objeto no extraído (ver pliego)
+                    </span>
+                  )}
+                </td>
+                <td className="px-4 py-3 text-right tabular-nums">
+                  {l.presupuestoOficial !== null ? (
+                    formatARS(l.presupuestoOficial)
+                  ) : (
+                    <span className="text-slate-400">—</span>
+                  )}
+                </td>
+                <td className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                  {l.fechaApertura
+                    ? new Date(l.fechaApertura).toLocaleDateString("es-AR")
+                    : "—"}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  {l.documentos.length > 0 ? (
+                    <div className="flex flex-col items-end gap-1">
+                      {l.documentos
+                        .filter(
+                          (d) => d.tipo === "pliego" || d.tipo === "decreto"
+                        )
+                        .slice(0, 2)
+                        .map((d) => (
+                          <a
+                            key={d.url}
+                            href={d.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-md border border-slate-200 bg-white px-2 py-0.5 text-[11px] font-semibold text-navy hover:bg-slate-50"
+                          >
+                            {d.tipo === "pliego" ? "Pliego" : "Decreto"} ↗
+                          </a>
+                        ))}
+                      {l.documentos.length > 2 && (
+                        <span className="text-[10px] text-slate-500">
+                          +{l.documentos.length - 2} más
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="text-slate-400">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="mt-4 text-xs text-slate-500">
+        Sincronizado por{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5">
+          npm run scrapear-licitaciones
+        </code>{" "}
+        contra{" "}
+        <a
+          href={licitacionesMeta.fuenteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          el listado oficial
+        </a>
+        . Última corrida:{" "}
+        {new Date(licitacionesMeta.sincronizadoEl).toLocaleString("es-AR")}.
+        Cobertura {Object.keys(licitacionesMeta.porAnio).sort()[0]}–
+        {
+          Object.keys(licitacionesMeta.porAnio)
+            .sort()
+            .slice(-1)[0]
+        }
+        .
+      </p>
     </div>
   );
 }

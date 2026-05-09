@@ -97,9 +97,44 @@ const spec = {
         }
       }
     },
+    "/api/v1/licitaciones": {
+      get: {
+        summary: "Listar licitaciones oficiales sincronizadas con sunchales.gob.ar",
+        description:
+          "Listado real publicado por la Municipalidad. Cada registro incluye número, decreto de llamado, objeto, presupuesto oficial, fecha de apertura y links a pliegos/decretos. Los oferentes y la adjudicación NO se publican por el municipio (brecha contr-adjudicaciones).",
+        parameters: [
+          { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
+          { name: "anio", in: "query", schema: { type: "integer" } },
+          { name: "procedimiento", in: "query", schema: { type: "string", enum: ["licitacion_publica", "licitacion_privada", "concurso_precios", "contratacion_directa", "otro"] } }
+        ],
+        responses: {
+          "200": {
+            description: "Listado de licitaciones reales con metadatos.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
+    "/api/v1/remuneraciones": {
+      get: {
+        summary: "Listar PDFs oficiales de remuneraciones de funcionarios (mensual 2014-2026)",
+        description:
+          "Listado sincronizado de los archivos publicados por sunchales.gob.ar. Cada registro incluye período, año, mes, indicador SAC y URL directa al PDF.",
+        parameters: [
+          { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
+          { name: "anio", in: "query", schema: { type: "integer" } }
+        ],
+        responses: {
+          "200": {
+            description: "Listado de PDFs con metadatos.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/contrataciones": {
       get: {
-        summary: "Listar contrataciones (licitaciones, concursos, contrataciones directas)",
+        summary: "Listar contrataciones — casos demostrativos con cadena hash-chain (no es el listado oficial; usar /licitaciones)",
         parameters: [
           { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
           { name: "procedimiento", in: "query", schema: { type: "string", enum: ["licitacion_publica", "licitacion_privada", "concurso_precios", "contratacion_directa"] } },
