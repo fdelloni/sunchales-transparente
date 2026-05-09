@@ -40,7 +40,7 @@ const TIPOS_CURADOS = ["presupuesto", "funcionario", "faq", "normativa-marco"];
 const TIPOS_CURADOS_SET = new Set(TIPOS_CURADOS);
 
 const MIN_CURADOS_TOP = 4;
-const MAX_KEYWORD_HITS = 12;
+const MAX_KEYWORD_HITS = 20;
 
 export async function recuperar(
   pregunta: string,
@@ -127,12 +127,11 @@ async function busquedaPorPalabrasClave(
     .map((p) => `texto.ilike.%${escaparILike(p)}%`)
     .join(",");
 
-  // Lanzar UNA query por cada tipo curado, en paralelo. Limit alto (15) por
-  // tipo para garantizar que TODOS los chunks que matchean las keywords
-  // entren al pool, dado que los tipos curados tienen pocos chunks
-  // (presupuesto: 17, funcionario: 8, faq: 6, normativa: 4). Total maximo
-  // del pool: 4 * 15 = 60. Dedupe y reranking posterior bajan a topK.
-  const limitPorTipo = 15;
+  // Lanzar UNA query por cada tipo curado, en paralelo. Limit suficientemente
+  // alto (25) para incluir TODOS los chunks de cualquier tipo curado, ya que
+  // ninguno tiene mas de ~17 chunks. Esto garantiza que todos los chunks que
+  // matchean las keywords entren al pool sin importar el orden de Postgres.
+  const limitPorTipo = 25;
 
   // Sin ORDER BY: queremos que TODOS los chunks que matcheen las keywords
   // entren al pool, sin que un orden particular favorezca a unos sobre otros.
