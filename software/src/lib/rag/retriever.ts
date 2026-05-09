@@ -239,6 +239,16 @@ function extraerPalabrasClave(pregunta: string): string[] {
     }
   }
 
+  // 6. Si la pregunta es sobre presupuesto/obras/gastos pero NO menciona año
+  //    explicito ni rango, forzamos "2026" como keyword para que el ILIKE
+  //    matchee con los chunks curados del ejercicio actual.
+  const norm = pregunta.toLowerCase();
+  const esPresupuestaria = /(obra|obras|presupuesto|gasto|gasta|gastos|recurso|partida|invierte|invertir|invertimos|fondo|sueldo|salari|remunera|este\s+a[ñn]o|actualmente|vigente|actual)/.test(norm);
+  const tieneAnioExplicito = /\b(?:19|20)\d{2}\b/.test(pregunta);
+  if (esPresupuestaria && !tieneAnioExplicito) {
+    out.push("2026");
+  }
+
   // Dedupe preservando orden.
   return Array.from(new Set(out));
 }
@@ -299,7 +309,12 @@ export function formatearContexto(chunks: ChunkRecuperado[]): string {
     .map((c, i) => {
       const url = c.fuenteUrl ? ` <${c.fuenteUrl}>` : "";
       const fecha = c.fuenteFecha ? ` (${c.fuenteFecha})` : "";
-      return `[FUENTE ${i + 1}] ${c.fuenteTitulo}${fecha}${url}\n${c.texto.trim()}`;
+      // Etiquetar tipo: los curados marcamos como [OFICIAL VIGENTE 2026], los
+      // demas como [HISTORICO]. Asi el modelo aplica la regla de prioridad.
+      const etiqueta = TIPOS_CURADOS_SET.has(c.fuenteTipo)
+        ? `[OFICIAL VIGENTE 2026 - ${c.fuenteTipo}]`
+        : `[HISTORICO - ${c.fuenteTipo}]`;
+      return `[FUENTE ${i + 1}] ${etiqueta} ${c.fuenteTitulo}${fecha}${url}\n${c.texto.trim()}`;
     })
     .join("\n\n---\n\n");
 }
