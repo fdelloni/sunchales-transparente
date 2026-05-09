@@ -40,17 +40,18 @@ export const datasets: Dataset[] = [
     fuenteId: "presupuesto2026"
   },
   {
-    id: "contrataciones-2026",
-    titulo: "Contrataciones 2026",
-    descripcion: "Licitaciones y contrataciones directas con cadena hash-chain SHA-256 auditable.",
+    id: "contrataciones",
+    titulo: "Contrataciones (1 caso real + 4 demostrativos)",
+    descripcion:
+      "Procesos de contratación con cadena hash-chain SHA-256 auditable. Incluye Licitación Pública N° 04/2025 (261 luminarias NAOS 220W, Decreto 3537/2025) cargada con datos oficiales y los demás como ejemplos demostrativos del funcionamiento del módulo.",
     tags: ["contrataciones", "licitaciones", "transparencia", "sha256"],
     formatos: ["CSV", "JSON"],
     licencia: "CC-BY-4.0",
     publicado: "2026-04-29",
-    actualizado: "2026-04-29",
+    actualizado: "2026-05-09",
     endpoint: "/api/v1/contrataciones",
-    totalRegistros: 4,
-    fuenteId: "presupuesto2026"
+    totalRegistros: 5,
+    fuenteId: "licitacionesOficial"
   },
   {
     id: "personal-municipal",

@@ -16,12 +16,14 @@ export const metadata = {
 };
 
 const ETIQUETAS_MODULO: Record<BrechaModulo, string> = {
-  digesto: "Digesto y Concejo",
+  digesto: "Digesto y normativa",
   "juzgado-faltas": "Juzgado de Faltas",
   presupuesto: "Presupuesto",
   personal: "Personal",
   contrataciones: "Contrataciones",
   recaudacion: "Recaudación",
+  concejo: "Concejo Municipal",
+  "audiencias-publicas": "Audiencias públicas",
 };
 
 type SP = { searchParams?: { modulo?: string; estado?: string } };

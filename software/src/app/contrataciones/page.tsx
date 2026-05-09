@@ -129,15 +129,34 @@ export default function ContratacionesPage() {
         </table>
       </div>
 
-      <p className="mt-6 text-xs text-slate-500">
-        Los casos listados son <strong>ejemplos demostrativos</strong> que
-        ilustran el funcionamiento del módulo (procedimientos, oferentes,
-        adjudicaciones, ampliaciones, pagos y auditoría criptográfica). Se
-        reemplazarán por los expedientes reales del municipio en cuanto se
-        conecte la fuente oficial. La estructura sigue la lógica de la Ley
-        provincial N.º 12.510 y la práctica habitual del régimen municipal
-        santafesino.
-      </p>
+      <div className="mt-6 space-y-2 text-xs text-slate-500">
+        <p>
+          <strong className="text-emerald-700">Caso real (verificado):</strong>{" "}
+          Licitación Pública N° 04/2025 — Decreto N° 3537/2025 — adquisición
+          de 261 luminarias NAOS 220W — presupuesto oficial $56.714.843,25 —
+          apertura 04/12/2025. Datos verbatim del listado oficial de
+          licitaciones del municipio.
+        </p>
+        <p>
+          <strong>Lo que falta del caso real:</strong> oferentes, montos
+          ofertados, decreto de adjudicación, monto final contratado y
+          documentos firmados. El municipio no los publica online; esa
+          opacidad se declara como brecha en{" "}
+          <a className="underline" href="/brechas?modulo=contrataciones">
+            /brechas?modulo=contrataciones
+          </a>
+          .
+        </p>
+        <p>
+          <strong>Los demás casos</strong> (LP 01/2026 pavimento, LPR 02/2026
+          luminarias, CP 03/2026 informática y CD 12/2026 reparación EDS) son{" "}
+          <strong>ejemplos demostrativos</strong> que ilustran el
+          funcionamiento del módulo (oferentes, adjudicaciones, ampliaciones,
+          pagos y auditoría criptográfica). La estructura sigue la lógica de
+          la Ley provincial N° 12.510 y la práctica habitual del régimen
+          municipal santafesino.
+        </p>
+      </div>
     </div>
   );
 }

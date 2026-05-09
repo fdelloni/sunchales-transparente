@@ -3,10 +3,14 @@
 /**
  * Explorador del Digesto Municipal oficial.
  *
- * Renderiza las 964 normas reales sincronizadas desde sunchales.miportal.ar/digesto
- * con filtros por tipo, año y estado de vigencia + búsqueda full-text por número o
- * título. Cada norma linkea a /digesto/[id] para ver detalle completo y citas
- * textuales que justifican su estado.
+ * Renderiza las 964 normas (período 2022-2026) que el proyecto indexó desde
+ * sunchales.miportal.ar/digesto. El universo total publicado por el Concejo
+ * Municipal es de 5.309 normas (1973-2026, ver concejosunchales.gob.ar/normativa-local);
+ * la diferencia se declara como brecha "dig-normas-pre-2022" en src/lib/data/brechas.ts.
+ *
+ * Filtros por tipo, año y estado de vigencia + búsqueda full-text por número
+ * o título. Cada norma linkea a /digesto/[id] para ver detalle completo y
+ * citas textuales que justifican su estado.
  */
 
 import Link from "next/link";
