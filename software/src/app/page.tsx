@@ -5,7 +5,8 @@ import WhatsAppSection from "@/components/WhatsAppSection";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
 import { datasets } from "@/lib/data/datasets";
-import { contrataciones } from "@/lib/data/contrataciones";
+import { licitacionesOficiales } from "@/lib/data/licitaciones.generated";
+import { remuneracionesPdfs } from "@/lib/data/remuneraciones.generated";
 import { totalBrechasAbiertas } from "@/lib/data/brechas";
 import { formatARSCompact, formatNumber } from "@/lib/format";
 
@@ -129,13 +130,13 @@ export default function HomePage() {
             href="/personal"
             tag="Personal"
             title="Padrón de Personal"
-            desc={`${empleados.length} cargos públicos verificados con cargo, área y remuneración bruta.`}
+            desc={`${empleados.length} cargos políticos + ${remuneracionesPdfs.length} PDFs oficiales de remuneraciones (2014-2026) sincronizados.`}
           />
           <ModuleCard
             href="/contrataciones"
             tag="Contrataciones"
             title="Licitaciones y Compras"
-            desc={`${contrataciones.length} procesos con trazabilidad criptográfica SHA-256 auditable por cualquier vecino.`}
+            desc={`${licitacionesOficiales.length} licitaciones reales sincronizadas con sunchales.gob.ar + 4 casos demostrativos con cadena SHA-256.`}
           />
           <ModuleCard
             href="/digesto"

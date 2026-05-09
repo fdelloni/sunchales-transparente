@@ -40,18 +40,18 @@ export const datasets: Dataset[] = [
     fuenteId: "presupuesto2026"
   },
   {
-    id: "contrataciones",
-    titulo: "Contrataciones (1 caso real + 4 demostrativos)",
+    id: "contrataciones-demo-hashchain",
+    titulo: "Contrataciones — casos demostrativos con cadena hash-chain",
     descripcion:
-      "Procesos de contratación con cadena hash-chain SHA-256 auditable. Incluye Licitación Pública N° 04/2025 (261 luminarias NAOS 220W, Decreto 3537/2025) cargada con datos oficiales y los demás como ejemplos demostrativos del funcionamiento del módulo.",
-    tags: ["contrataciones", "licitaciones", "transparencia", "sha256"],
+      "Cuatro casos demostrativos que ilustran la cadena hash-chain SHA-256 (oferentes, adjudicaciones, ampliaciones, pagos y auditoría criptográfica). Para los procesos REALES sincronizados con el municipio, ver el dataset 'licitaciones-oficiales'.",
+    tags: ["contrataciones", "licitaciones", "demo", "sha256"],
     formatos: ["CSV", "JSON"],
     licencia: "CC-BY-4.0",
     publicado: "2026-04-29",
     actualizado: "2026-05-09",
     endpoint: "/api/v1/contrataciones",
-    totalRegistros: 5,
-    fuenteId: "licitacionesOficial"
+    totalRegistros: 4,
+    fuenteId: "presupuesto2026"
   },
   {
     id: "personal-municipal",
@@ -65,6 +65,34 @@ export const datasets: Dataset[] = [
     endpoint: "/api/v1/personal",
     totalRegistros: 8,
     fuenteId: "organigramaMunicipal"
+  },
+  {
+    id: "remuneraciones-funcionarios",
+    titulo: "Remuneraciones de funcionarios — histórico mensual",
+    descripcion:
+      "Listado sincronizado de los PDFs oficiales de remuneraciones de funcionarios municipales publicados por sunchales.gob.ar (mensual 2014-2026). Cada registro incluye URL directa al archivo original.",
+    tags: ["personal", "salarios", "transparencia", "histórico"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-09",
+    actualizado: "2026-05-09",
+    endpoint: "/api/v1/remuneraciones",
+    totalRegistros: 140,
+    fuenteId: "remuneracionesFuncionariosOficial"
+  },
+  {
+    id: "licitaciones-oficiales",
+    titulo: "Licitaciones públicas oficiales (sincronizadas)",
+    descripcion:
+      "Listado sincronizado de las licitaciones públicas publicadas por la Municipalidad de Sunchales (2016-2025). Incluye número, decreto de llamado, objeto, presupuesto oficial, fecha de apertura y links a pliegos y enmiendas.",
+    tags: ["contrataciones", "licitaciones", "transparencia"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-09",
+    actualizado: "2026-05-09",
+    endpoint: "/api/v1/licitaciones",
+    totalRegistros: 64,
+    fuenteId: "licitacionesOficial"
   },
   {
     id: "brechas-transparencia",
