@@ -127,22 +127,24 @@ async function busquedaPorPalabrasClave(
     .map((p) => `texto.ilike.%${escaparILike(p)}%`)
     .join(",");
 
-  // Lanzar UNA query por cada tipo curado, en paralelo. Limit alto por tipo
-  // para garantizar que todos los chunks relevantes llegen — despues
-  // dedupeamos y aplicamos el limit total al final.
-  const limitPorTipo = 8;
+  // Lanzar UNA query por cada tipo curado, en paralelo. Limit alto (15) por
+  // tipo para garantizar que TODOS los chunks que matchean las keywords
+  // entren al pool, dado que los tipos curados tienen pocos chunks
+  // (presupuesto: 17, funcionario: 8, faq: 6, normativa: 4). Total maximo
+  // del pool: 4 * 15 = 60. Dedupe y reranking posterior bajan a topK.
+  const limitPorTipo = 15;
 
-  // Ordenamos por creado_en DESCENDENTE: los chunks mas recientes (que suelen
-  // ser los curados con info actualizada o los chunks-resumen agregados al
-  // final del indexer) salen primero. Sin este order, Postgres devuelve en
-  // orden indeterminado y los chunks importantes pueden quedar afuera del LIMIT.
+  // Sin ORDER BY: queremos que TODOS los chunks que matcheen las keywords
+  // entren al pool, sin que un orden particular favorezca a unos sobre otros.
+  // El limit alto (15) garantiza que hasta los tipos mas grandes (presupuesto
+  // tiene 17 chunks) puedan entrar casi por completo. El dedup + reranking
+  // posterior se encarga de seleccionar los mas relevantes.
   const consultas = TIPOS_CURADOS.map((tipo) =>
     supabase!
       .from("chunks_rag")
       .select("*")
       .eq("fuente_tipo", tipo)
       .or(orClause)
-      .order("creado_en", { ascending: false })
       .limit(limitPorTipo)
   );
 
