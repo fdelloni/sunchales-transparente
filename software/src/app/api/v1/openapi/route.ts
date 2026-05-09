@@ -132,6 +132,24 @@ const spec = {
         }
       }
     },
+    "/api/v1/remuneraciones/detalle": {
+      get: {
+        summary: "Detalle estructurado de remuneraciones extraído mes a mes de los PDFs oficiales",
+        description:
+          "Extrae mediante parser pdfjs-dist la lista de funcionarios y sus columnas Bruto / Descuentos / Neto. Los PDFs escaneados (sin texto digital) quedan reportados como tales.",
+        parameters: [
+          { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
+          { name: "periodo", in: "query", schema: { type: "string", description: "YYYY-MM o YYYY-MM-SAC" } },
+          { name: "anio", in: "query", schema: { type: "integer" } }
+        ],
+        responses: {
+          "200": {
+            description: "Detalle estructurado.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/contrataciones": {
       get: {
         summary: "Listar contrataciones — casos demostrativos con cadena hash-chain (no es el listado oficial; usar /licitaciones)",

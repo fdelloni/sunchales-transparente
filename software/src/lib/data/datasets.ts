@@ -81,6 +81,20 @@ export const datasets: Dataset[] = [
     fuenteId: "remuneracionesFuncionariosOficial"
   },
   {
+    id: "remuneraciones-detalle",
+    titulo: "Remuneraciones de funcionarios — detalle estructurado por mes",
+    descripcion:
+      "Detalle estructurado extraído mes a mes de los PDFs oficiales: por cada período, lista de funcionarios con columnas Bruto / Descuentos / Neto. Los PDFs escaneados quedan reportados sin filas (brecha de calidad de la fuente).",
+    tags: ["personal", "salarios", "transparencia", "estructurado"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-09",
+    actualizado: "2026-05-09",
+    endpoint: "/api/v1/remuneraciones/detalle",
+    totalRegistros: 1088,
+    fuenteId: "remuneracionesFuncionariosOficial"
+  },
+  {
     id: "licitaciones-oficiales",
     titulo: "Licitaciones públicas oficiales (sincronizadas)",
     descripcion:

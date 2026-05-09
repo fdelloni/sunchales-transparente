@@ -4,6 +4,10 @@ import {
   remuneracionesPdfs,
   remuneracionesMeta,
 } from "@/lib/data/remuneraciones.generated";
+import {
+  remuneracionesDetalle,
+  remuneracionesDetalleMeta,
+} from "@/lib/data/remuneraciones-detalle.generated";
 
 export const metadata = {
   title: "Remuneraciones de funcionarios — Histórico mensual · Sunchales Transparente",
@@ -102,13 +106,14 @@ export default function RemuneracionesPage({ searchParams }: SP) {
           hint="Cada uno enlaza al archivo oficial."
         />
         <StatCard
-          value={`${min}–${max}`}
-          label="Cobertura"
-          hint={`${max - min + 1} años calendario.`}
+          value={`${remuneracionesDetalleMeta.parseados}/${total}`}
+          label="Períodos con detalle estructurado"
+          hint={`${remuneracionesDetalleMeta.filasTotales} filas extraídas de los PDFs.`}
         />
         <StatCard
-          value={String(anios.length)}
-          label="Años con publicaciones"
+          value={String(remuneracionesDetalleMeta.escaneados)}
+          label="PDFs escaneados (necesitan OCR)"
+          hint="Brecha de calidad de la fuente."
         />
         <StatCard
           value={String(huecos.length)}
@@ -163,8 +168,8 @@ export default function RemuneracionesPage({ searchParams }: SP) {
             <tr>
               <th className="px-4 py-3">Período</th>
               <th className="px-4 py-3">Tipo</th>
-              <th className="px-4 py-3">Archivo</th>
-              <th className="px-4 py-3 text-right">Abrir</th>
+              <th className="px-4 py-3">Estado</th>
+              <th className="px-4 py-3 text-right">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -175,39 +180,65 @@ export default function RemuneracionesPage({ searchParams }: SP) {
                 </td>
               </tr>
             )}
-            {items.map((p) => (
-              <tr key={p.urlPdf} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium text-navy">
-                  {p.mes ? NOMBRES_MES[p.mes] : "—"} {p.anio}
-                </td>
-                <td className="px-4 py-3">
-                  {p.sac ? (
-                    <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
-                      SAC (medio aguinaldo)
-                    </span>
-                  ) : (
-                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
-                      Sueldo mensual
-                    </span>
-                  )}
-                </td>
-                <td className="px-4 py-3 text-xs text-slate-500">
-                  <code className="font-mono">
-                    {p.urlPdf.split("/").pop()}
-                  </code>
-                </td>
-                <td className="px-4 py-3 text-right">
-                  <a
-                    href={p.urlPdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-md bg-coral px-3 py-1 text-xs font-semibold text-zinc-900 hover:bg-amber-400"
-                  >
-                    Abrir PDF →
-                  </a>
-                </td>
-              </tr>
-            ))}
+            {items.map((p) => {
+              const det = remuneracionesDetalle.find((d) => d.urlPdf === p.urlPdf);
+              const parseado = !!det?.parseado;
+              const escaneado =
+                !parseado && /sin texto digital/.test(det?.error ?? "");
+              return (
+                <tr key={p.urlPdf} className="border-t border-slate-100">
+                  <td className="px-4 py-3 font-medium text-navy">
+                    {p.mes ? NOMBRES_MES[p.mes] : "—"} {p.anio}
+                  </td>
+                  <td className="px-4 py-3">
+                    {p.sac ? (
+                      <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                        SAC
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+                        Mensual
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    {parseado ? (
+                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+                        ✓ {det.cantidadFilas} filas
+                      </span>
+                    ) : escaneado ? (
+                      <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                        ⚠ Escaneado
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+                        — Sólo PDF
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <div className="flex flex-wrap items-center justify-end gap-1.5">
+                      {parseado && (
+                        <Link
+                          href={`/personal/remuneraciones/${p.periodo}`}
+                          className="rounded-md bg-emerald-600 px-2.5 py-1 text-xs font-semibold text-white hover:bg-emerald-700"
+                        >
+                          Ver detalle →
+                        </Link>
+                      )}
+                      <a
+                        href={p.urlPdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-navy hover:bg-slate-50"
+                      >
+                        PDF ↗
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
