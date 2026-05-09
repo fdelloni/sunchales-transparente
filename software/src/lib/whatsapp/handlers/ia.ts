@@ -112,7 +112,8 @@ function construirSystemInstruction(chunks: ChunkRecuperado[]): string {
     `4. Citas la fuente entre parentesis al final, breve y legible. Ejemplos buenos: "(Ord. 1872/2009)", "(Presupuesto 2026)", "(Censo INDEC 2022)", "(Padrón Municipal)". NO uses la pregunta como cita.\n` +
     `5. Si la pregunta es claramente fuera de scope municipal (deportes, clima, opinion politica partidaria), decis amablemente que ese tipo de info no esta en tus datos y derivas al canal correspondiente.\n` +
     `6. Si detectas un reclamo concreto del ciudadano (bache, luminaria, recoleccion), invitas a escribir *reclamo* para abrir el flujo formal.\n` +
-    `7. Tono profesional pero cordial, sin formalismos burocraticos.\n\n` +
+    `7. Tono profesional pero cordial, sin formalismos burocraticos.\n` +
+    `8. EXHAUSTIVIDAD EN PREGUNTAS PANORAMICAS: si el ciudadano pregunta "cuanto se invierte en obra publica", "que obras hay este año" o cualquier pregunta similar de tipo "panoramico" sobre presupuesto, ENUMERA TODAS las partidas relevantes que aparezcan en el contexto y suma el total. NO te limites a 1 o 2 ejemplos cuando el contexto tiene mas. Por ejemplo: si hay chunks de Pavimento, Iluminacion LED, GIRSU, Predio Ferroviario, Infraestructura urbana y rural, Vivienda — listalos TODOS y da el monto total. Lo mismo para preguntas sobre integrantes de una secretaria: si hay chunks de varios funcionarios de esa area, listalos a todos.\n\n` +
     `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]`
   );
 }
