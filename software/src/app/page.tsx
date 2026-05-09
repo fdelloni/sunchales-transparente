@@ -162,6 +162,24 @@ export default function HomePage() {
             desc="KPIs, salud de transparencia, gráficos del presupuesto y resumen por módulo en una sola vista."
           />
           <ModuleCard
+            href="/carta-organica"
+            tag="Hito 2026"
+            title="Carta Orgánica"
+            desc="Seguimiento del proceso constituyente municipal. Marco habilitante (Const. SF 2025 + Ley 14.436) verificado y brechas declaradas."
+          />
+          <ModuleCard
+            href="/brechas"
+            tag="Principio rector"
+            title="Brechas de transparencia"
+            desc={`${totalBrechasAbiertas()} brechas declaradas con fundamento normativo y dataset abierto. La omisión nunca se oculta.`}
+          />
+          <ModuleCard
+            href="/aip"
+            tag="Acceso ciudadano"
+            title="Pedido de Acceso a la Información (AIP)"
+            desc="Plantilla, plazos y vías formales bajo Ordenanza Sunchales N° 1872/2009. Gratuito, sin patrocinio, sin justificar motivos."
+          />
+          <ModuleCard
             href="/datos-abiertos"
             tag="Datos Abiertos"
             title="Catálogo de Datos"
@@ -217,7 +235,7 @@ export default function HomePage() {
       {/* Banner Brechas */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
         <Link
-          href="/juzgado-faltas#brechas"
+          href="/brechas"
           className="group block overflow-hidden rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-amber-50 to-white p-6 transition hover:shadow-md sm:p-8"
         >
           <div className="flex items-start gap-4">

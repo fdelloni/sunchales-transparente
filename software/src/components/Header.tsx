@@ -38,6 +38,7 @@ const grupos: Grupo[] = [
       { href: "/personal", label: "Personal y salarios", hint: "Organigrama y nómina" },
       { href: "/concejo", label: "Concejo Municipal", hint: "Concejales, comisiones, contacto" },
       { href: "/juzgado-faltas", label: "Juzgado de Faltas", hint: "Sanciones y recaudación" },
+      { href: "/carta-organica", label: "Carta Orgánica", hint: "Seguimiento del proceso 2026" },
     ],
   },
   {
@@ -53,7 +54,9 @@ const grupos: Grupo[] = [
     id: "acceso",
     label: "Acceso ciudadano",
     items: [
-      { href: "/marco-normativo", label: "Cómo pedir información", hint: "Ord. 1872/2009" },
+      { href: "/aip", label: "Pedir información (AIP)", hint: "Plantilla y guía paso a paso" },
+      { href: "/brechas", label: "Brechas declaradas", hint: "Lo que falta publicar" },
+      { href: "/marco-normativo", label: "Marco normativo", hint: "Ord. 1872/2009 y concordantes" },
       { href: "/datos-abiertos", label: "Datos abiertos (CSV/JSON)", hint: "Descargas con CC-BY-4.0" },
       { href: "/api/v1/openapi", label: "API REST", hint: "Para desarrolladores" },
     ],
