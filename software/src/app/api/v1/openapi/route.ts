@@ -119,6 +119,57 @@ const spec = {
         }
       }
     },
+    "/api/v1/brechas": {
+      get: {
+        summary: "Listar brechas de transparencia (información de publicación obligatoria aún no expuesta)",
+        description:
+          "Dataset abierto de las brechas detectadas por el proyecto. Cada brecha cita su fundamento normativo (Ord. Sunchales 1872/2009, Decreto Pcial. SF 0692/2009, Constitución Nacional art. 1, CADH art. 13).",
+        parameters: [
+          {
+            name: "format",
+            in: "query",
+            schema: { type: "string", enum: ["json", "csv"], default: "json" }
+          },
+          {
+            name: "modulo",
+            in: "query",
+            schema: {
+              type: "string",
+              enum: [
+                "digesto",
+                "juzgado-faltas",
+                "presupuesto",
+                "personal",
+                "contrataciones",
+                "recaudacion"
+              ]
+            }
+          },
+          {
+            name: "estado",
+            in: "query",
+            schema: {
+              type: "string",
+              enum: [
+                "no_publicado",
+                "publicado_formato_cerrado",
+                "publicado_parcial",
+                "pedido_presentado",
+                "pedido_vencido",
+                "respondido_parcial",
+                "subsanado"
+              ]
+            }
+          }
+        ],
+        responses: {
+          "200": {
+            description: "Listado de brechas con fundamento normativo y vías de pedido formal.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/suscripciones": {
       post: {
         summary: "Crear una suscripción opt-in para alertas de contrataciones",

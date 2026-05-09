@@ -66,6 +66,20 @@ export const datasets: Dataset[] = [
     fuenteId: "organigramaMunicipal"
   },
   {
+    id: "brechas-transparencia",
+    titulo: "Brechas de transparencia detectadas",
+    descripcion:
+      "Información de publicación obligatoria que el Estado municipal aún no expone, con fundamento normativo y vías de pedido formal de acceso.",
+    tags: ["transparencia", "brechas", "AIP", "rendición de cuentas"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-09",
+    actualizado: "2026-05-09",
+    endpoint: "/api/v1/brechas",
+    totalRegistros: 13,
+    fuenteId: "presupuesto2026"
+  },
+  {
     id: "fuentes-citadas",
     titulo: "Fuentes citadas por la plataforma",
     descripcion: "Registro de cada fuente externa utilizada para alimentar datos del portal.",
