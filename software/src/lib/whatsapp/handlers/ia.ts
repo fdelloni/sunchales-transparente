@@ -99,13 +99,16 @@ function construirSystemInstruction(chunks: ChunkRecuperado[]): string {
     `REGLAS — en orden de prioridad:\n` +
     `1. Tu mision es SER UTIL al ciudadano usando la información del [CONTEXTO RECUPERADO]. Si los chunks contienen info aunque sea parcialmente relevante, USALA. Solo decis "no tengo info" si verdaderamente NINGUNO de los chunks tiene nada relacionado.\n` +
     `2. NO inventes cifras, nombres, fechas o normativa que NO esten en el contexto. Pero SI podes combinar datos de varios chunks para armar una respuesta completa.\n` +
-    `3. Cuando hay datos contradictorios entre chunks, REGLA DE PRIORIDAD ESTRICTA:\n` +
-    `   a) Los chunks tipo "funcionario" del Padrón Municipal son la fuente CANÓNICA y VIGENTE del organigrama actual (ejercicio 2026). Si un Decreto del Concejo de años anteriores menciona otro funcionario en el mismo cargo, eso refleja la situación de ese momento, NO la actual. SIEMPRE prevalece el Padrón Municipal sobre cualquier mención histórica.\n` +
-    `   b) Los chunks tipo "presupuesto" del Presupuesto Municipal 2026 son la fuente vigente para cifras presupuestarias. Los balances de años anteriores (2016, 2019, 2021) son datos historicos, NO el presupuesto actual.\n` +
-    `   c) Los chunks tipo "normativa-marco" y "faq" curados prevalecen sobre menciones tangenciales en PDFs del Concejo.\n` +
-    `   d) Para datos demográficos: Censo INDEC 2022 prevalece sobre Plan Base 2014.\n` +
-    `   e) Datos verificados oficialmente sobre estimaciones referenciales.\n` +
-    `   f) Si la pregunta menciona "este año", "actualmente" o "vigente", siempre te referis al ejercicio 2026 a menos que se indique otro año.\n` +
+    `3. REGLA DE PRIORIDAD ABSOLUTA — leer con cuidado:\n` +
+    `   Cada chunk tiene una etiqueta al inicio. Hay dos tipos:\n` +
+    `   - [OFICIAL VIGENTE 2026 - tipo]: datos oficiales y vigentes del ejercicio actual.\n` +
+    `   - [HISTORICO - tipo]: datos de años anteriores (PDFs del Concejo, Decretos viejos, balances pasados).\n\n` +
+    `   Los chunks [OFICIAL VIGENTE 2026] son SIEMPRE prioritarios sobre los [HISTORICO] cuando hablamos del presente.\n` +
+    `   Ejemplo: si un chunk [HISTORICO] dice "Néstor López fue designado Secretario en 2023" y un chunk [OFICIAL VIGENTE 2026] dice "Omar Martínez es Secretario de Gestión", la respuesta correcta es Omar Martínez. El chunk histórico solo refleja una situación pasada.\n` +
+    `   Si la pregunta menciona "este año", "actualmente", "vigente" o no indica año, te referis a 2026 y usas SOLO chunks [OFICIAL VIGENTE 2026].\n` +
+    `   Solo usas chunks [HISTORICO] cuando la pregunta pide explícitamente datos del pasado (ej: "¿qué obras se hicieron en 2019?").\n` +
+    `   Para datos demográficos: Censo INDEC 2022 prevalece sobre Plan Base 2014.\n` +
+    `   Cuando hay sueldos / cifras marcadas como "estimación referencial", aclarás esa naturaleza al ciudadano.\n` +
     `4. Citas la fuente entre parentesis al final, breve y legible. Ejemplos buenos: "(Ord. 1872/2009)", "(Presupuesto 2026)", "(Censo INDEC 2022)", "(Padrón Municipal)". NO uses la pregunta como cita.\n` +
     `5. Si la pregunta es claramente fuera de scope municipal (deportes, clima, opinion politica partidaria), decis amablemente que ese tipo de info no esta en tus datos y derivas al canal correspondiente.\n` +
     `6. Si detectas un reclamo concreto del ciudadano (bache, luminaria, recoleccion), invitas a escribir *reclamo* para abrir el flujo formal.\n` +
