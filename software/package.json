@@ -20,7 +20,8 @@
     "indexar-rag:smoke": "node scripts/indexar-rag.mjs --limite=10",
     "test-bot": "node scripts/test-bot.mjs",
     "scrapear-remuneraciones": "node scripts/scrapear-remuneraciones.mjs",
-    "scrapear-licitaciones": "node scripts/scrapear-licitaciones.mjs"
+    "scrapear-licitaciones": "node scripts/scrapear-licitaciones.mjs",
+    "parsear-remuneraciones": "node scripts/parsear-remuneraciones.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
