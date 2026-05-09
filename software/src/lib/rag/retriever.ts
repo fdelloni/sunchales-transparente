@@ -40,7 +40,7 @@ const TIPOS_CURADOS = ["presupuesto", "funcionario", "faq", "normativa-marco"];
 const TIPOS_CURADOS_SET = new Set(TIPOS_CURADOS);
 
 const MIN_CURADOS_TOP = 4;
-const MAX_KEYWORD_HITS = 8;
+const MAX_KEYWORD_HITS = 12;
 
 export async function recuperar(
   pregunta: string,
@@ -119,14 +119,18 @@ async function busquedaPorPalabrasClave(
   const tiposPreferidos = detectarTiposObjetivo(pregunta);
 
   // Sintaxis Supabase: .or("texto.ilike.%p1%,texto.ilike.%p2%")
-  const orClause = palabras
+  // Generar variantes con y sin tildes para que ILIKE matchee ambas formas
+  // ("Gestión" en query vs "Gestion" en chunk indexado).
+  const palabrasExpandidas = expandirVariantes(palabras);
+
+  const orClause = palabrasExpandidas
     .map((p) => `texto.ilike.%${escaparILike(p)}%`)
     .join(",");
 
-  // Lanzar UNA query por cada tipo curado, en paralelo.
-  // Asi garantizamos diversidad: un tipo no copa todo el limit.
-  // Limit por tipo: max(3, limit/4 + 1) para distribuir bien.
-  const limitPorTipo = Math.max(3, Math.ceil(limit / TIPOS_CURADOS.length) + 1);
+  // Lanzar UNA query por cada tipo curado, en paralelo. Limit alto por tipo
+  // para garantizar que todos los chunks relevantes llegen — despues
+  // dedupeamos y aplicamos el limit total al final.
+  const limitPorTipo = 8;
 
   const consultas = TIPOS_CURADOS.map((tipo) =>
     supabase!
@@ -257,6 +261,24 @@ function escaparILike(s: string): string {
   // Postgres ILIKE: escape de %, _ y \. Tambien limpiamos comillas para
   // evitar romper la sintaxis del filtro Supabase .or().
   return s.replace(/[%_\\,()]/g, "");
+}
+
+/**
+ * Expande cada palabra a sus variantes con y sin tildes/caracteres especiales.
+ * El indexer guarda muchos chunks sin tildes ("Gestion", "Educacion"); las
+ * preguntas del usuario suelen incluirlas ("Gestión", "Educación"). ILIKE
+ * en Postgres NO normaliza tildes por defecto, asi que generamos ambas formas.
+ */
+function expandirVariantes(palabras: string[]): string[] {
+  const out = new Set<string>();
+  for (const p of palabras) {
+    out.add(p);
+    const sinTildes = p
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "");
+    if (sinTildes !== p) out.add(sinTildes);
+  }
+  return Array.from(out);
 }
 
 // ====================== Reranking estratificado ======================

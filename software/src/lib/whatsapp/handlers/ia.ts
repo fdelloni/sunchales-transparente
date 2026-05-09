@@ -45,8 +45,8 @@ export const manejarIa: Handler = async (ctx) => {
     //   del reranking (los curados con boost 1.4x quedan al frente).
     // - umbral=0.05: muy permisivo, dejamos que el reranking decida.
     const chunks = await recuperar(pregunta, {
-      topK: 14,
-      poolInicial: 50,
+      topK: 18,
+      poolInicial: 60,
       umbral: 0.05
     });
 
