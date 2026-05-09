@@ -213,13 +213,29 @@ export default function DigestoPage() {
       </h2>
       <p className="mt-2 max-w-3xl text-sm text-slate-600">
         <strong className="text-navy tabular-nums">{normasOficiales.length}</strong>{" "}
-        normas reales sincronizadas directamente del Digesto Municipal oficial. De
-        ellas, <strong className="text-emerald-700">{conteoEstados.vigente} vigentes</strong>,{" "}
+        normas indexadas (período 2022-2026) sobre un universo total de{" "}
+        <strong className="text-navy tabular-nums">5.309</strong> normas que
+        publica el Concejo Municipal en{" "}
+        <a
+          href="https://concejosunchales.gob.ar/normativa-local.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          su digesto público
+        </a>{" "}
+        con cobertura 1973-2026. De las indexadas hay{" "}
+        <strong className="text-emerald-700">{conteoEstados.vigente} vigentes</strong>,{" "}
         <strong className="text-amber-700">{conteoEstados.modificada} modificadas</strong>{" "}
         y <strong className="text-red-700">{conteoEstados.derogada} derogadas</strong>{" "}
-        según análisis algorítmico del texto de cada norma. Hacé click sobre el
-        número o el título para ver el detalle, el texto completo y la cita textual
-        de quién la afecta.
+        según análisis algorítmico del texto. Hacé click sobre el número o el
+        título para ver el detalle, el texto completo y la cita textual de
+        quién la afecta. La diferencia entre lo indexado y lo publicado se
+        declara como brecha en{" "}
+        <Link href="/brechas?modulo=digesto" className="underline">
+          /brechas
+        </Link>
+        .
       </p>
 
       <div className="mt-6">

@@ -141,7 +141,9 @@ const spec = {
                 "presupuesto",
                 "personal",
                 "contrataciones",
-                "recaudacion"
+                "recaudacion",
+                "concejo",
+                "audiencias-publicas"
               ]
             }
           },

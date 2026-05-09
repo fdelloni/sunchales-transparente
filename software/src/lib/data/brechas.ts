@@ -42,7 +42,9 @@ export type BrechaModulo =
   | "presupuesto"
   | "personal"
   | "contrataciones"
-  | "recaudacion";
+  | "recaudacion"
+  | "concejo"
+  | "audiencias-publicas";
 
 export type BrechaCategoria =
   | "actividad_sancionatoria"
@@ -54,7 +56,10 @@ export type BrechaCategoria =
   | "datos_abiertos"
   | "estructura_organica"
   | "participacion_ciudadana"
-  | "actividad_legislativa";
+  | "actividad_legislativa"
+  | "contrataciones"
+  | "presupuesto"
+  | "boletin_oficial";
 
 export type BrechaEstado =
   | "no_publicado"
@@ -151,7 +156,7 @@ export const brechas: Brecha[] = [
     modulo: "digesto",
     titulo: "Normas anteriores a 2022 no sincronizadas en el Digesto oficial",
     descripcion:
-      'El Digesto Municipal oficial (sunchales.miportal.ar/digesto) contiene 964 normas reales del período 2022-2026 (479 Decretos + 296 Ordenanzas + 189 Resoluciones). Sin embargo, el análisis algorítmico del texto detectó 87 relaciones de derogación o modificación entre normas, de las cuales 51 (58%) apuntan a normas anteriores a 2022 que NO están sincronizadas en el sistema oficial. Eso significa que cualquier ciudadano que quiera saber el texto consolidado de una ordenanza histórica vigente debe rastrearla por fuera del Digesto. Es un déficit de accesibilidad efectiva del derecho.',
+      'El Concejo Municipal publica un universo total de 5.309 normas en su digesto (concejosunchales.gob.ar/normativa-local.aspx): 465 Declaraciones, 1.039 Minutas, 3.273 Ordenanzas y 532 Resoluciones, con cobertura 1973-2026. El portal del Departamento Ejecutivo (sunchales.miportal.ar/digesto) sólo refleja 964 normas reales del período 2022-2026 (Decretos, Ordenanzas y Resoluciones). El análisis algorítmico del texto detectó 87 relaciones de derogación o modificación entre las 964 indexadas, de las cuales 51 (58%) apuntan a normas anteriores a 2022 que NO están sincronizadas en el sistema oficial del Ejecutivo. Cualquier ciudadano que quiera saber el texto consolidado de una ordenanza histórica vigente debe rastrearla en PDFs sueltos del sitio del Concejo, fuera de un buscador unificado. Es un déficit de accesibilidad efectiva del derecho.',
     categoria: "marco_normativo",
     estado: "publicado_parcial",
     fundamento: `${FUND_LOCAL} · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas (art. 2 CCyCN) · publicidad y máxima divulgación de los actos de gobierno.`,
@@ -260,6 +265,107 @@ export const brechas: Brecha[] = [
     fundamento: `${FUND_LOCAL} · ${FUND_PROV} (principio de máxima divulgación).`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
+  },
+
+  // ===== AUDIENCIAS PÚBLICAS =====
+  {
+    id: "aud-hueco-2020-2026",
+    modulo: "audiencias-publicas",
+    titulo: "Audiencias públicas: hueco de 4 años (2020-2026)",
+    descripcion:
+      "El sitio oficial sólo documenta dos audiencias públicas: una del 05/09/2019 (proyecto Complejo Ambiental) y otra del 25/10/2022 (caso 'Caglieris c/ Municipalidad' por basural a cielo abierto, ordenada judicialmente). No hay registro de audiencias en 2020, 2021, 2023, 2024, 2025 ni 2026. La sección funciona como archivo histórico, no como mecanismo activo de participación ciudadana.",
+    categoria: "participacion_ciudadana",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio republicano de participación previa en decisiones que afectan derechos colectivos (urbanismo, ambiente, tarifas, servicios públicos).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/audiencias-publicas/"
+  },
+
+  // ===== CONCEJO MUNICIPAL =====
+  {
+    id: "con-asesores-no-listados",
+    modulo: "concejo",
+    titulo: "Asesores y contratados del Concejo no individualizados",
+    descripcion:
+      "El sitio del Concejo (concejosunchales.gob.ar/personal-del-concejo.aspx) lista únicamente a 3 personas: la Secretaria, la Responsable Administrativa y la Responsable de Comunicación. Según el proyecto de presupuesto 2026 trascendido a prensa, el Concejo cuenta con 3 empleadas + 1 contratado + 6 asesores (10 personas). Faltan publicar nombres, cargos, área de asignación y vínculo laboral de 7 personas que perciben remuneración del Estado municipal.",
+    categoria: "estructura_organica",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · publicidad de la nómina de quienes perciben remuneración del Estado municipal.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/personal-del-concejo.aspx"
+  },
+  {
+    id: "con-cv-concejales-incompletos",
+    modulo: "concejo",
+    titulo: "CV públicos de concejales incompletos",
+    descripcion:
+      "La página de concejales actuales ofrece un botón de descarga de CV; está disponible para 4 de los 6 concejales (Cattaneo, Balduino, Torriri, Astor) y vacío para los otros 2 (Delmastro, Nicolau). Es asimetría sin fundamento normativo claro y debilita la trazabilidad pública de la representación.",
+    categoria: "estructura_organica",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio republicano de responsabilidad de los representantes.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/concejales-actuales.aspx"
+  },
+  {
+    id: "con-saldos-2023-2026",
+    modulo: "concejo",
+    titulo: "Movimiento de saldos del Concejo: gap 2023-2026",
+    descripcion:
+      "El Concejo publica su 'movimiento de saldos' mensual entre 2017 y 2022, con cierres anuales 2020/21/22; no hay publicación posterior. En contraste, el Departamento Ejecutivo publica ejecución mensual hasta febrero de 2026 y el propio Concejo publica su 'ejecución de partida presupuestaria' hasta marzo de 2026. La asimetría dentro del mismo cuerpo institucional no tiene fundamento aparente y hace opaco el manejo financiero del Concejo en los últimos 4 años.",
+    categoria: "trazabilidad_fondos",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} (forma republicana → rendición de cuentas).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/movimiento-de-saldos.aspx"
+  },
+
+  // ===== CONTRATACIONES =====
+  {
+    id: "contr-adjudicaciones",
+    modulo: "contrataciones",
+    titulo: "Adjudicaciones, oferentes y montos finales contratados",
+    descripcion:
+      "El listado oficial de licitaciones publica pliegos, decretos de llamado y presupuestos oficiales. No publica el resultado del procedimiento: oferentes presentados, ofertas recibidas y montos, decreto de adjudicación, monto final contratado, plazo de ejecución comprometido y, eventualmente, ampliaciones. Sin esa segunda mitad, la trazabilidad termina antes del momento más relevante para el control ciudadano.",
+    categoria: "contrataciones",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de competencia y publicidad en contrataciones públicas (Ley provincial de obras públicas y reglamentación local concordante).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
+
+  // ===== PRESUPUESTO Y BOLETÍN OFICIAL =====
+  {
+    id: "pre-ord-2026-texto",
+    modulo: "presupuesto",
+    titulo: "Texto íntegro de la Ordenanza de Presupuesto 2026 con anexo de partidas",
+    descripcion:
+      "Las cifras macro del Presupuesto 2026 ($30.938 M de gastos, $30.950 M de recursos) circulan por prensa local y discursos institucionales. La sección oficial /presupuesto/ del Departamento Ejecutivo expone ejecuciones mensuales, pero no se ubicó publicada la Ordenanza completa con sus anexos clasificadores (estructura por finalidad, función, jurisdicción, programa y partida) que permitirían al ciudadano leer el plan financiero original aprobado por el Concejo.",
+    categoria: "presupuesto",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · publicidad de las normas (art. 2 CCyCN) · principio de legalidad presupuestaria (toda erogación debe estar en una ley/ordenanza pública).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/presupuesto/"
+  },
+  {
+    id: "pre-boletin-oficial-municipal",
+    modulo: "presupuesto",
+    titulo: "Boletín Oficial Municipal sin canal accesible",
+    descripcion:
+      "El hub 'Municipio Transparente' lista 'Boletín Oficial' como uno de sus seis ejes, pero al día de hoy no se ubicó una URL accesible que permita consultar y descargar los decretos del Departamento Ejecutivo en forma ordenada (por número, fecha o materia). Los decretos sólo aparecen citados de forma fragmentaria en el listado de licitaciones (ej.: 3537/2025) y en algunos PDFs sueltos. La inexistencia de un Boletín Oficial Municipal navegable es una brecha estructural: el ciudadano no tiene un punto único donde leer la actividad reglamentaria del Ejecutivo.",
+    categoria: "boletin_oficial",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · publicidad de los actos administrativos como condición de su vigencia (principio general de derecho administrativo) · ${FUND_CONST}.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09"
   }
 ];
 
@@ -292,4 +398,7 @@ export const labelCategoria: Record<BrechaCategoria, string> = {
   estructura_organica: "Estructura orgánica",
   participacion_ciudadana: "Participación ciudadana",
   actividad_legislativa: "Actividad legislativa",
+  contrataciones: "Contrataciones públicas",
+  presupuesto: "Presupuesto y rendición",
+  boletin_oficial: "Boletín Oficial Municipal",
 };
