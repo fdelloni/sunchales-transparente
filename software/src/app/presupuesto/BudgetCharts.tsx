@@ -15,7 +15,8 @@ import { partidas, totales } from "@/lib/data/presupuesto";
 import { formatARSCompact } from "@/lib/format";
 import ChartTooltip from "@/components/ChartTooltip";
 
-const COLORS = ["#0F1B3D", "#0C4A6E", "#1C7293", "#E8A33D", "#C97B1A", "#475569", "#94A3B8"];
+// Paleta Bandera de Sunchales (oro + verde) con auxiliares afines.
+const COLORS = ["#FCC81D", "#ADCF3D", "#5D7A18", "#7A8B47", "#9A7400", "#5D4A18", "#1F3D0A"];
 
 export default function BudgetCharts() {
   const porFinalidad = Object.values(
@@ -98,7 +99,7 @@ export default function BudgetCharts() {
                 tick={{ fontSize: 11, fill: "#0F172A" }}
               />
               <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
-              <Bar dataKey="value" fill="#1C7293" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="value" fill="#7A8B47" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

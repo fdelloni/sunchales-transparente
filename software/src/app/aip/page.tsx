@@ -23,7 +23,7 @@ export default function AIPPage({ searchParams }: SP) {
         <BuscadorSeccion placeholder="Buscar sobre acceso a la información…" />
       </div>
 
-      <span className="eyebrow text-coral">Acceso ciudadano · AIP</span>
+      <span className="eyebrow">Acceso ciudadano · AIP</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Cómo pedir información pública al municipio
       </h1>

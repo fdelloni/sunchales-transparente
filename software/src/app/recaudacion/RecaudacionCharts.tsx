@@ -20,12 +20,13 @@ import {
 import { formatARSCompact } from "@/lib/format";
 import ChartTooltip from "@/components/ChartTooltip";
 
+// Colores derivados de la Bandera de Sunchales (oro + verde) y tonos afines.
 const COLORS_CATEGORIA: Record<string, string> = {
-  tributarios_propios: "#10B981",         // emerald
-  no_tributarios_propios: "#1C7293",      // teal
-  coparticipacion_provincial: "#E8A33D",  // coral / amber
-  coparticipacion_nacional: "#C97B1A",    // dark amber
-  recursos_capital: "#0F1B3D"             // navy
+  tributarios_propios: "#ADCF3D",         // verde bandera
+  no_tributarios_propios: "#7A8B47",      // verde-oliva medio
+  coparticipacion_provincial: "#FCC81D",  // oro bandera
+  coparticipacion_nacional: "#9A7400",    // oro oscuro
+  recursos_capital: "#1F3D0A"             // verde profundo heráldico
 };
 
 export default function RecaudacionCharts() {

@@ -67,6 +67,20 @@ export const datasets: Dataset[] = [
     fuenteId: "organigramaMunicipal"
   },
   {
+    id: "publicaciones-concejo",
+    titulo: "Publicaciones del Concejo Municipal — boletines y resúmenes",
+    descripcion:
+      "Boletines bimestrales (2017-2026) y resúmenes anuales (2012-2025) sincronizados con el sitio oficial del Concejo. Cada publicación incluye fecha, título, link al detalle y URL del PDF.",
+    tags: ["concejo", "boletines", "resumen anual", "transparencia"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-10",
+    actualizado: "2026-05-10",
+    endpoint: "/api/v1/publicaciones-concejo",
+    totalRegistros: 80,
+    fuenteId: "concejoBoletinBimestral"
+  },
+  {
     id: "digesto-concejo",
     titulo: "Digesto del Concejo Municipal — listado completo",
     descripcion:

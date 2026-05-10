@@ -206,11 +206,13 @@ export default function PersonalPage() {
         />
       </div>
 
-      {/* CTA — Histórico de remuneraciones (PDFs oficiales sincronizados) */}
-      <div className="mt-8 rounded-2xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-white p-5 sm:p-6">
+      {/* CTA — Histórico de remuneraciones (PDFs oficiales sincronizados).
+           Usa el verde institucional de Sunchales (paleta de la bandera) para
+           reforzar identidad local en datos verificados. */}
+      <div className="mt-8 rounded-2xl border-2 border-verde bg-gradient-to-br from-verde-soft to-white p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-emerald-700">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-verde-dark">
               Datos verificados · sincronizados con sunchales.gob.ar
             </span>
             <h3 className="mt-1 font-serif text-xl font-bold text-navy">
@@ -225,7 +227,7 @@ export default function PersonalPage() {
           </div>
           <Link
             href="/personal/remuneraciones"
-            className="rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+            className="rounded-lg bg-verde-dark px-5 py-3 text-sm font-semibold text-white hover:bg-verde-dark/90"
           >
             Ver histórico →
           </Link>

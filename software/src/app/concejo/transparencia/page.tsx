@@ -21,6 +21,10 @@ import {
 } from "@/lib/data/concejo-detalle";
 import { resumenesAnuales } from "@/lib/data/resumenes-anuales.generated";
 import {
+  publicacionesConcejo,
+  publicacionesConcejoMeta,
+} from "@/lib/data/publicaciones-concejo.generated";
+import {
   ActividadAnualChart,
   CategoriasChart,
   UcmFrecuenciaChart
@@ -403,6 +407,156 @@ export default function ConcejoTransparenciaPage() {
           Fundamento normativo: Ordenanza Sunchales 1872/2009 + Decreto
           Provincial 0692/2009 + Constitución Nacional Art. 1° y 75 inc. 22
           (CADH Art. 13).
+        </p>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  Publicaciones del Concejo — boletines bimestrales y resúmenes */}
+      {/* ============================================================ */}
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl font-bold text-navy">
+          Publicaciones sincronizadas — {publicacionesConcejo.length} documentos
+        </h2>
+        <p className="mt-2 max-w-3xl text-slate-600">
+          Listado completo de los <strong>{publicacionesConcejoMeta.totalBoletines}</strong>{" "}
+          boletines bimestrales (2017-2026) y los{" "}
+          <strong>{publicacionesConcejoMeta.totalResumenes}</strong> resúmenes
+          anuales (2012-2025) publicados por el Concejo. Cada link descarga
+          el PDF original.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <a
+            href="/api/v1/publicaciones-concejo?format=csv"
+            className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+          >
+            Descargar CSV
+          </a>
+          <a
+            href="/api/v1/publicaciones-concejo"
+            className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+          >
+            API JSON
+          </a>
+        </div>
+
+        {/* Resúmenes anuales arriba */}
+        <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+          Resúmenes anuales ({publicacionesConcejoMeta.totalResumenes})
+        </h3>
+        <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {publicacionesConcejo
+            .filter((p) => p.tipo === "resumen_anual")
+            .map((p) => (
+              <a
+                key={p.idPublicacion}
+                href={p.urlPdf ?? p.urlDetalle ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
+                  Resumen anual
+                </div>
+                <h4 className="mt-1 font-serif text-base font-bold text-navy">
+                  {p.titulo}
+                </h4>
+                <div className="mt-2 text-xs text-slate-500">
+                  Publicado:{" "}
+                  {p.fechaPublicacion
+                    ? new Date(p.fechaPublicacion).toLocaleDateString("es-AR")
+                    : "—"}
+                </div>
+                {p.urlPdf && (
+                  <div className="mt-2 text-xs font-semibold text-coral-dark group-hover:underline">
+                    Abrir PDF →
+                  </div>
+                )}
+              </a>
+            ))}
+        </div>
+
+        {/* Boletines bimestrales agrupados por año */}
+        <h3 className="mt-10 font-serif text-lg font-bold text-navy">
+          Boletines bimestrales ({publicacionesConcejoMeta.totalBoletines})
+        </h3>
+        {(() => {
+          const boletines = publicacionesConcejo.filter(
+            (p) => p.tipo === "boletin_bimestral"
+          );
+          const porAnio = boletines.reduce<Record<number, typeof boletines>>(
+            (acc, b) => {
+              const a = b.fechaPublicacion
+                ? Number(b.fechaPublicacion.slice(0, 4))
+                : 0;
+              acc[a] = acc[a] ?? [];
+              acc[a].push(b);
+              return acc;
+            },
+            {}
+          );
+          const anios = Object.keys(porAnio)
+            .map(Number)
+            .sort((a, b) => b - a);
+          return (
+            <div className="mt-3 space-y-4">
+              {anios.map((a) => (
+                <div
+                  key={a}
+                  className="overflow-hidden rounded-xl border border-slate-200 bg-white"
+                >
+                  <div className="border-b border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-navy">
+                    {a || "Sin año"}{" "}
+                    <span className="ml-2 text-xs text-slate-500">
+                      ({porAnio[a].length} boletines)
+                    </span>
+                  </div>
+                  <ul className="divide-y divide-slate-100">
+                    {porAnio[a].map((b) => (
+                      <li
+                        key={b.idPublicacion}
+                        className="flex items-center justify-between gap-3 px-4 py-2 text-sm"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <div className="truncate font-medium text-navy">
+                            {b.titulo}
+                          </div>
+                          <div className="text-[11px] text-slate-500">
+                            {b.fechaPublicacion
+                              ? new Date(b.fechaPublicacion).toLocaleDateString(
+                                  "es-AR"
+                                )
+                              : "—"}
+                          </div>
+                        </div>
+                        {b.urlPdf && (
+                          <a
+                            href={b.urlPdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-navy hover:bg-slate-50"
+                          >
+                            PDF ↗
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          );
+        })()}
+
+        <p className="mt-4 text-xs text-slate-500">
+          Sincronizado por{" "}
+          <code className="rounded bg-slate-100 px-1.5 py-0.5">
+            npm run scrapear-publicaciones-concejo
+          </code>
+          . Última corrida:{" "}
+          {new Date(publicacionesConcejoMeta.sincronizadoEl).toLocaleString(
+            "es-AR"
+          )}
+          .
         </p>
       </section>
 

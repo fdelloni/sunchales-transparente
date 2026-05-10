@@ -15,3 +15,19 @@ dist
 # SÍ se commitean — son la fuente de verdad para el build de Vercel.
 /data/digesto-oficial/detalles/
 /data/digesto-oficial/analisis-gemini/
+
+# Cache de PDFs de remuneraciones (~140 archivos × ~200KB ≈ 30 MB).
+# Se regeneran corriendo `npm run parsear-remuneraciones`.
+/data/remuneraciones-pdfs/
+
+# Logs del servidor de desarrollo
+/dev-out.txt
+/dev-err.txt
+/tsc-out.txt
+/tsc-err.txt
+
+# Modelo Tesseract OCR (~10 MB, se baja automáticamente la primera vez).
+/spa.traineddata
+/eng.traineddata
+/*.traineddata
+/tsconfig.tsbuildinfo

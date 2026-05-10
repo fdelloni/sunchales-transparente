@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0F1B3D;
-  --coral: #E8A33D;
+  /* Identidad institucional — toda la paleta derivada de la
+     Bandera oficial de Sunchales (Ord. 1762/2007). Sin azules. */
+  --navy: #1F3D0A;          /* verde profundo heráldico (alias institucional) */
+  --navy-soft: #3A5E1D;
+  --coral: #FCC81D;         /* ORO de la bandera (alias histórico) */
+  --coral-dark: #9A7400;
+  --oro: #FCC81D;
+  --oro-dark: #9A7400;
+  --oro-soft: #FFF1B8;
+  --verde: #ADCF3D;         /* VERDE de la bandera */
+  --verde-dark: #5D7A18;
+  --verde-soft: #EAF3CC;
+  --tierra: #5D4A18;        /* deep — fortín / suelo labrado */
+  --oliva: #7A8B47;         /* teal — verde-oliva intermedio oro↔verde */
 }
 
 html, body { background: #F8FAFC; color: #0F172A; }
@@ -16,7 +28,7 @@ html, body { background: #F8FAFC; color: #0F172A; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #C97B1A;
+  color: var(--oro-dark);
 }
 
 /* Estilos para el HTML del Digesto Municipal renderizado en /digesto/[id]
@@ -24,13 +36,13 @@ html, body { background: #F8FAFC; color: #0F172A; }
    Sin Tailwind Typography, definimos estilos básicos acá. */
 .texto-norma p { margin: 0 0 0.85em 0; }
 .texto-norma p:last-child { margin-bottom: 0; }
-.texto-norma strong, .texto-norma b { color: #0F1B3D; font-weight: 600; }
+.texto-norma strong, .texto-norma b { color: #1F3D0A; font-weight: 600; }
 .texto-norma u { text-decoration: underline; }
 .texto-norma em, .texto-norma i { font-style: italic; }
 .texto-norma h1, .texto-norma h2, .texto-norma h3,
 .texto-norma h4, .texto-norma h5, .texto-norma h6 {
   font-family: Georgia, Cambria, serif;
-  color: #0F1B3D;
+  color: #1F3D0A;
   font-weight: 700;
   margin: 1.4em 0 0.5em 0;
 }
@@ -53,10 +65,10 @@ html, body { background: #F8FAFC; color: #0F172A; }
 .texto-norma th {
   background: #F8FAFC;
   font-weight: 600;
-  color: #0F1B3D;
+  color: #1F3D0A;
 }
 .texto-norma blockquote {
-  border-left: 3px solid #CDE7F0;
+  border-left: 3px solid #EAF3CC;
   padding-left: 0.8em;
   margin: 0.5em 0;
   color: #475569;

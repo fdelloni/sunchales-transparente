@@ -140,21 +140,21 @@ export async function enviarOptInSuscripcion(args: {
 <html lang="es">
   <head><meta charset="UTF-8"><title>${subject}</title></head>
   <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #0F172A;">
-    <div style="background: #0F1B3D; color: white; padding: 24px; border-radius: 12px 12px 0 0; border-left: 6px solid #E8A33D;">
+    <div style="background: #1F3D0A; color: white; padding: 24px; border-radius: 12px 12px 0 0; border-left: 6px solid #FCC81D;">
       <h1 style="margin: 0; font-family: Georgia, serif; font-size: 22px;">Sunchales Transparente</h1>
       <p style="margin: 8px 0 0 0; font-size: 13px; opacity: 0.85;">Plataforma cívica de transparencia municipal</p>
     </div>
     <div style="background: white; padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px;">
-      <h2 style="font-family: Georgia, serif; color: #0F1B3D; margin-top: 0;">Hola,</h2>
+      <h2 style="font-family: Georgia, serif; color: #1F3D0A; margin-top: 0;">Hola,</h2>
       <p>Recibimos tu pedido para suscribirte a alertas ciudadanas de las siguientes categorías:</p>
-      <ul style="background: #F5F0E6; padding: 12px 24px; border-radius: 8px; border-left: 4px solid #E8A33D;">${listaCategorias}</ul>
+      <ul style="background: #F5F0E6; padding: 12px 24px; border-radius: 8px; border-left: 4px solid #FCC81D;">${listaCategorias}</ul>
       <p>Para confirmar tu suscripción y empezar a recibir alertas cuando estén disponibles, hacé click acá:</p>
       <p style="text-align: center; margin: 24px 0;">
-        <a href="${linkConfirmar}" style="background: #E8A33D; color: #18181b; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 13px;">Confirmar mi suscripción</a>
+        <a href="${linkConfirmar}" style="background: #FCC81D; color: #18181b; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 13px;">Confirmar mi suscripción</a>
       </p>
       <p style="font-size: 13px; color: #64748b;">Si no fuiste vos quien solicitó esta suscripción, ignorá este mensaje. No vas a recibir nada hasta que confirmes el link de arriba.</p>
       <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
-      <p style="font-size: 11px; color: #94a3b8;">Recibís este mensaje porque alguien (probablemente vos) ingresó tu email en https://www.ciudadan.com/suscripciones. Si querés cancelar el pedido sin confirmar, podés <a href="${linkBaja}" style="color: #C97B1A;">darte de baja en un click</a>. Cumplimos la Ley 25.326 de Protección de Datos Personales.</p>
+      <p style="font-size: 11px; color: #94a3b8;">Recibís este mensaje porque alguien (probablemente vos) ingresó tu email en https://www.ciudadan.com/suscripciones. Si querés cancelar el pedido sin confirmar, podés <a href="${linkBaja}" style="color: #9A7400;">darte de baja en un click</a>. Cumplimos la Ley 25.326 de Protección de Datos Personales.</p>
     </div>
   </body>
 </html>`;

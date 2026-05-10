@@ -172,6 +172,24 @@ const spec = {
         }
       }
     },
+    "/api/v1/publicaciones-concejo": {
+      get: {
+        summary: "Listar publicaciones del Concejo Municipal — boletines bimestrales y resúmenes anuales",
+        description:
+          "Listado completo de los boletines bimestrales (2017-2026) y resúmenes anuales (2012-2025). Cada registro incluye fecha de publicación, título y URL del PDF.",
+        parameters: [
+          { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
+          { name: "tipo", in: "query", schema: { type: "string", enum: ["boletin_bimestral", "resumen_anual"] } },
+          { name: "anio", in: "query", schema: { type: "integer" } }
+        ],
+        responses: {
+          "200": {
+            description: "Listado de publicaciones con metadatos.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/digesto-concejo": {
       get: {
         summary: "Listar el digesto del Concejo Municipal sincronizado (1973-2026)",
