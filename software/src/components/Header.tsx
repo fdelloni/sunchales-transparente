@@ -130,12 +130,18 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="font-semibold"
+          className="flex items-center gap-2.5"
           onClick={() => setDrawerOpen(false)}
+          aria-label="Sunchales Transparente — inicio"
         >
-          {/* Wordmark con fondo oro de la Bandera de Sunchales (Ord. 1762/2007). */}
-          <span className="inline-block rounded-md bg-oro px-3 py-1 text-sm font-bold tracking-tight text-navy shadow-sm sm:text-base">
-            Sunchales Transparente
+          {/* Acento institucional: barra vertical oro (representa el "cielo
+              iluminado" de la mitad superior de la bandera). Sobria. */}
+          <span aria-hidden="true" className="block h-6 w-[3px] rounded-full bg-oro" />
+          {/* Wordmark tipográfico: "Sunchales" en blanco, "Transparente" en
+              oro de la bandera. Sin pill, sin sombras: jerarquía cromática
+              limpia, propia de un portal institucional. */}
+          <span className="font-serif text-base font-bold tracking-tight text-white sm:text-lg">
+            Sunchales <span className="text-oro">Transparente</span>
           </span>
         </Link>
 
