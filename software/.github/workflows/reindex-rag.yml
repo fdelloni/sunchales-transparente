@@ -1,0 +1,108 @@
+name: Reindex RAG (Supabase pgvector)
+
+# Cuándo se dispara:
+#   - Push a main que toque archivos relevantes para el corpus indexado.
+#     Cualquier cambio en datos institucionales (.ts), data sincronizada, PDFs
+#     descargados o el indexer mismo gatilla un reindex incremental.
+#   - Manual desde la UI de GitHub Actions (workflow_dispatch).
+#
+# Qué hace:
+#   1. Checkout del repo.
+#   2. npm ci (instala deps incluyendo tsx).
+#   3. npm run sincronizar-datos (TS → JSON).
+#   4. node scripts/indexar-rag.mjs (incremental: solo procesa lo que cambió).
+#
+# Tiempo esperado:
+#   - Sin cambios: ~30 segundos (verifica hashes y termina).
+#   - Cambios chicos (un funcionario, una FAQ): 1-2 minutos.
+#   - Reindex completo (--reset): 1-2 horas. NO se hace acá; reset es manual.
+#
+# Secrets requeridos en Settings → Secrets and variables → Actions:
+#   - GOOGLE_API_KEY                Para Gemini Embeddings (gemini-embedding-001).
+#   - NEXT_PUBLIC_SUPABASE_URL      URL de la instancia Supabase del proyecto.
+#   - SUPABASE_SERVICE_ROLE_KEY     Service-role key de Supabase (no la anon).
+#                                   Esta key tiene permisos de escritura, mantenerla
+#                                   estrictamente como secret.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/lib/data/personal.ts"
+      - "src/lib/data/presupuesto.ts"
+      - "src/lib/whatsapp/data/faq.ts"
+      - "data/sincronizado/**"
+      - "data/digesto-oficial/items_completos.json"
+      - "data/concejo/_indice.json"
+      - "data/concejo/**/*.txt"
+      - "scripts/indexar-rag.mjs"
+      - "scripts/exportar-datos-sincronizados.ts"
+  workflow_dispatch:
+    inputs:
+      reset:
+        description: "Reset completo del corpus (usar con precaución, ~1-2hs)"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+      solo:
+        description: "Indexar solo una fuente (vacío = todas)"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - "funcionario"
+          - "presupuesto"
+          - "faq"
+          - "normativa-marco"
+          - "digesto"
+          - "pdf-concejo"
+          - "resumen-anual"
+
+permissions:
+  contents: read
+
+jobs:
+  reindex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Reindex incremental NUNCA debe tardar más que esto.
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sincronizar datos .ts → JSON
+        run: npm run sincronizar-datos
+
+      - name: Indexar RAG (incremental)
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.reset }}" = "true" ]; then
+            ARGS="$ARGS --reset"
+          fi
+          if [ -n "${{ github.event.inputs.solo }}" ]; then
+            ARGS="$ARGS --solo=${{ github.event.inputs.solo }}"
+          fi
+          echo "Ejecutando: node scripts/indexar-rag.mjs $ARGS"
+          node scripts/indexar-rag.mjs $ARGS
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "Reindex finalizado. Estado: ${{ job.status }}"
+          echo "Trigger: ${{ github.event_name }}"
+          echo "Commit: ${{ github.sha }}"
