@@ -12,18 +12,21 @@ const config: Config = {
         // y los tonos auxiliares se derivan por hue manteniéndose dentro de la
         // misma familia cromática.
 
-        // navy = ahora VERDE PROFUNDO heráldico (alias semántico para "color
-        // institucional oscuro de fondo"). Se mantiene el nombre para no
-        // romper código existente.
-        navy: { DEFAULT: "#1F3D0A", soft: "#3A5E1D" },
+        // navy = VERDE FORESTAL PROFUNDO. El verde de la bandera tiene hue 74°
+        // (verde-amarillento), que al oscurecerse vira a oliva/marrón. Para el
+        // fondo institucional usamos un hue más cercano al verde puro (~125°)
+        // con saturación alta, manteniendo la familia "verde sunchalero" sin
+        // que parezca marrón.
+        navy: { DEFAULT: "#0F5E1F", soft: "#1F8333" },
 
-        // deep = TIERRA-MARRÓN: representa el fortín del escudo y el suelo
-        // labrado de la pampa argentina (símbolo "trigo" + "fuerte").
-        deep: "#5D4A18",
+        // deep = VERDE BOSQUE OSCURO. Misma familia que navy pero con tinte
+        // más esmeralda para variar y no chocar.
+        deep: "#1A6F2D",
 
-        // teal = VERDE OLIVA MEDIO: tono puente entre el oro y el verde de
-        // la bandera. Antes era #1C7293 (azul-verde), ahora afín a la paleta.
-        teal: "#7A8B47",
+        // teal = VERDE MEDIO VIBRANTE. Tono puente entre el verde profundo
+        // y el verde lima de la bandera; suficientemente oscuro para texto
+        // sobre blanco y suficientemente brillante para fondos de gráficos.
+        teal: "#3F9430",
 
         // ice = CREMA / ORO MUY CLARO: reemplaza el celeste anterior.
         // Útil para badges suaves y backgrounds livianos sin salir de paleta.

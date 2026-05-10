@@ -5,8 +5,8 @@
 :root {
   /* Identidad institucional — toda la paleta derivada de la
      Bandera oficial de Sunchales (Ord. 1762/2007). Sin azules. */
-  --navy: #1F3D0A;          /* verde profundo heráldico (alias institucional) */
-  --navy-soft: #3A5E1D;
+  --navy: #0F5E1F;          /* verde forestal profundo (alias institucional) */
+  --navy-soft: #1F8333;
   --coral: #FCC81D;         /* ORO de la bandera (alias histórico) */
   --coral-dark: #9A7400;
   --oro: #FCC81D;
@@ -15,8 +15,8 @@
   --verde: #ADCF3D;         /* VERDE de la bandera */
   --verde-dark: #5D7A18;
   --verde-soft: #EAF3CC;
-  --tierra: #5D4A18;        /* deep — fortín / suelo labrado */
-  --oliva: #7A8B47;         /* teal — verde-oliva intermedio oro↔verde */
+  --tierra: #1A6F2D;        /* deep — verde bosque oscuro */
+  --oliva: #3F9430;         /* teal — verde medio vibrante */
 }
 
 html, body { background: #F8FAFC; color: #0F172A; }
@@ -36,13 +36,13 @@ html, body { background: #F8FAFC; color: #0F172A; }
    Sin Tailwind Typography, definimos estilos básicos acá. */
 .texto-norma p { margin: 0 0 0.85em 0; }
 .texto-norma p:last-child { margin-bottom: 0; }
-.texto-norma strong, .texto-norma b { color: #1F3D0A; font-weight: 600; }
+.texto-norma strong, .texto-norma b { color: #0F5E1F; font-weight: 600; }
 .texto-norma u { text-decoration: underline; }
 .texto-norma em, .texto-norma i { font-style: italic; }
 .texto-norma h1, .texto-norma h2, .texto-norma h3,
 .texto-norma h4, .texto-norma h5, .texto-norma h6 {
   font-family: Georgia, Cambria, serif;
-  color: #1F3D0A;
+  color: #0F5E1F;
   font-weight: 700;
   margin: 1.4em 0 0.5em 0;
 }
@@ -65,7 +65,7 @@ html, body { background: #F8FAFC; color: #0F172A; }
 .texto-norma th {
   background: #F8FAFC;
   font-weight: 600;
-  color: #1F3D0A;
+  color: #0F5E1F;
 }
 .texto-norma blockquote {
   border-left: 3px solid #EAF3CC;

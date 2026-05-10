@@ -16,7 +16,7 @@ import { formatARSCompact } from "@/lib/format";
 import ChartTooltip from "@/components/ChartTooltip";
 
 // Paleta Bandera de Sunchales (oro + verde) con auxiliares afines.
-const COLORS = ["#FCC81D", "#ADCF3D", "#5D7A18", "#7A8B47", "#9A7400", "#5D4A18", "#1F3D0A"];
+const COLORS = ["#FCC81D", "#ADCF3D", "#5D7A18", "#3F9430", "#9A7400", "#1A6F2D", "#0F5E1F"];
 
 export default function BudgetCharts() {
   const porFinalidad = Object.values(
@@ -99,7 +99,7 @@ export default function BudgetCharts() {
                 tick={{ fontSize: 11, fill: "#0F172A" }}
               />
               <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
-              <Bar dataKey="value" fill="#7A8B47" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="value" fill="#3F9430" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

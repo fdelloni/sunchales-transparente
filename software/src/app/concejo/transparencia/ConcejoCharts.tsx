@@ -23,9 +23,9 @@ const COLORS = [
   "#ADCF3D", // verde bandera
   "#9A7400", // oro oscuro
   "#5D7A18", // verde oscuro
-  "#7A8B47", // oliva medio
-  "#5D4A18", // tierra
-  "#1F3D0A", // verde profundo
+  "#3F9430", // oliva medio
+  "#1A6F2D", // tierra
+  "#0F5E1F", // verde profundo
   "#FFD966", // oro claro
   "#CFE08C", // verde claro
   "#475569", // gris neutro
@@ -131,7 +131,7 @@ export function UcmFrecuenciaChart({
             <XAxis dataKey="anio" tick={{ fontSize: 11, fill: "#0F172A" }} />
             <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
             <Tooltip content={<ChartTooltip />} />
-            <Bar dataKey="cantidad" fill="#7A8B47" radius={[6, 6, 0, 0]} />
+            <Bar dataKey="cantidad" fill="#3F9430" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

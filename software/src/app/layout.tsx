@@ -9,7 +9,7 @@ const DESCRIPCION =
   "Plataforma cívica de transparencia y eficiencia operativa para la Municipalidad de Sunchales — Capital Nacional del Cooperativismo. Brechas declaradas, datos abiertos CC-BY-4.0, API REST pública.";
 
 export const viewport: Viewport = {
-  themeColor: "#1F3D0A",
+  themeColor: "#0F5E1F",
 };
 
 export const metadata: Metadata = {
