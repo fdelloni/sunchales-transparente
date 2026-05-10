@@ -44,7 +44,8 @@ export type BrechaModulo =
   | "contrataciones"
   | "recaudacion"
   | "concejo"
-  | "audiencias-publicas";
+  | "audiencias-publicas"
+  | "catastro";
 
 export type BrechaCategoria =
   | "actividad_sancionatoria"
@@ -59,7 +60,9 @@ export type BrechaCategoria =
   | "actividad_legislativa"
   | "contrataciones"
   | "presupuesto"
-  | "boletin_oficial";
+  | "boletin_oficial"
+  | "ordenamiento_territorial"
+  | "tributos_inmobiliarios";
 
 export type BrechaEstado =
   | "no_publicado"
@@ -395,6 +398,117 @@ export const brechas: Brecha[] = [
     fundamento: `${FUND_LOCAL} · publicidad de los actos administrativos como condición de su vigencia (principio general de derecho administrativo) · ${FUND_CONST}.`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-09"
+  },
+
+  // ===== CATASTRO =====
+  // Marco normativo de respaldo específico para este módulo:
+  //   - Ley nacional 26.209 (Catastro Nacional), Art. 1 inc. b: publicidad del
+  //     estado parcelario como función esencial de los catastros.
+  //   - Ley provincial Santa Fe 10.921/1992: crea el SCIT.
+  //   - Ley provincial Santa Fe 2.996 (t.o.): avaluación de la propiedad raíz.
+  //   - Ord. Sunchales 1294/1999, 2789/2019, 2800/2019, 2989 y 3266 (vetada).
+  // El límite legítimo es la Ley 25.326 sobre datos del titular registral;
+  // NO se extiende a geometría parcelaria, nomenclador, superficie, valuación
+  // fiscal ni zonificación.
+  {
+    id: "cat-pagina-institucional",
+    modulo: "catastro",
+    titulo: "Catastro municipal sin página institucional propia",
+    descripcion:
+      "La Oficina de Catastro (Subdirección de Obras Privadas, Secretaría de Gestión Ambiental y Territorial) no tiene una página institucional propia en sunchales.gob.ar. Su existencia se infiere únicamente del listado de trámites. Eso impide al ciudadano conocer su estructura, su domicilio, su normativa de actuación y los canales de contacto en forma unificada.",
+    categoria: "estructura_organica",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley 26.209 Art. 1 inc. b (publicidad del estado parcelario) · ${FUND_CONST}.`,
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-26209-124298/texto",
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "cat-plano-parcelario",
+    modulo: "catastro",
+    titulo: "Plano parcelario municipal no publicado",
+    descripcion:
+      "La Municipalidad de Sunchales no publica un plano parcelario navegable que muestre las parcelas del ejido con su nomenclador, superficie y zonificación. El visualizador IDESF del SCIT provincial cubre parte de esta función, pero no está linkeado desde el sitio municipal, y la integración del nomenclador municipal con el provincial requiere convenio que no consta publicado.",
+    categoria: "ordenamiento_territorial",
+    estado: "no_publicado",
+    fundamento: `Ley 26.209 Art. 1 inc. b (publicidad del estado parcelario es función esencial del catastro). ${FUND_LOCAL}.`,
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-26209-124298/texto",
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://www.santafe.gob.ar/idesf/visualizador/"
+  },
+  {
+    id: "cat-zonificacion-pdf",
+    modulo: "catastro",
+    titulo: "Zonificación urbana sólo en PDFs sueltos",
+    descripcion:
+      "La zonificación vigente (Ord. 1294/1999, Ord. 2800/2019 — Plano de Áreas, y modificatorias) se publica como PDFs sueltos del digesto. No hay versión consolidada, consultable por dirección o por nomenclador, ni dataset en formato abierto (GeoJSON, shapefile). El ciudadano que quiere saber qué se puede construir en su parcela debe rastrear varias ordenanzas separadas.",
+    categoria: "ordenamiento_territorial",
+    estado: "publicado_formato_cerrado",
+    fundamento: `${FUND_LOCAL} · accesibilidad efectiva de las normas (art. 2 CCyCN) · ${FUND_PROV}.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/documentos/digesto/digesto.3902.O%202800%202019.pdf"
+  },
+  {
+    id: "cat-valuaciones-agregadas",
+    modulo: "catastro",
+    titulo: "Valuaciones fiscales agregadas por zona no publicadas",
+    descripcion:
+      "El municipio aplica tributos inmobiliarios (TGI, sobretasa baldíos) basados en valuaciones fiscales, pero no publica estadísticas agregadas de valuación por zona, ni la metodología para fijarlas, ni la evolución temporal. La valuación fiscal individual de cada parcela queda protegida sólo en lo que respecta al titular; los agregados por zona o por categoría son publicables sin restricción.",
+    categoria: "tributos_inmobiliarios",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley provincial 2.996 (avaluación de la propiedad raíz) · ${FUND_CONST}.`,
+    fundamentoUrl: "https://www.santafe.gov.ar/index.php/web/content/view/full/6950",
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "cat-alicuotas-tgi",
+    modulo: "catastro",
+    titulo: "Alícuotas de la Tasa General de Inmuebles por zona no publicadas",
+    descripcion:
+      "Las alícuotas de la TGI desagregadas por zona, categoría y destino del inmueble no están publicadas en un dataset accesible. Eso impide al ciudadano calcular su tributo de manera transparente y dificulta el control sobre eventuales asimetrías o privilegios diferenciales.",
+    categoria: "tributos_inmobiliarios",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · principio republicano de publicidad tributaria · ${FUND_CONST}.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "cat-baldios-opacos",
+    modulo: "catastro",
+    titulo: "Catastro de terrenos baldíos sometidos a sobretasa: opaco en pleno debate",
+    descripcion:
+      "La Ord. 2989 establece sobretasa sobre terrenos baldíos y es objeto de disputa pública activa en 2026 (Ord. 3266 fue vetada por el DEM, sesión extraordinaria del Concejo del 27/02/2026). Sin embargo, no se publica el listado o mapa de parcelas efectivamente calificadas como baldíos a efectos de la sobretasa, ni los criterios técnicos de aplicación. Es información de interés público manifiesto porque la propia norma decide sobre clases de inmuebles; publicarla obliga a explicitar y defender los criterios.",
+    categoria: "ordenamiento_territorial",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} (forma republicana → publicidad de los actos de gobierno) · principio de igualdad tributaria.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "cat-info-arancelada",
+    modulo: "catastro",
+    titulo: "Consulta de dato catastral arancelada (10 UCM por consulta)",
+    descripcion:
+      "La consulta puntual del dato catastral asociado a un inmueble se cobra 10 UCM por trámite individual a través del portal municipal. Cobrar por cada acceso individual al dato básico —en vez de publicar el plano parcelario en formato abierto— configura una forma de publicidad arancelada que tensiona con el Art. 1 inc. b de la Ley 26.209 (la publicidad del estado parcelario es función esencial del catastro, no un servicio facturable). La consulta paga se justifica para certificaciones formales con valor probatorio; no para la información catastral básica.",
+    categoria: "ordenamiento_territorial",
+    estado: "publicado_parcial",
+    fundamento: `Ley 26.209 Art. 1 inc. b (publicidad del estado parcelario como función esencial). ${FUND_LOCAL} (gratuidad del acceso a la información, art. 3 Ord. 1872/2009).`,
+    fundamentoUrl: "https://www.argentina.gob.ar/normativa/nacional/ley-26209-124298/texto",
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/solicitar-datos-catastrales/"
+  },
+  {
+    id: "cat-sin-link-scit",
+    modulo: "catastro",
+    titulo: "Sitio municipal no linkea al visualizador SCIT provincial",
+    descripcion:
+      "El SCIT (Servicio de Catastro e Información Territorial, Ley provincial 10.921/1992) ofrece un visualizador público de capas parcelarias y un buscador de parcelas por nomenclador, ambos sin login. La Municipalidad de Sunchales no enlaza estos recursos desde su sitio, pese a que cubren parte sustancial del estándar nacional de publicidad parcelaria.",
+    categoria: "datos_abiertos",
+    estado: "no_publicado",
+    fundamento: `Ley 26.209 (Catastro Nacional) · Ley provincial 10.921/1992 (SCIT) · ${FUND_LOCAL}.`,
+    fundamentoUrl: "https://www.santafe.gob.ar/idesf/visualizador/",
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://www.santafe.gob.ar/idesf/buscadorparcela/tramite.php"
   }
 ];
 
@@ -430,4 +544,6 @@ export const labelCategoria: Record<BrechaCategoria, string> = {
   contrataciones: "Contrataciones públicas",
   presupuesto: "Presupuesto y rendición",
   boletin_oficial: "Boletín Oficial Municipal",
+  ordenamiento_territorial: "Ordenamiento territorial",
+  tributos_inmobiliarios: "Tributos inmobiliarios",
 };
