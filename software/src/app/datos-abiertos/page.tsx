@@ -49,7 +49,7 @@ export default function DatosAbiertosPage() {
               {d.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full bg-ice/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-deep"
+                  className="rounded-full border border-oro/40 bg-oro/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-navy"
                 >
                   {t}
                 </span>

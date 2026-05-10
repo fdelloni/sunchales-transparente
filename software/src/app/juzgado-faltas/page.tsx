@@ -289,7 +289,7 @@ function Submodulo({
 }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="grid h-9 w-9 place-items-center rounded-lg bg-ice/60 font-serif font-black text-deep">
+      <div className="grid h-9 w-9 place-items-center rounded-lg border border-oro/40 bg-oro/30 font-serif font-black text-navy">
         {letra}
       </div>
       <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
