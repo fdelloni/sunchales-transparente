@@ -31,3 +31,14 @@ dist
 /eng.traineddata
 /*.traineddata
 /tsconfig.tsbuildinfo
+
+# Archivos temporales de scripts PowerShell de un solo uso (capturan stdout/stderr)
+/g.txt
+/ge.txt
+/so.txt
+/se.txt
+/no.txt
+/ne.txt
+/st.txt
+/p*.txt
+COMMIT_MSG.txt
