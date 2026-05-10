@@ -349,18 +349,27 @@ export default function CatastroPage() {
             >
               página de zonificación
             </Link>{" "}
-            con definiciones de la Ord. 2800/2019, mapa de 727 manzanas reales
-            del shapefile IPEC y polígonos del Anexo I-2.
+            con definiciones de la Ord. 2800/2019, polígonos del Anexo I-2 y
+            las 44 parcelas del Art. 4°.
           </li>
           <li>
-            <strong className="text-navy">Fase 3 — Próxima:</strong> embeber el
-            visualizador IDESF del SCIT con atribución institucional (requiere
-            iframe o proxy serverless por ausencia de CORS).
+            <strong className="text-navy">Fase 3 — Publicada:</strong> mapa
+            Leaflet interactivo con tiles OSM y overlays GeoJSON de las 727
+            manzanas y 29 radios censales del IPEC, más buscador integrado de
+            nomenclador catastral para abrir el SCIT con contexto. El embed
+            directo del visualizador IDESF quedó descartado por el header CSP{" "}
+            <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
+              frame-ancestors 'self'
+            </code>{" "}
+            del servidor provincial — esa imposibilidad técnica está declarada
+            en la propia página.
           </li>
           <li>
             <strong className="text-navy">Fase 4 — A evaluar:</strong> convenio
             formal con SCIT para integrar el nomenclador municipal con el
-            provincial. Requiere acto administrativo expreso.
+            provincial, lo que habilitaría un visualizador propio con la capa
+            parcelaria oficial vía API negociada (no vía WMS sin CORS).
+            Requiere acto administrativo expreso.
           </li>
         </ol>
       </section>
