@@ -298,6 +298,85 @@ export const brechas: Brecha[] = [
     detectadaEl: "2026-05-09",
     publicacionParcialUrl: "https://sunchales.gob.ar/municipio/autoridades/"
   },
+  {
+    id: "per-antiguedad-agentes",
+    modulo: "personal",
+    titulo: "Antigüedad (años de servicio) por agente",
+    descripcion:
+      "La Nómina del Personal Municipal publicada en sunchales.gob.ar (abril 2026) informa nombre, sector y modalidad de vinculación de cada agente, pero NO incluye su antigüedad en el cargo ni fecha de ingreso al municipio. La antigüedad es un dato estructural del régimen escalafonario (Ley provincial 9.286) y condiciona adicionales remunerativos, derechos jubilatorios y promociones; su publicación agregada por sector no expone datos personales sensibles y permite control ciudadano sobre la rotación funcional y la estabilidad del Estado municipal.",
+    categoria: "estructura_organica",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · Ley provincial 9.286 (Estatuto y Escalafón del Personal de Municipalidades y Comunas) — la antigüedad determina derechos remunerativos y previsionales y no constituye dato sensible bajo Ley 25.326.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/wp-content/uploads/2026/04/Nomina-Pagina-Web-2026-04.pdf"
+  },
+  {
+    id: "per-decretos-designacion",
+    modulo: "personal",
+    titulo: "Decretos de designación con número y fecha por agente",
+    descripcion:
+      "Aunque la nómina publica el cargo y la modalidad de vinculación de cada agente, no se publica el decreto de designación (número, fecha y acto administrativo que lo respalda) que permite trazar cuándo asumió cada persona su cargo y bajo qué fundamento. La publicación del acto administrativo —no de datos sensibles— es la regla en estándares de transparencia activa.",
+    categoria: "estructura_organica",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · art. 2 Código Civil y Comercial (publicidad de los actos administrativos) · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-nomina-formato-cerrado",
+    modulo: "personal",
+    titulo: "Nómina del personal sólo en PDF (no en CSV / JSON)",
+    descripcion:
+      "La municipalidad publica mensualmente la nómina completa del personal en formato PDF (sunchales.gob.ar/wp-content/uploads/...). Es un avance importante respecto del estándar promedio de la provincia. Sin embargo, el PDF no permite procesamiento automatizado: para auditar series temporales, comparar evoluciones por sector o cruzar con remuneraciones, periodistas y academia deben re-extraer los datos manualmente cada mes. El formato abierto reutilizable es el estándar de transparencia activa moderna.",
+    categoria: "datos_abiertos",
+    estado: "publicado_formato_cerrado",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} (principio de máxima divulgación: la publicación debe ser efectiva y reutilizable, no meramente formal).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/wp-content/uploads/2026/04/Nomina-Pagina-Web-2026-04.pdf"
+  },
+  {
+    id: "per-remuneracion-por-agente",
+    modulo: "personal",
+    titulo: "Remuneración individualizada por agente (planta permanente, transitorios, contratados)",
+    descripcion:
+      "El municipio publica masivamente las remuneraciones de cargos políticos y de algunas coordinaciones jerárquicas (planta política). Pero no se publica la remuneración bruta y neta mensual de cada agente de planta permanente, transitorio o contratado por servicios, ni siquiera de forma agregada por escalafón y categoría dentro de cada sector. Es el dato que permite ciudadanizar el costo real del Estado municipal por función.",
+    categoria: "recursos_publicos",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · Constitución de Santa Fe (publicidad de la hacienda pública) · CSJN Fallos 335:2393 (Cippolini): la remuneración pagada con fondos públicos es información pública, no dato sensible.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/"
+  },
+  {
+    id: "per-vigencia-contratos",
+    modulo: "personal",
+    titulo: "Vigencia, plazos y renovaciones de contratos (transitorios y por servicios)",
+    descripcion:
+      "Para los 93 agentes Transitorios y los 102 contratos por Servicios (PDF abril 2026), no se publica la fecha de inicio del contrato, fecha de vencimiento ni historial de renovaciones. Sin estos datos, el ciudadano no puede auditar si la contratación temporaria se está usando dentro de los límites legales (carácter excepcional de la planta no permanente conforme Ley 9.286) o si se ha desnaturalizado en una vinculación de hecho permanente.",
+    categoria: "recursos_publicos",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · Ley provincial 9.286 (carácter excepcional de la planta no permanente) · principio republicano de control del gasto público.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/wp-content/uploads/2026/04/Nomina-Pagina-Web-2026-04.pdf"
+  },
+  {
+    id: "per-concursos-publicos",
+    modulo: "personal",
+    titulo: "Concursos públicos de ingreso y promociones",
+    descripcion:
+      "No se publica el listado de concursos públicos abiertos y cerrados para ingreso o promoción en la planta permanente, las bases, los jurados, los puntajes obtenidos por cada postulante (con resguardo de datos sensibles) ni los actos de designación derivados. Es un déficit que impacta directamente sobre el principio constitucional de idoneidad para el acceso al empleo público.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Constitución Nacional art. 16 (idoneidad como condición de admisibilidad en empleos públicos) · Ley provincial 9.286 · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
 
   // ===== AUDIENCIAS PÚBLICAS =====
   {
