@@ -18,6 +18,7 @@ const RUTAS_ESTATICAS: { path: string; changeFrequency: MetadataRoute.Sitemap[nu
   { path: "/concejo/transparencia", changeFrequency: "weekly", priority: 0.7 },
   { path: "/juzgado-faltas", changeFrequency: "monthly", priority: 0.75 },
   { path: "/catastro", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/catastro/zonificacion", changeFrequency: "monthly", priority: 0.75 },
   { path: "/audiencias-publicas", changeFrequency: "monthly", priority: 0.7 },
   { path: "/marco-normativo", changeFrequency: "yearly", priority: 0.7 },
   { path: "/estadisticas", changeFrequency: "weekly", priority: 0.8 },

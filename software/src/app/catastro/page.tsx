@@ -301,6 +301,35 @@ export default function CatastroPage() {
         </div>
       </section>
 
+      {/* Subpágina: zonificación */}
+      <section className="mt-10 rounded-2xl border-2 border-emerald-300 bg-emerald-50 p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="font-serif text-2xl font-bold text-navy">
+            Zonificación urbana
+          </h2>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+            Fase 2 — publicada
+          </span>
+        </div>
+        <p className="mt-2 max-w-3xl text-sm text-slate-700">
+          Las cinco clases de suelo del Distrito (Urbanizado, Urbanizable,
+          Suburbano, Rural, No Urbanizable) están definidas en la Ord. 2800/2019
+          y publicadas con cita verbatim. La página complementaria incluye además
+          la lista del Art. 4° (44 inmuebles incorporados al Área Urbanizada), el
+          inventario de los 12 polígonos del Anexo I-2, y un mapa SVG con las{" "}
+          <strong>727 manzanas reales</strong> del ejido — generado a partir del
+          shapefile oficial del IPEC Santa Fe (Censo 2022), reproyectado a WGS84.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/catastro/zonificacion"
+            className="rounded-lg bg-coral px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
+          >
+            Abrir mapa de zonificación →
+          </Link>
+        </div>
+      </section>
+
       {/* Hoja de ruta */}
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
         <h2 className="font-serif text-2xl font-bold text-navy">
@@ -308,20 +337,25 @@ export default function CatastroPage() {
         </h2>
         <ol className="mt-4 space-y-3 text-sm text-slate-700">
           <li>
-            <strong className="text-navy">Fase 1 — En construcción (riesgo cero):</strong>{" "}
-            esta página como hub institucional + marco normativo + oficina +
-            trámites + recursos provinciales + brechas declaradas. Sin geometría
-            parcelaria propia.
+            <strong className="text-navy">Fase 1 — Publicada:</strong> hub
+            institucional + marco normativo + oficina + trámites + recursos
+            provinciales + brechas declaradas. Sin geometría parcelaria propia.
           </li>
           <li>
-            <strong className="text-navy">Fase 2 — Bajo riesgo:</strong> convertir el
-            plano de zonificación de las Ord. 1294/1999 y 2800/2019 a GeoJSON/SVG
-            interactivo. La zonificación es texto de ordenanza pública.
+            <strong className="text-navy">Fase 2 — Publicada:</strong>{" "}
+            <Link
+              href="/catastro/zonificacion"
+              className="underline decoration-amber-500 underline-offset-2"
+            >
+              página de zonificación
+            </Link>{" "}
+            con definiciones de la Ord. 2800/2019, mapa de 727 manzanas reales
+            del shapefile IPEC y polígonos del Anexo I-2.
           </li>
           <li>
-            <strong className="text-navy">Fase 3 — Medio:</strong> embeber el
-            visualizador IDESF del SCIT con atribución institucional, sin requerir
-            convenio.
+            <strong className="text-navy">Fase 3 — Próxima:</strong> embeber el
+            visualizador IDESF del SCIT con atribución institucional (requiere
+            iframe o proxy serverless por ausencia de CORS).
           </li>
           <li>
             <strong className="text-navy">Fase 4 — A evaluar:</strong> convenio

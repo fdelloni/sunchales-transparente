@@ -15,9 +15,10 @@
     "indexar-resumenes": "node scripts/indexar-resumenes-anuales.mjs",
     "sincronizar-digesto": "node scripts/sincronizar-digesto-oficial.mjs",
     "analizar-derogaciones": "node scripts/analizar-derogaciones-gemini.mjs",
-    "indexar-rag": "node scripts/indexar-rag.mjs",
-    "indexar-rag:reset": "node scripts/indexar-rag.mjs --reset",
-    "indexar-rag:smoke": "node scripts/indexar-rag.mjs --limite=10",
+    "sincronizar-datos": "tsx scripts/exportar-datos-sincronizados.ts",
+    "indexar-rag": "npm run sincronizar-datos && node scripts/indexar-rag.mjs",
+    "indexar-rag:reset": "npm run sincronizar-datos && node scripts/indexar-rag.mjs --reset",
+    "indexar-rag:smoke": "npm run sincronizar-datos && node scripts/indexar-rag.mjs --limite=10",
     "test-bot": "node scripts/test-bot.mjs",
     "scrapear-remuneraciones": "node scripts/scrapear-remuneraciones.mjs",
     "scrapear-licitaciones": "node scripts/scrapear-licitaciones.mjs",
@@ -43,6 +44,7 @@
     "postcss": "8.4.39",
     "tailwindcss": "3.4.6",
     "tesseract.js": "^7.0.0",
+    "tsx": "^4.19.2",
     "typescript": "5.5.3"
   }
 }
