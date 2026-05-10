@@ -21,7 +21,9 @@
     "test-bot": "node scripts/test-bot.mjs",
     "scrapear-remuneraciones": "node scripts/scrapear-remuneraciones.mjs",
     "scrapear-licitaciones": "node scripts/scrapear-licitaciones.mjs",
-    "parsear-remuneraciones": "node scripts/parsear-remuneraciones.mjs"
+    "parsear-remuneraciones": "node scripts/parsear-remuneraciones.mjs",
+    "scrapear-digesto-concejo": "node scripts/scrapear-digesto-concejo.mjs",
+    "ocr-remuneraciones": "node scripts/ocr-remuneraciones.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
@@ -32,12 +34,14 @@
     "recharts": "2.12.7"
   },
   "devDependencies": {
+    "@napi-rs/canvas": "^1.0.0",
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.19",
     "postcss": "8.4.39",
     "tailwindcss": "3.4.6",
+    "tesseract.js": "^7.0.0",
     "typescript": "5.5.3"
   }
 }

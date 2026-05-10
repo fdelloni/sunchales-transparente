@@ -181,23 +181,28 @@ export default function PersonalPage() {
         <StatCard
           value={formatNumber(total)}
           label="Cargos políticos"
-          hint="Intendente + secretarías + subsecretarías."
+          hint="Intendente + secretarías + subsecretarías + direcciones."
         />
         <StatCard
           value={formatARSCompact(masaSalarial)}
-          label="Salarios mensuales (planta política)"
-          hint="Suma referencial; aún no publicada oficialmente."
+          label="Salarios verificados Marzo 2026"
+          verified
+          hint="Suma de brutos extraídos del PDF oficial del Departamento Ejecutivo."
         />
         <StatCard
           value={formatARSCompact(masaSalarialAnual)}
-          label="Costo anual estimado (12 + SAC)"
-          hint="13 sueldos por aguinaldo legal."
+          label="Costo anual proyectado (12 + SAC)"
+          hint="13 sueldos por aguinaldo legal, sobre la base verificada de marzo."
         />
         <StatCard
-          value={`${fechasVerificadas}/${total}`}
-          label="Fechas de asunción verificadas"
-          verified={fechasVerificadas === total}
-          hint="Decretos de designación pendientes de publicar."
+          value={`${verificadosRem}/${total}`}
+          label="Remuneraciones verificadas oficiales"
+          verified={verificadosRem === total}
+          hint={
+            verificadosRem === total
+              ? "Cargados desde el PDF oficial del municipio."
+              : `${total - verificadosRem} cargos sin coincidencia en el último PDF.`
+          }
         />
       </div>
 

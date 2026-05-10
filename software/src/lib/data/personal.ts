@@ -3,13 +3,23 @@
  *
  * IMPORTANTE — Honestidad de datos:
  *
- *   - Los cargos, áreas y nombres de funcionarios son INFORMACIÓN PÚBLICA
- *     verificable (ver sources.organigramaMunicipal). Marcados verificado=true.
+ *   - Cargos, nombres y áreas: VERIFICADOS verbatim contra
+ *     https://sunchales.gob.ar/municipio/autoridades/ (verificación 2026-05-09).
  *
- *   - Las remuneraciones brutas son ESTIMACIONES referenciales basadas en
- *     escalas habituales de regímenes de personal municipal santafesino.
- *     NO son datos oficiales de Sunchales. Marcadas verificado=false hasta
- *     que el municipio publique las remuneraciones reales.
+ *   - Remuneraciones brutas: cuando el apellido + primer nombre coincide con
+ *     una fila del PDF oficial de Marzo 2026 (último período parseable),
+ *     el monto se carga como `verificado_oficial`. Cuando no, se deja como
+ *     `pendiente_oficial`. NO se usan estimaciones.
+ *
+ *   - Fechas de inicio: mayoritariamente `pendiente_oficial` porque los
+ *     decretos de designación no están publicados online (brecha declarada
+ *     en /brechas).
+ *
+ *   - El parseo del PDF de Marzo 2026 capturó "Botto Juan" en lo que sería
+ *     la Coordinación de Comunicación. La lista oficial de autoridades dice
+ *     "Javier Bovo" en ese cargo. La discrepancia se declara como brecha
+ *     (id "per-discrepancia-nomina-autoridades") y NO se concilia
+ *     automáticamente.
  */
 
 export type EmpleadoMunicipal = {
@@ -27,16 +37,26 @@ export type EmpleadoMunicipal = {
   remuneracionBruta: number | null; // ARS mensual; null si pendiente de informar
   fuenteCargo: "verificado_publico" | "pendiente_oficial";
   fuenteRemuneracion: "estimacion_referencial" | "verificado_oficial" | "pendiente_oficial";
+  /** Período del PDF oficial del cual se tomó la remuneración. Solo si verificado_oficial. */
+  periodoRemuneracion?: string;
+  /** URL del PDF oficial fuente de la remuneración. Solo si verificado_oficial. */
+  urlPdfRemuneracion?: string;
   ejercicio: number;
 };
 
+// URL del PDF de Marzo 2026 utilizado como fuente de remuneraciones verificadas
+const URL_PDF_MAR_2026 =
+  "https://sunchales.gob.ar/wp-content/uploads/2026/04/MARZO-2026.pdf";
+const PERIODO_VERIFICADO = "2026-03";
+const FUENTE_AUTORIDADES = "verificado_publico" as const;
+
 /**
- * Datos verificados públicamente. Las remuneraciones se marcan como
- * "estimacion_referencial" porque NO contamos con la nómina oficial publicada.
- * El sistema dejará de mostrarlas como tales cuando ingrese la información real.
+ * Padrón actual (gestión Pinotti) — 18 cargos del Departamento Ejecutivo.
+ * Las remuneraciones marcadas verificado_oficial provienen del PDF oficial
+ * del período Marzo 2026 publicado por el municipio.
  */
 export const empleados: EmpleadoMunicipal[] = [
-  // Departamento Ejecutivo
+  // ===== Departamento Ejecutivo =====
   {
     id: "emp_001",
     apellidoNombre: "Pinotti, Pablo",
@@ -45,112 +65,322 @@ export const empleados: EmpleadoMunicipal[] = [
     jerarquia: 1,
     reportaA: null,
     fechaInicio: "2023-12-10",
-    fuenteFecha: "verificado_publico", // inicio del período constitucional 2023-2027
-    remuneracionBruta: 4_800_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    fuenteFecha: "verificado_publico",
+    remuneracionBruta: 6_018_832.34,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
 
-  // Secretaría de Gestión
+  // ===== Subsecretarías y áreas que reportan directo al Intendente =====
   {
-    id: "emp_002",
-    apellidoNombre: "Martínez, Omar",
-    cargo: "Secretario de Gestión",
-    area: "Secretaría de Gestión",
+    id: "emp_garcia",
+    apellidoNombre: "García, Daniel",
+    cargo: "Subsecretario de Hacienda y Finanzas",
+    area: "Subsecretaría de Hacienda y Finanzas",
+    jerarquia: 3,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_544_869.67,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_bongiovanni",
+    apellidoNombre: "Bongiovanni, Fabián",
+    cargo: "Subsecretario a cargo de la Agencia Municipal de Seguridad",
+    area: "Agencia Municipal de Seguridad",
+    jerarquia: 3,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+
+  // ===== Secretaría de Gobierno =====
+  {
+    id: "emp_ochat",
+    apellidoNombre: "Ochat, Andrea",
+    cargo: "Secretaria de Gobierno",
+    area: "Secretaría de Gobierno",
     jerarquia: 2,
     reportaA: "emp_001",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 3_600_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 4_815_065.88,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
   {
-    id: "emp_003",
-    apellidoNombre: "Girard, Fabrina",
-    cargo: "Subsecretaria de Infraestructura Urbana y Rural",
-    area: "Secretaría de Gestión",
+    id: "emp_chamorro",
+    apellidoNombre: "Chamorro, Fernando",
+    cargo: "Subsecretario de Gestión y Desarrollo",
+    area: "Secretaría de Gobierno",
     jerarquia: 3,
-    reportaA: "emp_002",
+    reportaA: "emp_ochat",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 2_900_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
   {
-    id: "emp_004",
-    apellidoNombre: "Gabiani, Cecilia",
-    cargo: "Subsecretaria de Ambiente y Servicios a la Comunidad",
-    area: "Secretaría de Gestión",
-    jerarquia: 3,
-    reportaA: "emp_002",
+    id: "emp_marti",
+    apellidoNombre: "Marti, Juan Cruz",
+    cargo: "Coordinador de Planificación, Monitoreo y Evaluación",
+    area: "Secretaría de Gobierno",
+    jerarquia: 4,
+    reportaA: "emp_ochat",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 2_900_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 3_009_416.16,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
   {
-    id: "emp_005",
-    apellidoNombre: "Díaz, Magalí",
-    cargo: "Subsecretaria de Hacienda y Finanzas",
-    area: "Secretaría de Gestión",
-    jerarquia: 3,
-    reportaA: "emp_002",
+    id: "emp_bovo",
+    apellidoNombre: "Bovo, Javier",
+    cargo: "Coordinador de Comunicación",
+    area: "Secretaría de Gobierno",
+    jerarquia: 4,
+    reportaA: "emp_ochat",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 2_900_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: null,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "pendiente_oficial",
+    ejercicio: 2026
+  },
+  {
+    id: "emp_sanchez",
+    apellidoNombre: "Sánchez, Lucía",
+    cargo: "Directora de Función Pública",
+    area: "Secretaría de Gobierno",
+    jerarquia: 4,
+    reportaA: "emp_ochat",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: null,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "pendiente_oficial",
     ejercicio: 2026
   },
 
-  // Secretaría de Desarrollo
+  // ===== Secretaría de Producción y Empleo =====
   {
-    id: "emp_006",
-    apellidoNombre: "Grande, Marilina",
-    cargo: "Secretaria de Desarrollo",
-    area: "Secretaría de Desarrollo",
+    id: "emp_gamero",
+    apellidoNombre: "Gamero, María Eugenia",
+    cargo: "Secretaria de Producción y Empleo",
+    area: "Secretaría de Producción y Empleo",
     jerarquia: 2,
     reportaA: "emp_001",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 3_600_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 4_815_065.88,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
   {
-    id: "emp_007",
-    apellidoNombre: "Ghiano, Pablo",
-    cargo: "Subsecretario de Educación, Salud y Convivencia",
-    area: "Secretaría de Desarrollo",
+    id: "emp_cabalaro",
+    apellidoNombre: "Cabalaro, Luciano",
+    cargo: "Subsecretario de Desarrollo Productivo",
+    area: "Secretaría de Producción y Empleo",
     jerarquia: 3,
-    reportaA: "emp_006",
+    reportaA: "emp_gamero",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 2_900_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
   {
-    id: "emp_008",
-    apellidoNombre: "Prados, Carolina",
-    cargo: "Subsecretaria de Producción y Cooperativismo",
-    area: "Secretaría de Desarrollo",
+    id: "emp_ortiz",
+    apellidoNombre: "Ortiz, Vanesa",
+    cargo: "Subsecretaria de Economía Social y Solidaria",
+    area: "Secretaría de Producción y Empleo",
     jerarquia: 3,
-    reportaA: "emp_006",
+    reportaA: "emp_gamero",
     fechaInicio: null,
     fuenteFecha: "pendiente_oficial",
-    remuneracionBruta: 2_900_000,
-    fuenteCargo: "verificado_publico",
-    fuenteRemuneracion: "estimacion_referencial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+
+  // ===== Secretaría de Gestión Ambiental y Territorial =====
+  {
+    id: "emp_zamateo",
+    apellidoNombre: "Zamateo, Luis",
+    cargo: "Secretario de Gestión Ambiental y Territorial",
+    area: "Secretaría de Gestión Ambiental y Territorial",
+    jerarquia: 2,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 4_769_989.15,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_lattanzi",
+    apellidoNombre: "Lattanzi, José",
+    cargo: "Subsecretario de Obras y Servicios Públicos",
+    area: "Secretaría de Gestión Ambiental y Territorial",
+    jerarquia: 3,
+    reportaA: "emp_zamateo",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_sinner",
+    apellidoNombre: "Sinner, Luciana",
+    cargo: "Subsecretaria de Ambiente y Acción Climática",
+    area: "Secretaría de Gestión Ambiental y Territorial",
+    jerarquia: 3,
+    reportaA: "emp_zamateo",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+
+  // ===== Secretaría de Desarrollo Humano y Promoción de Derechos =====
+  {
+    id: "emp_bernini",
+    apellidoNombre: "Bernini, Daniel",
+    cargo: "Secretario de Desarrollo Humano y Promoción de Derechos",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 2,
+    reportaA: "emp_001",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 4_815_065.88,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_galli",
+    apellidoNombre: "Galli, José",
+    cargo: "Subsecretario de Cultura y Educación",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 3,
+    reportaA: "emp_bernini",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_riera",
+    apellidoNombre: "Riera, Elisa",
+    cargo: "Subsecretaria de Promoción de Derechos",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 3,
+    reportaA: "emp_bernini",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_611_299.40,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_gorosito",
+    apellidoNombre: "Gorosito, María de los Ángeles",
+    cargo: "Directora de Educación",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 4,
+    reportaA: "emp_bernini",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 2_243_881.12,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_kemmerer",
+    apellidoNombre: "Kemmerer, Pablo",
+    cargo: "Director de Cultura",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 4,
+    reportaA: "emp_bernini",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 2_708_474.56,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
+    ejercicio: 2026
+  },
+  {
+    id: "emp_moyano",
+    apellidoNombre: "Moyano, Daniela",
+    cargo: "Directora de Salud",
+    area: "Secretaría de Desarrollo Humano y Promoción de Derechos",
+    jerarquia: 4,
+    reportaA: "emp_bernini",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: 3_047_033.88,
+    fuenteCargo: FUENTE_AUTORIDADES,
+    fuenteRemuneracion: "verificado_oficial",
+    periodoRemuneracion: PERIODO_VERIFICADO,
+    urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   }
 ];

@@ -4,11 +4,11 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/
 //
-// Última extracción: 2026-05-09T21:41:31.985Z
-// Períodos parseados con éxito: 60/140
-// Períodos escaneados (PDFs sin texto digital): 7
-// Otros errores (timeout, formato no soportado): 73
-// Filas extraídas en total: 1088
+// Última extracción: 2026-05-09T22:08:45.287Z
+// Períodos parseados con éxito: 88/140
+// Períodos escaneados (PDFs sin texto digital): 42
+// Otros errores (timeout, formato no soportado): 10
+// Filas extraídas en total: 1279
 
 export type FilaFuncionario = {
   /** Texto literal (Apellido y Nombre, posiblemente con cargo) tal como aparece en el PDF. */
@@ -795,7 +795,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Septiembre 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/10/2025_09_sueldos_funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -804,85 +804,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 3035514.09
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3660764.16,
-        "descuentos": 1323466.83,
-        "neto": 2337297.33
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3660764.16,
-        "descuentos": 1088843.6,
-        "neto": 2571920.56
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3444078.67,
         "descuentos": 1029054.37,
         "neto": 2533592.74
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3660764.16,
         "descuentos": 1008843.6,
         "neto": 2571920.56
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2693276.48,
-        "descuentos": 776600.61,
-        "neto": 1916675.87
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2693276.48,
         "descuentos": 738277.85,
         "neto": 1954998.63
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2693276.48,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2693276.48,
         "descuentos": 738277.85,
         "neto": 1954998.63
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2693276.48,
         "descuentos": 738277.85,
         "neto": 1954998.63
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2693276.48,
         "descuentos": 738277.85,
         "neto": 1954998.63
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2693276.48,
-        "descuentos": 738277.85,
-        "neto": 1954998.63
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2693276.48,
-        "descuentos": 765210.61,
-        "neto": 1928065.87
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2693276.48,
-        "descuentos": 771368.61,
-        "neto": 1921907.87
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 2287977.6,
         "descuentos": 629141.87,
         "neto": 1658835.73
@@ -927,7 +885,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Agosto 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/10/2025_08_sueldos_funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -936,85 +894,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 294662198
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3486442,
-        "descuentos": 1250005.72,
-        "neto": 225629579
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3486442,
-        "descuentos": 995701.01,
-        "neto": 249074099
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3280074.06,
         "descuentos": 1103791.7,
         "neto": 233691850
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3486442,
         "descuentos": 995701.01,
         "neto": 249074099
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2614832,
-        "descuentos": 756777.69,
-        "neto": 185805431
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2614832,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2614832,
-        "descuentos": 719239.37,
-        "neto": 189559263
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2614832,
-        "descuentos": 745387.69,
-        "neto": 186944431
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2614832,
-        "descuentos": 751545.69,
-        "neto": 186328631
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 2179026,
         "descuentos": 602699.31,
         "neto": 157632669
@@ -1059,7 +975,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Julio 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/08/2025-07-sueldos-funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1068,85 +984,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 294662198
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3486442,
-        "descuentos": 1250005.72,
-        "neto": 225629579
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3486442,
-        "descuentos": 995701.01,
-        "neto": 249074099
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3280074.06,
         "descuentos": 1103791.7,
         "neto": 233691850
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3486442,
         "descuentos": 995701.01,
         "neto": 249074099
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2614832,
-        "descuentos": 756777.69,
-        "neto": 185805431
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2614832,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2614832,
         "descuentos": 719239.37,
         "neto": 189559263
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2614832,
-        "descuentos": 719239.37,
-        "neto": 189559263
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2614832,
-        "descuentos": 745387.69,
-        "neto": 186944431
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2614832,
-        "descuentos": 751545.69,
-        "neto": 186328631
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 2179026,
         "descuentos": 602699.31,
         "neto": 157632669
@@ -1191,7 +1065,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/08/2025-06-sueldos-funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1200,85 +1074,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 318237269
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3960440,
-        "descuentos": 1535564.8,
-        "neto": 256177150
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3960440,
-        "descuentos": 1309590.95,
-        "neto": 278774535
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3626145.61,
         "descuentos": 1238494.63,
         "neto": 267801342
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3960440,
         "descuentos": 1309590.95,
         "neto": 278774535
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2883208,
-        "descuentos": 834597.3,
-        "neto": 215324317
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2883208,
         "descuentos": 794374.22,
         "neto": 219346625
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2883208,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2883208,
         "descuentos": 794374.22,
         "neto": 219346625
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2883208,
         "descuentos": 794374.22,
         "neto": 219346625
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2883208,
         "descuentos": 794374.22,
         "neto": 219346625
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2883208,
-        "descuentos": 794374.22,
-        "neto": 219346625
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2883208,
-        "descuentos": 794374.22,
-        "neto": 219346625
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2883208,
-        "descuentos": 829365.3,
-        "neto": 215847517
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 2402674,
         "descuentos": 666978.68,
         "neto": 182288903
@@ -1323,7 +1155,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2025 — SAC",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/08/2025-06-SAC-sueldos-funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1332,85 +1164,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 162180375
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 1674120,
-        "descuentos": 452012.4,
-        "neto": 122210760
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 1674120,
-        "descuentos": 359935.8,
-        "neto": 131418420
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2924311.39,
         "descuentos": 899694.82,
         "neto": 2142477.8
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 1674120,
         "descuentos": 359935.8,
         "neto": 131418420
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 1255590,
-        "descuentos": 269951.85,
-        "neto": 98563815
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1255590,
         "descuentos": 257395.95,
         "neto": 99819405
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1255590,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1255590,
         "descuentos": 257395.95,
         "neto": 99819405
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1255590,
         "descuentos": 257395.95,
         "neto": 99819405
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1255590,
         "descuentos": 257395.95,
         "neto": 99819405
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1255590,
-        "descuentos": 257395.95,
-        "neto": 99819405
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1255590,
-        "descuentos": 257395.95,
-        "neto": 99819405
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1255590,
-        "descuentos": 269951.85,
-        "neto": 98563815
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1046325,
         "descuentos": 209264.99,
         "neto": 83706001
@@ -1455,7 +1245,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Mayo 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/08/2025-05-sueldos-funcionarios.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1464,85 +1254,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 256788171
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3042140,
-        "descuentos": 1039161.72,
-        "neto": 2002978.28
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3042140,
-        "descuentos": 889262.09,
-        "neto": 2152877.91
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2924311.39,
         "descuentos": 899694.82,
         "neto": 2142477.8
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3042140,
         "descuentos": 889262.09,
         "neto": 2152877.91
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2325166,
-        "descuentos": 662189.09,
-        "neto": 166297691
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2325166,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2325166,
-        "descuentos": 638937.43,
-        "neto": 168622857
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2325166,
-        "descuentos": 638937.43,
-        "neto": 168622857
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2325166,
-        "descuentos": 662189.09,
-        "neto": 166297691
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1937638,
         "descuentos": 534114.44,
         "neto": 140352356
@@ -1587,7 +1335,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Abril 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/04_remuneraciones_funcionarios_abril_2025.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1596,85 +1344,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 293582379
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3173976.1,
-        "descuentos": 1039161.73,
-        "neto": 213481437
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3321803.21,
-        "descuentos": 889262.08,
-        "neto": 243254113
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3074326.01,
         "descuentos": 917816.38,
         "neto": 215650963
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3215361.36,
         "descuentos": 889262.08,
         "neto": 232609928
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2325166,
-        "descuentos": 662189.09,
-        "neto": 166297691
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2325166,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2325166,
         "descuentos": 638937.43,
         "neto": 168622857
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2325166,
-        "descuentos": 638937.43,
-        "neto": 168622857
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2325166,
-        "descuentos": 638937.43,
-        "neto": 168622857
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2325166,
-        "descuentos": 662189.09,
-        "neto": 166297691
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1937638,
         "descuentos": 534114.44,
         "neto": 140352356
@@ -1713,7 +1419,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Marzo 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/03_remuneraciones_funcionarios_marzo_2025.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1722,85 +1428,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 274257516
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 3225080,
-        "descuentos": 1139042.17,
-        "neto": 208603783
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 3225080,
-        "descuentos": 984007.96,
-        "neto": 224107204
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 3177168.98,
         "descuentos": 1055378.19,
         "neto": 227180541
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 3225080,
         "descuentos": 984007.96,
         "neto": 224107204
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2505934,
-        "descuentos": 707869.16,
-        "neto": 179806484
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2505934,
         "descuentos": 682809.82,
         "neto": 182312418
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2505934,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2505934,
         "descuentos": 682809.82,
         "neto": 182312418
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2505934,
         "descuentos": 682809.82,
         "neto": 182312418
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2505934,
         "descuentos": 682809.82,
         "neto": 182312418
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2505934,
-        "descuentos": 682809.82,
-        "neto": 182312418
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2505934,
-        "descuentos": 682809.82,
-        "neto": 182312418
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2505934,
-        "descuentos": 707869.16,
-        "neto": 179806484
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 2088278,
         "descuentos": 570674.77,
         "neto": 151760323
@@ -1839,7 +1503,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Febrero 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/02_remuneraciones_funcionarios_febrero_2025.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1848,85 +1512,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 245948689
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea , 39",
-        "bruto": 2950670,
-        "descuentos": 1003250.61,
-        "neto": 1947419
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2950670,
-        "descuentos": 855394.17,
-        "neto": 209527583
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2785056.93,
         "descuentos": 854197.63,
         "neto": 203454551
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2950670,
         "descuentos": 855394.17,
         "neto": 209527583
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2213002,
-        "descuentos": 633845.25,
-        "neto": 157915675
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2213002,
         "descuentos": 611715.23,
         "neto": 160128677
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2213002,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2213002,
         "descuentos": 611715.23,
         "neto": 160128677
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
-        "bruto": 2213002,
-        "descuentos": 611715.23,
-        "neto": 160128677
-      },
-      {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2213002,
         "descuentos": 611715.23,
         "neto": 1601286.77
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2213002,
         "descuentos": 611715.23,
         "neto": 1601286.77
       },
       {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2213002,
-        "descuentos": 611715.23,
-        "neto": 1601286.77
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2213002,
-        "descuentos": 633845.25,
-        "neto": 157915675
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1844168,
         "descuentos": 511429.27,
         "neto": 133273873
@@ -1965,7 +1587,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Enero 2025",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/01_remuneraciones_funcionarios_enero_2025.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -1974,85 +1596,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2422603.53
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2950670,
-        "descuentos": 1003250.6,
-        "neto": 1947419.4
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2950670,
-        "descuentos": 884900.88,
-        "neto": 206576912
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2785056.93,
         "descuentos": 882048.21,
         "neto": 2038005.5
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2950670,
         "descuentos": 2950670,
         "neto": 209527582
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2213002,
-        "descuentos": 655975.27,
-        "neto": 155702673
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2213002,
         "descuentos": 633845.25,
         "neto": 1579156.75
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2213002,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2213002,
         "descuentos": 633845.25,
         "neto": 1579156.75
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
-        "bruto": 2213002,
-        "descuentos": 633845.25,
-        "neto": 1579156.75
-      },
-      {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2213002,
         "descuentos": 611715.23,
         "neto": 1601286.77
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2213002,
         "descuentos": 633845.25,
         "neto": 1579156.75
       },
       {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2213002,
-        "descuentos": 633845.25,
-        "neto": 1579156.75
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2213002,
-        "descuentos": 655975.27,
-        "neto": 1557026.73
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1844168,
         "descuentos": 529870.95,
         "neto": 1314297.05
@@ -2091,7 +1671,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12-1_remuneraciones_funcionarios_sac_diciembre_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2100,85 +1680,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 237873525
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2950670,
-        "descuentos": 1058593.34,
-        "neto": 189207666
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2950670,
-        "descuentos": 920535.7,
-        "neto": 203013430
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 203013430,
         "descuentos": 863468.54,
         "neto": 197519497
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2950670,
         "descuentos": 920581.25,
         "neto": 203008875
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2213002,
-        "descuentos": 655575.27,
-        "neto": 155742673
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2213002,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2213002,
-        "descuentos": 633445.25,
-        "neto": 1579556.75
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2213002,
-        "descuentos": 633445.25,
-        "neto": 1579556.75
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2213002,
-        "descuentos": 655575.27,
-        "neto": 1557426.73
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1844168,
         "descuentos": 529470.95,
         "neto": 1314697.05
@@ -2217,7 +1755,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12_remuneraciones_funcionarios_diciembre_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2226,85 +1764,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 237873525
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2950670,
-        "descuentos": 1058593.34,
-        "neto": 189207666
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2950670,
-        "descuentos": 920535.7,
-        "neto": 203013430
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 203013430,
         "descuentos": 863468.54,
         "neto": 197519497
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2950670,
         "descuentos": 920581.25,
         "neto": 203008875
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2213002,
-        "descuentos": 655575.27,
-        "neto": 155742673
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2213002,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2213002,
         "descuentos": 633445.25,
         "neto": 1579556.75
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2213002,
-        "descuentos": 633445.25,
-        "neto": 1579556.75
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2213002,
-        "descuentos": 633445.25,
-        "neto": 1579556.75
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2213002,
-        "descuentos": 655575.27,
-        "neto": 1557426.73
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1844168,
         "descuentos": 529470.95,
         "neto": 1314697.05
@@ -2343,7 +1839,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Noviembre 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/11_remuneraciones_funcionarios_noviembre_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2352,85 +1848,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 227088963
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2871984,
-        "descuentos": 889585.34,
-        "neto": 184434313
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2871984,
-        "descuentos": 831028.21,
-        "neto": 198239866
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2690450.93,
         "descuentos": 842313.66,
         "neto": 192038727
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2871984,
         "descuentos": 889585.34,
         "neto": 184434313
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2153988,
-        "descuentos": 640072.29,
-        "neto": 151391571
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2153988,
         "descuentos": 618532.41,
         "neto": 153545559
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2153988,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2153988,
         "descuentos": 618532.41,
         "neto": 153545559
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2153988,
         "descuentos": 618532.41,
         "neto": 153545559
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2153988,
         "descuentos": 618532.41,
         "neto": 153545559
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2153988,
-        "descuentos": 618532.41,
-        "neto": 153545559
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2153988,
-        "descuentos": 618532.41,
-        "neto": 153545559
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2153988,
-        "descuentos": 640072.29,
-        "neto": 151391571
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1794990,
         "descuentos": 517043.67,
         "neto": 127794633
@@ -2469,7 +1923,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Octubre 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/10_remuneraciones_funcionarios_octubre_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2478,85 +1932,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 218418487
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2793298,
-        "descuentos": 969650.05,
-        "neto": 182364795
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2793298,
-        "descuentos": 831028.21,
-        "neto": 196226979
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2616739.43,
         "descuentos": 807098.18,
         "neto": 188218442
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2793298,
         "descuentos": 831028.21,
         "neto": 196226979
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2094974,
-        "descuentos": 612643.67,
-        "neto": 148233033
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2094974,
         "descuentos": 591693.93,
         "neto": 150328007
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2094974,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2094974,
         "descuentos": 591693.93,
         "neto": 150328007
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2094974,
         "descuentos": 591693.93,
         "neto": 150328007
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2094974,
         "descuentos": 591693.93,
         "neto": 150328007
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2094974,
-        "descuentos": 591693.93,
-        "neto": 150328007
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2094974,
-        "descuentos": 591693.93,
-        "neto": 150328007
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2094974,
-        "descuentos": 612643.67,
-        "neto": 148233033
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1745812,
         "descuentos": 494578.69,
         "neto": 125123331
@@ -2595,7 +2007,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Septiembre 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/09_remuneraciones_funcionarios_septiembre_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2604,85 +2016,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2062336.81
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2557252,
-        "descuentos": 888311.91,
-        "neto": 1668940.09
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2557252,
-        "descuentos": 743197.04,
-        "neto": 1814054.96
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2455717.84,
         "descuentos": 719239.64,
         "neto": 180264532
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2557252,
         "descuentos": 742604.75,
         "neto": 1814647.25
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 1917938,
-        "descuentos": 532372.4,
-        "neto": 1385565.6
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1917938,
         "descuentos": 513193.02,
         "neto": 140474498
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1917938,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1917938,
         "descuentos": 513193.02,
         "neto": 1404744.98
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
-        "bruto": 1917938,
-        "descuentos": 513193.02,
-        "neto": 1404744.98
-      },
-      {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1917938,
         "descuentos": 513193.02,
         "neto": 140474498
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1917938,
         "descuentos": 513193.02,
         "neto": 1404744.98
       },
       {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1917938,
-        "descuentos": 513193.02,
-        "neto": 140474498
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1917938,
-        "descuentos": 532372.4,
-        "neto": 1385565.6
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1598282,
         "descuentos": 421136.51,
         "neto": 1177145.49
@@ -2721,7 +2091,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Agosto 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/08_remuneraciones_funcionarios_agosto_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2730,85 +2100,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 231694558
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2675280,
-        "descuentos": 802537.57,
-        "neto": 182274243
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2675280,
-        "descuentos": 667426.22,
-        "neto": 195785378
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2505245.75,
         "descuentos": 687635.1,
         "neto": 183190176
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2675280,
         "descuentos": 667426.22,
         "neto": 195785378
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
-        "bruto": 2006460,
-        "descuentos": 462746,
-        "neto": 149371400
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 2006460,
         "descuentos": 442681.4,
         "neto": 151377860
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 2006460,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 2006460,
         "descuentos": 442681.4,
         "neto": 151377860
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 2006460,
         "descuentos": 442681.4,
         "neto": 151377860
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 2006460,
         "descuentos": 442681.4,
         "neto": 151377860
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 2006460,
-        "descuentos": 442681.4,
-        "neto": 151377860
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 2006460,
-        "descuentos": 442681.4,
-        "neto": 151377860
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 2006460,
-        "descuentos": 462746,
-        "neto": 149371400
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1672050,
         "descuentos": 370261.5,
         "neto": 125178850
@@ -2853,7 +2181,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Julio 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/07_remuneraciones_funcionarios_julio_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2862,85 +2190,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 215187117
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2373654,
-        "descuentos": 572721.6,
-        "neto": 180093240
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2373654,
-        "descuentos": 572721.6,
-        "neto": 180093240
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2222425.75,
         "descuentos": 616291.25,
         "neto": 166768861
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2373654,
         "descuentos": 572721.6,
         "neto": 180093240
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1780240,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1483534,
         "descuentos": 334283.46,
         "neto": 1149250.54
@@ -2985,7 +2271,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06_remuneraciones_funcionarios_junio_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -2994,85 +2280,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2047593.64
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2373654,
-        "descuentos": 530053.26,
-        "neto": 1843600.74
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2373654,
-        "descuentos": 530053.26,
-        "neto": 1843600.74
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 2222425.75,
         "descuentos": 616291.25,
         "neto": 1672516.25
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2373654,
         "descuentos": 530053.26,
         "neto": 1843600.74
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1780240,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1780240,
         "descuentos": 399539.6,
         "neto": 1380700.4
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1780240,
-        "descuentos": 399539.6,
-        "neto": 1380700.4
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1483534,
         "descuentos": 334283.46,
         "neto": 1149250.54
@@ -3117,7 +2361,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06-1_remuneraciones_funcionarios_sac_junio_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -3126,85 +2370,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 1216497.88
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 1186827,
-        "descuentos": 213628.85,
-        "neto": 973198.15
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 1186827,
-        "descuentos": 213628.85,
-        "neto": 973198.15
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 1111212.87,
         "descuentos": 258356.99,
         "neto": 852855.88
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 1186827,
         "descuentos": 213628.85,
         "neto": 973198.15
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 890120,
         "descuentos": 160221.6,
         "neto": 729898.4
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 890120,
         "descuentos": 160221.6,
         "neto": 729898.4
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 890120,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 890120,
         "descuentos": 160221.6,
         "neto": 729898.4
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 890120,
         "descuentos": 160221.6,
         "neto": 729898.4
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 890120,
-        "descuentos": 160221.6,
-        "neto": 729898.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 890120,
-        "descuentos": 160221.6,
-        "neto": 729898.4
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 890120,
-        "descuentos": 160221.6,
-        "neto": 729898.4
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 890120,
-        "descuentos": 160221.6,
-        "neto": 729898.4
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 741767,
         "descuentos": 133518.06,
         "neto": 608248.94
@@ -3249,7 +2451,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Mayo 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/05_remuneraciones_funcionarios_mayo_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 20,
+    "cantidadFilas": 13,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo , 00",
@@ -3258,85 +2460,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2305824
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea , 40",
-        "bruto": 2368640,
-        "descuentos": 524700.6,
-        "neto": 1843939
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando , 40",
-        "bruto": 2368640,
-        "descuentos": 524700.6,
-        "neto": 1843939
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis , 33",
+        "etiqueta": "Zamateo Luis , 33",
         "bruto": 2218441.36,
         "descuentos": 610025.03,
         "neto": 1674717
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel , 40",
+        "etiqueta": "Territorial — Bernini Daniel , 40",
         "bruto": 2368640,
         "descuentos": 524700.6,
         "neto": 1843939
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno , 80",
+        "etiqueta": "Eugenia — Bongiovanni Fabián , 80",
         "bruto": 1776480,
         "descuentos": 394425.2,
         "neto": 1382054
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián , 80",
+        "etiqueta": "Convivencia — Cabalaro Luciano , 80",
         "bruto": 1776480,
         "descuentos": 394425.2,
         "neto": 1382054
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1776480,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano , 80",
+        "etiqueta": "Productivo — Sinner Luciana , 80",
         "bruto": 1776480,
         "descuentos": 394425.2,
         "neto": 1382054
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José , 80",
+        "etiqueta": "Climática — Ortiz Vanesa , 80",
         "bruto": 1776480,
         "descuentos": 394425.2,
         "neto": 1382054
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana , 80",
-        "bruto": 1776480,
-        "descuentos": 394425.2,
-        "neto": 1382054
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa , 80",
-        "bruto": 1776480,
-        "descuentos": 394425.2,
-        "neto": 1382054
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José , 80",
-        "bruto": 1776480,
-        "descuentos": 394425.2,
-        "neto": 1382054
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa , 80",
-        "bruto": 1776480,
-        "descuentos": 394425.2,
-        "neto": 1382054
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan , 00",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan , 00",
         "bruto": 1480400,
         "descuentos": 329288,
         "neto": 1151112
@@ -3381,7 +2541,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Abril 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/04_remuneraciones_funcionarios_abril_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -3390,85 +2550,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2046543
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2090160,
-        "descuentos": 453645.4,
-        "neto": 1636514.6
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2090160,
-        "descuentos": 453645.4,
-        "neto": 1636514.6
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 1956283.97,
         "descuentos": 529450.87,
         "neto": 1490197.88
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2090160,
         "descuentos": 453645.4,
         "neto": 1636514.6
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1567620,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1306350,
         "descuentos": 284878.5,
         "neto": 1021471.5
@@ -3507,7 +2625,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Marzo 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/03_remuneraciones_funcionarios_marzo_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -3516,85 +2634,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 2046543
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 2090160,
-        "descuentos": 453645.4,
-        "neto": 1636514.6
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 2090160,
-        "descuentos": 453645.4,
-        "neto": 1636514.6
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 1956283.97,
         "descuentos": 529450.87,
         "neto": 1492936.76
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 2090160,
         "descuentos": 453645.4,
         "neto": 1636514.6
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1567620,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1567620,
         "descuentos": 341133.8,
         "neto": 1226486.2
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1567620,
-        "descuentos": 341133.8,
-        "neto": 1226486.2
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1306350,
         "descuentos": 284878.5,
         "neto": 1021471.5
@@ -3633,7 +2709,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Febrero 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/02_remuneraciones_funcionarios_febrero_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 12,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -3642,85 +2718,43 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 1783294.48
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 1763846,
-        "descuentos": 337730.74,
-        "neto": 1426115.26
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 1763846,
-        "descuentos": 337730.74,
-        "neto": 1426115.26
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo Luis",
+        "etiqueta": "Zamateo Luis",
         "bruto": 1651753.33,
         "descuentos": 405050.18,
         "neto": 1284929.17
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Territorial — Bernini Daniel",
         "bruto": 1763846,
         "descuentos": 337730.74,
         "neto": 1426115.26
       },
       {
-        "etiqueta": "Gamero María — Subsecretaría de Gobierno",
+        "etiqueta": "Eugenia — Bongiovanni Fabián",
         "bruto": 1322884,
         "descuentos": 253947.96,
         "neto": 1068936.04
       },
       {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 1322884,
         "descuentos": 253947.96,
         "neto": 1068936.04
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 1322884,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 1322884,
         "descuentos": 253947.96,
         "neto": 1068936.04
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 1322884,
         "descuentos": 253947.96,
         "neto": 1068936.04
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
-        "bruto": 1322884,
-        "descuentos": 253947.96,
-        "neto": 1068936.04
-      },
-      {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 1322884,
-        "descuentos": 253947.96,
-        "neto": 1068936.04
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 1322884,
-        "descuentos": 253947.96,
-        "neto": 1068936.04
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 1322884,
-        "descuentos": 253947.96,
-        "neto": 1068936.04
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 1102404,
         "descuentos": 212056.76,
         "neto": 890347.24
@@ -3759,7 +2793,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Enero 2024",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/01_remuneraciones_funcionarios_enero_2024.pdf",
     "parseado": true,
-    "cantidadFilas": 19,
+    "cantidadFilas": 11,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti Pablo",
@@ -3768,85 +2802,37 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 1325200.6
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat Andrea",
-        "bruto": 1254636,
-        "descuentos": 240980.84,
-        "neto": 1013655.26
-      },
-      {
-        "etiqueta": "Secretaría de Producción y Finanzas Chamorro Fernando",
-        "bruto": 1254636,
-        "descuentos": 240980.84,
-        "neto": 1013655.26
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y Territorial Zamateo Luis",
-        "bruto": 1228515.5,
-        "descuentos": 296886.7,
-        "neto": 986134.59
-      },
-      {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini Daniel",
+        "etiqueta": "Bernini Daniel",
         "bruto": 1254636,
         "descuentos": 240980.84,
         "neto": 1013655.16
       },
       {
-        "etiqueta": "Promoción de Derechos — Subsecretaría de Gobierno Gamero María Eugenia",
-        "bruto": 1099188,
-        "descuentos": 211445.72,
-        "neto": 887742.28
-      },
-      {
-        "etiqueta": "Subsecretaría de Seguridad Ciudadana y — Bongiovanni Fabián",
+        "etiqueta": "Promoción de Derechos — Bongiovanni Fabián",
         "bruto": 1665516,
         "descuentos": 319048.04,
         "neto": 846467.96
       },
       {
-        "etiqueta": "Convivencia — Subsecretaría de Hacienda y Finanzas García Daniel",
-        "bruto": 983556,
-        "descuentos": null,
-        "neto": null
-      },
-      {
-        "etiqueta": "Subsecretaría de Desarrollo Económico y — Cabalaro Luciano",
+        "etiqueta": "Convivencia — Cabalaro Luciano",
         "bruto": 983556,
         "descuentos": 189475.64,
         "neto": 794080.36
       },
       {
-        "etiqueta": "Productivo — Subsecretaría Obras y Servicios Públicos Lattanzi José",
+        "etiqueta": "Productivo — Sinner Luciana",
         "bruto": 983556,
         "descuentos": 189475.64,
         "neto": 794080.36
       },
       {
-        "etiqueta": "Subsecretaría de Ambiente y Acción — Sinner Luciana",
+        "etiqueta": "Climática — Ortiz Vanesa",
         "bruto": 983556,
         "descuentos": 189475.64,
         "neto": 794080.36
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social y — Ortiz Vanesa",
-        "bruto": 983556,
-        "descuentos": 189475.64,
-        "neto": 794080.36
-      },
-      {
-        "etiqueta": "Productiva — Subsecretaría de Cultura y Educación Galli José",
-        "bruto": 983556,
-        "descuentos": 189475.64,
-        "neto": 794080.36
-      },
-      {
-        "etiqueta": "Subsecretaría de Promoción de Derechos Riera Elisa",
-        "bruto": 983556,
-        "descuentos": 189475.64,
-        "neto": 794080.36
-      },
-      {
-        "etiqueta": "Coordinación de Comunicación Botto Juan",
+        "etiqueta": "Productiva — Coordinación de Comunicación Botto Juan",
         "bruto": 819630,
         "descuentos": 158329.7,
         "neto": 661300.3
@@ -3885,7 +2871,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2023",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12_remuneraciones_funcionarios_diciembre_2023.pdf",
     "parseado": true,
-    "cantidadFilas": 16,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Intendente Pinotti , Pablo",
@@ -3894,67 +2880,55 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 844679.3
       },
       {
-        "etiqueta": "Secretaría de Gobierno Ochat , Andrea",
+        "etiqueta": "Chamorro , Fernando",
         "bruto": 836424,
         "descuentos": 161120.56,
         "neto": 675303.44
       },
       {
-        "etiqueta": "Secretaría de Producción y — Chamorro , Fernando",
-        "bruto": 836424,
-        "descuentos": 161120.56,
-        "neto": 675303.44
-      },
-      {
-        "etiqueta": "Secretaría de Gestión Ambiental y — Zamateo , Luis , 14",
+        "etiqueta": "Finanzas — Zamateo , Luis , 14",
         "bruto": 1166450.48,
         "descuentos": 281715.21,
         "neto": 911178
       },
       {
-        "etiqueta": "Secretaría de Desarrollo Humano y — Bernini , Daniel , 44",
+        "etiqueta": "Territorial — Bernini , Daniel , 44",
         "bruto": 836424,
         "descuentos": 161120.56,
         "neto": 675303
       },
       {
-        "etiqueta": "Promoción de Derechos — Subsecretaría de Gobierno Gamero , María Eugenia , 65",
-        "bruto": 522765,
-        "descuentos": 101525.35,
-        "neto": 421239
-      },
-      {
-        "etiqueta": "Subsecretaría de Hacienda y — García , Daniel",
+        "etiqueta": "Ciudadana y Convivencia — García , Daniel",
         "bruto": 627318,
         "descuentos": null,
         "neto": 43563
       },
       {
-        "etiqueta": "Subsecretaría de Desarrollo — Cabalaro , Luciano , 58",
+        "etiqueta": "Finanzas — Cabalaro , Luciano , 58",
         "bruto": 627318,
         "descuentos": 121390.42,
         "neto": 505927
       },
       {
-        "etiqueta": "Subsecretaría Obras y Servicios — Lattanzi , José , 58",
+        "etiqueta": "Económico y Productivo — Lattanzi , José , 58",
         "bruto": 627318,
         "descuentos": 121390.42,
         "neto": 505927
       },
       {
-        "etiqueta": "Subsecretaría de Economía Social — Ortiz , Vanesa , 58",
+        "etiqueta": "Acción Climática — Ortiz , Vanesa , 58",
         "bruto": 627318,
         "descuentos": 121390.42,
         "neto": 505927
       },
       {
-        "etiqueta": "Subsecretaría de Cultura y — Galli , José , 58",
+        "etiqueta": "y Productiva — Galli , José , 58",
         "bruto": 627318,
         "descuentos": 121390.42,
         "neto": 505927
       },
       {
-        "etiqueta": "Subsecretaría de Promoción de — Riera , Elisa , 58",
+        "etiqueta": "Educación — Riera , Elisa , 58",
         "bruto": 627318,
         "descuentos": 121390.42,
         "neto": 505927
@@ -4005,10 +2979,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Octubre 2023",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/10_remuneraciones_funcionarios_octubre_2023.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 101973.29
@@ -4018,12 +2992,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 264006,
         "descuentos": null,
         "neto": 68503.49
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 469344,
-        "descuentos": null,
-        "neto": 181173.11
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4038,7 +3006,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 59548
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 367636.56,
         "descuentos": null,
         "neto": 122753.4
@@ -4050,16 +3018,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 72716.92
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 241303,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 469344,
-        "descuentos": null,
-        "neto": 173339.28
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4068,7 +3030,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 72437.42
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 71281.6
@@ -4098,7 +3060,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 62481.4
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 104559.37
@@ -4119,10 +3081,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Septiembre 2023",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/09_remuneraciones_funcionarios_septiembre_2023.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 85439.96
@@ -4132,12 +3094,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 251359.2,
         "descuentos": null,
         "neto": 62853.48
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 446860.8,
-        "descuentos": null,
-        "neto": 165217.45
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4152,7 +3108,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 53944.72
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 350025.5,
         "descuentos": null,
         "neto": 111714.33
@@ -4164,16 +3120,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 66580.16
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 227990.1,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 446860.8,
-        "descuentos": null,
-        "neto": 157733.15
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4182,7 +3132,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 66300.16
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 86094.62
@@ -4212,7 +3162,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 56737.6
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 88182.13
@@ -4341,10 +3291,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12_remuneraciones_funcionarios_diciembre_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 415242,
         "descuentos": null,
         "neto": 130560.57
@@ -4354,12 +3304,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 311432,
         "descuentos": null,
         "neto": 76313.66
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 553658,
-        "descuentos": null,
-        "neto": 229746.91
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4374,7 +3318,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 65116.66
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 433679.31,
         "descuentos": null,
         "neto": 156598.72
@@ -4386,16 +3330,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 51617.84
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 276250.4,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 553658,
-        "descuentos": null,
-        "neto": 212996.66
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4404,7 +3342,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 80508.53
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 415242,
         "descuentos": null,
         "neto": 101076.71
@@ -4434,7 +3372,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 57677.02
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 415242,
         "descuentos": null,
         "neto": 133056.95
@@ -4455,10 +3393,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Noviembre 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/11_remuneraciones_funcionarios_noviembre_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 370978,
         "descuentos": null,
         "neto": 98483.97
@@ -4468,12 +3406,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 278234,
         "descuentos": null,
         "neto": 72251.98
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 494636,
-        "descuentos": null,
-        "neto": 194231.79
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4488,7 +3420,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 62929.6
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 387448.39,
         "descuentos": null,
         "neto": 105616.78
@@ -4500,16 +3432,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 76699.72
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 241303,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 494636,
-        "descuentos": null,
-        "neto": 100027.2
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4518,7 +3444,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 76419.72
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 370978,
         "descuentos": null,
         "neto": 87170.06
@@ -4548,7 +3474,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 66021.08
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 370978,
         "descuentos": null,
         "neto": 104003.5
@@ -4569,10 +3495,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Octubre 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/10_remuneraciones_funcionarios_octubre_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 101973.29
@@ -4582,12 +3508,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 264006,
         "descuentos": null,
         "neto": 68503.49
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 469344,
-        "descuentos": null,
-        "neto": 181173.11
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4602,7 +3522,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 59548
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 367636.56,
         "descuentos": null,
         "neto": 122753.4
@@ -4614,16 +3534,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 72716.92
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 241303,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 469344,
-        "descuentos": null,
-        "neto": 173339.28
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4632,7 +3546,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 72437.42
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 71281.6
@@ -4662,7 +3576,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 62481.4
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 352008,
         "descuentos": null,
         "neto": 104559.37
@@ -4683,10 +3597,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Septiembre 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/09_remuneraciones_funcionarios_septiembre_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 85439.96
@@ -4696,12 +3610,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 251359.2,
         "descuentos": null,
         "neto": 62853.48
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 446860.8,
-        "descuentos": null,
-        "neto": 165217.45
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4716,7 +3624,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 53944.72
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 350025.5,
         "descuentos": null,
         "neto": 111714.33
@@ -4728,16 +3636,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 66580.16
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 227990.1,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 446860.8,
-        "descuentos": null,
-        "neto": 157733.15
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4746,7 +3648,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 66300.16
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 86094.62
@@ -4776,7 +3678,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 56737.6
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 335145.6,
         "descuentos": null,
         "neto": 88182.13
@@ -4797,10 +3699,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Agosto 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/08_remuneraciones_funcionarios_agosto_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 307742.4,
         "descuentos": null,
         "neto": 67976
@@ -4810,12 +3712,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 230806.8,
         "descuentos": null,
         "neto": 6807.99
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 410323.2,
-        "descuentos": null,
-        "neto": 145636.07
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -4830,7 +3726,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 48323.62
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 321405,
         "descuentos": null,
         "neto": 87163.59
@@ -4842,16 +3738,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 24509.21
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 227990.1,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 410323.2,
-        "descuentos": null,
-        "neto": 138681.14
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -4860,7 +3750,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 59811.3
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 307742.4,
         "descuentos": null,
         "neto": 68288.38
@@ -4890,7 +3780,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 50888.14
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 307742.4,
         "descuentos": null,
         "neto": 70714.86
@@ -4911,10 +3801,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Julio 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/07_remuneraciones_funcionarios_julio_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo. 4.00 4.58",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo. 4.00 4.58",
         "bruto": 297.2,
         "descuentos": null,
         "neto": 57.09
@@ -4924,12 +3814,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 222.9,
         "descuentos": null,
         "neto": 33.76
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo. 2.00 6.46",
-        "bruto": 396.27,
-        "descuentos": null,
-        "neto": 127.34
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva. 0.00 4.00",
@@ -4944,7 +3828,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 47.85
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 9.37 7.76",
+        "etiqueta": "GABIANI, M. Cecilia. 9.37 7.76",
         "bruto": 285.4,
         "descuentos": null,
         "neto": 77.5
@@ -4956,16 +3840,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 47.85
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 198035.28,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión. 2.00 7,64",
-        "bruto": 396.27,
-        "descuentos": null,
-        "neto": 121.12
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim. 0.00 1.26",
@@ -4974,7 +3852,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 58.91
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 4.00 8.76",
+        "etiqueta": "Derechos. — LOPEZ, Nestor. 4.00 8.76",
         "bruto": 297.2,
         "descuentos": null,
         "neto": 57.26
@@ -5004,7 +3882,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 50.33
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo. 4.00 3.80",
+        "etiqueta": "SOMAGLIA, Osvaldo. 4.00 3.80",
         "bruto": 297.2,
         "descuentos": null,
         "neto": 60.24
@@ -5025,10 +3903,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06_remuneraciones_funcionarios_junio_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 274017.6,
         "descuentos": null,
         "neto": 52863.35
@@ -5038,12 +3916,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 205513.2,
         "descuentos": null,
         "neto": 52907.97
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 365356.8,
-        "descuentos": null,
-        "neto": 129817.54
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -5058,7 +3930,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 42851.18
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 286183.52,
         "descuentos": null,
         "neto": 69302.54
@@ -5070,16 +3942,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 44.18
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 179728.64,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 365356.8,
-        "descuentos": null,
-        "neto": 125248.55
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim. 9.60",
@@ -5088,7 +3954,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 55.98
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 274017.6,
         "descuentos": null,
         "neto": 52863.35
@@ -5118,7 +3984,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 46469.6
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 274017.6,
         "descuentos": null,
         "neto": 55603.53
@@ -5139,10 +4005,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06-1_remuneraciones_funcionarios_sac_junio_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 16,
+    "cantidadFilas": 14,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 137008.8,
         "descuentos": null,
         "neto": 24661.59
@@ -5152,12 +4018,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 102756.6,
         "descuentos": null,
         "neto": 22082.68
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 182678.41,
-        "descuentos": null,
-        "neto": 32882.11
       },
       {
         "etiqueta": "ESCOBIO, G. Vanesa. Coordinadora Ejecutiva.",
@@ -5172,7 +4032,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 20551.32
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 143091.77,
         "descuentos": null,
         "neto": 29333.8
@@ -5184,16 +4044,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 20551.32
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. 4.32 -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. 4.32 -",
         "bruto": 89.86,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión. 8.41 2.11",
-        "bruto": 182.67,
-        "descuentos": null,
-        "neto": 32.88
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim. 5.67",
@@ -5202,7 +4056,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.4
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 1.59",
+        "etiqueta": "Derechos. — LOPEZ, Nestor. 1.59",
         "bruto": 137008.8,
         "descuentos": null,
         "neto": 24.66
@@ -5226,7 +4080,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 21.69
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo. 1.68",
+        "etiqueta": "SOMAGLIA, Osvaldo. 1.68",
         "bruto": 137008.8,
         "descuentos": null,
         "neto": 26.03
@@ -5247,10 +4101,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Mayo 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/05_remuneraciones_funcionarios_mayo_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 265585,
         "descuentos": null,
         "neto": 61227.68
@@ -5260,12 +4114,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 199190,
         "descuentos": null,
         "neto": 50117.22
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 354116,
-        "descuentos": null,
-        "neto": 118665.37
       },
       {
         "etiqueta": "CIPOLATTI, Betiana. Directora de Proyectos.",
@@ -5286,7 +4134,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 42851.18
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 277378,
         "descuentos": null,
         "neto": 81324.86
@@ -5298,16 +4146,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 42851.18
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 173072.85,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 354116,
-        "descuentos": null,
-        "neto": 112948.62
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -5316,7 +4158,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 52903.92
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 265585,
         "descuentos": null,
         "neto": 62374.72
@@ -5340,7 +4182,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 45874.4
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 265586,
         "descuentos": null,
         "neto": 64236.94
@@ -5361,10 +4203,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Abril 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/04_remuneraciones_funcionarios_abril_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 54461.34
@@ -5374,12 +4216,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 192866.4,
         "descuentos": null,
         "neto": 48312.19
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 342873.6,
-        "descuentos": null,
-        "neto": 112954.71
       },
       {
         "etiqueta": "CIPOLATTI, Betiana. Directora de Proyectos.",
@@ -5400,7 +4236,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 41316.18
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 268572.46,
         "descuentos": null,
         "neto": 72599.06
@@ -5412,16 +4248,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 41316.24
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 173072.85,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 342873.6,
-        "descuentos": null,
-        "neto": 107312.59
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -5430,7 +4260,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 48859.03
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 55786.6
@@ -5454,7 +4284,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 43459.2
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 57797.23
@@ -5475,10 +4305,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Marzo 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/03_remuneraciones_funcionarios_marzo_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo.",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 54013.95
@@ -5488,12 +4318,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 192866.4,
         "descuentos": null,
         "neto": 50240.86
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos. Secretario de Desarrollo.",
-        "bruto": 342873.6,
-        "descuentos": null,
-        "neto": 116196.18
       },
       {
         "etiqueta": "CIPOLATTI, Betiana. Directora de Proyectos.",
@@ -5514,7 +4338,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 43459.2
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia.",
+        "etiqueta": "GABIANI, M. Cecilia.",
         "bruto": 268572.46,
         "descuentos": null,
         "neto": 63233.55
@@ -5526,16 +4350,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 43452.2
       },
       {
-        "etiqueta": "Subsecretaria de Educación, Salud y — HOYOS, Mónica. -",
+        "etiqueta": "Estrategia. — HOYOS, Mónica. -",
         "bruto": 166416.2,
         "descuentos": null,
         "neto": null
-      },
-      {
-        "etiqueta": "Convivencia. — LAMBERTI, Leandro Secretario de Gestión.",
-        "bruto": 342873.6,
-        "descuentos": null,
-        "neto": 100053.33
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim.",
@@ -5544,7 +4362,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 53144.45
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor.",
+        "etiqueta": "Derechos. — LOPEZ, Nestor.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 54843.29
@@ -5568,7 +4386,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 38602.1
       },
       {
-        "etiqueta": "Subsecretario de Hacienda y — SOMAGLIA, Osvaldo.",
+        "etiqueta": "SOMAGLIA, Osvaldo.",
         "bruto": 257155.2,
         "descuentos": null,
         "neto": 57164.11
@@ -5589,10 +4407,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Febrero 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/02_remuneraciones_funcionarios_febrero_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo. 2.40 8.65",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo. 2.40 8.65",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 40.64
@@ -5602,12 +4420,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 158.08,
         "descuentos": null,
         "neto": 40.03
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos Secretaria de Desarrollo. 3.20 9.44",
-        "bruto": 281.04,
-        "descuentos": null,
-        "neto": 82.08
       },
       {
         "etiqueta": "CIPOLATTI, Betiana. Directora de Proyectos. 6.80 6.10",
@@ -5628,7 +4440,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 33.97
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 0.79 4.00.09",
+        "etiqueta": "GABIANI, M. Cecilia. 0.79 4.00.09",
         "bruto": 220.14,
         "descuentos": null,
         "neto": 52.08
@@ -5640,16 +4452,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 33.97
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — HOYOS, Mónica 6.20 6.20",
+        "etiqueta": "Estrategias. — HOYOS, Mónica 6.20 6.20",
         "bruto": 166.41,
         "descuentos": null,
         "neto": 166.41
-      },
-      {
-        "etiqueta": "Convivencia Ciudadana. — LAMBERTI, Leandro Secretario de Gestión. 3.20 1.98",
-        "bruto": 281.04,
-        "descuentos": null,
-        "neto": 82.07
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim 2.00 1.16",
@@ -5658,7 +4464,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 41.99
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 2.40 8.66",
+        "etiqueta": "Derechos — LOPEZ, Nestor. 2.40 8.66",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 40.64
@@ -5680,12 +4486,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 175.65,
         "descuentos": null,
         "neto": 35.73
-      },
-      {
-        "etiqueta": "SOMAGLIA, Osvaldo. Subsecretario de Hacienda y Finanzas 2.40",
-        "bruto": 210.78,
-        "descuentos": null,
-        "neto": 42756.47
       },
       {
         "etiqueta": "TOSELLI, Gonzalo R.C. Intendente. 4.00 8.64",
@@ -5703,10 +4503,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Enero 2022",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/01_remuneraciones_funcionarios_enero_2022.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
-        "etiqueta": "Subsecretario de Producción y — CANAVESE, Marcelo. 2.40 8.65",
+        "etiqueta": "REMUNERACIONES DE FUNCIONARIOS PÚBLICOS — CANAVESE, Marcelo. 2.40 8.65",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 40.64
@@ -5716,12 +4516,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "bruto": 158.08,
         "descuentos": null,
         "neto": 40.03
-      },
-      {
-        "etiqueta": "CHETTA, Juan Carlos Secretaria de Desarrollo. 3.20 9.44",
-        "bruto": 281.04,
-        "descuentos": null,
-        "neto": 82.08
       },
       {
         "etiqueta": "CIPOLATTI, Betiana. Directora de Proyectos. 6.80 6.10",
@@ -5742,7 +4536,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 33.97
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 0.79 4.00.09",
+        "etiqueta": "GABIANI, M. Cecilia. 0.79 4.00.09",
         "bruto": 220.14,
         "descuentos": null,
         "neto": 52.08
@@ -5754,16 +4548,10 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 33.97
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — HOYOS, Mónica 6.20 6.20",
+        "etiqueta": "Estrategias. — HOYOS, Mónica 6.20 6.20",
         "bruto": 166.41,
         "descuentos": null,
         "neto": 166.41
-      },
-      {
-        "etiqueta": "Convivencia Ciudadana. — LAMBERTI, Leandro Secretario de Gestión. 3.20 1.98",
-        "bruto": 281.04,
-        "descuentos": null,
-        "neto": 82.07
       },
       {
         "etiqueta": "Coordinador de Promoción de — LEMOS, Karim 2.00 1.16",
@@ -5772,7 +4560,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 41.99
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 2.40 8.66",
+        "etiqueta": "Derechos — LOPEZ, Nestor. 2.40 8.66",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 40.64
@@ -5796,12 +4584,6 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 35.73
       },
       {
-        "etiqueta": "SOMAGLIA, Osvaldo. Subsecretario de Hacienda y Finanzas 2.40",
-        "bruto": 210.78,
-        "descuentos": null,
-        "neto": 42756.47
-      },
-      {
         "etiqueta": "TOSELLI, Gonzalo R.C. Intendente. 4.00 8.64",
         "bruto": 351.3,
         "descuentos": null,
@@ -5817,7 +4599,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12-1_remuneraciones_funcionarios_sac_diciembre_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — CANAVESE, Marcelo. 6.00 8.68",
@@ -5850,13 +4632,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 1580868
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 1.76 6.91",
+        "etiqueta": "GABIANI, M. Cecilia. 1.76 6.91",
         "bruto": 108.91,
         "descuentos": null,
         "neto": 22.32
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 0.00 9.20",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 0.00 9.20",
         "bruto": 93.68,
         "descuentos": null,
         "neto": 17.79
@@ -5868,34 +4650,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 1580868
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 2.00 7.00",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 2.00 7.00",
         "bruto": 105.87,
         "descuentos": null,
         "neto": 19.05
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 8.00 2.52",
-        "bruto": 124.9,
-        "descuentos": null,
-        "neto": 23.73
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 1.20 0.41",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 1.20 0.41",
         "bruto": 105.39,
         "descuentos": null,
         "neto": 18.97
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 1.20 0.41",
+        "etiqueta": "Finanzas. — LOPEZ, Nestor. 1.20 0.41",
         "bruto": 105.39,
         "descuentos": null,
         "neto": 18.97
-      },
-      {
-        "etiqueta": "Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 8.00 7.61",
-        "bruto": 124.9,
-        "descuentos": null,
-        "neto": 23.6
       },
       {
         "etiqueta": "Coordinador de la Agencia Municipal — MONTICONE, Yanina. 6.00 7.33",
@@ -5931,7 +4701,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12_remuneraciones_funcionarios_diciembre_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — CANAVESE, Marcelo. 9.00 2.80",
@@ -5964,13 +4734,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 33.89
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 8.49 7.40",
+        "etiqueta": "GABIANI, M. Cecilia. 8.49 7.40",
         "bruto": 267.71,
         "descuentos": null,
         "neto": 86.65
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 0.00 7.60",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 0.00 7.60",
         "bruto": 70.26,
         "descuentos": null,
         "neto": 18.26
@@ -5982,34 +4752,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 32.89
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 6.00 4.96",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 6.00 4.96",
         "bruto": 193.21,
         "descuentos": null,
         "neto": 53.75
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 1.00 0.79",
-        "bruto": 93.68,
-        "descuentos": null,
-        "neto": 23.52
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 2.40 8.54",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 2.40 8.54",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 49.01
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 2.40 2.40",
+        "etiqueta": "Finanzas. — LOPEZ, Nestor. 2.40 2.40",
         "bruto": 210.78,
         "descuentos": null,
         "neto": 40.57
-      },
-      {
-        "etiqueta": "Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 1.00 3.44",
-        "bruto": 93.68,
-        "descuentos": null,
-        "neto": 22.48
       },
       {
         "etiqueta": "Coordinador de la Agencia Municipal — MONTICONE, Yanina. 8.00 2.90",
@@ -6045,7 +4803,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Noviembre 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/11_remuneraciones_funcionarios_noviembre_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — CANAVESE, Marcelo. 8.00 5.52",
@@ -6078,13 +4836,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.16
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 8.46 0.69",
+        "etiqueta": "GABIANI, M. Cecilia. 8.46 0.69",
         "bruto": 176.09,
         "descuentos": null,
         "neto": 46.16
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 9.20 9.04",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 9.20 9.04",
         "bruto": 201.07,
         "descuentos": null,
         "neto": 38.72
@@ -6096,34 +4854,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.16
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 9.20 3.81",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 9.20 3.81",
         "bruto": 201.07,
         "descuentos": null,
         "neto": 52.81
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 5.60 2.19",
-        "bruto": 268.1,
-        "descuentos": null,
-        "neto": 93.04
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 9.20 3.67",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 9.20 3.67",
         "bruto": 201.07,
         "descuentos": null,
         "neto": 48.53
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 9.20 9.04",
+        "etiqueta": "Finanzas. — LOPEZ, Nestor. 9.20 9.04",
         "bruto": 201.07,
         "descuentos": null,
         "neto": 38.72
-      },
-      {
-        "etiqueta": "Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 5.60 4.37",
-        "bruto": 268.1,
-        "descuentos": null,
-        "neto": 57.72
       },
       {
         "etiqueta": "Coordinador de la Agencia Municipal — MONTICONE, Yanina. 8.00 2.82",
@@ -6159,7 +4905,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Octubre 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/10_remuneraciones_funcionarios_octubre_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — CANAVESE, Marcelo. 8.00 5.60",
@@ -6192,13 +4938,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 31.72
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 4.92 9.85",
+        "etiqueta": "GABIANI, M. Cecilia. 4.92 9.85",
         "bruto": 214.2,
         "descuentos": null,
         "neto": 74.07
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 0.00 6.00",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 0.00 6.00",
         "bruto": 187.21,
         "descuentos": null,
         "neto": 37.96
@@ -6210,34 +4956,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 31.72
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 0.00 1.94",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 0.00 1.94",
         "bruto": 187.21,
         "descuentos": null,
         "neto": 41.03
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 3.00 5.13",
-        "bruto": 249.61,
-        "descuentos": null,
-        "neto": 86.27
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 0.00 0.60",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 0.00 0.60",
         "bruto": 187.21,
         "descuentos": null,
         "neto": 38.33
       },
       {
-        "etiqueta": "Subsecretario de Infraestructura — LOPEZ, Nestor. 6.60 4.07",
+        "etiqueta": "Finanzas. — LOPEZ, Nestor. 6.60 4.07",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 38.17
-      },
-      {
-        "etiqueta": "Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 3.00 9.91",
-        "bruto": 249.61,
-        "descuentos": null,
-        "neto": 86.99
       },
       {
         "etiqueta": "Coordinador de la Agencia Municipal — MONTICONE, Yanina. 8.00 2.90",
@@ -6297,7 +5031,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Julio 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/07_remuneraciones_funcionarios_julio_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — CANAVESE, Marcelo. 8.00 4.80",
@@ -6330,13 +5064,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 27.98
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 0.25 6.76",
+        "etiqueta": "GABIANI, M. Cecilia. 0.25 6.76",
         "bruto": 198.2,
         "descuentos": null,
         "neto": 64.13
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 6.60 4.63",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 6.60 4.63",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 33.51
@@ -6348,34 +5082,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 25.48
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 6.60 1.63",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 6.60 1.63",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 33.54
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 2.80 3.19",
-        "bruto": 232.97,
-        "descuentos": null,
-        "neto": 71.81
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 6.60 4.63",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 6.60 4.63",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 33.51
       },
       {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 6.60 4.07",
+        "etiqueta": "Finanzas. — 6.60 4.07",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 38.17
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 2.80 9.84",
-        "bruto": 232.97,
-        "descuentos": null,
-        "neto": 74.59
       },
       {
         "etiqueta": "Coordinador de la Agencia Municipal — MONTICONE, Yanina. $ 8.00 6.62",
@@ -6411,7 +5133,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06_remuneraciones_funcionarios_junio_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 0.00 5.60",
@@ -6450,13 +5172,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 29.64
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 5.25 8.04",
+        "etiqueta": "GABIANI, M. Cecilia. 5.25 8.04",
         "bruto": 198.24,
         "descuentos": null,
         "neto": 49.89
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 9.60 9.92",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 9.60 9.92",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 35.46
@@ -6468,37 +5190,25 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 26.73
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 9.60 9.92",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 9.60 9.92",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 35.46
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 2.80 5.77",
-        "bruto": 232.97,
-        "descuentos": null,
-        "neto": 81.13
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 9.60 9.92",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 9.60 9.92",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 35.46
       },
       {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 9.60 7.22",
+        "etiqueta": "Finanzas. — 9.60 7.22",
         "bruto": 174.72,
         "descuentos": null,
         "neto": 37.21
       },
       {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 2.80 5.45",
-        "bruto": 232.97,
-        "descuentos": null,
-        "neto": 79.47
-      },
-      {
-        "etiqueta": "SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 7.20 3.90",
+        "etiqueta": "J. Urbana y Rural. — SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 7.20 3.90",
         "bruto": 131.04,
         "descuentos": null,
         "neto": 28.04
@@ -6525,7 +5235,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Junio 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/06-1_remuneraciones_funcionarios_sac_junio_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 4.00 4.72",
@@ -6564,13 +5274,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 13.1
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 2.60 0.14",
+        "etiqueta": "GABIANI, M. Cecilia. 2.60 0.14",
         "bruto": 99.12,
         "descuentos": null,
         "neto": 20.32
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 4.80 5.67",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 4.80 5.67",
         "bruto": 87.36,
         "descuentos": null,
         "neto": 15.72
@@ -6582,37 +5292,25 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 11.79
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 4.80 5.67",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 4.80 5.67",
         "bruto": 87.36,
         "descuentos": null,
         "neto": 15.72
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 6.40 7.55",
-        "bruto": 116.48,
-        "descuentos": null,
-        "neto": 20.96
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 2.40 2.83",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 2.40 2.83",
         "bruto": 43.68,
         "descuentos": null,
         "neto": 7.86
       },
       {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 4.80 9.32",
+        "etiqueta": "Finanzas. — 4.80 9.32",
         "bruto": 87.36,
         "descuentos": null,
         "neto": 16.59
       },
       {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 6.40 2.41",
-        "bruto": 116.48,
-        "descuentos": null,
-        "neto": 22.13
-      },
-      {
-        "etiqueta": "SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 4.00 4.72",
+        "etiqueta": "J. Urbana y Rural. — SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 4.00 4.72",
         "bruto": 72.8,
         "descuentos": null,
         "neto": 13.1
@@ -6639,7 +5337,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Mayo 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/05_remuneraciones_funcionarios_mayo_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 2.00 9.14",
@@ -6672,13 +5370,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.34
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 6.74 9.41",
+        "etiqueta": "GABIANI, M. Cecilia. 6.74 9.41",
         "bruto": 185.65,
         "descuentos": null,
         "neto": 53.7
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 4.40 9.71",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 4.40 9.71",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.14
@@ -6690,34 +5388,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 29.54
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 4.40 0.03",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 4.40 0.03",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.15
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 9.20 1.60",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 65.72
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 4.40 6.29",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 4.40 6.29",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 40.25
       },
       {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 8.00 9.47",
+        "etiqueta": "Finanzas. — 8.00 9.47",
         "bruto": 156.48,
         "descuentos": null,
         "neto": 35.46
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 9.20 9.03",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 64.75
       },
       {
         "etiqueta": "Coordinadora de Comunicación y — SCARAFÍA, Virginia. 2.00 3.13",
@@ -6753,7 +5439,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Abril 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/04_remuneraciones_funcionarios_abril_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 15,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 2.00 1.09",
@@ -6786,13 +5472,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 29.81
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 6.74 3.38",
+        "etiqueta": "GABIANI, M. Cecilia. 6.74 3.38",
         "bruto": 185.65,
         "descuentos": null,
         "neto": 41.57
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 4.40 9.72",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 4.40 9.72",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.14
@@ -6804,34 +5490,22 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.53
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 4.40 9.72",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 4.40 9.72",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.14
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 9.20 2.62",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 65.72
-      },
-      {
-        "etiqueta": "Subsecretario de Hacienda y — LAMBERTI, Leandro 4.40 6.37",
+        "etiqueta": "Cooperativismo. — LAMBERTI, Leandro 4.40 6.37",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 34.6
       },
       {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 4.40 0.71",
+        "etiqueta": "Finanzas. — 4.40 0.71",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 31.92
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 9.20 6.86",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 64.85
       },
       {
         "etiqueta": "Coordinadora de Comunicación y — SCARAFÍA, Virginia. 2.00 8.82",
@@ -6867,7 +5541,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Marzo 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/03_remuneraciones_funcionarios_marzo_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 2.00 1.77",
@@ -6876,13 +5550,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.51
       },
       {
-        "etiqueta": "de Seguridad Ciudadana y Vial. — BORKOWSKI, Andrea. Subsecretaria de Hacienda y Finanzas. 4.40 3.66",
-        "bruto": 163.63,
-        "descuentos": null,
-        "neto": 39.79
-      },
-      {
-        "etiqueta": "CARRER, Raquel A. Directora de Proyectos. 5.80 4.76",
+        "etiqueta": "de Seguridad Ciudadana y Vial. — CARRER, Raquel A. Directora de Proyectos. 5.80 4.76",
         "bruto": 122.72,
         "descuentos": null,
         "neto": 31.45
@@ -6906,13 +5574,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.4
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 6.74 4.57",
+        "etiqueta": "GABIANI, M. Cecilia. 6.74 4.57",
         "bruto": 185.65,
         "descuentos": null,
         "neto": 56.13
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 4.40 2.04",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 4.40 2.04",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.05
@@ -6924,28 +5592,16 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 30.51
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 4.40 2.04",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 4.40 2.04",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 42.05
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 9.20 5.40",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 69.01
-      },
-      {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 4.40 4.42",
+        "etiqueta": "Cooperativismo. — 4.40 4.42",
         "bruto": 163.63,
         "descuentos": null,
         "neto": 36.64
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 9.20 4.38",
-        "bruto": 218.17,
-        "descuentos": null,
-        "neto": 64.89
       },
       {
         "etiqueta": "Coordinadora de Comunicación y — SCARAFÍA, Virginia. 2.00 6.46",
@@ -6981,7 +5637,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Febrero 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/02_remuneraciones_funcionarios_febrero_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 0.72 5.59",
@@ -6990,13 +5646,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.28
       },
       {
-        "etiqueta": "de Seguridad Ciudadana y Vial. — BORKOWSKI, Andrea. Subsecretaria de Hacienda y Finanzas. 2.86 1.17",
-        "bruto": 138.67,
-        "descuentos": null,
-        "neto": 31.41
-      },
-      {
-        "etiqueta": "CARRER, Raquel A. Directora de Proyectos. 4.64 3.39",
+        "etiqueta": "de Seguridad Ciudadana y Vial. — CARRER, Raquel A. Directora de Proyectos. 4.64 3.39",
         "bruto": 104,
         "descuentos": null,
         "neto": 25.52
@@ -7020,13 +5670,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.13
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 5.75 2.45",
+        "etiqueta": "GABIANI, M. Cecilia. 5.75 2.45",
         "bruto": 157.33,
         "descuentos": null,
         "neto": 45.03
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 2.86 8.44",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 2.86 8.44",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 31.71
@@ -7038,28 +5688,16 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.28
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 2.86 8.44",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 2.86 8.44",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 31.71
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 7.16 7.07",
-        "bruto": 184.89,
-        "descuentos": null,
-        "neto": 47.73
-      },
-      {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 2.86 3.76",
+        "etiqueta": "Cooperativismo. — 2.86 3.76",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 23.99
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 7.16 1.25",
-        "bruto": 184.89,
-        "descuentos": null,
-        "neto": 49.64
       },
       {
         "etiqueta": "Coordinadora de Comunicación y — SCARAFÍA, Virginia. 0.72 2.44",
@@ -7095,7 +5733,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Enero 2021",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/01_remuneraciones_funcionarios_enero_2021.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Coordinador de la Agencia Municipal — BERNINI, Daniel R. 0.72 5.59",
@@ -7104,13 +5742,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.28
       },
       {
-        "etiqueta": "de Seguridad Ciudadana y Vial. — BORKOWSKI, Andrea. Subsecretaria de Hacienda y Finanzas. 2.86 1.17",
-        "bruto": 138.67,
-        "descuentos": null,
-        "neto": 30.46
-      },
-      {
-        "etiqueta": "CARRER, Raquel A. Directora de Proyectos. 4.64 3.39",
+        "etiqueta": "de Seguridad Ciudadana y Vial. — CARRER, Raquel A. Directora de Proyectos. 4.64 3.39",
         "bruto": 104,
         "descuentos": null,
         "neto": 25.52
@@ -7134,13 +5766,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.28
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 5.75 7.45",
+        "etiqueta": "GABIANI, M. Cecilia. 5.75 7.45",
         "bruto": 157.33,
         "descuentos": null,
         "neto": 42.38
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 1.64 8.53",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 1.64 8.53",
         "bruto": 136.36,
         "descuentos": null,
         "neto": 39.53
@@ -7152,28 +5784,16 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 29.08
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 2.86 8.45",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 2.86 8.45",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 31.71
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 7.16 7.09",
-        "bruto": 184.89,
-        "descuentos": null,
-        "neto": 47.73
-      },
-      {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 1.64 4.07",
+        "etiqueta": "Cooperativismo. — 1.64 4.07",
         "bruto": 136.36,
         "descuentos": null,
         "neto": 31.29
-      },
-      {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 7.16 4.71",
-        "bruto": 184.89,
-        "descuentos": null,
-        "neto": 48.81
       },
       {
         "etiqueta": "Coordinadora de Comunicación y — SCARAFÍA, Virginia. 0.72 2.44",
@@ -7209,7 +5829,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2020",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12-1_remuneraciones_funcionarios_sac_diciembre_2020.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — BERGESE, Solana B. 7.00 7.07",
@@ -7224,13 +5844,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 10.22
       },
       {
-        "etiqueta": "de Seguridad Ciudadana y Vial. — BORKOWSKI, Andrea. Subsecretaria de Hacienda y Finanzas. 0.00 4.20",
-        "bruto": 68.18,
-        "descuentos": null,
-        "neto": 12.95
-      },
-      {
-        "etiqueta": "CARRER, Raquel A. Directora de Proyectos. 5.00 5.34",
+        "etiqueta": "de Seguridad Ciudadana y Vial. — CARRER, Raquel A. Directora de Proyectos. 5.00 5.34",
         "bruto": 51.13,
         "descuentos": null,
         "neto": 9.71
@@ -7254,13 +5868,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 10.22
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 0.00 2.95",
+        "etiqueta": "GABIANI, M. Cecilia. 0.00 2.95",
         "bruto": 76.99,
         "descuentos": null,
         "neto": 15.78
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 1.00 2.59",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 1.00 2.59",
         "bruto": 68.18,
         "descuentos": null,
         "neto": 12.27
@@ -7272,31 +5886,19 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 10.22
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 1.00 2.59",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 1.00 2.59",
         "bruto": 68.18,
         "descuentos": null,
         "neto": 12.27
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 8.00 3.44",
-        "bruto": 90.9,
-        "descuentos": null,
-        "neto": 16.36
-      },
-      {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 1.00 4.90",
+        "etiqueta": "Cooperativismo. — 1.00 4.90",
         "bruto": 68.13,
         "descuentos": null,
         "neto": 12.94
       },
       {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 8.00 9.39",
-        "bruto": 90.9,
-        "descuentos": null,
-        "neto": 59.42
-      },
-      {
-        "etiqueta": "SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 7.00 7.07",
+        "etiqueta": "J. Urbana y Rural. — SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 7.00 7.07",
         "bruto": 56.81,
         "descuentos": null,
         "neto": 10.22
@@ -7323,7 +5925,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "label": "Diciembre 2020",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/04/12_remuneraciones_funcionarios_diciembre_2020.pdf",
     "parseado": true,
-    "cantidadFilas": 17,
+    "cantidadFilas": 14,
     "filas": [
       {
         "etiqueta": "Coordinadora de Comunicación y — BERGESE, Solana B. 4.70 9.89",
@@ -7338,13 +5940,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 29.19
       },
       {
-        "etiqueta": "de Seguridad Ciudadana y Vial. — BORKOWSKI, Andrea. Subsecretaria de Hacienda y Finanzas. 1.64 1.49",
-        "bruto": 136.36,
-        "descuentos": null,
-        "neto": 39.03
-      },
-      {
-        "etiqueta": "CARRER, Raquel A. Directora de Proyectos. 1.24 3.21",
+        "etiqueta": "de Seguridad Ciudadana y Vial. — CARRER, Raquel A. Directora de Proyectos. 1.24 3.21",
         "bruto": 102.27,
         "descuentos": null,
         "neto": 26.63
@@ -7368,13 +5964,13 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 28.6
       },
       {
-        "etiqueta": "Subsecretaria de Ambiente y — GABIANI, M. Cecilia. 9.71 4.45",
+        "etiqueta": "GABIANI, M. Cecilia. 9.71 4.45",
         "bruto": 153.97,
         "descuentos": null,
         "neto": 35.52
       },
       {
-        "etiqueta": "Subsecretario de Educación, Salud y — GHIANO, Pablo A. 2.86 8.45",
+        "etiqueta": "Servicios a la Comunidad. — GHIANO, Pablo A. 2.86 8.45",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 31.71
@@ -7386,31 +5982,19 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
         "neto": 23.28
       },
       {
-        "etiqueta": "Subsecretario de Producción y — GONZÁLEZ, Flavio J. 1.64",
+        "etiqueta": "Territorial. — GONZÁLEZ, Flavio J. 1.64",
         "bruto": 136.36,
         "descuentos": null,
         "neto": 4123960
       },
       {
-        "etiqueta": "Cooperativismo. — GRANDE, Marilina. Secretaria de Desarrollo. 5.52 0.20",
-        "bruto": 181.81,
-        "descuentos": null,
-        "neto": 60.12
-      },
-      {
-        "etiqueta": "LARROQUETE, Hernán Subsecretario de Infraestructura — 2.86",
+        "etiqueta": "Cooperativismo. — 2.86",
         "bruto": 138.67,
         "descuentos": null,
         "neto": 28040.22
       },
       {
-        "etiqueta": "J. Urbana y Rural. — MARTÍNEZ, Omar A. Secretario de Gestión. 5.52 9.39",
-        "bruto": 181.81,
-        "descuentos": null,
-        "neto": 59.42
-      },
-      {
-        "etiqueta": "SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 4.70 5.45",
+        "etiqueta": "J. Urbana y Rural. — SCHMIDT, Marcelo. Coordinador de Asesoría Jurídica. 4.70 5.45",
         "bruto": 113.63,
         "descuentos": null,
         "neto": 23.92
@@ -7499,7 +6083,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-09",
@@ -7511,7 +6095,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-08",
@@ -7523,7 +6107,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-07",
@@ -7535,7 +6119,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-06",
@@ -7547,7 +6131,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-06",
@@ -7559,7 +6143,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2019-05",
@@ -7568,10 +6152,106 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Mayo 2019",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/05_remuneraciones_funcionarios_mayo_2019.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "parseado": true,
+    "cantidadFilas": 16,
+    "filas": [
+      {
+        "etiqueta": "BRUTA NETA — Toselli , Gonzalo",
+        "bruto": 145174.24,
+        "descuentos": 92059.66,
+        "neto": 53114.58
+      },
+      {
+        "etiqueta": "Girard, Fabrina",
+        "bruto": 116139.38,
+        "descuentos": 39077.21,
+        "neto": 91389.79
+      },
+      {
+        "etiqueta": "Bauducco, Leopoldo",
+        "bruto": 116139.38,
+        "descuentos": 64984.25,
+        "neto": 51155.13
+      },
+      {
+        "etiqueta": "Borra, Claudio",
+        "bruto": 116139.38,
+        "descuentos": 38148.34,
+        "neto": 77991.04
+      },
+      {
+        "etiqueta": "Grande, Marilina",
+        "bruto": 116139.38,
+        "descuentos": 33127.91,
+        "neto": 83011.47
+      },
+      {
+        "etiqueta": "Arias, Rubén",
+        "bruto": 63549.26,
+        "descuentos": 0,
+        "neto": 63549.26
+      },
+      {
+        "etiqueta": "Gasser, Agostina",
+        "bruto": 87104.54,
+        "descuentos": 28074.41,
+        "neto": 59030.13
+      },
+      {
+        "etiqueta": "Ercole, Guillermo",
+        "bruto": 87104.54,
+        "descuentos": 16002.82,
+        "neto": 71101.72
+      },
+      {
+        "etiqueta": "Diaz, Cintia Magalí",
+        "bruto": 87104.54,
+        "descuentos": 21229.1,
+        "neto": 76932.99
+      },
+      {
+        "etiqueta": "Según lo dispuesto — Gabiani, Ma. Cecilia",
+        "bruto": 88423.47,
+        "descuentos": 38235.96,
+        "neto": 51907
+      },
+      {
+        "etiqueta": "por la Ordenanza / — Girard, Romina",
+        "bruto": 72587.12,
+        "descuentos": 22715.54,
+        "neto": 49871.58
+      },
+      {
+        "etiqueta": "Art.1º) Dispónese la publicación mensual, en la — Gonzalez, Flavio",
+        "bruto": 72587.12,
+        "descuentos": 22715.58,
+        "neto": 50222.54
+      },
+      {
+        "etiqueta": "página web oficial de la Municipalidad de Sun- — Ghiano, Pablo",
+        "bruto": 65328.4,
+        "descuentos": 18509.19,
+        "neto": 46819.21
+      },
+      {
+        "etiqueta": "chales y del Concejo Municipal, junto a los datos — Yacomosky, Lilia",
+        "bruto": 72587.12,
+        "descuentos": 19876.88,
+        "neto": 52710.24
+      },
+      {
+        "etiqueta": "públicos, de los las funcionarios/as de gobierno — Nuñez, Ma. Florencia",
+        "bruto": 72587.12,
+        "descuentos": 22699.46,
+        "neto": 49887.66
+      },
+      {
+        "etiqueta": "así como de los las concejales/las municipales — Geninatti, Carolina",
+        "bruto": 72587.12,
+        "descuentos": 23058.35,
+        "neto": 49528.77
+      }
+    ]
   },
   {
     "periodo": "2019-04",
@@ -7580,10 +6260,112 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Abril 2019",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/04_remuneraciones_funcionarios_abril_2019.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "parseado": true,
+    "cantidadFilas": 17,
+    "filas": [
+      {
+        "etiqueta": "BRUTA NETA — Toselli , Gonzalo",
+        "bruto": 105915.44,
+        "descuentos": 54888.88,
+        "neto": 51026.56
+      },
+      {
+        "etiqueta": "Girard, Fabrina",
+        "bruto": 84732.36,
+        "descuentos": 24863.11,
+        "neto": 59869.25
+      },
+      {
+        "etiqueta": "Bauducco, Leopoldo",
+        "bruto": 84732.36,
+        "descuentos": 40472.21,
+        "neto": 44260.15
+      },
+      {
+        "etiqueta": "Borra, Claudio",
+        "bruto": 84732.36,
+        "descuentos": 23507.47,
+        "neto": 61224.89
+      },
+      {
+        "etiqueta": "Grande, Marilina",
+        "bruto": 84732.36,
+        "descuentos": 22902.27,
+        "neto": 61830.09
+      },
+      {
+        "etiqueta": "Arias, Rubén",
+        "bruto": 63549.26,
+        "descuentos": 0,
+        "neto": 63549.26
+      },
+      {
+        "etiqueta": "Gasser, Agostina",
+        "bruto": 63549.26,
+        "descuentos": 16609.23,
+        "neto": 46940.03
+      },
+      {
+        "etiqueta": "Ercole, Guillermo",
+        "bruto": 63549.26,
+        "descuentos": 12314.35,
+        "neto": 51234.91
+      },
+      {
+        "etiqueta": "Diaz, Cintia Magalí",
+        "bruto": 63549.26,
+        "descuentos": 16127.3,
+        "neto": 49052.5
+      },
+      {
+        "etiqueta": "Según lo dispuesto — Gabiani, Ma. Cecilia",
+        "bruto": 88423.47,
+        "descuentos": 38235.96,
+        "neto": 51907
+      },
+      {
+        "etiqueta": "por la Ordenanza / — Girard, Romina",
+        "bruto": 52957.72,
+        "descuentos": 13315.85,
+        "neto": 39641.87
+      },
+      {
+        "etiqueta": "Art.1º) Dispónese la publicación mensual, en la — Gonzalez, Flavio",
+        "bruto": 52957.72,
+        "descuentos": 12967.35,
+        "neto": 39990.37
+      },
+      {
+        "etiqueta": "página web oficial de la Municipalidad de Sun- — Ghiano, Pablo",
+        "bruto": 47661.94,
+        "descuentos": 11708.16,
+        "neto": 35953.78
+      },
+      {
+        "etiqueta": "chales y del Concejo Municipal, junto a los datos — Yacomosky, Lilia",
+        "bruto": 52957.72,
+        "descuentos": 13479.43,
+        "neto": 39478.29
+      },
+      {
+        "etiqueta": "públicos, de los las funcionarios/as de gobierno — Nuñez, Ma. Florencia",
+        "bruto": 52957.72,
+        "descuentos": 13315.85,
+        "neto": 39641.87
+      },
+      {
+        "etiqueta": "así como de los las concejales/las municipales — Geninatti, Carolina",
+        "bruto": 52957.72,
+        "descuentos": 13315.85,
+        "neto": 39641.87
+      },
+      {
+        "etiqueta": "respectivamente. — Cabrini, Luisina",
+        "bruto": 23830.97,
+        "descuentos": 5963.43,
+        "neto": 17955.44
+      }
+    ]
   },
   {
     "periodo": "2019-03",
@@ -7592,10 +6374,112 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Marzo 2019",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/03_remuneraciones_funcionarios_marzo_2019.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "parseado": true,
+    "cantidadFilas": 17,
+    "filas": [
+      {
+        "etiqueta": "BRUTA NETA — Toselli , Gonzalo",
+        "bruto": 105915.44,
+        "descuentos": 40104.27,
+        "neto": 65811.17
+      },
+      {
+        "etiqueta": "Girard, Fabrina",
+        "bruto": 84732.36,
+        "descuentos": 35842.21,
+        "neto": 48890.15
+      },
+      {
+        "etiqueta": "Bauducco, Leopoldo",
+        "bruto": 84732.36,
+        "descuentos": 28396.8,
+        "neto": 56335.56
+      },
+      {
+        "etiqueta": "Borra, Claudio",
+        "bruto": 84732.36,
+        "descuentos": 27986.21,
+        "neto": 56746.15
+      },
+      {
+        "etiqueta": "Grande, Marilina",
+        "bruto": 84732.36,
+        "descuentos": 23749.6,
+        "neto": 60982.76
+      },
+      {
+        "etiqueta": "Arias, Rubén",
+        "bruto": 63549.26,
+        "descuentos": 0,
+        "neto": 63549.26
+      },
+      {
+        "etiqueta": "Gasser, Agostina",
+        "bruto": 63549.26,
+        "descuentos": 17956.56,
+        "neto": 45592.7
+      },
+      {
+        "etiqueta": "Ercole, Guillermo",
+        "bruto": 95323.89,
+        "descuentos": 19304.78,
+        "neto": 76019.11
+      },
+      {
+        "etiqueta": "Diaz, Cintia Magalí",
+        "bruto": 63549.26,
+        "descuentos": 16762.8,
+        "neto": 46786.46
+      },
+      {
+        "etiqueta": "Según lo dispuesto — Gabiani, Ma. Cecilia",
+        "bruto": 76324.97,
+        "descuentos": 22529.42,
+        "neto": 53795.55
+      },
+      {
+        "etiqueta": "por la Ordenanza / — Girard, Romina",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "Art.1º) Dispónese la publicación mensual, en la — Gonzalez, Flavio",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "página web oficial de la Municipalidad de Sun- — Ghiano, Pablo",
+        "bruto": 47661.94,
+        "descuentos": 12184.78,
+        "neto": 35477.16
+      },
+      {
+        "etiqueta": "chales y del Concejo Municipal, junto a los datos — Yacomosky, Lilia",
+        "bruto": 52957.72,
+        "descuentos": 14009,
+        "neto": 38948.72
+      },
+      {
+        "etiqueta": "públicos, de los las funcionarios/as de gobierno — Nuñez, Ma. Florencia",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "así como de los las concejales/las municipales — Geninatti, Carolina",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "respectivamente. — Cabrini, Luisina",
+        "bruto": 47661.94,
+        "descuentos": 12184.78,
+        "neto": 35477.16
+      }
+    ]
   },
   {
     "periodo": "2019-02",
@@ -7604,10 +6488,112 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Febrero 2019",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/02_remuneraciones_funcionarios_febrero_2019.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "parseado": true,
+    "cantidadFilas": 17,
+    "filas": [
+      {
+        "etiqueta": "BRUTA NETA — Toselli , Gonzalo",
+        "bruto": 105915.44,
+        "descuentos": 40104.27,
+        "neto": 65811.17
+      },
+      {
+        "etiqueta": "Girard, Fabrina",
+        "bruto": 84732.36,
+        "descuentos": 35842.21,
+        "neto": 48890.15
+      },
+      {
+        "etiqueta": "Bauducco, Leopoldo",
+        "bruto": 84732.36,
+        "descuentos": 28396.8,
+        "neto": 56335.56
+      },
+      {
+        "etiqueta": "Borra, Claudio",
+        "bruto": 84732.36,
+        "descuentos": 27986.21,
+        "neto": 56746.15
+      },
+      {
+        "etiqueta": "Grande, Marilina",
+        "bruto": 84732.36,
+        "descuentos": 23749.6,
+        "neto": 60982.76
+      },
+      {
+        "etiqueta": "Arias, Rubén",
+        "bruto": 63549.26,
+        "descuentos": 0,
+        "neto": 63549.26
+      },
+      {
+        "etiqueta": "Gasser, Agostina",
+        "bruto": 63549.26,
+        "descuentos": 17956.56,
+        "neto": 45592.7
+      },
+      {
+        "etiqueta": "Ercole, Guillermo",
+        "bruto": 95323.89,
+        "descuentos": 19304.78,
+        "neto": 76019.11
+      },
+      {
+        "etiqueta": "Diaz, Cintia Magalí",
+        "bruto": 63549.26,
+        "descuentos": 16762.8,
+        "neto": 46786.46
+      },
+      {
+        "etiqueta": "Según lo dispuesto — Gabiani, Ma. Cecilia",
+        "bruto": 76324.97,
+        "descuentos": 22529.42,
+        "neto": 53795.55
+      },
+      {
+        "etiqueta": "por la Ordenanza / — Girard, Romina",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "Art.1º) Dispónese la publicación mensual, en la — Gonzalez, Flavio",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "página web oficial de la Municipalidad de Sun- — Ghiano, Pablo",
+        "bruto": 47661.94,
+        "descuentos": 12184.78,
+        "neto": 35477.16
+      },
+      {
+        "etiqueta": "chales y del Concejo Municipal, junto a los datos — Yacomosky, Lilia",
+        "bruto": 52957.72,
+        "descuentos": 14009,
+        "neto": 38948.72
+      },
+      {
+        "etiqueta": "públicos, de los las funcionarios/as de gobierno — Nuñez, Ma. Florencia",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "así como de los las concejales/las municipales — Geninatti, Carolina",
+        "bruto": 52957.72,
+        "descuentos": 13845.42,
+        "neto": 39112.3
+      },
+      {
+        "etiqueta": "respectivamente. — Cabrini, Luisina",
+        "bruto": 47661.94,
+        "descuentos": 12184.78,
+        "neto": 35477.16
+      }
+    ]
   },
   {
     "periodo": "2019-01",
@@ -7619,7 +6605,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-12",
@@ -7631,7 +6617,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-12",
@@ -7643,7 +6629,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-11",
@@ -7655,7 +6641,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-10",
@@ -7667,7 +6653,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-09",
@@ -7679,7 +6665,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-08",
@@ -7691,7 +6677,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-07",
@@ -7703,7 +6689,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-06",
@@ -7715,7 +6701,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-06",
@@ -7727,7 +6713,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-05",
@@ -7739,7 +6725,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-04",
@@ -7751,7 +6737,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-03",
@@ -7763,7 +6749,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-02",
@@ -7775,7 +6761,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2018-01",
@@ -7787,7 +6773,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-12",
@@ -7799,7 +6785,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-12",
@@ -7811,7 +6797,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-11",
@@ -7823,7 +6809,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-10",
@@ -7835,7 +6821,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-09",
@@ -7847,7 +6833,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-08",
@@ -7859,7 +6845,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-07",
@@ -7871,7 +6857,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-06",
@@ -7883,7 +6869,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-06",
@@ -7895,7 +6881,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-05",
@@ -7907,7 +6893,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-04",
@@ -7919,7 +6905,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-03",
@@ -7931,7 +6917,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-02",
@@ -7943,7 +6929,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2016-01",
@@ -7955,7 +6941,7 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "parseado": false,
     "cantidadFilas": 0,
     "filas": [],
-    "error": "timeout tras 20000ms (download)"
+    "error": "PDF sin texto digital (probable escaneo / imagen). Requiere OCR."
   },
   {
     "periodo": "2015-12",
@@ -7964,10 +6950,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Diciembre 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/12_remuneraciones_funcionarios_diciembre_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 29054.72
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 27471.16
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25439.81
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 26498.54
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 24843.53
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 32371.96
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 21308.82
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 19251.29
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20252.35
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20042.35
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18520.04
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 31000,
+        "descuentos": null,
+        "neto": 31000
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-11",
@@ -7976,10 +7052,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Noviembre 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/11_remuneraciones_funcionarios_noviembre_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 29054.72
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 27471.16
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25439.81
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 26498.54
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 24843.53
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 32371.96
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 21308.82
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 19251.29
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20252.35
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20042.35
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18520.04
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 31000,
+        "descuentos": null,
+        "neto": 31000
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-10",
@@ -7988,10 +7154,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Octubre 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/10_remuneraciones_funcionarios_octubre_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 26421.22
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 27472.16
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25439.8
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 26998.54
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 24843.52
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 26743.59
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 21308.82
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 19556.88
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20253.35
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20042.35
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18520.04
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 31000,
+        "descuentos": null,
+        "neto": 31000
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-09",
@@ -8000,10 +7256,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Septiembre 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/09_remuneraciones_funcionarios_septiembre_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 28160.65
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 27661.02
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25683.66
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 29646.23
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25032.95
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 29270.66
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 21971.29
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20226.7
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20252.35
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20042.35
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18520.04
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 30500,
+        "descuentos": null,
+        "neto": 30500
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-08",
@@ -8012,10 +7358,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Agosto 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/08_remuneraciones_funcionarios_agosto_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 26540.6
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 27313.37
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25282.02
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 28744.59
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 24631.31
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25172.47
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 21670.06
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 19975.67
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20175.32
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 19791.32
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18294.12
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 30500,
+        "descuentos": null,
+        "neto": 30500
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-07",
@@ -8024,10 +7460,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Julio 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/07_remuneraciones_funcionarios_julio_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 50205.88,
+        "descuentos": null,
+        "neto": 28279.54
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 28081.85
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25884.5
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 29847.06
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 25233.78
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 40164.7,
+        "descuentos": null,
+        "neto": 28135.2
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 30123,
+        "descuentos": null,
+        "neto": 22143.32
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20352.23
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20727.87
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 25102.94,
+        "descuentos": null,
+        "neto": 20167.87
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 22592.64,
+        "descuentos": null,
+        "neto": 18633.01
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 30419,
+        "descuentos": null,
+        "neto": 30419
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 42726,
+        "descuentos": null,
+        "neto": 42726
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 45947.65,
+        "descuentos": null,
+        "neto": 45947.65
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 30622,
+        "descuentos": null,
+        "neto": 30622
+      }
+    ]
   },
   {
     "periodo": "2015-06",
@@ -8036,10 +7562,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Junio 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/06_remuneraciones_funcionarios_junio_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 75308.82,
+        "descuentos": null,
+        "neto": 46730.2
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 60247.05,
+        "descuentos": null,
+        "neto": 43746.08
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 60247.05,
+        "descuentos": null,
+        "neto": 41548.73
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 60247.05,
+        "descuentos": null,
+        "neto": 47780.15
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 60247.05,
+        "descuentos": null,
+        "neto": 41098.83
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 60247.05,
+        "descuentos": null,
+        "neto": 43563.36
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 45184.5,
+        "descuentos": null,
+        "neto": 32948.3
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 45184.5,
+        "descuentos": null,
+        "neto": 34207.69
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 37654.41,
+        "descuentos": null,
+        "neto": 30530.57
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 37654.41,
+        "descuentos": null,
+        "neto": 30518.02
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 37654.41,
+        "descuentos": null,
+        "neto": 29958.02
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 33888.96,
+        "descuentos": null,
+        "neto": 27557.1
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 28484,
+        "descuentos": null,
+        "neto": 28484
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 30755.1,
+        "descuentos": null,
+        "neto": 30755.1
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 20415,
+        "descuentos": null,
+        "neto": 20415
+      }
+    ]
   },
   {
     "periodo": "2015-05",
@@ -8048,10 +7664,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Mayo 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/05_remuneraciones_funcionarios_mayo_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 44881,
+        "descuentos": null,
+        "neto": 26842.95
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 26853.16
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 24655.81
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 23575.56
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 23987.45
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 26364.57
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 20031.27
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 21023.94
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 19090.7
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18696.8
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18136.8
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 20196.4,
+        "descuentos": null,
+        "neto": 16781.05
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 26213,
+        "descuentos": null,
+        "neto": 26213
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 27773.6,
+        "descuentos": null,
+        "neto": 27773.6
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 17908,
+        "descuentos": null,
+        "neto": 17908
+      }
+    ]
   },
   {
     "periodo": "2015-04",
@@ -8060,10 +7766,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Abril 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/04_remuneraciones_funcionarios_abril_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 44881,
+        "descuentos": null,
+        "neto": 25623.46
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 25073.99
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 22908.55
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 22897.91
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 23567.74
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 24620.39
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 18615.5
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 19473.31
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 16680.52
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18706.8
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18146.8
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 20196.4,
+        "descuentos": null,
+        "neto": 16531.05
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 26213,
+        "descuentos": null,
+        "neto": 26213
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 27773.6,
+        "descuentos": null,
+        "neto": 27773.6
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 17908,
+        "descuentos": null,
+        "neto": 17908
+      }
+    ]
   },
   {
     "periodo": "2015-03",
@@ -8072,10 +7868,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Marzo 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/03_remuneraciones_funcionarios_marzo_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 44881,
+        "descuentos": null,
+        "neto": 28865.46
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 26392.55
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 24515.32
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 23829.92
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 23567.74
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 35904.8,
+        "descuentos": null,
+        "neto": 24971.93
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 18642.46
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 26928.6,
+        "descuentos": null,
+        "neto": 19490.35
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 17763.51
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18709.8
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 22440.5,
+        "descuentos": null,
+        "neto": 18146.8
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 20196.4,
+        "descuentos": null,
+        "neto": 16531.05
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579,
+        "descuentos": null,
+        "neto": 21579
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 24057.8,
+        "descuentos": null,
+        "neto": 24057.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15176,
+        "descuentos": null,
+        "neto": 15176
+      }
+    ]
   },
   {
     "periodo": "2015-02",
@@ -8084,10 +7970,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Febrero 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/02_remuneraciones_funcionarios_febrero_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 26064.93
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 22883.86
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21414.29
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 16612.56
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 22831.62
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 18129.96
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16412.6
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16992.32
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15638.41
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15937.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579,
+        "descuentos": null,
+        "neto": 21579
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 24057.8,
+        "descuentos": null,
+        "neto": 24057.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15176,
+        "descuentos": null,
+        "neto": 15176
+      }
+    ]
   },
   {
     "periodo": "2015-01",
@@ -8096,10 +8072,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Enero 2015",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/01_remuneraciones_funcionarios_enero_2015.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38074.76,
+        "descuentos": null,
+        "neto": 24646.25
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 31256.8,
+        "descuentos": null,
+        "neto": 24718.29
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30467.8,
+        "descuentos": null,
+        "neto": 21889.08
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 31259.8,
+        "descuentos": null,
+        "neto": 26112.01
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 20480.58
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 24920.8
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16412.6
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 17288.95
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 20101.88,
+        "descuentos": null,
+        "neto": 16734.59
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19580.38,
+        "descuentos": null,
+        "neto": 16500.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 22679,
+        "descuentos": null,
+        "neto": 22679
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 24057.8,
+        "descuentos": null,
+        "neto": 24057.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 16876,
+        "descuentos": null,
+        "neto": 16876
+      }
+    ]
   },
   {
     "periodo": "2014-12",
@@ -8108,10 +8174,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Diciembre 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/12_remuneraciones_funcionarios_diciembre_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 57652.14,
+        "descuentos": null,
+        "neto": 30917.22
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 46241.7,
+        "descuentos": null,
+        "neto": 36056.7
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 46241.7,
+        "descuentos": null,
+        "neto": 33851.89
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 46241.7,
+        "descuentos": null,
+        "neto": 37913.98
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 46241.7,
+        "descuentos": null,
+        "neto": 32627.92
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 41170.2,
+        "descuentos": null,
+        "neto": 33533.29
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 34831.29,
+        "descuentos": null,
+        "neto": 25726.57
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 34831.29,
+        "descuentos": null,
+        "neto": 26656.4
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 29126.07,
+        "descuentos": null,
+        "neto": 23492.54
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 29126.07,
+        "descuentos": null,
+        "neto": 24048.95
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 29126.07,
+        "descuentos": null,
+        "neto": 23485.95
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 24482.28,
+        "descuentos": null,
+        "neto": 19994.25
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 32938,
+        "descuentos": null,
+        "neto": 32938
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 34851.7,
+        "descuentos": null,
+        "neto": 34851.7
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 22764,
+        "descuentos": null,
+        "neto": 22764
+      }
+    ]
   },
   {
     "periodo": "2014-11",
@@ -8120,10 +8276,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Noviembre 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/11_remuneraciones_funcionarios_noviembre_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 22708.28
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 23437.73
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21232.92
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 25315.71
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 19856.81
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO O.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 24920.8
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 15998.23
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16928.06
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15380.66
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15937.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579,
+        "descuentos": null,
+        "neto": 21579
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 22957.8,
+        "descuentos": null,
+        "neto": 22957.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15176,
+        "descuentos": null,
+        "neto": 15176
+      }
+    ]
   },
   {
     "periodo": "2014-10",
@@ -8132,10 +8378,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Octubre 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/10_remuneraciones_funcionarios_octubre_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 23857.44
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 23437.73
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21232.92
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 25315.71
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 19856.81
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 24920.8
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 15998.23
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16928.06
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15380.67
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15937.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579,
+        "descuentos": null,
+        "neto": 21579
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 22957.8,
+        "descuentos": null,
+        "neto": 22957.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15176,
+        "descuentos": null,
+        "neto": 15176
+      }
+    ]
   },
   {
     "periodo": "2014-09",
@@ -8144,10 +8480,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Septiembre 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/09_remuneraciones_funcionarios_septiembre_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 24413.7
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 23437.73
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21352.86
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 25315.71
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 19856.81
+      },
+      {
+        "etiqueta": "GODDIO, LEANDRO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 24920.8
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 15998.23
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16928.06
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15380.67
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15748.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579.52,
+        "descuentos": null,
+        "neto": 21579.52
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 22957.8,
+        "descuentos": null,
+        "neto": 22957.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15388,
+        "descuentos": null,
+        "neto": 15388
+      }
+    ]
   },
   {
     "periodo": "2014-08",
@@ -8156,10 +8582,94 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Agosto 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/08_remuneraciones_funcionarios_agosto_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 14,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 24403.7
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 23247.73
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21342.76
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 25258.52
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 19856.81
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 15998.23
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16928.06
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15130.66
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15807.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579.52,
+        "descuentos": null,
+        "neto": 21579.52
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 22957.8,
+        "descuentos": null,
+        "neto": 22957.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15388,
+        "descuentos": null,
+        "neto": 15388
+      }
+    ]
   },
   {
     "periodo": "2014-07",
@@ -8168,10 +8678,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Julio 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/07_remuneraciones_funcionarios_julio_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 38034.76,
+        "descuentos": null,
+        "neto": 23654.54
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 23247.73
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 21342.76
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 25258.52
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 19856.81
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 30427.8,
+        "descuentos": null,
+        "neto": 22653.55
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 15998.24
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 22820.86,
+        "descuentos": null,
+        "neto": 16950.81
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15130.67
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15807.08
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 19017.38,
+        "descuentos": null,
+        "neto": 15374.08
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 21579.52,
+        "descuentos": null,
+        "neto": 21579.52
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 22957.8,
+        "descuentos": null,
+        "neto": 22957.8
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 15388,
+        "descuentos": null,
+        "neto": 15388
+      }
+    ]
   },
   {
     "periodo": "2014-06",
@@ -8180,10 +8780,106 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Junio 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/06_remuneraciones_funcionarios_junio_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 16,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 57052.14,
+        "descuentos": null,
+        "neto": 38630.73
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 45641.7,
+        "descuentos": null,
+        "neto": 35681.05
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 45641.7,
+        "descuentos": null,
+        "neto": 33666.01
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 39302.8,
+        "descuentos": null,
+        "neto": 32447.26
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 45641.7,
+        "descuentos": null,
+        "neto": 32332.19
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 45641.7,
+        "descuentos": null,
+        "neto": 35037.55
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 34231.29,
+        "descuentos": null,
+        "neto": 25415.44
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 34231.29,
+        "descuentos": null,
+        "neto": 26407.58
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 28526.07,
+        "descuentos": null,
+        "neto": 22832.7
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 28526.07,
+        "descuentos": null,
+        "neto": 23509.12
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 28526.07,
+        "descuentos": null,
+        "neto": 23076.12
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 19017.52,
+        "descuentos": null,
+        "neto": 15564.37
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 31260.28,
+        "descuentos": null,
+        "neto": 31260.28
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 34251.7,
+        "descuentos": null,
+        "neto": 34251.7
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 22765.27,
+        "descuentos": null,
+        "neto": 22765.27
+      },
+      {
+        "etiqueta": "(1) Incluye Aguinaldo",
+        "bruto": 540257.3,
+        "descuentos": null,
+        "neto": 432877.37
+      }
+    ]
   },
   {
     "periodo": "2014-05",
@@ -8192,10 +8888,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Mayo 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/05_remuneraciones_funcionarios_mayo_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 35381.16,
+        "descuentos": null,
+        "neto": 23006.43
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 20694.04
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 20642.04
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 22255
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 19349.09
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 21076.56
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 15546.05
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 16353.17
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 12917.24
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 13866.37
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 14299.37
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 13025.65
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 20074,
+        "descuentos": null,
+        "neto": 20074
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 20444,
+        "descuentos": null,
+        "neto": 20444
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 14118,
+        "descuentos": null,
+        "neto": 14118
+      }
+    ]
   },
   {
     "periodo": "2014-04",
@@ -8204,10 +8990,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Abril 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/04_remuneraciones_funcionarios_abril_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 35381.16,
+        "descuentos": null,
+        "neto": 23583.89
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 22182.47
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 20765.78
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 23539
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 19349.09
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 22004.54
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 15546.05
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 16353.17
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 13794.66
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 14729.37
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 14299.37
+      },
+      {
+        "etiqueta": "BLANGINI, PAOLA",
+        "bruto": 5307.2,
+        "descuentos": null,
+        "neto": 4321.91
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 20074,
+        "descuentos": null,
+        "neto": 20074
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 15070,
+        "descuentos": null,
+        "neto": 15070
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 14118,
+        "descuentos": null,
+        "neto": 14118
+      }
+    ]
   },
   {
     "periodo": "2014-03",
@@ -8216,10 +9092,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Marzo 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/03_remuneraciones_funcionarios_marzo_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 35381.16,
+        "descuentos": null,
+        "neto": 24187.71
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 21855.03
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 21754.27
+      },
+      {
+        "etiqueta": "SOLA, ADRIAN JOSE",
+        "bruto": 14046.46,
+        "descuentos": null,
+        "neto": 11347.63
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 20702.85
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 28304.94,
+        "descuentos": null,
+        "neto": 21990.61
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 16329.52
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 21228.7,
+        "descuentos": null,
+        "neto": 17020.57
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 13370.18
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 13869.37
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 17690.58,
+        "descuentos": null,
+        "neto": 14299.37
+      },
+      {
+        "etiqueta": "OCAMPO, MARTA J.",
+        "bruto": 15921.52,
+        "descuentos": null,
+        "neto": 12866.43
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 20074,
+        "descuentos": null,
+        "neto": 20074
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 15070,
+        "descuentos": null,
+        "neto": 15070
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 14118,
+        "descuentos": null,
+        "neto": 14118
+      }
+    ]
   },
   {
     "periodo": "2014-02",
@@ -8228,10 +9194,100 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Febrero 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/02_remuneraciones_funcionarios_febrero_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 29484,
+        "descuentos": null,
+        "neto": 19411.01
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17996.14
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17933.55
+      },
+      {
+        "etiqueta": "LISOWIEC, DANIEL",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 18012.16
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 16834.96
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 18172.89
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 17690,
+        "descuentos": null,
+        "neto": 13427.78
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 17690,
+        "descuentos": null,
+        "neto": 14118.83
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 10981.83
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 11481.02
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 11911.02
+      },
+      {
+        "etiqueta": "OCAMPO, MARTA J.",
+        "bruto": 13268,
+        "descuentos": null,
+        "neto": 10717.08
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 16728,
+        "descuentos": null,
+        "neto": 16728
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 12620,
+        "descuentos": null,
+        "neto": 12620
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 11765,
+        "descuentos": null,
+        "neto": 11765
+      }
+    ]
   },
   {
     "periodo": "2014-01",
@@ -8240,18 +9296,108 @@ export const remuneracionesDetalle: RemuneracionDetalle[] = [
     "sac": false,
     "label": "Enero 2014",
     "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2025/06/01_remuneraciones_funcionarios_enero_2014.pdf",
-    "parseado": false,
-    "cantidadFilas": 0,
-    "filas": [],
-    "error": "0 filas detectadas (formato no soportado por el parser actual)."
+    "parseado": true,
+    "cantidadFilas": 15,
+    "filas": [
+      {
+        "etiqueta": "BOLATTI, EZEQUIEL B.",
+        "bruto": 29484,
+        "descuentos": null,
+        "neto": 19381.01
+      },
+      {
+        "etiqueta": "CORROTO, GERARDO",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17366.14
+      },
+      {
+        "etiqueta": "DELBON, SAMUEL A.",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17903.55
+      },
+      {
+        "etiqueta": "LISOWIEC, DANIEL",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17982.16
+      },
+      {
+        "etiqueta": "LOYOLA, SUSANA E.",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 16834.96
+      },
+      {
+        "etiqueta": "DELUCHI, HECTOR",
+        "bruto": 23588,
+        "descuentos": null,
+        "neto": 17739.89
+      },
+      {
+        "etiqueta": "PALOMEQUE, RAMIRO M.",
+        "bruto": 17690,
+        "descuentos": null,
+        "neto": 13427.78
+      },
+      {
+        "etiqueta": "SCHMIEDHUBER, MARIA A.",
+        "bruto": 17690,
+        "descuentos": null,
+        "neto": 14118.83
+      },
+      {
+        "etiqueta": "WALKER, CARLOS J. M.",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 10147.33
+      },
+      {
+        "etiqueta": "CATTANEO, FERNANDO C.",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 11051.02
+      },
+      {
+        "etiqueta": "RAMBAUDI, DELFI",
+        "bruto": 14742,
+        "descuentos": null,
+        "neto": 11911.02
+      },
+      {
+        "etiqueta": "OCAMPO, MARTA J.",
+        "bruto": 13268,
+        "descuentos": null,
+        "neto": 10717.08
+      },
+      {
+        "etiqueta": "CHEIRANO GABRIEL ITALO",
+        "bruto": 16728,
+        "descuentos": null,
+        "neto": 16728
+      },
+      {
+        "etiqueta": "GIUSTI ADRIANA D.",
+        "bruto": 12814,
+        "descuentos": null,
+        "neto": 12814
+      },
+      {
+        "etiqueta": "MANNING ARIEL P.",
+        "bruto": 11765,
+        "descuentos": null,
+        "neto": 11765
+      }
+    ]
   }
 ];
 
 export const remuneracionesDetalleMeta = {
-  generadoEl: "2026-05-09T21:41:31.985Z",
+  generadoEl: "2026-05-09T22:08:45.287Z",
   totalPeriodos: 140,
-  parseados: 60,
-  escaneados: 7,
-  otrosErrores: 73,
-  filasTotales: 1088,
+  parseados: 88,
+  escaneados: 42,
+  otrosErrores: 10,
+  filasTotales: 1279,
 } as const;

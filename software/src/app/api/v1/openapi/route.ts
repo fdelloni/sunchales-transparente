@@ -172,6 +172,24 @@ const spec = {
         }
       }
     },
+    "/api/v1/digesto-concejo": {
+      get: {
+        summary: "Listar el digesto del Concejo Municipal sincronizado (1973-2026)",
+        description:
+          "3.261 normas extraídas de la paginación pública del sitio del Concejo. Cada norma incluye su id estable, título, año, fecha, tipo, área, autor, descripción y URL del PDF cuando está disponible.",
+        parameters: [
+          { name: "format", in: "query", schema: { type: "string", enum: ["json", "csv"], default: "json" } },
+          { name: "anio", in: "query", schema: { type: "integer" } },
+          { name: "tipo", in: "query", schema: { type: "string", description: "Ordenanza | Decreto | Resolución | Declaración | Minuta" } }
+        ],
+        responses: {
+          "200": {
+            description: "Listado de normas con metadatos.",
+            content: { "application/json": { schema: { type: "object" } } }
+          }
+        }
+      }
+    },
     "/api/v1/brechas": {
       get: {
         summary: "Listar brechas de transparencia (información de publicación obligatoria aún no expuesta)",

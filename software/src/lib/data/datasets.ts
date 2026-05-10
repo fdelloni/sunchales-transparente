@@ -67,6 +67,20 @@ export const datasets: Dataset[] = [
     fuenteId: "organigramaMunicipal"
   },
   {
+    id: "digesto-concejo",
+    titulo: "Digesto del Concejo Municipal — listado completo",
+    descripcion:
+      "Listado sincronizado del digesto público del Concejo Municipal de Sunchales (1973-2026). Cada registro incluye id, título, año, fecha, tipo, área, autor, descripción y link al PDF. El conteo del Concejo declara 5.309 normas; la paginación pública expone 3.261.",
+    tags: ["digesto", "normativa", "Concejo", "1973-2026"],
+    formatos: ["CSV", "JSON"],
+    licencia: "CC-BY-4.0",
+    publicado: "2026-05-09",
+    actualizado: "2026-05-10",
+    endpoint: "/api/v1/digesto-concejo",
+    totalRegistros: 3261,
+    fuenteId: "concejoNormativaLocal"
+  },
+  {
     id: "remuneraciones-funcionarios",
     titulo: "Remuneraciones de funcionarios — histórico mensual",
     descripcion:
@@ -91,7 +105,7 @@ export const datasets: Dataset[] = [
     publicado: "2026-05-09",
     actualizado: "2026-05-09",
     endpoint: "/api/v1/remuneraciones/detalle",
-    totalRegistros: 1088,
+    totalRegistros: 1279,
     fuenteId: "remuneracionesFuncionariosOficial"
   },
   {

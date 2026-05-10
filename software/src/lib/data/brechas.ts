@@ -165,6 +165,20 @@ export const brechas: Brecha[] = [
     publicacionParcialUrl: "https://sunchales.miportal.ar/digesto"
   },
 
+  {
+    id: "dig-concejo-paginacion-incompleta",
+    modulo: "digesto",
+    titulo: "Paginación pública del digesto del Concejo expone sólo el 62% del listado declarado",
+    descripcion:
+      "El sitio del Concejo (concejosunchales.gob.ar/normativa-local.aspx) declara en su contador de fachada un total de 5.309 normas. La paginación pública, sin embargo, sólo expone 3.261 normas únicas accesibles antes de que el botón 'Siguiente' deje de aparecer. Es decir, ~38% del universo declarado no es navegable por el ciudadano. Eso impide auditar derogaciones y modificaciones que puedan apuntar a normas históricas no expuestas. Verificado por sincronización automática del proyecto el 2026-05-10.",
+    categoria: "marco_normativo",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio de seguridad jurídica · accesibilidad efectiva (no formal) de las normas (art. 2 CCyCN) · publicidad y máxima divulgación de los actos de gobierno.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10",
+    publicacionParcialUrl: "https://concejosunchales.gob.ar/normativa-local.aspx"
+  },
+
   // ===== JUZGADO DE FALTAS =====
   // El sitio del Juzgado en sunchales.gob.ar/juzgado-faltas publica solo
   // trámites individuales (comparecencia, certificados de libre multa), no
@@ -265,6 +279,21 @@ export const brechas: Brecha[] = [
     fundamento: `${FUND_LOCAL} · ${FUND_PROV} (principio de máxima divulgación).`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-03"
+  },
+
+  // ===== PERSONAL =====
+  {
+    id: "per-discrepancia-nomina-autoridades",
+    modulo: "personal",
+    titulo: "Discrepancia entre nómina de remuneraciones y listado oficial de autoridades",
+    descripcion:
+      "El PDF oficial de remuneraciones de Marzo 2026 lista a 'Botto Juan' percibiendo sueldo bruto de $3.009.416,16 (mismo monto que la Coordinación de Planificación). En el listado oficial de autoridades publicado en sunchales.gob.ar/municipio/autoridades, el cargo de Coordinación de Comunicación figura a nombre de 'Javier Bovo'. La discrepancia entre ambas fuentes oficiales del propio municipio impide al ciudadano saber con certeza quién ocupa el cargo y desde cuándo. Requiere acto administrativo de aclaración.",
+    categoria: "estructura_organica",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio republicano de publicidad y trazabilidad de quienes perciben remuneración del Estado.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-09",
+    publicacionParcialUrl: "https://sunchales.gob.ar/municipio/autoridades/"
   },
 
   // ===== AUDIENCIAS PÚBLICAS =====

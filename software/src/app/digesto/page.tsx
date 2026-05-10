@@ -11,6 +11,10 @@ import {
 } from "@/lib/data/digesto";
 import { normasOficiales } from "@/lib/data/digesto-oficial.generated";
 import { conteoEstados } from "@/lib/data/digesto-estados.generated";
+import {
+  normasConcejo,
+  digestoConcejoMeta,
+} from "@/lib/data/digesto-concejo.generated";
 import ExploradorDigesto from "./ExploradorDigesto";
 
 export const metadata = {
@@ -269,8 +273,113 @@ export default function DigestoPage() {
         </p>
       </div>
 
+      {/* ============================================================ */}
+      {/*  Digesto del Concejo Municipal — listado completo sincronizado */}
+      {/* ============================================================ */}
+      <h2 className="mt-16 font-serif text-2xl font-bold text-navy">
+        Digesto del Concejo Municipal — {normasConcejo.length.toLocaleString("es-AR")} normas
+        sincronizadas
+      </h2>
+      <p className="mt-2 max-w-3xl text-slate-600">
+        Listado completo extraído de la paginación pública del{" "}
+        <a
+          href={digestoConcejoMeta.fuenteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-coral-dark underline"
+        >
+          digesto del Concejo
+        </a>{" "}
+        con cobertura{" "}
+        <strong>
+          {Math.min(...Object.keys(digestoConcejoMeta.porAnio).map(Number))}–
+          {Math.max(...Object.keys(digestoConcejoMeta.porAnio).map(Number))}
+        </strong>
+        . Es el universo más amplio que el ciudadano puede consultar hoy y un
+        super-conjunto de las {normasOficiales.length} normas indexadas más
+        arriba (que son sólo del período 2022-2026 del portal del Ejecutivo).
+      </p>
+
+      <div className="mt-4 rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+        <strong className="block font-semibold text-amber-900">
+          Brecha visible — el Concejo declara más normas de las que expone
+        </strong>
+        <p className="mt-2">
+          El contador de fachada del sitio del Concejo declara <strong>5.309</strong>{" "}
+          normas totales (Decl. + Min. + Ord. + Res.). La paginación pública
+          deja de avanzar al llegar a <strong>{normasConcejo.length.toLocaleString("es-AR")}</strong>{" "}
+          (~{Math.round((normasConcejo.length / 5309) * 100)}% del declarado).
+          Esto significa que ~{(5309 - normasConcejo.length).toLocaleString("es-AR")} normas
+          no son navegables sin pedido formal de acceso.
+        </p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        <a
+          href={digestoConcejoMeta.fuenteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          Ver listado oficial →
+        </a>
+        <a
+          href="/api/v1/digesto-concejo?format=csv"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          Descargar CSV
+        </a>
+        <a
+          href="/api/v1/digesto-concejo"
+          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
+        >
+          API JSON
+        </a>
+      </div>
+
+      <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+        Distribución por año
+      </h3>
+      <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white p-4">
+        <div className="flex min-w-[760px] items-end gap-1.5">
+          {Object.entries(digestoConcejoMeta.porAnio)
+            .map(([a, c]) => ({ anio: Number(a), cantidad: Number(c) }))
+            .sort((a, b) => a.anio - b.anio)
+            .map(({ anio, cantidad }) => {
+              const max = Math.max(
+                ...Object.values(digestoConcejoMeta.porAnio).map(Number)
+              );
+              const altura = Math.max(4, Math.round((cantidad / max) * 80));
+              return (
+                <div
+                  key={anio}
+                  className="group flex flex-col items-center"
+                  title={`${anio}: ${cantidad} normas`}
+                >
+                  <div
+                    className="w-3 rounded-sm bg-coral/70 group-hover:bg-coral"
+                    style={{ height: `${altura}px` }}
+                  />
+                  <div className="mt-1 -rotate-45 text-[8px] tabular-nums text-slate-500">
+                    {anio}
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+
+      <p className="mt-3 text-xs text-slate-500">
+        Sincronizado por{" "}
+        <code className="rounded bg-slate-100 px-1.5 py-0.5">
+          npm run scrapear-digesto-concejo
+        </code>{" "}
+        contra el sitio oficial del Concejo. Última corrida:{" "}
+        {new Date(digestoConcejoMeta.sincronizadoEl).toLocaleString("es-AR")}.
+      </p>
+
       {/* Proyectos en tratamiento */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="mt-16 font-serif text-2xl font-bold text-navy">
         Proyectos en tratamiento
       </h2>
       <div className="mt-4 grid gap-3 md:grid-cols-2">

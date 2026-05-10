@@ -40,7 +40,9 @@ const args = new Map(
   })
 );
 const PARALELO = Number(args.get("paralelo") ?? "4");
-const TIMEOUT_MS = Number(args.get("timeout") ?? "20000");
+const TIMEOUT_DOWNLOAD_MS = Number(args.get("timeout-download") ?? "60000");
+const TIMEOUT_PDFJS_MS = Number(args.get("timeout-pdfjs") ?? "20000");
+const REINTENTOS = Number(args.get("reintentos") ?? "1");
 
 // ---------- carga del catálogo ---------------------------------------------
 
@@ -49,7 +51,11 @@ const catalogoSrc = await readFile(catalogoPath, "utf8");
 const matchArr = catalogoSrc.match(/remuneracionesPdfs:\s*RemuneracionPdf\[\]\s*=\s*(\[[\s\S]*?\n\]);/);
 if (!matchArr) throw new Error("No pude leer remuneraciones.generated.ts");
 const remuneracionesPdfs = JSON.parse(matchArr[1]);
-console.log(`→ Catálogo: ${remuneracionesPdfs.length} PDFs · paralelo=${PARALELO} · timeout=${TIMEOUT_MS}ms`);
+console.log(
+  `→ Catálogo: ${remuneracionesPdfs.length} PDFs · paralelo=${PARALELO}` +
+    ` · timeout-download=${TIMEOUT_DOWNLOAD_MS}ms · timeout-pdfjs=${TIMEOUT_PDFJS_MS}ms` +
+    ` · reintentos=${REINTENTOS}`
+);
 
 // ---------- helpers PDF ----------------------------------------------------
 
@@ -62,20 +68,32 @@ function withTimeout(promise, ms, label) {
   ]);
 }
 
-async function descargarPdf(urlPdf) {
+async function descargarPdfConRetry(urlPdf) {
   const fname = urlPdf.split("/").pop();
   const dest = path.join(CACHE, fname);
   if (existsSync(dest)) {
     const s = await stat(dest);
     if (s.size > 0) return await readFile(dest);
   }
-  const r = await fetch(urlPdf, {
-    headers: { "User-Agent": "Mozilla/5.0 (Sunchales Transparente parser)" },
-  });
-  if (!r.ok) throw new Error(`HTTP ${r.status} (${urlPdf})`);
-  const buf = Buffer.from(await r.arrayBuffer());
-  await writeFile(dest, buf);
-  return buf;
+  let ultimoError;
+  for (let intento = 0; intento <= REINTENTOS; intento++) {
+    try {
+      const r = await withTimeout(
+        fetch(urlPdf, {
+          headers: { "User-Agent": "Mozilla/5.0 (Sunchales Transparente parser)" },
+        }),
+        TIMEOUT_DOWNLOAD_MS,
+        `download intento ${intento + 1}`
+      );
+      if (!r.ok) throw new Error(`HTTP ${r.status} (${urlPdf})`);
+      const buf = Buffer.from(await r.arrayBuffer());
+      await writeFile(dest, buf);
+      return buf;
+    } catch (e) {
+      ultimoError = e;
+    }
+  }
+  throw ultimoError ?? new Error("download falló");
 }
 
 async function pdfALineasYItems(buf) {
@@ -141,19 +159,51 @@ function parsearMontoARS(texto) {
 }
 
 function partirFila(linea) {
-  const montos = [];
+  // Modo 1: con $ (formato moderno 2018+)
+  if (linea.includes("$")) {
+    const montos = [];
+    const etiqueta = linea
+      .replace(/\$\s*([\d\.\s]+(?:,\d{1,2})?)/g, (_m, num) => {
+        const v = parsearMontoARS(num);
+        if (v !== null) {
+          montos.push(v);
+          return " ";
+        }
+        return _m;
+      })
+      .replace(/\s+/g, " ")
+      .trim();
+    return { etiqueta, montos, modoLegacy: false };
+  }
+  // Modo 2: legacy (formato 2014-2015 con tabla de columnas Legajo/Nombre/Bruta/Retenc/Total)
+  // Capturamos números con formato pesos: con punto miles y coma decimal,
+  // o sin punto con coma decimal, requiriendo al menos 3 dígitos antes de coma.
+  const montosCandidatos = [];
   const etiqueta = linea
-    .replace(/\$\s*([\d\.\s]+(?:,\d{1,2})?)/g, (_m, num) => {
+    .replace(/\b(\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{4,}(?:,\d{1,2})?|\d+,\d{2})\b/g, (_m, num) => {
       const v = parsearMontoARS(num);
       if (v !== null) {
-        montos.push(v);
+        montosCandidatos.push(v);
         return " ";
       }
       return _m;
     })
     .replace(/\s+/g, " ")
     .trim();
-  return { etiqueta, montos };
+  // Para considerar legacy: necesitamos ≥3 montos; si el primero parece legajo
+  // (entero pequeño y de exactamente 4 dígitos sin decimal) lo descartamos.
+  if (montosCandidatos.length < 3) {
+    return { etiqueta, montos: [], modoLegacy: false };
+  }
+  const primerNumero = linea.match(/\b(\d{1,4})\b/);
+  let montos = montosCandidatos;
+  // Si el primer número de la línea es un legajo (4 dígitos enteros, ≤ 9999)
+  // y coincide con el primer monto candidato, lo descartamos.
+  if (primerNumero && Number(primerNumero[1]) <= 9999 && montos[0] === Number(primerNumero[1])) {
+    montos = montos.slice(1);
+  }
+  if (montos.length < 2) return { etiqueta, montos: [], modoLegacy: false };
+  return { etiqueta, montos, modoLegacy: true };
 }
 
 function pareceFuncionario(etiqueta) {
@@ -181,33 +231,63 @@ function pareceFuncionario(etiqueta) {
   return true;
 }
 
+const CABECERAS_VIEJAS = [
+  "legajo nombre",
+  "rem. bruta",
+  "retenc. leg",
+  "salar. fliar",
+  "imp. gcias",
+  "totales",
+  "informaci",
+  "municipalidad de sunchales",
+  "secretaria de hacienda",
+  "secretar",
+];
+
+function esCabeceraOTitulo(etiqueta) {
+  const lower = etiqueta.toLowerCase();
+  if (
+    lower.includes("apellido y nombre") ||
+    lower.includes("sueldo bruto") ||
+    lower.includes("sueldo neto") ||
+    lower.includes("descuento") ||
+    /^\s*(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre|sac)\b/i.test(etiqueta) ||
+    /^mes:/i.test(etiqueta)
+  )
+    return true;
+  return CABECERAS_VIEJAS.some((c) => lower.includes(c));
+}
+
 function extraerFuncionarios(lineas) {
   const filas = [];
   let cargoColgado = null;
 
   for (const ln of lineas) {
-    const { etiqueta, montos } = partirFila(ln);
+    const { etiqueta, montos, modoLegacy } = partirFila(ln);
 
     if (montos.length === 0) {
       if (etiqueta && etiqueta.length > 3 && !/^\d/.test(etiqueta)) {
-        const lower = etiqueta.toLowerCase();
-        if (
-          lower.includes("apellido y nombre") ||
-          lower.includes("sueldo") ||
-          lower.includes("descuento") ||
-          /^\s*(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre|sac)\b/i.test(etiqueta)
-        ) {
-          continue;
-        }
+        if (esCabeceraOTitulo(etiqueta)) continue;
         cargoColgado = etiqueta;
       }
       continue;
     }
 
+    // Filtrar líneas-totales: si la etiqueta queda vacía (sólo eran montos)
+    // o es una cabecera, ignoramos.
+    if (esCabeceraOTitulo(etiqueta) || etiqueta.length < 3) continue;
+
     let bruto = null, desc = null, neto = null;
-    if (montos.length >= 3) [bruto, desc, neto] = montos;
-    else if (montos.length === 2) { bruto = montos[0]; neto = montos[1]; }
-    else bruto = montos[0];
+    if (modoLegacy) {
+      // Formato 2014-2015: bruto = primer monto, neto = último, descuentos quedan en null
+      // (el PDF original tiene 3-4 columnas distintas de descuentos; no las inventamos).
+      bruto = montos[0];
+      neto = montos[montos.length - 1];
+    } else {
+      if (montos.length >= 3) [bruto, desc, neto] = montos;
+      else if (montos.length === 2) { bruto = montos[0]; neto = montos[1]; }
+      else bruto = montos[0];
+    }
 
     if (!pareceFuncionario(etiqueta) && !cargoColgado) continue;
 
@@ -225,8 +305,8 @@ function extraerFuncionarios(lineas) {
 
 async function procesarPdf(pdf) {
   try {
-    const buf = await withTimeout(descargarPdf(pdf.urlPdf), TIMEOUT_MS, "download");
-    const { lineas, totalItems } = await withTimeout(pdfALineasYItems(buf), TIMEOUT_MS, "pdfjs");
+    const buf = await descargarPdfConRetry(pdf.urlPdf);
+    const { lineas, totalItems } = await withTimeout(pdfALineasYItems(buf), TIMEOUT_PDFJS_MS, "pdfjs");
     if (totalItems === 0) {
       return {
         ...pdf,
