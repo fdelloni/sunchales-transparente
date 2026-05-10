@@ -9,6 +9,14 @@ import {
   construirOrganigrama,
   type NodoOrganigrama
 } from "@/lib/data/personal";
+import {
+  registrosPlanta,
+  registrosTransitorios,
+  registrosContratados,
+  porSeccion,
+  porModalidad,
+  fuenteNomina,
+} from "@/lib/data/nomina";
 import { formatARS, formatARSCompact, formatNumber } from "@/lib/format";
 
 /* ------------------------------------------------------------------ */
@@ -166,13 +174,22 @@ export default function PersonalPage() {
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
         Esta sección publica la estructura del Estado municipal de Sunchales con
-        tres miradas complementarias: el <strong>organigrama de planta política</strong>{" "}
+        cuatro miradas complementarias: el <strong>organigrama de planta política</strong>{" "}
         (cargos, nombres y fecha de asunción), el <strong>gasto en salarios</strong>{" "}
-        que esa estructura representa, y la <strong>nómina agregada de planta
-        permanente y de planta no permanente / contratados</strong> (cantidad,
-        antigüedad y sector, sin exponer nombres). Lo que está oficialmente
-        publicado se marca como <em>verificado</em>; lo que aún no está disponible
-        queda <em>manifiestamente declarado como brecha de transparencia</em>, con
+        que esa estructura representa, el <strong>personal de planta</strong> y
+        el <strong>personal transitorio y contratado</strong> agregados por
+        sector (sin exponer nombres individuales). Los conteos provienen del{" "}
+        <a
+          href={fuenteNomina.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          PDF oficial publicado por la Municipalidad
+        </a>{" "}
+        ({fuenteNomina.periodo}). Lo que sigue sin estar disponible —antigüedad
+        por agente, fechas exactas de designación, importes reales de cada
+        vinculación— queda <em>manifiestamente declarado como brecha</em>, con
         su fundamento normativo.
       </p>
 
@@ -441,218 +458,419 @@ export default function PersonalPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. Planta permanente — brecha declarada                       */}
+      {/* 4. Personal de planta — datos oficiales del PDF municipal     */}
       {/* ============================================================ */}
       <section className="mt-12">
-        <h2 className="font-serif text-2xl font-bold text-navy">
-          Planta permanente
-        </h2>
-        <p className="mt-1 max-w-3xl text-sm text-slate-600">
-          La planta permanente es el cuerpo estable de agentes municipales con
-          estabilidad en el cargo conforme la Ley provincial 9.286 (Estatuto y
-          Escalafón del Personal de Municipalidades y Comunas). Lo que el ciudadano
-          tiene derecho a saber sin que se exponga el nombre de cada agente es:
-          cuántos son, hace cuánto trabajan y en qué sector.
-        </p>
-
-        <div className="mt-5 overflow-hidden rounded-2xl border-2 border-dashed border-amber-400 bg-gradient-to-br from-amber-50/60 to-white">
-          <div className="px-6 py-5">
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-amber-700">
-              Información no publicada por la Municipalidad
-            </span>
-            <h3 className="mt-1 font-serif text-lg font-bold text-amber-900">
-              Cantidad de agentes, antigüedad por agente y sector de
-              prestación
-            </h3>
-            <p className="mt-2 max-w-3xl text-sm text-amber-900/90">
-              Al día de hoy <strong>no existe un dataset público</strong> con la
-              cantidad total de agentes de planta permanente, su antigüedad
-              individual (sin nombre) y el sector / dependencia donde prestan
-              funciones. Esa información se rinde sólo de forma agregada en el
-              presupuesto y no permite control ciudadano efectivo.
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="font-serif text-2xl font-bold text-navy">
+              Personal de planta
+            </h2>
+            <p className="mt-1 max-w-3xl text-sm text-slate-600">
+              Cuerpo estable de agentes municipales con estabilidad en el cargo
+              conforme la Ley provincial 9.286 (Estatuto y Escalafón del
+              Personal de Municipalidades y Comunas). Los datos que siguen{" "}
+              <strong>provienen del PDF oficial publicado por el municipio</strong>{" "}
+              ({fuenteNomina.periodo}) — listamos cantidad y sector{" "}
+              <strong>sin exponer nombres individuales</strong>.
             </p>
-
-            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Cantidad
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Antigüedad (años por agente)
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Sector / dependencia
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-md border-l-2 border-amber-500 bg-amber-50 p-3 text-[13px] text-amber-900">
-              <strong>Obliga a publicar: </strong>
-              Ordenanza Sunchales N° 1872/2009 (derecho de acceso a información
-              pública municipal, fundado en el principio de publicidad de los
-              actos de gobierno) · Constitución de Santa Fe (publicidad de la
-              hacienda pública) · Constitución Nacional Art. 1° (forma
-              republicana) · estándares interamericanos de transparencia activa.
-              La publicación agregada por sector y antigüedad{" "}
-              <strong>no expone datos personales</strong> protegidos por la Ley
-              25.326: la remuneración y el cargo en el ejercicio de funciones
-              públicas son información pública.
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              <a
-                href="/suscripciones"
-                className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
-              >
-                Sumarme al pedido de acceso
-              </a>
-              <a
-                href="/marco-normativo"
-                className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
-              >
-                Ver marco normativo
-              </a>
-            </div>
           </div>
+          <a
+            href={fuenteNomina.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-verde-dark px-4 py-2 text-xs font-semibold text-white hover:bg-verde-dark/90"
+          >
+            Ver PDF oficial ↗
+          </a>
         </div>
+
+        {/* KPIs reales */}
+        {(() => {
+          const totalPlanta = registrosPlanta.length;
+          const permanentes = registrosPlanta.filter(
+            (r) => r.modalidad === "Planta Permanente"
+          ).length;
+          const retiroEspecial = registrosPlanta.filter(
+            (r) => r.modalidad === "RETIRO ESPECIAL"
+          ).length;
+          const seccionesPlanta = porSeccion(
+            registrosPlanta.filter((r) => r.modalidad === "Planta Permanente")
+          );
+
+          return (
+            <>
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Personal de planta total
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-emerald-900">
+                    {formatNumber(totalPlanta)}
+                  </div>
+                  <div className="text-[11px] text-emerald-800">
+                    Verificado · PDF municipal {fuenteNomina.periodo}.
+                  </div>
+                </div>
+                <div className="rounded-xl border border-emerald-200 bg-white p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Planta permanente activa
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-navy">
+                    {formatNumber(permanentes)}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Estables conforme Ley provincial 9.286.
+                  </div>
+                </div>
+                <div className="rounded-xl border border-emerald-200 bg-white p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Retiro especial
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-navy">
+                    {formatNumber(retiroEspecial)}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Ex-agentes con haber especial vigente.
+                  </div>
+                </div>
+              </div>
+
+              {/* Tabla por sección */}
+              <div className="-mx-6 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full min-w-[480px] text-sm">
+                  <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                    <tr>
+                      <th className="px-4 py-3">Sector / Secretaría</th>
+                      <th className="px-4 py-3 text-right">
+                        Agentes de planta permanente
+                      </th>
+                      <th className="px-4 py-3 text-right">% del total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {seccionesPlanta.map((s) => (
+                      <tr
+                        key={s.seccion}
+                        className="border-t border-slate-100"
+                      >
+                        <td className="px-4 py-3 font-medium text-navy">
+                          {s.seccion}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums">
+                          {s.cantidad}
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                          {((s.cantidad / permanentes) * 100).toFixed(1)}%
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-t-2 border-navy/30 bg-slate-50">
+                      <td className="px-4 py-3 font-bold text-navy">
+                        Total planta permanente
+                      </td>
+                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                        {formatNumber(permanentes)}
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums">
+                        100,0%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="mt-3 text-xs text-slate-500">
+                Fuente:{" "}
+                <a
+                  href={fuenteNomina.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  Nómina del Personal Municipal — {fuenteNomina.periodo}
+                </a>{" "}
+                (PDF oficial publicado por sunchales.gob.ar, verificado{" "}
+                {fuenteNomina.fechaConsulta}). La{" "}
+                <strong>antigüedad por agente</strong> no figura en el PDF
+                publicado y permanece como brecha de transparencia (ver{" "}
+                <a href="#brechas" className="underline">
+                  brechas
+                </a>
+                ).
+              </p>
+            </>
+          );
+        })()}
       </section>
 
       {/* ============================================================ */}
-      {/* 5. Planta no permanente / contratados — brecha declarada     */}
+      {/* 5. Personal transitorio y contratación de servicios — datos  */}
+      {/*    oficiales del PDF municipal                                */}
       {/* ============================================================ */}
       <section className="mt-12">
         <h2 className="font-serif text-2xl font-bold text-navy">
-          Planta no permanente y personal contratado
+          Personal transitorio y contratación de servicios
         </h2>
         <p className="mt-1 max-w-3xl text-sm text-slate-600">
-          Comprende al personal con vinculación temporaria, contratos por tiempo
-          determinado, locaciones de servicios y locaciones de obra. Es la franja
-          más sensible del gasto en personal porque carece de la estabilidad de
-          la planta permanente y depende de decisiones del Departamento Ejecutivo;
-          por eso requiere control especial.
+          El PDF oficial distingue dos categorías además de la planta:{" "}
+          <strong>Personal Transitorio</strong> (vinculación temporaria) y{" "}
+          <strong>Contratación de Servicios</strong> (locaciones con modalidades
+          de jornada completa, parcial, media jornada o por demanda). Es la
+          franja más sensible del gasto en personal porque carece de la
+          estabilidad de la planta y depende de decisiones del Departamento
+          Ejecutivo; por eso requiere control reforzado.
         </p>
 
-        <div className="mt-5 overflow-hidden rounded-2xl border-2 border-dashed border-amber-400 bg-gradient-to-br from-amber-50/60 to-white">
-          <div className="px-6 py-5">
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-amber-700">
-              Información no publicada por la Municipalidad
-            </span>
-            <h3 className="mt-1 font-serif text-lg font-bold text-amber-900">
-              Cantidad, antigüedad / vigencia, modalidad y sector
-            </h3>
-            <p className="mt-2 max-w-3xl text-sm text-amber-900/90">
-              No se publica cuántos contratados hay, hace cuánto están
-              vinculados, bajo qué modalidad (planta no permanente, locación de
-              servicios, locación de obra, becarios) ni en qué sector trabajan.
-              Tampoco la fecha de inicio y fin de cada contrato y sus
-              renovaciones.
-            </p>
+        {(() => {
+          const totT = registrosTransitorios.length;
+          const totC = registrosContratados.length;
+          const totalNoPerm = totT + totC;
+          const seccionesT = porSeccion(registrosTransitorios);
+          const seccionesC = porSeccion(registrosContratados);
+          const modalidadesC = porModalidad(registrosContratados);
 
-            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Cantidad
+          return (
+            <>
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border-2 border-emerald-300 bg-emerald-50 p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Total no permanente
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-emerald-900">
+                    {formatNumber(totalNoPerm)}
+                  </div>
+                  <div className="text-[11px] text-emerald-800">
+                    Transitorios + Contratación de servicios.
+                  </div>
                 </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
+                <div className="rounded-xl border border-emerald-200 bg-white p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Personal Transitorio
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-navy">
+                    {formatNumber(totT)}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Vinculación temporaria sin estabilidad.
+                  </div>
                 </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Antigüedad / vigencia
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Modalidad de vinculación
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
-                </div>
-              </div>
-              <div className="rounded-lg border border-amber-200 bg-white p-3">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Sector / dependencia
-                </div>
-                <div className="mt-1 font-serif text-2xl font-bold text-slate-300">
-                  ?
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  No publicado oficialmente.
+                <div className="rounded-xl border border-emerald-200 bg-white p-4">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                    Contratación de Servicios
+                  </div>
+                  <div className="mt-1 font-serif text-3xl font-bold text-navy">
+                    {formatNumber(totC)}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Locaciones de servicios y de obra.
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-5 rounded-md border-l-2 border-amber-500 bg-amber-50 p-3 text-[13px] text-amber-900">
-              <strong>Obliga a publicar: </strong>
-              Ordenanza Sunchales N° 1872/2009 (toda información en poder del
-              municipio, incluida la relativa a vinculaciones contractuales) ·
-              principio republicano de publicidad de los actos de gobierno (Art.
-              1° CN) · estándares interamericanos sobre transparencia de la
-              fuerza laboral pública. La publicación agregada por modalidad,
-              antigüedad y sector <strong>no expone datos personales</strong>.
-            </div>
+              {/* Tabla — Transitorios por sector */}
+              <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+                Personal Transitorio por sector
+              </h3>
+              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full min-w-[420px] text-sm">
+                  <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                    <tr>
+                      <th className="px-4 py-3">Sector</th>
+                      <th className="px-4 py-3 text-right">
+                        Agentes transitorios
+                      </th>
+                      <th className="px-4 py-3 text-right">% del subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {seccionesT.map((s) => (
+                      <tr
+                        key={s.seccion}
+                        className="border-t border-slate-100"
+                      >
+                        <td className="px-4 py-3 font-medium text-navy">
+                          {s.seccion}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums">
+                          {s.cantidad}
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                          {((s.cantidad / totT) * 100).toFixed(1)}%
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-t-2 border-navy/30 bg-slate-50">
+                      <td className="px-4 py-3 font-bold text-navy">
+                        Total transitorios
+                      </td>
+                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                        {totT}
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums">
+                        100,0%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              <a
-                href="/suscripciones"
-                className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
-              >
-                Sumarme al pedido de acceso
-              </a>
-              <a
-                href="/marco-normativo"
-                className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
-              >
-                Ver marco normativo
-              </a>
-            </div>
-          </div>
-        </div>
+              {/* Tabla — Contratados por modalidad */}
+              <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+                Contratación de Servicios por modalidad
+              </h3>
+              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full min-w-[420px] text-sm">
+                  <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                    <tr>
+                      <th className="px-4 py-3">Modalidad</th>
+                      <th className="px-4 py-3 text-right">Contratos</th>
+                      <th className="px-4 py-3 text-right">% del subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {modalidadesC.map((m) => (
+                      <tr
+                        key={m.modalidad}
+                        className="border-t border-slate-100"
+                      >
+                        <td className="px-4 py-3 font-medium text-navy">
+                          {m.modalidad}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums">
+                          {m.cantidad}
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                          {((m.cantidad / totC) * 100).toFixed(1)}%
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-t-2 border-navy/30 bg-slate-50">
+                      <td className="px-4 py-3 font-bold text-navy">
+                        Total contratados
+                      </td>
+                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                        {totC}
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums">
+                        100,0%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Tabla — Contratados por sector */}
+              <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+                Contratación de Servicios por sector
+              </h3>
+              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full min-w-[420px] text-sm">
+                  <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                    <tr>
+                      <th className="px-4 py-3">Sector</th>
+                      <th className="px-4 py-3 text-right">Contratos</th>
+                      <th className="px-4 py-3 text-right">% del subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {seccionesC.map((s) => (
+                      <tr
+                        key={s.seccion}
+                        className="border-t border-slate-100"
+                      >
+                        <td className="px-4 py-3 font-medium text-navy">
+                          {s.seccion}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums">
+                          {s.cantidad}
+                        </td>
+                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                          {((s.cantidad / totC) * 100).toFixed(1)}%
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-t-2 border-navy/30 bg-slate-50">
+                      <td className="px-4 py-3 font-bold text-navy">
+                        Total contratados
+                      </td>
+                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                        {totC}
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums">
+                        100,0%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="mt-3 text-xs text-slate-500">
+                Fuente:{" "}
+                <a
+                  href={fuenteNomina.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  Nómina del Personal Municipal — {fuenteNomina.periodo}
+                </a>{" "}
+                (PDF oficial publicado por sunchales.gob.ar, verificado{" "}
+                {fuenteNomina.fechaConsulta}). La{" "}
+                <strong>antigüedad o vigencia de cada contrato</strong>{" "}
+                (fecha de inicio, vencimiento y renovaciones) no figura en el
+                PDF publicado y permanece como brecha (ver{" "}
+                <a href="#brechas" className="underline">
+                  brechas
+                </a>
+                ).
+              </p>
+
+              {/* Total general */}
+              <div className="mt-8 rounded-2xl border-2 border-navy bg-navy p-5 text-white">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                      Total general de personas vinculadas al municipio
+                    </div>
+                    <div className="mt-1 font-serif text-4xl font-bold">
+                      {formatNumber(
+                        registrosPlanta.length +
+                          registrosTransitorios.length +
+                          registrosContratados.length
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right text-sm text-white/80">
+                    <div>
+                      Planta: <strong>{registrosPlanta.length}</strong>
+                    </div>
+                    <div>
+                      Transitorios:{" "}
+                      <strong>{registrosTransitorios.length}</strong>
+                    </div>
+                    <div>
+                      Contratados:{" "}
+                      <strong>{registrosContratados.length}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })()}
       </section>
 
       {/* ============================================================ */}
       {/* 6. Brechas formales del módulo                                */}
       {/* ============================================================ */}
-      <BrechasTransparencia
-        modulo="personal"
-        titulo="Brechas de transparencia del módulo Personal"
-        intro="A continuación se enumera la información sobre personal que la Municipalidad de Sunchales está jurídicamente obligada a publicar y que al día de hoy no es accesible al ciudadano."
-      />
+      <div id="brechas">
+        <BrechasTransparencia
+          modulo="personal"
+          titulo="Brechas de transparencia del módulo Personal"
+          intro="La municipalidad publica una nómina mensual con nombre, sector y modalidad de cada agente — gran avance respecto del estándar promedio de la provincia. Sin embargo, persisten brechas: la antigüedad por agente, las fechas exactas de designación y los importes reales de cada vinculación siguen sin ser accesibles en formato estructurado."
+        />
+      </div>
     </div>
   );
 }
