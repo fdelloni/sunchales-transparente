@@ -285,6 +285,29 @@ export const empleados: EmpleadoMunicipal[] = [
     urlPdfRemuneracion: URL_PDF_MAR_2026,
     ejercicio: 2026
   },
+  {
+    // Pueyo aparece referenciado como responsable de la Oficina de Catastro en
+    // el listado oficial de trámites municipales (sunchales.gob.ar/gestion/
+    // sunchales-impulsa/tramites/) — categorizado como "pendiente_oficial"
+    // porque no figura individualizado en el listado oficial de autoridades
+    // (/municipio/autoridades/) ni en el PDF de remuneraciones Marzo 2026.
+    // Su cargo se reporta como dependiente de la Subdirección de Obras
+    // Privadas, jerárquicamente bajo la Secretaría de Gestión Ambiental y
+    // Territorial. La discrepancia de no estar individualizado en autoridades
+    // es la brecha cat-pagina-institucional declarada en /brechas.
+    id: "emp_pueyo",
+    apellidoNombre: "Pueyo, Pablo",
+    cargo: "Encargado de la Oficina de Catastro (Subdirección de Obras Privadas)",
+    area: "Secretaría de Gestión Ambiental y Territorial",
+    jerarquia: 4,
+    reportaA: "emp_zamateo",
+    fechaInicio: null,
+    fuenteFecha: "pendiente_oficial",
+    remuneracionBruta: null,
+    fuenteCargo: "pendiente_oficial",
+    fuenteRemuneracion: "pendiente_oficial",
+    ejercicio: 2026
+  },
 
   // ===== Secretaría de Desarrollo Humano y Promoción de Derechos =====
   {

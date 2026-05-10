@@ -38,6 +38,7 @@ const grupos: Grupo[] = [
       { href: "/personal", label: "Personal y salarios", hint: "Organigrama y nómina" },
       { href: "/concejo", label: "Concejo Municipal", hint: "Concejales, comisiones, contacto" },
       { href: "/juzgado-faltas", label: "Juzgado de Faltas", hint: "Sanciones y recaudación" },
+      { href: "/catastro", label: "Catastro municipal", hint: "Parcelas, zonificación, valuaciones" },
       { href: "/audiencias-publicas", label: "Audiencias públicas", hint: "Las 2 documentadas + brecha" },
       { href: "/carta-organica", label: "Carta Orgánica", hint: "Seguimiento del proceso 2026" },
     ],
