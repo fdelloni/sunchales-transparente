@@ -23,7 +23,8 @@
     "scrapear-licitaciones": "node scripts/scrapear-licitaciones.mjs",
     "parsear-remuneraciones": "node scripts/parsear-remuneraciones.mjs",
     "scrapear-digesto-concejo": "node scripts/scrapear-digesto-concejo.mjs",
-    "ocr-remuneraciones": "node scripts/ocr-remuneraciones.mjs"
+    "ocr-remuneraciones": "node scripts/ocr-remuneraciones.mjs",
+    "scrapear-publicaciones-concejo": "node scripts/scrapear-publicaciones-concejo.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",

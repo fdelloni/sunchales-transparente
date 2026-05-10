@@ -17,18 +17,19 @@ import ChartTooltip from "@/components/ChartTooltip";
 
 type SerieAnual = { anio: number; total: number };
 
+// Paleta de gráficos derivada de la Bandera de Sunchales — sin azules.
 const COLORS = [
-  "#0F1B3D",
-  "#0C4A6E",
-  "#1C7293",
-  "#E8A33D",
-  "#C97B1A",
-  "#475569",
-  "#94A3B8",
-  "#7C3AED",
-  "#0891B2",
-  "#16A34A",
-  "#DC2626"
+  "#FCC81D", // oro bandera
+  "#ADCF3D", // verde bandera
+  "#9A7400", // oro oscuro
+  "#5D7A18", // verde oscuro
+  "#7A8B47", // oliva medio
+  "#5D4A18", // tierra
+  "#1F3D0A", // verde profundo
+  "#FFD966", // oro claro
+  "#CFE08C", // verde claro
+  "#475569", // gris neutro
+  "#DC2626"  // rojo (sólo para señalar excepciones)
 ];
 
 export function ActividadAnualChart({ data }: { data: SerieAnual[] }) {
@@ -57,7 +58,7 @@ export function ActividadAnualChart({ data }: { data: SerieAnual[] }) {
                 <ChartTooltip formatValue={(v) => `${v} documentos`} />
               }
             />
-            <Bar dataKey="total" fill="#E8A33D" radius={[6, 6, 0, 0]} />
+            <Bar dataKey="total" fill="#FCC81D" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -130,7 +131,7 @@ export function UcmFrecuenciaChart({
             <XAxis dataKey="anio" tick={{ fontSize: 11, fill: "#0F172A" }} />
             <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
             <Tooltip content={<ChartTooltip />} />
-            <Bar dataKey="cantidad" fill="#1C7293" radius={[6, 6, 0, 0]} />
+            <Bar dataKey="cantidad" fill="#7A8B47" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import StatCard from "@/components/StatCard";
 import { remuneracionesDetalle } from "@/lib/data/remuneraciones-detalle.generated";
+import { remuneracionesDetalleOcr } from "@/lib/data/remuneraciones-ocr.generated";
 import { formatARS, formatARSCompact } from "@/lib/format";
 
 const NOMBRES_MES = [
@@ -10,23 +11,39 @@ const NOMBRES_MES = [
 ];
 
 export function generateStaticParams() {
-  return remuneracionesDetalle.map((r) => ({ periodo: r.periodo }));
+  const set = new Set<string>();
+  for (const r of remuneracionesDetalle) set.add(r.periodo);
+  for (const r of remuneracionesDetalleOcr) set.add(r.periodo);
+  return Array.from(set).map((periodo) => ({ periodo }));
 }
 
 type Props = { params: { periodo: string } };
 
+function buscarPeriodo(periodo: string) {
+  const det = remuneracionesDetalle.find((x) => x.periodo === periodo);
+  if (det) return { tipo: "texto" as const, det };
+  const ocr = remuneracionesDetalleOcr.find((x) => x.periodo === periodo);
+  if (ocr) return { tipo: "ocr" as const, det: ocr };
+  return null;
+}
+
 export function generateMetadata({ params }: Props) {
-  const r = remuneracionesDetalle.find((x) => x.periodo === params.periodo);
-  if (!r) return { title: "Período no encontrado" };
+  const found = buscarPeriodo(params.periodo);
+  if (!found) return { title: "Período no encontrado" };
   return {
-    title: `Remuneraciones — ${r.label} · Sunchales Transparente`,
-    description: `Detalle de remuneraciones de funcionarios del período ${r.label}, extraído del PDF oficial publicado por sunchales.gob.ar.`,
+    title: `Remuneraciones — ${found.det.label} · Sunchales Transparente`,
+    description: `Detalle de remuneraciones de funcionarios del período ${found.det.label}, extraído del PDF oficial publicado por sunchales.gob.ar${found.tipo === "ocr" ? " (vía OCR sobre PDF escaneado)" : ""}.`,
   };
 }
 
 export default function PeriodoDetalle({ params }: Props) {
-  const r = remuneracionesDetalle.find((x) => x.periodo === params.periodo);
-  if (!r) notFound();
+  const found = buscarPeriodo(params.periodo);
+  if (!found) notFound();
+  const esOcr = found.tipo === "ocr";
+  const r =
+    found.tipo === "texto"
+      ? { ...found.det, parseado: found.det.parseado, error: found.det.error }
+      : { ...found.det, parseado: found.det.cantidadFilas > 0, error: found.det.error };
 
   const totalBruto = r.filas.reduce((acc, f) => acc + (f.bruto ?? 0), 0);
   const totalNeto = r.filas.reduce((acc, f) => acc + (f.neto ?? 0), 0);
@@ -43,7 +60,12 @@ export default function PeriodoDetalle({ params }: Props) {
 
       <span className="eyebrow mt-4 block">Personal · Remuneraciones</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
-        {r.label}
+        {r.label}{" "}
+        {esOcr && (
+          <span className="ml-2 align-middle text-base font-bold uppercase tracking-wider text-orange-700">
+            · vía OCR
+          </span>
+        )}
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
         Detalle extraído automáticamente del{" "}
@@ -60,6 +82,24 @@ export default function PeriodoDetalle({ params }: Props) {
         del PDF), porque "limpiarlos" sería interpretación y no transparencia.
         Cada celda vacía indica que ese campo no figura en el PDF.
       </p>
+
+      {esOcr && (
+        <div className="mt-6 rounded-2xl border-2 border-orange-400 bg-orange-50 p-5 text-sm text-orange-900">
+          <strong className="block text-base text-orange-900">
+            ⚠ Datos obtenidos por OCR — verificar contra el PDF original
+          </strong>
+          <p className="mt-2">
+            El PDF de este período es un escaneo (no tiene texto digital).
+            Para extraer los datos se aplicó OCR con Tesseract.js (modelo
+            español). Esta tecnología puede confundir dígitos visualmente
+            similares (8 ↔ 0, 1 ↔ 7, comas ↔ puntos), nombres mal
+            reconocidos, o fragmentar filas. <strong>Antes de citar
+            cualquier monto puntual, contrastar contra el PDF oficial</strong>.
+            La cobertura agregada (cantidad de funcionarios, suma global)
+            tiende a ser confiable; los valores individuales no.
+          </p>
+        </div>
+      )}
 
       {!r.parseado ? (
         <div className="mt-8 rounded-2xl border-2 border-amber-400 bg-amber-50 p-6 text-sm text-amber-900">
@@ -132,8 +172,8 @@ export default function PeriodoDetalle({ params }: Props) {
                 </tr>
               </thead>
               <tbody>
-                {r.filas.map((f, i) => (
-                  <tr key={i} className="border-t border-slate-100">
+                {r.filas.map((f: { etiqueta: string; bruto: number | null; descuentos: number | null; neto: number | null }, i: number) => (
+                  <tr key={i} className={esOcr ? "border-t border-orange-100" : "border-t border-slate-100"}>
                     <td className="px-4 py-3 text-xs text-slate-500 tabular-nums">
                       {i + 1}
                     </td>

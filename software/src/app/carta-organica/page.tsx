@@ -17,7 +17,7 @@ export default function CartaOrganicaPage() {
         />
       </div>
 
-      <span className="eyebrow text-coral">Hito institucional · 2026</span>
+      <span className="eyebrow">Hito institucional · 2026</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Carta Orgánica de Sunchales — seguimiento ciudadano
       </h1>

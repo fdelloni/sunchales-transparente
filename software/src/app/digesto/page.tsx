@@ -463,6 +463,6 @@ function jerarquiaColor(nivel: number): string {
     case 4:
       return "#0F766E";
     default:
-      return "#E8A33D";
+      return "#FCC81D";
   }
 }

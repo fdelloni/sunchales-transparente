@@ -8,6 +8,10 @@ import {
   remuneracionesDetalle,
   remuneracionesDetalleMeta,
 } from "@/lib/data/remuneraciones-detalle.generated";
+import {
+  remuneracionesDetalleOcr,
+  remuneracionesOcrMeta,
+} from "@/lib/data/remuneraciones-ocr.generated";
 
 export const metadata = {
   title: "Remuneraciones de funcionarios — Histórico mensual · Sunchales Transparente",
@@ -107,13 +111,13 @@ export default function RemuneracionesPage({ searchParams }: SP) {
         />
         <StatCard
           value={`${remuneracionesDetalleMeta.parseados}/${total}`}
-          label="Períodos con detalle estructurado"
-          hint={`${remuneracionesDetalleMeta.filasTotales} filas extraídas de los PDFs.`}
+          label="Períodos con texto digital"
+          hint={`${remuneracionesDetalleMeta.filasTotales} filas extraídas con parser determinístico.`}
         />
         <StatCard
-          value={String(remuneracionesDetalleMeta.escaneados)}
-          label="PDFs escaneados (necesitan OCR)"
-          hint="Brecha de calidad de la fuente."
+          value={`+${remuneracionesOcrMeta.conFilas}`}
+          label="Períodos rescatados con OCR"
+          hint={`${remuneracionesOcrMeta.filasTotales} filas adicionales (marcadas como ocrNoVerificado).`}
         />
         <StatCard
           value={String(huecos.length)}
@@ -182,7 +186,9 @@ export default function RemuneracionesPage({ searchParams }: SP) {
             )}
             {items.map((p) => {
               const det = remuneracionesDetalle.find((d) => d.urlPdf === p.urlPdf);
+              const ocr = remuneracionesDetalleOcr.find((o) => o.urlPdf === p.urlPdf);
               const parseado = !!det?.parseado;
+              const tieneOcr = !!ocr && ocr.cantidadFilas > 0;
               const escaneado =
                 !parseado && /sin texto digital/.test(det?.error ?? "");
               return (
@@ -206,9 +212,16 @@ export default function RemuneracionesPage({ searchParams }: SP) {
                       <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                         ✓ {det.cantidadFilas} filas
                       </span>
+                    ) : tieneOcr ? (
+                      <span
+                        className="rounded-full bg-orange-50 px-2 py-0.5 text-[11px] font-semibold text-orange-700"
+                        title="OCR aplicado sobre PDF escaneado. Posibles errores en montos."
+                      >
+                        ⚠ OCR · {ocr!.cantidadFilas} filas
+                      </span>
                     ) : escaneado ? (
                       <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
-                        ⚠ Escaneado
+                        ⚠ Escaneado (OCR sin filas)
                       </span>
                     ) : (
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
@@ -218,10 +231,14 @@ export default function RemuneracionesPage({ searchParams }: SP) {
                   </td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex flex-wrap items-center justify-end gap-1.5">
-                      {parseado && (
+                      {(parseado || tieneOcr) && (
                         <Link
                           href={`/personal/remuneraciones/${p.periodo}`}
-                          className="rounded-md bg-emerald-600 px-2.5 py-1 text-xs font-semibold text-white hover:bg-emerald-700"
+                          className={
+                            tieneOcr && !parseado
+                              ? "rounded-md bg-orange-600 px-2.5 py-1 text-xs font-semibold text-white hover:bg-orange-700"
+                              : "rounded-md bg-emerald-600 px-2.5 py-1 text-xs font-semibold text-white hover:bg-emerald-700"
+                          }
                         >
                           Ver detalle →
                         </Link>

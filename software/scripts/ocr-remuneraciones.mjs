@@ -45,7 +45,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createCanvas } from "canvas";
+import { createCanvas } from "@napi-rs/canvas";
 import { createWorker } from "tesseract.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -80,7 +80,8 @@ console.log(`→ ${escaneados.length} PDFs escaneados a procesar (escala=${ESCAL
 
 const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
 
-// CanvasFactory que devuelve un canvas de node-canvas en lugar de DOM canvas.
+// CanvasFactory que devuelve un canvas de @napi-rs/canvas en lugar de DOM canvas.
+// pdfjs-dist 4.x espera la clase (no la instancia) en el opt CanvasFactory.
 class NodeCanvasFactory {
   create(width, height) {
     const canvas = createCanvas(width, height);
@@ -101,7 +102,7 @@ async function pdfPaginaAPng(buf, escala) {
     data: new Uint8Array(buf),
     useSystemFonts: true,
     isEvalSupported: false,
-    canvasFactory: new NodeCanvasFactory(),
+    CanvasFactory: NodeCanvasFactory,
   }).promise;
   const pngsPorPagina = [];
   for (let i = 1; i <= doc.numPages; i++) {
@@ -109,7 +110,7 @@ async function pdfPaginaAPng(buf, escala) {
     const viewport = page.getViewport({ scale: escala });
     const factory = new NodeCanvasFactory();
     const cc = factory.create(viewport.width, viewport.height);
-    await page.render({ canvasContext: cc.context, viewport, canvasFactory: factory }).promise;
+    await page.render({ canvasContext: cc.context, viewport }).promise;
     pngsPorPagina.push(cc.canvas.toBuffer("image/png"));
   }
   return pngsPorPagina;
@@ -339,6 +340,8 @@ export type RemuneracionDetalleOcr = {
   ocrAplicado: true;
   cantidadFilas: number;
   filas: FilaOcr[];
+  /** Campo heredado del catálogo de origen (siempre false; se conserva por compatibilidad). */
+  parseado?: boolean;
   error?: string;
 };
 

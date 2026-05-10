@@ -38,6 +38,7 @@ const grupos: Grupo[] = [
       { href: "/personal", label: "Personal y salarios", hint: "Organigrama y nómina" },
       { href: "/concejo", label: "Concejo Municipal", hint: "Concejales, comisiones, contacto" },
       { href: "/juzgado-faltas", label: "Juzgado de Faltas", hint: "Sanciones y recaudación" },
+      { href: "/audiencias-publicas", label: "Audiencias públicas", hint: "Las 2 documentadas + brecha" },
       { href: "/carta-organica", label: "Carta Orgánica", hint: "Seguimiento del proceso 2026" },
     ],
   },
@@ -125,14 +126,15 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-navy/95 text-white backdrop-blur">
+    <header className="sticky top-0 z-50 bg-navy/95 text-white backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href="/"
           className="flex items-center gap-2 font-semibold"
           onClick={() => setDrawerOpen(false)}
         >
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-br from-coral to-coral-dark font-black text-zinc-900">
+          {/* Logo S con gradiente de la Bandera de Sunchales: oro arriba, verde abajo. */}
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-b from-oro to-verde font-black text-zinc-900">
             S
           </span>
           <span className="text-sm sm:text-base">Sunchales Transparente</span>
@@ -340,6 +342,12 @@ export default function Header() {
           </ul>
         </nav>
       )}
+      {/* Franja con los dos colores de la Bandera de Sunchales (Ord. 1762/2007).
+          Marca identidad institucional debajo del nav. */}
+      <div aria-hidden="true" className="flex h-1 w-full" title="Bandera oficial de Sunchales — Ord. 1762/2007">
+        <div className="h-full flex-1 bg-oro" />
+        <div className="h-full flex-1 bg-verde" />
+      </div>
     </header>
   );
 }
