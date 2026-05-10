@@ -42,7 +42,7 @@ const COLORS_BRECHAS_ESTADO: Record<BrechaEstado, string> = {
 
 // Paleta de gráficos derivada de la Bandera de Sunchales (oro + verde)
 // con tonos auxiliares afines (oliva, tierra) — sin azules.
-const COLORS_GENERICOS = ["#FCC81D", "#ADCF3D", "#5D7A18", "#7A8B47", "#9A7400", "#5D4A18", "#1F3D0A", "#FFD966", "#CFE08C"];
+const COLORS_GENERICOS = ["#FCC81D", "#ADCF3D", "#5D7A18", "#3F9430", "#9A7400", "#1A6F2D", "#0F5E1F", "#FFD966", "#CFE08C"];
 
 export default function EstadisticasCharts() {
   // Brechas por estado
@@ -200,7 +200,7 @@ export default function EstadisticasCharts() {
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
                 <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
                 <Tooltip content={<ChartTooltip />} />
-                <Bar dataKey="value" fill="#7A8B47" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="value" fill="#3F9430" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -246,7 +246,7 @@ export default function EstadisticasCharts() {
                   tick={{ fontSize: 10, fill: "#0F172A" }}
                 />
                 <Tooltip content={<ChartTooltip />} />
-                <Bar dataKey="value" fill="#7A8B47" radius={[0, 6, 6, 0]} />
+                <Bar dataKey="value" fill="#3F9430" radius={[0, 6, 6, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -266,7 +266,7 @@ export default function EstadisticasCharts() {
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#0F172A" }} />
                 <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#64748B" }} />
                 <Tooltip content={<ChartTooltip />} />
-                <Bar dataKey="value" fill="#1F3D0A" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="value" fill="#0F5E1F" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -337,7 +337,7 @@ export default function EstadisticasCharts() {
                 tick={{ fontSize: 10, fill: "#0F172A" }}
               />
               <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
-              <Bar dataKey="value" fill="#7A8B47" radius={[0, 6, 6, 0]}>
+              <Bar dataKey="value" fill="#3F9430" radius={[0, 6, 6, 0]}>
                 {topFinalidades.map((_, i) => (
                   <Cell key={i} fill={COLORS_GENERICOS[i % COLORS_GENERICOS.length]} />
                 ))}

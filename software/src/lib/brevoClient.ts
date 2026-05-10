@@ -140,12 +140,12 @@ export async function enviarOptInSuscripcion(args: {
 <html lang="es">
   <head><meta charset="UTF-8"><title>${subject}</title></head>
   <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #0F172A;">
-    <div style="background: #1F3D0A; color: white; padding: 24px; border-radius: 12px 12px 0 0; border-left: 6px solid #FCC81D;">
+    <div style="background: #0F5E1F; color: white; padding: 24px; border-radius: 12px 12px 0 0; border-left: 6px solid #FCC81D;">
       <h1 style="margin: 0; font-family: Georgia, serif; font-size: 22px;">Sunchales Transparente</h1>
       <p style="margin: 8px 0 0 0; font-size: 13px; opacity: 0.85;">Plataforma cívica de transparencia municipal</p>
     </div>
     <div style="background: white; padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px;">
-      <h2 style="font-family: Georgia, serif; color: #1F3D0A; margin-top: 0;">Hola,</h2>
+      <h2 style="font-family: Georgia, serif; color: #0F5E1F; margin-top: 0;">Hola,</h2>
       <p>Recibimos tu pedido para suscribirte a alertas ciudadanas de las siguientes categorías:</p>
       <ul style="background: #F5F0E6; padding: 12px 24px; border-radius: 8px; border-left: 4px solid #FCC81D;">${listaCategorias}</ul>
       <p>Para confirmar tu suscripción y empezar a recibir alertas cuando estén disponibles, hacé click acá:</p>
