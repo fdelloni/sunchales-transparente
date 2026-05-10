@@ -8,4 +8,7 @@ ne.txt
 st.txt
 gx.txt
 gxe.txt
+tmp.txt
+tmp2.txt
+tmp*.txt
 COMMIT_MSG.txt
