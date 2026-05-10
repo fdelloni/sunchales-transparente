@@ -264,7 +264,7 @@ function ResumenCard({
       href={href}
       className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
     >
-      <span className="rounded-full bg-ice/60 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-deep">
+      <span className="rounded-full border border-oro/40 bg-oro/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-navy">
         {tag}
       </span>
       <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
