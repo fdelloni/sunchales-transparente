@@ -130,14 +130,13 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2 font-semibold"
+          className="font-semibold"
           onClick={() => setDrawerOpen(false)}
         >
-          {/* Logo S con gradiente de la Bandera de Sunchales: oro arriba, verde abajo. */}
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-b from-oro to-verde font-black text-zinc-900">
-            S
+          {/* Wordmark con fondo oro de la Bandera de Sunchales (Ord. 1762/2007). */}
+          <span className="inline-block rounded-md bg-oro px-3 py-1 text-sm font-bold tracking-tight text-navy shadow-sm sm:text-base">
+            Sunchales Transparente
           </span>
-          <span className="text-sm sm:text-base">Sunchales Transparente</span>
         </Link>
 
         {/* Nav desktop */}
