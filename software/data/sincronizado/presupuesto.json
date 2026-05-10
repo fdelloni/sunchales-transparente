@@ -1,0 +1,235 @@
+{
+  "totales": {
+    "ejercicio": 2026,
+    "gastos_total": 30938107965,
+    "recursos_corrientes": 30950227077,
+    "fondoLey12385_recibido": 613691020.73,
+    "habitantes": 23416,
+    "gasto_per_capita": 1321238,
+    "sourceTotalGastos": "presupuesto2026",
+    "sourceFondoProvincial": "fondoLey12385",
+    "sourceHabitantes": "censo2022_sunchales"
+  },
+  "partidas": [
+    {
+      "id": "p_01_01",
+      "finalidad": "1. Administración Gubernamental",
+      "funcion": "Conducción superior",
+      "programa": null,
+      "presupuestado": 1237524318,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_01_02",
+      "finalidad": "1. Administración Gubernamental",
+      "funcion": "Hacienda y Finanzas",
+      "programa": null,
+      "presupuestado": 928143239,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_01_03",
+      "finalidad": "1. Administración Gubernamental",
+      "funcion": "Recursos Humanos",
+      "programa": null,
+      "presupuestado": 619762159,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_02_01",
+      "finalidad": "2. Servicios de Seguridad",
+      "funcion": "Seguridad ciudadana y prevención",
+      "programa": null,
+      "presupuestado": 1237524318,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_02_02",
+      "finalidad": "2. Servicios de Seguridad",
+      "funcion": "Tránsito y movilidad",
+      "programa": null,
+      "presupuestado": 463071619,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_03_01",
+      "finalidad": "3. Servicios Sociales",
+      "funcion": "Salud",
+      "programa": null,
+      "presupuestado": 2165667557,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_03_02",
+      "finalidad": "3. Servicios Sociales",
+      "funcion": "Educación",
+      "programa": null,
+      "presupuestado": 1546905398,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_03_03",
+      "finalidad": "3. Servicios Sociales",
+      "funcion": "Cultura, deporte y comunidad",
+      "programa": null,
+      "presupuestado": 1237524318,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_03_04",
+      "finalidad": "3. Servicios Sociales",
+      "funcion": "Desarrollo Humano y Promoción de Derechos",
+      "programa": null,
+      "presupuestado": 1546905398,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_03_05",
+      "finalidad": "3. Servicios Sociales",
+      "funcion": "Vivienda y urbanismo",
+      "programa": null,
+      "presupuestado": 928143239,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_04_01",
+      "finalidad": "4. Servicios Económicos",
+      "funcion": "Producción y empleo",
+      "programa": null,
+      "presupuestado": 619762159,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_04_02",
+      "finalidad": "4. Servicios Económicos",
+      "funcion": "Cooperativismo y economía social",
+      "programa": null,
+      "presupuestado": 309381080,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_04_03",
+      "finalidad": "4. Servicios Económicos",
+      "funcion": "Ambiente y servicios urbanos",
+      "programa": null,
+      "presupuestado": 2475048637,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_05_01",
+      "finalidad": "5. Obra Pública",
+      "funcion": "Infraestructura urbana y rural",
+      "programa": null,
+      "presupuestado": 4640716195,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_05_02",
+      "finalidad": "5. Obra Pública",
+      "funcion": "Pavimento (Programa de Obras Urbanas)",
+      "programa": null,
+      "presupuestado": 1000000000,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": true,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_05_03",
+      "finalidad": "5. Obra Pública",
+      "funcion": "Iluminación LED y alumbrado",
+      "programa": null,
+      "presupuestado": 619762159,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_05_04",
+      "finalidad": "5. Obra Pública",
+      "funcion": "Recuperación Predio Ferroviario",
+      "programa": null,
+      "presupuestado": 619762159,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_05_05",
+      "finalidad": "5. Obra Pública",
+      "funcion": "Complejo Ambiental GIRSU",
+      "programa": null,
+      "presupuestado": 928143239,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_06_01",
+      "finalidad": "6. Servicio de la Deuda",
+      "funcion": "Intereses y amortizaciones",
+      "programa": null,
+      "presupuestado": 309381080,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    },
+    {
+      "id": "p_07_01",
+      "finalidad": "7. Transferencias y Otros",
+      "funcion": "Transferencias a entes y programas",
+      "programa": null,
+      "presupuestado": 7504993975,
+      "ejecutado": null,
+      "ejercicio": 2026,
+      "verificado": false,
+      "sourceId": "presupuesto2026"
+    }
+  ]
+}

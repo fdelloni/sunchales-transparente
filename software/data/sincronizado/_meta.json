@@ -1,0 +1,13 @@
+{
+  "generadoEn": "2026-05-10T23:29:56.711Z",
+  "fuentes": {
+    "funcionarios": "src/lib/data/personal.ts",
+    "presupuesto": "src/lib/data/presupuesto.ts",
+    "faq": "src/lib/whatsapp/data/faq.ts"
+  },
+  "conteos": {
+    "funcionarios": 21,
+    "partidasPresupuesto": 20,
+    "faq": 8
+  }
+}

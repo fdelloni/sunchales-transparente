@@ -1,27 +1,34 @@
 /**
- * POST /api/v1/chat — Endpoint del Asistente Ciudadano (arquitectura híbrida).
+ * POST /api/v1/chat — Endpoint del Asistente Ciudadano (web + buscadores embebidos).
  *
- * Pipeline (de más barato a más caro):
+ * UNIFICADO desde 2026-05: el motor canónico de retrieval ahora es el mismo que
+ * usa el chatbot de WhatsApp — búsqueda híbrida (vectorial + keyword) sobre la
+ * tabla `chunks_rag` de Supabase pgvector. Esto garantiza que el ciudadano que
+ * pregunta por la web y el que pregunta por WhatsApp acceden al mismo corpus
+ * (~1850 documentos: Digesto Oficial completo, PDFs del Concejo, padrón de
+ * funcionarios, presupuesto, marco normativo, FAQ).
  *
- *   1. RAG LOCAL (BM25 sobre baseDocumental) — gratis, sin LLM.
- *      Si la búsqueda devuelve un documento con score >= umbral, respondemos
- *      con la cita textual del doc + su fuente. Ahí termina la consulta.
+ * Pipeline:
  *
- *   2. LLM (proveedor configurado: Gemini 2.5 Flash o Claude Haiku 4.5)
- *      Si el RAG no alcanza, llamamos al LLM con TOP-3 documentos del corpus
- *      como contexto. El system prompt obliga al modelo a:
- *        - usar SOLO el contexto provisto + datos del system prompt;
- *        - NO inventar; si no sabe, decirlo y derivar al canal oficial.
+ *   PASO 0 — Guardrails: bloquea pedidos de opinión personal, consejo legal/médico,
+ *            predicciones. Mismo comportamiento que antes.
  *
- *   3. FAQ LOCAL (modo legacy, fallback final).
- *      Si tampoco hay LLM (ninguna API key configurada) o el LLM falla,
- *      caemos al matcher de FAQs local.
+ *   PASO 1 — Retriever pgvector (motor canónico):
+ *            - Recupera top-K chunks combinando vector search + keyword search.
+ *            - Si hay resultados Y hay proveedor LLM configurado: invoca al LLM
+ *              con esos chunks como contexto. Devuelve modo "ia" con la respuesta
+ *              generada y los IDs de los chunks usados (para auditoría).
  *
- * Diseñado para ser barato:
- *   - 70-90% de las consultas resueltas en (1) sin tocar IA → 0 USD.
- *   - max_tokens = 400 cuando se usa LLM.
- *   - Rate-limit por IP (12/min).
- *   - Sin persistencia de preguntas/respuestas (privacidad por diseño).
+ *   PASO 2 — Fallback BM25 + LLM (si pgvector no está configurado o falla):
+ *            usa la baseDocumental local (23 docs curados a mano) y el mismo LLM.
+ *            Esto permite que el chat funcione en entornos sin Supabase.
+ *
+ *   PASO 3 — Fallback final: buscarRespuestaDemo (FAQ legacy) o "sin_respuesta".
+ *
+ * Diseño:
+ *   - El frontend (BuscadorSeccion, widget de chat) sigue recibiendo el mismo
+ *     contrato de respuesta: { modo, respuesta, fuente?, url?, links? }.
+ *   - Rate-limit por IP (12/min) y sin persistencia de preguntas (privacidad).
  */
 
 import { NextResponse, type NextRequest } from "next/server";
@@ -30,6 +37,8 @@ import { buscarRespuestaDemo, preguntasSugeridas } from "@/lib/chat/faqLocal";
 import { buscar, topN } from "@/lib/chat/buscador";
 import { chequearGuardrails } from "@/lib/chat/guardrails";
 import { obtenerProveedor, type Proveedor } from "@/lib/chat/proveedores";
+import { recuperar, formatearContexto, type ChunkRecuperado } from "@/lib/rag/retriever";
+import { supabase } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -59,15 +68,36 @@ function getIp(req: NextRequest): string {
 // -------- GET: meta info para el widget --------
 export async function GET() {
   const proveedor = obtenerProveedor();
+  const ragActivo = Boolean(supabase);
   return NextResponse.json({
-    modo: proveedor ? "ia" : "rag",
+    modo: proveedor ? (ragActivo ? "ia+rag-pgvector" : "ia") : "rag",
     proveedor: proveedor?.nombre ?? null,
     modelo: proveedor?.modeloPorDefecto ?? null,
+    rag_pgvector: ragActivo,
     sugeridas: preguntasSugeridas(),
-    aviso: proveedor
-      ? `Asistente híbrido. Primero busca en la base documental verificada (gratis); si no encuentra respuesta, consulta a ${proveedor.nombre === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}.`
-      : "Modo RAG sin LLM: respuestas pregrabadas desde la base documental verificada. Configurá GOOGLE_API_KEY o ANTHROPIC_API_KEY para habilitar IA generativa como techo."
+    aviso: armarAvisoEstado(proveedor, ragActivo)
   });
+}
+
+function armarAvisoEstado(proveedor: Proveedor | null, ragActivo: boolean): string {
+  if (proveedor && ragActivo) {
+    return (
+      "Asistente unificado. Recupera información sobre el corpus completo del municipio " +
+      `(Digesto Oficial, PDFs del Concejo, presupuesto, padrón) vía pgvector y la sintetiza ` +
+      `con ${proveedor.nombre === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}.`
+    );
+  }
+  if (proveedor) {
+    return (
+      "Asistente híbrido legacy. Primero busca en la base documental local; si no encuentra, " +
+      `consulta a ${proveedor.nombre === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}. ` +
+      "Configurá NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY para activar pgvector."
+    );
+  }
+  return (
+    "Modo RAG sin LLM: respuestas pregrabadas desde la base documental verificada. " +
+    "Configurá GOOGLE_API_KEY o ANTHROPIC_API_KEY para habilitar IA generativa."
+  );
 }
 
 // -------- POST: pregunta del usuario → respuesta del asistente --------
@@ -99,10 +129,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ============================================================
-  // PASO 0 — GUARDRAILS: detectar intenciones que NO debemos resolver
-  // (opinión personal, consejo legal/médico, predicciones).
-  // Esto va ANTES del RAG porque el buscador BM25 hace match por
-  // keywords y "intendente" en "qué opinás del intendente" gana score.
+  // PASO 0 — GUARDRAILS: detectar intenciones que NO debemos resolver.
   // ============================================================
   const guard = chequearGuardrails(pregunta);
   if (guard.bloqueado) {
@@ -114,9 +141,44 @@ export async function POST(req: NextRequest) {
     });
   }
 
+  const proveedor = obtenerProveedor();
+
   // ============================================================
-  // PASO 1 — RAG LOCAL: buscar en la base documental verificada.
-  // Si hay match con confianza alta, respondemos sin IA.
+  // PASO 1 — RAG pgvector (motor canónico unificado con WhatsApp).
+  // Solo si Supabase está configurado Y hay un proveedor LLM.
+  // ============================================================
+  if (supabase && proveedor) {
+    try {
+      const chunks = await recuperar(pregunta, {
+        topK: 12,
+        poolInicial: 40,
+        umbral: 0.05
+      });
+
+      if (chunks.length > 0) {
+        const respuesta = await consultarLlmConChunksPgvector(pregunta, proveedor, chunks);
+        return NextResponse.json({
+          modo: "ia",
+          proveedor: proveedor.nombre,
+          modelo: respuesta.modelo,
+          respuesta: respuesta.texto,
+          // Devolvemos info de la fuente principal para que el widget pueda
+          // mostrar "ver fuente original" cuando hace sentido.
+          fuente: chunks[0].fuenteTitulo,
+          url: chunks[0].fuenteUrl ?? undefined,
+          contexto_usado: chunks.slice(0, 5).map((c) => `${c.fuenteTipo}/${c.fuenteId}`)
+        });
+      }
+      // Si pgvector no devolvió chunks, intentamos fallback BM25.
+    } catch (err) {
+      console.error("[/api/v1/chat] error en pgvector RAG, cayendo a fallback BM25:", err);
+      // Sigue al fallback.
+    }
+  }
+
+  // ============================================================
+  // PASO 2 — FALLBACK: BM25 sobre baseDocumental local.
+  // Activo cuando pgvector no está configurado, falló, o no devolvió chunks.
   // ============================================================
   const match = buscar(pregunta);
   if (match) {
@@ -134,13 +196,9 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  // ============================================================
-  // PASO 2 — LLM con contexto RAG (si hay proveedor configurado).
-  // ============================================================
-  const proveedor = obtenerProveedor();
   if (proveedor) {
     try {
-      const respuesta = await consultarLlmConContexto(pregunta, proveedor);
+      const respuesta = await consultarLlmConBM25Local(pregunta, proveedor);
       return NextResponse.json({
         modo: "ia",
         proveedor: proveedor.nombre,
@@ -149,13 +207,12 @@ export async function POST(req: NextRequest) {
         contexto_usado: respuesta.contextoIds
       });
     } catch (err) {
-      console.error("[/api/v1/chat] error en LLM:", err);
-      // No corto: caigo al paso 3 como fallback amigable.
+      console.error("[/api/v1/chat] error en LLM fallback:", err);
     }
   }
 
   // ============================================================
-  // PASO 3 — FAQ legacy y fallback final.
+  // PASO 3 — FAQ legacy y mensaje final.
   // ============================================================
   const respDemo = buscarRespuestaDemo(pregunta);
   if (respDemo) {
@@ -181,9 +238,49 @@ export async function POST(req: NextRequest) {
 }
 
 // ============================================================
-// Helper: arma el contexto RAG y llama al proveedor de LLM.
+// Helper: usar el LLM con chunks recuperados de pgvector como contexto.
+// Reglas duras: cita obligatoria, prioridad de info vigente, no inventar,
+// derivar al canal oficial cuando no hay datos. Mismas reglas que en el bot
+// de WhatsApp para que ambos canales sean consistentes.
 // ============================================================
-async function consultarLlmConContexto(
+async function consultarLlmConChunksPgvector(
+  pregunta: string,
+  proveedor: Proveedor,
+  chunks: ChunkRecuperado[]
+): Promise<{ texto: string; modelo: string }> {
+  const contexto = formatearContexto(chunks);
+
+  const systemPrompt =
+    construirSystemPrompt("web") +
+    "\n\nINSTRUCCIONES DE FORMATO DE RESPUESTA:\n" +
+    "- Respondé en 2 a 5 oraciones, en español rioplatense, claro y útil.\n" +
+    "- Empezá directamente con el dato; NO digas 'Según los documentos...'.\n" +
+    "- Si la respuesta involucra una cifra, presentala con unidad y formato (ej: '$30.940 millones').\n" +
+    "- Citá la fuente entre paréntesis al final, breve y legible (ej: '(Ord. 1872/2009)', '(Presupuesto 2026)', '(Padrón Municipal)').\n" +
+    "- Si NO podés responder con los documentos provistos, decilo en una oración y derivá al canal oficial.\n\n" +
+    "REGLAS DURAS — leer con cuidado:\n" +
+    "1. Solo podés usar información presente en el [CONTEXTO RECUPERADO]. NO inventes cifras, fechas, nombres ni normativa.\n" +
+    "2. Cada chunk tiene una etiqueta al inicio: [OFICIAL VIGENTE 2026 - tipo] o [HISTORICO - tipo]. " +
+    "Los OFICIAL VIGENTE 2026 son SIEMPRE prioritarios sobre los HISTORICO cuando hablamos del presente. " +
+    "Solo usás los HISTORICO cuando la pregunta pide explícitamente datos del pasado.\n" +
+    "3. Para datos de remuneración: respetá la trazabilidad declarada en el chunk (verificado_oficial vs estimacion_referencial). " +
+    "Si es estimación, aclaralo al ciudadano.\n\n" +
+    `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]`;
+
+  const salida = await proveedor.generar({
+    systemPrompt,
+    pregunta,
+    maxTokens: 1200
+  });
+  return { texto: salida.texto, modelo: salida.modelo };
+}
+
+// ============================================================
+// Helper legacy: BM25 sobre baseDocumental + LLM. Solo se usa cuando
+// pgvector no está disponible. Mantiene el comportamiento histórico del
+// endpoint para no degradarlo en entornos no-prod.
+// ============================================================
+async function consultarLlmConBM25Local(
   pregunta: string,
   proveedor: Proveedor
 ): Promise<{ texto: string; modelo: string; contextoIds: string[] }> {
@@ -202,11 +299,6 @@ async function consultarLlmConContexto(
         .join("\n");
   }
 
-  // IMPORTANTE: Gemini 2.5 Flash incluye "thinking tokens" internos dentro
-  // del límite de output. Con 400 tokens, el modelo "piensa" y se queda sin
-  // espacio para escribir la respuesta completa (se corta a media oración).
-  // Subimos a 1200 para garantizar que la respuesta visible llegue completa,
-  // y agregamos una instrucción explícita de concisión al system prompt.
   const systemPrompt =
     construirSystemPrompt("web") +
     contextoTexto +
