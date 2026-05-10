@@ -1,7 +1,8 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
-import MapaManzanasSunchales from "@/components/MapaManzanasSunchales";
+import BuscadorParcelaSCIT from "@/components/BuscadorParcelaSCIT";
 import {
   clasesSuelo,
   parcelasArt4,
@@ -16,6 +17,19 @@ import {
   radios,
   centroSunchales,
 } from "@/lib/data/sunchales-manzanas.generated";
+
+// Leaflet usa window/document — sólo cliente.
+const MapaLeafletSunchales = dynamic(
+  () => import("@/components/MapaLeafletSunchales"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="grid h-[560px] w-full place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
+        Cargando mapa de Sunchales…
+      </div>
+    ),
+  }
+);
 
 export const metadata = {
   title: "Zonificación urbana · Catastro · Sunchales Transparente",
@@ -92,7 +106,7 @@ export default function ZonificacionPage() {
         <StatCard value={String(totalManzanas)} label="Manzanas reales (IPEC 2022)" />
       </div>
 
-      {/* Mapa SVG */}
+      {/* Mapa Leaflet */}
       <section className="mt-10">
         <h2 className="font-serif text-2xl font-bold text-navy">
           Mapa de manzanas y radios censales
@@ -100,20 +114,39 @@ export default function ZonificacionPage() {
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
           {totalManzanas} manzanas y {totalRadios} radios censales del ejido
           urbano. Los espacios verdes y plazas ({totalEspaciosVerdes}) se
-          distinguen en verde. Los radios censales (Fracción + Radio) se
-          muestran como contorno rojo y permiten ver cómo el INDEC subdivide el
-          casco urbano para estadísticas oficiales.
+          distinguen en verde. Mapa interactivo con tiles de OpenStreetMap como
+          base — click en cualquier manzana para ver detalles y usar el zoom
+          para acercarte al detalle parcelario.
         </p>
         <div className="mt-4">
-          <MapaManzanasSunchales />
+          <MapaLeafletSunchales />
         </div>
         <div className="mt-3 rounded-md border-l-2 border-amber-400 bg-amber-50 p-3 text-xs text-amber-900">
           <strong className="block font-semibold">Importante:</strong> Este mapa
-          muestra la <em>geometría parcelaria</em> publicada por IPEC, no la{" "}
-          <em>zonificación urbanística</em>. No se pintan las cinco Áreas de
-          suelo de la Ord. 2800/2019 porque su descripción es literaria (calle
-          por calle) y no hay GeoJSON oficial disponible. Quien quiera ver el
-          plano de zonificación oficial debe consultar el PDF de la Ordenanza.
+          muestra la <em>geometría parcelaria</em> publicada por IPEC sobre
+          tiles de OpenStreetMap, no la <em>zonificación urbanística</em>. No
+          se pintan las cinco Áreas de suelo de la Ord. 2800/2019 porque su
+          descripción es literaria (calle por calle) y no hay GeoJSON oficial
+          disponible. Quien quiera ver el plano de zonificación oficial debe
+          consultar el PDF de la Ordenanza.
+        </div>
+      </section>
+
+      {/* Buscador integrado SCIT */}
+      <section className="mt-10">
+        <h2 className="font-serif text-2xl font-bold text-navy">
+          Buscar mi parcela en el catastro provincial
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm text-slate-600">
+          El catastro de Santa Fe (SCIT, Ley 10.921/1992) ofrece un buscador
+          oficial de parcelas. Por restricciones de seguridad del servidor
+          provincial (header CSP <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">frame-ancestors 'self'</code>),
+          no se puede embeber acá como iframe. En su lugar, este formulario te
+          ayuda a armar el nomenclador catastral correcto y a abrir el
+          buscador oficial en una pestaña nueva.
+        </p>
+        <div className="mt-4">
+          <BuscadorParcelaSCIT />
         </div>
       </section>
 
@@ -239,18 +272,20 @@ export default function ZonificacionPage() {
         </div>
       </section>
 
-      {/* Visualizador SCIT */}
+      {/* Visualizador SCIT — accesos directos */}
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
         <h2 className="font-serif text-2xl font-bold text-navy">
-          Visualizador parcelario provincial (SCIT)
+          Acceso al visualizador parcelario provincial (SCIT)
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
-          Para consultar el dato parcelario oficial individual (nomenclador,
-          superficie, perfil edificado) se usa el visualizador IDESF del Servicio
-          de Catastro e Información Territorial de Santa Fe (Ley 10.921/1992).
-          No se embebe directamente como tile-layer aquí porque el servidor del
-          SCIT no expone CORS, lo que impide consumirlo desde el browser sin
-          proxy; el embedding se hace vía iframe del portal oficial.
+          Para consultar perfil edificado, capas catastrales y datos
+          territoriales completos, el SCIT (Ley 10.921/1992) publica un
+          visualizador oficial. No se incrusta aquí como iframe por el CSP{" "}
+          <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
+            frame-ancestors 'self'
+          </code>{" "}
+          del servidor provincial, ni como tile-layer porque su WMS no expone
+          CORS. Los enlaces directos abren los recursos en pestaña nueva:
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <a
@@ -259,7 +294,7 @@ export default function ZonificacionPage() {
             rel="noopener noreferrer"
             className="rounded-lg bg-coral px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
           >
-            Abrir IDESF centrado en Sunchales →
+            Abrir IDESF (visualizador) →
           </a>
           <a
             href={URL_IDESF_BUSCADOR}
@@ -267,7 +302,7 @@ export default function ZonificacionPage() {
             rel="noopener noreferrer"
             className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50"
           >
-            Buscar parcela por nomenclador →
+            Abrir buscador SCIT →
           </a>
         </div>
         <p className="mt-3 text-[11px] text-slate-500">
@@ -330,14 +365,25 @@ export default function ZonificacionPage() {
         <strong className="block font-semibold text-navy">Nota metodológica</strong>
         <p className="mt-2">
           Definiciones, lista del Art. 4° y nombres de polígonos: extraídos
-          textualmente del PDF oficial de la Ord. 2800/2019. Mapa: shapefile{" "}
+          textualmente del PDF oficial de la Ord. 2800/2019. Geometría base del
+          mapa: shapefile{" "}
           <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
             SUNCHALES.zip
           </code>{" "}
           del IPEC Santa Fe (Censo 2022), reproyectado de POSGAR 1994 Argentina
-          Zone 5 (EPSG:22185) a WGS84 (EPSG:4326) con proj4js. La proyección al
-          viewBox SVG es plana equirectangular — válida visualmente a la escala
-          del ejido urbano, no apta para mediciones cartográficas formales.
+          Zone 5 (EPSG:22185) a WGS84 (EPSG:4326) con proj4js. Renderizado con
+          Leaflet 1.9 y tiles base de OpenStreetMap; sin trackers de terceros.
+        </p>
+        <p className="mt-2">
+          La capa parcelaria oficial del SCIT no se incrusta como tile-layer
+          porque su WMS provincial no envía cabeceras CORS, y su visualizador
+          web no se puede embeber como iframe por su CSP{" "}
+          <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
+            frame-ancestors 'self'
+          </code>
+          . En lugar de inventar una solución, este sitio te permite armar tu
+          nomenclador catastral y abrir el buscador oficial del SCIT en
+          pestaña nueva sin perder contexto.
         </p>
         <p className="mt-2">
           Este sitio no inventa coordenadas ni colorea áreas zonificadas
