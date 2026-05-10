@@ -22,13 +22,19 @@
 html, body { background: #F8FAFC; color: #0F172A; }
 * { -webkit-font-smoothing: antialiased; }
 
-.eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--oro-dark);
+/* Componente reutilizable para textos pre-título tipo "kicker".
+   Por defecto usa oro oscuro (legible sobre blanco). Cuando se usa sobre
+   fondo oscuro, sobreescribir con `text-oro` (utility de Tailwind, gana
+   por estar en @layer utilities). */
+@layer components {
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--oro-dark);
+  }
 }
 
 /* Estilos para el HTML del Digesto Municipal renderizado en /digesto/[id]

@@ -22,7 +22,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-coral to-coral-dark" />
         <div className="mx-auto max-w-6xl px-6 pt-8 pb-12">
-          <span className="eyebrow text-oro">Plataforma cívica · Fase 1 · Bandera de Sunchales</span>
+          <span className="eyebrow text-oro">Plataforma cívica</span>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight md:text-5xl">
             Cada peso público, cada acto y cada cronograma trazables por cualquier vecino.
           </h1>
