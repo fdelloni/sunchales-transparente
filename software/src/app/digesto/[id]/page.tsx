@@ -289,9 +289,9 @@ export default function NormaDetallePage({ params }: { params: { id: string } })
         </p>
         <p className="mt-1">
           La clasificación de vigencia (badge superior) es algorítmica: surge del
-          análisis con Gemini 2.5 Flash sobre el texto de las normas posteriores
-          que cita esta. Para auditarla, mirá la sección "Esta norma fue afectada
-          por" arriba — cada relación incluye la cita textual que la justifica.
+          análisis con IA sobre el texto de las normas posteriores que cita esta.
+          Para auditarla, mirá la sección "Esta norma fue afectada por" arriba —
+          cada relación incluye la cita textual que la justifica.
         </p>
       </footer>
     </div>

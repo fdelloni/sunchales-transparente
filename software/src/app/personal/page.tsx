@@ -21,6 +21,16 @@ import {
   evolucionNomina,
   fuenteEvolucion,
 } from "@/lib/data/nomina-evolucion";
+import {
+  evolucionLicencias,
+  etiquetaTipo,
+  descripcionTipo,
+  fuenteLicencias,
+  tieneDatosPublicados,
+  totalConLicencia,
+  type ConteoLicencia,
+  type TipoLicencia,
+} from "@/lib/data/licencias";
 import EvolucionNominaChart from "./EvolucionNominaChart";
 import { formatARS, formatARSCompact, formatNumber } from "@/lib/format";
 
@@ -1015,13 +1025,248 @@ export default function PersonalPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 7. Brechas formales del módulo                                */}
+      {/* 7. Licencias del personal — pendiente de publicación         */}
+      {/* ============================================================ */}
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl font-bold text-navy">
+          Agentes con licencia
+        </h2>
+        <p className="mt-1 max-w-3xl text-sm text-slate-600">
+          Cuántos empleados municipales están con licencia y de qué tipo. Este
+          dato sirve para entender la salud organizacional del municipio, las
+          condiciones de trabajo y el costo real del Estado (porque cuando un
+          agente está con licencia su sueldo se sigue pagando pero las tareas
+          no se cumplen). <strong>Nunca se publican nombres</strong>; sólo
+          cantidades.
+        </p>
+
+        {/* Estado: no publicado */}
+        <div className="mt-5 overflow-hidden rounded-2xl border-2 border-dashed border-amber-400 bg-gradient-to-br from-amber-50/60 to-white">
+          <div className="px-6 py-5">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-amber-700">
+              Hoy no se publica
+            </span>
+            <h3 className="mt-1 font-serif text-lg font-bold text-amber-900">
+              Cantidad de agentes con licencia, por tipo y por mes
+            </h3>
+            <p className="mt-2 max-w-3xl text-sm text-amber-900/90">
+              La Municipalidad de Sunchales{" "}
+              <strong>no publica este informe</strong>. Esta sección muestra
+              cómo se vería la estadística cuando se reciba la información —
+              por publicación voluntaria del municipio o por pedido formal
+              presentado por la ciudadanía bajo la{" "}
+              <a href="/marco-normativo" className="underline">
+                Ordenanza Sunchales 1872/2009
+              </a>{" "}
+              de acceso a la información pública.
+            </p>
+
+            {/* Tabla con las categorías y placeholders */}
+            <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-amber-200 bg-white px-0 sm:mx-0">
+              <table className="w-full min-w-[640px] text-sm">
+                <thead className="bg-amber-50/60 text-left text-xs uppercase tracking-wider text-amber-800">
+                  <tr>
+                    <th className="px-4 py-3">Tipo de licencia</th>
+                    {evolucionLicencias.map((p) => (
+                      <th key={p.periodo} className="px-4 py-3 text-right">
+                        {p.label}
+                      </th>
+                    ))}
+                    <th className="px-4 py-3 text-center">Qué es</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(Object.keys(etiquetaTipo) as TipoLicencia[]).map((tipo) => {
+                    const esSaludMental = tipo === "salud_mental";
+                    return (
+                      <tr
+                        key={tipo}
+                        className="border-t border-amber-100 align-top"
+                      >
+                        <td className="px-4 py-3">
+                          <span
+                            className={
+                              esSaludMental
+                                ? "font-semibold text-navy"
+                                : "font-medium text-navy"
+                            }
+                          >
+                            {etiquetaTipo[tipo]}
+                          </span>
+                          {esSaludMental && (
+                            <span className="ml-2 rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-700">
+                              regla N≥5
+                            </span>
+                          )}
+                        </td>
+                        {evolucionLicencias.map((p) => {
+                          const c = p.conteos.find(
+                            (x) => x.tipo === tipo
+                          ) as ConteoLicencia | undefined;
+                          return (
+                            <td
+                              key={p.periodo}
+                              className="px-4 py-3 text-right"
+                            >
+                              {c?.cantidad == null ? (
+                                <span className="text-[12px] italic text-slate-400">
+                                  pendiente
+                                </span>
+                              ) : c.enmascarado ? (
+                                <span
+                                  className="tabular-nums text-slate-600"
+                                  title="Menos de 5 casos: se enmascara para que no se pueda identificar a la persona."
+                                >
+                                  &lt;5
+                                </span>
+                              ) : (
+                                <span className="tabular-nums">
+                                  {formatNumber(c.cantidad)}
+                                </span>
+                              )}
+                            </td>
+                          );
+                        })}
+                        <td className="px-4 py-3 text-[12px] leading-snug text-slate-600">
+                          {descripcionTipo[tipo]}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  <tr className="border-t-2 border-amber-300 bg-amber-50/40">
+                    <td className="px-4 py-3 font-bold text-navy">
+                      Total con licencia
+                    </td>
+                    {evolucionLicencias.map((p) => {
+                      const t = totalConLicencia(p);
+                      return (
+                        <td
+                          key={p.periodo}
+                          className="px-4 py-3 text-right font-bold"
+                        >
+                          {t == null ? (
+                            <span className="text-[12px] italic text-slate-400">
+                              pendiente
+                            </span>
+                          ) : (
+                            <span className="tabular-nums">
+                              {formatNumber(t)}
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+                    <td />
+                  </tr>
+                  <tr className="border-t border-amber-100 bg-amber-50/40">
+                    <td className="px-4 py-3 text-[13px] italic text-slate-700">
+                      % del plantel con licencia
+                    </td>
+                    {evolucionLicencias.map((p) => {
+                      const t = totalConLicencia(p);
+                      const pa = p.plantelActivo;
+                      const tasa =
+                        t == null || pa == null ? null : (t / pa) * 100;
+                      return (
+                        <td
+                          key={p.periodo}
+                          className="px-4 py-3 text-right text-slate-700"
+                        >
+                          {tasa == null ? (
+                            <span className="text-[12px] italic text-slate-400">
+                              pendiente
+                            </span>
+                          ) : (
+                            <span className="tabular-nums">
+                              {tasa.toFixed(1)}%
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+                    <td className="px-4 py-3 text-[11px] italic text-slate-500">
+                      Total con licencia ÷ plantel activo del mes.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-amber-100 text-[12px] text-slate-500">
+                    <td className="px-4 py-3 italic">
+                      Plantel activo del mes
+                    </td>
+                    {evolucionLicencias.map((p) => (
+                      <td
+                        key={p.periodo}
+                        className="px-4 py-3 text-right tabular-nums italic"
+                      >
+                        {p.plantelActivo != null
+                          ? formatNumber(p.plantelActivo)
+                          : "—"}
+                      </td>
+                    ))}
+                    <td className="px-4 py-3 text-[11px] italic text-slate-500">
+                      Verificado contra el PDF oficial del mes.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Notas en lenguaje llano */}
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-md border-l-2 border-amber-500 bg-amber-50 p-3 text-[13px] text-amber-900">
+                <strong>¿Esto se puede publicar sin violar la privacidad?</strong>{" "}
+                Sí. Las leyes argentinas permiten expresamente publicar
+                estadísticas de salud y de personal cuando son
+                <strong> agregadas y sin nombres</strong> (Ley 25.326 art. 11).
+                Saber cuántas personas están con licencia es información de
+                gestión pública, no datos personales.
+              </div>
+              <div className="rounded-md border-l-2 border-emerald-500 bg-emerald-50 p-3 text-[13px] text-emerald-900">
+                <strong>¿Qué es la &ldquo;regla N≥5&rdquo;?</strong> En grupos
+                chicos, aunque no digamos el nombre alguien podría deducirlo.
+                Por eso, cuando hay menos de 5 personas en una categoría
+                sensible (por ejemplo salud mental), mostramos
+                &ldquo;&lt;5&rdquo; en lugar del número exacto. Es la regla
+                estándar que usa el INDEC y las agencias de estadística del
+                mundo.
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <a
+                href="/suscripciones"
+                className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
+              >
+                Sumarme al pedido para que se publique
+              </a>
+              <a
+                href="/marco-normativo"
+                className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
+              >
+                Ver marco legal
+              </a>
+            </div>
+
+            <p className="mt-4 text-[11px] text-slate-500">
+              Plantel activo verificado contra los PDFs oficiales de la
+              Municipalidad (septiembre 2025 y abril 2026, parseados por este
+              proyecto).{" "}
+              {tieneDatosPublicados()
+                ? "Algunos valores de licencias ya están cargados."
+                : "Las cantidades de licencias se cargarán cuando el municipio publique el informe."}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 8. Brechas formales del módulo                                */}
       {/* ============================================================ */}
       <div id="brechas">
         <BrechasTransparencia
           modulo="personal"
           titulo="Brechas de transparencia del módulo Personal"
-          intro="La municipalidad publica una nómina mensual con nombre, sector y modalidad de cada agente — gran avance respecto del estándar promedio de la provincia. Sin embargo, persisten brechas: la antigüedad por agente, las fechas exactas de designación y los importes reales de cada vinculación siguen sin ser accesibles en formato estructurado."
+          intro="La municipalidad publica una nómina mensual con nombre, sector y modalidad de cada agente — gran avance respecto del estándar promedio de la provincia. Sin embargo, persisten brechas: la antigüedad por agente, las fechas exactas de designación, los importes reales de cada vinculación y la estadística agregada de licencias siguen sin ser accesibles en formato estructurado."
         />
       </div>
     </div>

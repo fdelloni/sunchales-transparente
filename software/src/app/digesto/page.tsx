@@ -265,11 +265,11 @@ export default function DigestoPage() {
           .
         </p>
         <p className="mt-1.5">
-          <strong>Clasificación de vigencia:</strong> análisis algorítmico con
-          Gemini 2.5 Flash sobre el texto de cada norma. Detecta derogaciones y
-          modificaciones <strong>EXPLÍCITAS</strong> (ej. <em>"Derógase la Ord. N°
-          X"</em>, <em>"Modifícase el art. Y de la Ord. Z"</em>). Las relaciones
-          tácitas requieren revisión legal humana y no se cuentan acá.
+          <strong>Clasificación de vigencia:</strong> análisis algorítmico con IA
+          sobre el texto de cada norma. Detecta derogaciones y modificaciones
+          <strong> EXPLÍCITAS</strong> (ej. <em>"Derógase la Ord. N° X"</em>,
+          <em>"Modifícase el art. Y de la Ord. Z"</em>). Las relaciones tácitas
+          requieren revisión legal humana y no se cuentan acá.
         </p>
       </div>
 
