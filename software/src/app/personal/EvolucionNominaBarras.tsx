@@ -64,8 +64,8 @@ export default function EvolucionNominaBarras() {
                 fontSize: 12,
               }}
               labelStyle={{ color: "#cbd5e1", fontWeight: 600 }}
-              formatter={(v: number | null) =>
-                v == null ? "no publicado" : v
+              formatter={(value) =>
+                value == null ? "no publicado" : String(value)
               }
             />
             <Legend
