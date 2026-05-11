@@ -69,18 +69,134 @@ export type DistribucionCategoria = {
 };
 
 // =====================================================================
-// CONTEOS INFERIDOS DESDE NOMBRE (abril 2026)
+// INFERENCIA DINÁMICA DE GÉNERO (para planta política)
+// =====================================================================
+//
+// Como los nombres de la planta política están en código (personal.ts),
+// inferimos el género en runtime cuando se construye la distribución.
+// Así, cuando se agreguen o quiten cargos, el cálculo se actualiza solo.
+//
+// Para las otras 3 categorías (planta permanente, transitorios, contratados)
+// los nombres NO están en código (los borramos por privacidad), así que
+// usamos los conteos pre-calculados desde la inferencia Python.
+
+const NOMBRES_VARON = new Set([
+  "PABLO","DANIEL","FABIAN","FERNANDO","JUAN","JAVIER","LUCIANO","LUIS",
+  "JOSE","ROBERTO","CARLOS","MIGUEL","RICARDO","HECTOR","RAUL","JORGE",
+  "MARIO","DIEGO","SANTIAGO","ALEJANDRO","FRANCO","MARTIN","SEBASTIAN",
+  "GABRIEL","CRISTIAN","NICOLAS","HUGO","NORBERTO","WALTER","OSCAR",
+  "MATIAS","RODRIGO","LUCAS","TOMAS","FACUNDO","JOAQUIN","MAURICIO",
+  "EMANUEL","LEONARDO","HERNAN","GUSTAVO","CESAR","RAMON","DANTE",
+  "ESTEBAN","AGUSTIN","RAFAEL","ARIEL","MARCELO","EZEQUIEL","ANGEL",
+  "VICTOR","SERGIO","EDUARDO","ENRIQUE","RUBEN","DARIO","FRANCISCO",
+  "ADRIAN","CLAUDIO","ELI","DAMIAN","GERMAN","MAURO","IGNACIO",
+  "JESUS","NAHUEL","JONATAN","EMILIANO","BRUNO","BENJAMIN","ALAN",
+  "GUILLERMO","ROMAN","ALBERTO","ARMANDO","ALDO","ADOLFO","GERARDO",
+  "EDGARDO","JOSHUA","MAXIMILIANO","ABRAHAM","BENITO","ROMULO","RODOLFO",
+  "AVELINO","ALCIDE","ALEXIS","ALDO","ANIBAL","BAUTISTA","CONRADO",
+  "DAVID","DOMINGO","ELIAS","ENZO","ERIC","ERICO","ESTEFANO","EUGENIO",
+  "FELIPE","FLAVIO","ISAAC","ISAIAS","IVAN","JACINTO","JOSE LUIS",
+  "JONATHAN","LAUTARO","LEANDRO","LEONEL","LIONEL","LISANDRO","LORENZO",
+  "MANUEL","MARCO","MARCOS","MATEO","MIJAIL","MILTON","MOISES","NESTOR",
+  "OMAR","OSVALDO","PATRICIO","PAULO","PEDRO","RAMIRO","RENATO",
+  "SAMUEL","SANTINO","SAUL","SIMON","TADEO","TIAGO","TULIO","ULISES",
+  "VALENTIN","VICENTE","YAMIL","ALFONSO","ALVARO","AMERICO","ANTONIO",
+  "ARTURO","ATILIO","AUGUSTO","AXEL","CIRO",
+]);
+
+const NOMBRES_MUJER = new Set([
+  "ANDREA","LUCIA","VANESA","LUCIANA","ELISA","DANIELA","MARIA",
+  "MARILINA","CECILIA","MAGALI","CAROLINA","FABRINA","SILVIA","NATALIA",
+  "ADRIANA","SOFIA","VALERIA","ANALIA","CAMILA","ALEJANDRA","LAURA",
+  "CRISTINA","SUSANA","MONICA","MARTA","ROSA","BLANCA","ANA",
+  "MARIANA","MARIANELA","MARIELA","MARICEL","MARIA EUGENIA","MIRIAM",
+  "PATRICIA","VERONICA","VIVIANA","JUANA","ISABEL","ELENA","TERESA",
+  "MELINA","MELISA","MICAELA","NOELIA","PAOLA","MARINA","ROCIO",
+  "ROMINA","SABRINA","SOLEDAD","TAMARA","VICTORIA","YANINA","YESICA",
+  "BELEN","BEATRIZ","CECILIA","CINTIA","ELIANA","ESTELA","ESTER",
+  "EVA","FABIANA","FLORENCIA","FRANCESCA","GABRIELA","GISELA","GISELLE",
+  "GRACIELA","GUADALUPE","GUILLERMINA","IVANA","JESSICA","JESICA",
+  "JIMENA","JULIA","JULIANA","JULIETA","KARINA","KAREN","LEILA",
+  "LILIANA","LORENA","LOURDES","LUCRECIA","LUDMILA","LUISA","LUISINA",
+  "MABEL","MAGDALENA","MARCELA","MARGARITA","MARISA","MARISOL","MAGALI",
+  "MILAGROS","MIRTA","MIRTHA","NANCY","NATIVIDAD","NIDIA","NIEVES",
+  "NILDA","NIRVIA","NOEMI","NORA","NORMA","OFELIA","OLGA","OLIVIA",
+  "ORIANA","PALMIRA","PAULA","PERLA","RAFAELA","RAMONA","RAQUEL",
+  "REBECA","REGINA","RITA","ROMELIA","ROSARIO","RUTH","SAMANTA",
+  "SAMANTHA","SANDRA","SARA","SHIRLEY","SHIRLI","SILVANA","SOL",
+  "SOLANGE","SOLANA","SONIA","SORAYA","STEFANIA","STELLA","TANIA",
+  "TATIANA","TELMA","TRINIDAD","ZAIRA","ZULEMA","ZULMA","WANDA",
+  "XIMENA","YAEL","YAMILA","YAZMIN","YESMIN","YOHANA","YOLANDA",
+  "ABRIL","ADELINA","AGOSTINA","AGUSTINA","AILEN","AYELEN","AYLEN",
+  "AZUL","ANGELES","ANGELINA","ANTONELLA","ANTONELA","ARACELI",
+  "AZUCENA","BARBARA","BETIANA","BIANCA","BRENDA","BRISA","CANDELA",
+  "CARLA","CATALINA","CELESTE","CELINA","CLAUDIA","CONSTANZA","CORINA",
+  "DAIANA","DALMA","DELFINA","DIANA","DIANELA","DOLORES","EDITH",
+  "ELBA","ELISA","ELISABET","ELOISA","EMILIA","EMMA","ESPERANZA",
+  "ESTEFANIA","ETELVINA","EUGENIA","EVELIN","EVELYN","FATIMA","FELICIANA",
+  "FELISA","FLAVIA","FLOR","HEBE","HILDA","HORTENSIA","INES","INGRID",
+  "IRENE","IRIS","ITATI","IVONNE","JANINA","JESSI","JOHANA","JOSEFA",
+  "JOSEFINA","JOYCE","KARLA","LAILA","LEONOR","LETICIA","LIA",
+  "LIBERTAD","LINA","LIVIA","LOLA","LUNA","LUZ","LYDIA","MAIRA",
+  "MALENA","MARA","MARLEN","MARLENE","MATILDE","MELANI","MELANIE",
+  "MERCEDES","MOIRA","MORENA","NADIA","NAOMI","NICOLE","NOEMI",
+  "NORA","NURIA","PAMELA","PAULINA","PETRONA","PIA","PILAR","RENEE",
+  "ROSALIA","ROSALINA","ROSALINDA","ROSANA","ROSAURA","ROSITA","RUBI",
+]);
+
+/**
+ * Infiere género desde el nombre completo. Toma el primer nombre relevante,
+ * busca en diccionario y, en su defecto, aplica heurística por terminación.
+ * Devuelve null cuando no puede decidir.
+ */
+function inferirGenero(apellidoNombre: string): Genero | null {
+  // Quitar tildes y pasar a mayúsculas
+  const norm = apellidoNombre
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toUpperCase();
+  // Separar "Apellido, Nombre" o "Apellido Nombre"
+  let nombresParte: string;
+  if (norm.includes(",")) {
+    nombresParte = norm.split(",")[1].trim();
+  } else {
+    const tokens = norm.split(/\s+/);
+    nombresParte = tokens.slice(1).join(" ");
+  }
+  // Primer nombre que tenga sentido (más de 2 letras y no termine en punto)
+  const palabras = nombresParte.split(/\s+/).filter((p) => p.length > 1 && !p.endsWith("."));
+  if (palabras.length === 0) return null;
+  const primer = palabras[0].replace(/\./g, "");
+
+  // Compuestos típicos
+  // María Eugenia / María José / María de... → mujer si arranca con MARIA
+  if (primer === "MARIA") return "mujer";
+  // José María / José Luis / etc. → varón si arranca con JOSE
+  if (primer === "JOSE") return "varon";
+  // Juan Cruz / Juan Carlos → varón
+  if (primer === "JUAN") return "varon";
+  // Ana María → mujer
+  if (primer === "ANA") return "mujer";
+
+  if (NOMBRES_VARON.has(primer)) return "varon";
+  if (NOMBRES_MUJER.has(primer)) return "mujer";
+
+  // Heurística por terminación
+  if (primer.endsWith("A")) return "mujer";
+  if (primer.endsWith("O")) return "varon";
+  if (/[LRNSDZTXY]$/.test(primer)) return "varon"; // mayoría masculino terminado en consonante
+
+  return null;
+}
+
+// =====================================================================
+// CONTEOS PRE-CALCULADOS (categorías sin nombres en código)
 // =====================================================================
 
 const CONTEOS: Record<
-  CategoriaVinculacionGenero,
+  Exclude<CategoriaVinculacionGenero, "planta_politica">,
   Record<string, { mujer: number; varon: number }>
 > = {
-  planta_politica: {
-    "Departamento Ejecutivo": { mujer: 0, varon: 1 },
-    "Secretaría de Gestión": { mujer: 3, varon: 1 },
-    "Secretaría de Desarrollo": { mujer: 2, varon: 1 },
-  },
   planta_permanente: {
     "OBRAS Y SERV. PÚBLICOS": { mujer: 8, varon: 85 },
     "HACIENDA Y FINANZAS": { mujer: 12, varon: 4 },
@@ -147,29 +263,34 @@ function construirCategoriaPDF(
 }
 
 function construirCategoriaPolitica(): DistribucionCategoria {
-  // Agrupar la planta política por área del organigrama
-  const porArea = new Map<string, number>();
-  for (const e of empleados) {
-    porArea.set(e.area, (porArea.get(e.area) ?? 0) + 1);
-  }
-  const conteosCat = CONTEOS.planta_politica;
+  // Inferimos género agente por agente y agrupamos por área del organigrama.
+  // Así, cuando se agregue/quite un cargo en personal.ts, el cálculo se
+  // actualiza automáticamente sin tocar genero.ts.
+  const porArea = new Map<
+    string,
+    { total: number; mujer: number; varon: number }
+  >();
   let totM = 0,
     totV = 0;
+  for (const e of empleados) {
+    const slot = porArea.get(e.area) ?? { total: 0, mujer: 0, varon: 0 };
+    slot.total += 1;
+    const g = inferirGenero(e.apellidoNombre);
+    if (g === "mujer") {
+      slot.mujer += 1;
+      totM += 1;
+    } else if (g === "varon") {
+      slot.varon += 1;
+      totV += 1;
+    }
+    porArea.set(e.area, slot);
+  }
   const porSectorList: DistribucionSector[] = Array.from(porArea.entries())
-    .map(([seccion, cantidad]) => {
-      const c = conteosCat[seccion];
-      if (c) {
-        totM += c.mujer;
-        totV += c.varon;
-      }
-      return {
-        seccion,
-        totalAgentes: cantidad,
-        conteos: c
-          ? { mujer: c.mujer, varon: c.varon }
-          : { mujer: null, varon: null },
-      };
-    })
+    .map(([seccion, s]) => ({
+      seccion,
+      totalAgentes: s.total,
+      conteos: { mujer: s.mujer, varon: s.varon },
+    }))
     .sort((a, b) => b.totalAgentes - a.totalAgentes);
   return {
     categoria: "planta_politica",
