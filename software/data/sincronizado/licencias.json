@@ -1,0 +1,91 @@
+{
+  "evolucion": [
+    {
+      "periodo": "2026-04",
+      "label": "Abril 2026",
+      "plantelActivo": 465,
+      "conteos": [
+        {
+          "tipo": "salud_corta",
+          "cantidad": null
+        },
+        {
+          "tipo": "salud_larga",
+          "cantidad": null
+        },
+        {
+          "tipo": "salud_mental",
+          "cantidad": null
+        },
+        {
+          "tipo": "accidente_trabajo",
+          "cantidad": null
+        },
+        {
+          "tipo": "particular_sin_goce",
+          "cantidad": null
+        },
+        {
+          "tipo": "sin_asignacion",
+          "cantidad": null
+        }
+      ],
+      "urlInforme": null,
+      "nota": "Plantel activo verificado contra PDF oficial 2026-04. Cantidades de licencias no publicadas por el municipio."
+    },
+    {
+      "periodo": "2025-09",
+      "label": "Septiembre 2025",
+      "plantelActivo": 468,
+      "conteos": [
+        {
+          "tipo": "salud_corta",
+          "cantidad": null
+        },
+        {
+          "tipo": "salud_larga",
+          "cantidad": null
+        },
+        {
+          "tipo": "salud_mental",
+          "cantidad": null
+        },
+        {
+          "tipo": "accidente_trabajo",
+          "cantidad": null
+        },
+        {
+          "tipo": "particular_sin_goce",
+          "cantidad": null
+        },
+        {
+          "tipo": "sin_asignacion",
+          "cantidad": null
+        }
+      ],
+      "urlInforme": null,
+      "nota": "Plantel activo verificado contra PDF oficial 2025-09. Cantidades de licencias no publicadas por el municipio."
+    }
+  ],
+  "fuente": {
+    "paginaPotencial": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/",
+    "notaMetodologica": "Categorías seleccionadas por su valor como indicadores de gestión, no por curiosidad sobre la vida personal del agente. Se aplica regla de N mínimo de 5 (estándar INDEC) para evitar que en grupos chicos alguien pueda deducir quién es la persona detrás del número. La categoría 'salud mental' tiene esta protección reforzada.",
+    "fundamentoPublicacion": "Ordenanza Sunchales 1872/2009 — acceso a la información pública municipal · Ley 25.326 art. 11 — autoriza el tratamiento estadístico con disociación · principio republicano de control del gasto público."
+  },
+  "etiquetas": {
+    "salud_corta": "Salud — corta duración (hasta 30 días)",
+    "salud_larga": "Salud — larga duración (más de 30 días)",
+    "salud_mental": "Salud mental",
+    "accidente_trabajo": "Accidente de trabajo / ART",
+    "particular_sin_goce": "Particular sin goce de sueldo",
+    "sin_asignacion": "Sin asignación de tareas"
+  },
+  "indicadores": {
+    "salud_corta": "Salud laboral común. Si sube de forma sostenida puede indicar problemas de ambiente o carga de trabajo.",
+    "salud_larga": "Cuántos agentes están temporalmente fuera por motivos serios de salud.",
+    "salud_mental": "Categoría visible y propia, con regla N≥5 para no estigmatizar.",
+    "accidente_trabajo": "Condiciones de seguridad e higiene.",
+    "particular_sin_goce": "Vínculo activo sin prestación — cuando se prolonga sin razón puede indicar irregularidad.",
+    "sin_asignacion": "Sumarios sin resolver, juntas médicas estancadas. La más sensible para auditar."
+  }
+}

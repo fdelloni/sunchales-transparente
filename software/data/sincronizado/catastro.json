@@ -1,0 +1,138 @@
+{
+  "normas": [
+    {
+      "id": "ley26209",
+      "jerarquia": "nacional",
+      "numero": "Ley 26.209",
+      "titulo": "Catastro Nacional",
+      "resumen": "Marco general de los catastros territoriales en la República Argentina. Art. 1 inc. b: la publicidad del estado parcelario es función esencial de los catastros. Sirve de fundamento al derecho ciudadano de acceder a la información parcelaria.",
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-26209-124298/texto",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "leysf10921",
+      "jerarquia": "provincial",
+      "numero": "Ley provincial 10.921/1992",
+      "titulo": "Servicio de Catastro e Información Territorial (SCIT) — Santa Fe",
+      "resumen": "Crea el SCIT como organismo administrador del catastro territorial de la provincia de Santa Fe. Sus funciones incluyen la formación, conservación y publicación del estado parcelario provincial.",
+      "url": "https://www.santafe.gob.ar/index.php/web/content/view/full/100820",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "leysf2996",
+      "jerarquia": "provincial",
+      "numero": "Ley provincial 2.996 (t.o.)",
+      "titulo": "Avaluación y Catastro de la Propiedad Raíz — Santa Fe",
+      "resumen": "Norma histórica (1941, con sucesivas reformas) que regula la avaluación fiscal de los inmuebles y los procedimientos catastrales provinciales. Base legal de las valuaciones que luego utilizan los municipios para sus tributos inmobiliarios.",
+      "url": "https://www.santafe.gov.ar/index.php/web/content/view/full/6950",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ord2800-2019",
+      "jerarquia": "municipal",
+      "numero": "Ord. Sunchales 2800/2019",
+      "titulo": "Plano de Áreas de Sunchales",
+      "resumen": "Define las áreas urbanas del ejido de Sunchales. Base para la zonificación municipal vigente y para la aplicación diferencial de tributos como la TGI y la sobretasa a baldíos.",
+      "url": "https://concejosunchales.gob.ar/documentos/digesto/digesto.3902.O%202800%202019.pdf",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ord2789-2019",
+      "jerarquia": "municipal",
+      "numero": "Ord. Sunchales 2789/2019",
+      "titulo": "Régimen catastral/tributario",
+      "resumen": "Componente del régimen tributario municipal aplicable a inmuebles. Texto disponible con su decreto promulgatorio adjunto.",
+      "url": "https://portalril.org/contenido/_documentos_digesto_digesto.3860.O%202789%202019%20con%20decreto.pdf",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ord1294-1999",
+      "jerarquia": "municipal",
+      "numero": "Ord. Sunchales 1294/1999",
+      "titulo": "Plano de zonificación urbana original",
+      "resumen": "Primera norma de zonificación urbana que estableció el plano de niveles y usos del suelo del ejido. Sucesivas ordenanzas la modificaron parcialmente (1933/2009 y siguientes).",
+      "url": "https://concejosunchales.gob.ar/Normativa-local.aspx",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ord2989",
+      "jerarquia": "municipal",
+      "numero": "Ord. Sunchales 2989",
+      "titulo": "Sobretasa a terrenos baldíos",
+      "resumen": "Establece sobretasa diferencial sobre terrenos baldíos como instrumento de política urbana (desincentivar especulación, promover ocupación efectiva). En disputa pública activa durante 2026.",
+      "url": "https://concejosunchales.gob.ar/Normativa-local.aspx",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ord3266-vetada",
+      "jerarquia": "municipal",
+      "numero": "Ord. Sunchales 3266 (VETADA)",
+      "titulo": "Suspensión sobretasa baldíos — vetada por el DEM",
+      "resumen": "Sanciona la suspensión de la sobretasa de la Ord. 2989. Fue vetada por el Departamento Ejecutivo Municipal. La cuestión se trató en sesión extraordinaria del Concejo el 27/02/2026.",
+      "url": "https://concejosunchales.gob.ar/Normativa-local.aspx",
+      "fetchedAt": "2026-05-10"
+    },
+    {
+      "id": "ley25326-catastro",
+      "jerarquia": "limite",
+      "numero": "Ley Nacional 25.326",
+      "titulo": "Protección de Datos Personales — límite legítimo",
+      "resumen": "Protege titular registral, DNI, domicilio fiscal del propietario. NO se extiende a la geometría parcelaria, el nomenclador (sección/manzana/parcela), la superficie, la valuación fiscal ni la zonificación: esos son datos sobre cosas, no sobre personas, y por regla son publicables.",
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-25326-64790",
+      "fetchedAt": "2026-05-10"
+    }
+  ],
+  "oficina": {
+    "nombre": "Oficina de Catastro",
+    "dependencia": "Subdirección de Obras Privadas — Secretaría de Gestión Ambiental y Territorial",
+    "encargado": "Arq. Pablo Pueyo",
+    "domicilio": "Av. Belgrano 103, Sunchales (Santa Fe)",
+    "email": "catastro@sunchales.gov.ar",
+    "arancelConsulta": "10 UCM (Unidades Catastro Municipal) por consulta de dato catastral",
+    "fuenteVerbatim": "Información declarada en el listado oficial de trámites del Municipio (sunchales.gob.ar/gestion/sunchales-impulsa/tramites/) que individualiza a la Oficina de Catastro como área tramitadora."
+  },
+  "tramites": [
+    {
+      "id": "datos-catastrales",
+      "nombre": "Solicitar datos catastrales",
+      "descripcion": "Consulta del dato catastral asociado a un inmueble. Arancel: 10 UCM por consulta.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/solicitar-datos-catastrales/"
+    },
+    {
+      "id": "actualizacion-datos",
+      "nombre": "Solicitar actualización de datos catastrales",
+      "descripcion": "Pedido de actualización en la base catastral municipal por modificación dominial o física.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    },
+    {
+      "id": "certificado-final-obra",
+      "nombre": "Solicitar certificado final de obra",
+      "descripcion": "Acto administrativo que acredita la finalización de una obra conforme al permiso de construcción otorgado.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    },
+    {
+      "id": "permiso-construccion",
+      "nombre": "Solicitar permiso de construcción",
+      "descripcion": "Autorización municipal previa para construir, reformar o ampliar inmuebles, sujeta a la zonificación vigente.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    },
+    {
+      "id": "cambio-domicilio-tgi",
+      "nombre": "Solicitar cambio de domicilio para TGI",
+      "descripcion": "Actualización del domicilio fiscal del contribuyente para la Tasa General de Inmuebles.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    },
+    {
+      "id": "visado-previo",
+      "nombre": "Solicitar visado previo a planos de obra",
+      "descripcion": "Revisión técnica previa al ingreso formal del expediente de permiso de construcción.",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    },
+    {
+      "id": "regularizacion-dominial",
+      "nombre": "Solicitar regularización dominial",
+      "descripcion": "Gestión para regularizar inmuebles cuya situación dominial es irregular (Programa Nacional/Provincial de regularización).",
+      "url": "https://sunchales.gob.ar/gestion/sunchales-impulsa/tramites/"
+    }
+  ]
+}

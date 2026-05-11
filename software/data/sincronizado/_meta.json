@@ -1,13 +1,32 @@
 {
-  "generadoEn": "2026-05-10T23:29:56.711Z",
+  "generadoEn": "2026-05-11T21:06:39.338Z",
   "fuentes": {
     "funcionarios": "src/lib/data/personal.ts",
     "presupuesto": "src/lib/data/presupuesto.ts",
-    "faq": "src/lib/whatsapp/data/faq.ts"
+    "faq": "src/lib/whatsapp/data/faq.ts",
+    "concejo": "src/lib/data/concejo.ts",
+    "juzgado": "src/lib/data/juzgado.ts",
+    "contrataciones": "src/lib/data/contrataciones.ts",
+    "brechas": "src/lib/data/brechas.ts",
+    "marcoNormativo": "src/lib/data/marcoNormativo.ts",
+    "catastro": "src/lib/data/catastro.ts",
+    "zonificacion": "src/lib/data/zonificacion.ts",
+    "licencias": "src/lib/data/licencias.ts",
+    "recaudacion": "src/lib/data/recaudacion.ts"
   },
   "conteos": {
     "funcionarios": 21,
     "partidasPresupuesto": 20,
-    "faq": 8
+    "faq": 8,
+    "concejales": 6,
+    "comisiones": 25,
+    "personalConcejo": 3,
+    "contrataciones": 4,
+    "brechas": 43,
+    "normasMarcoCompleto": 5,
+    "normasCatastrales": 9,
+    "clasesSuelo": 5,
+    "tiposLicencia": 6,
+    "recursos": 19
   }
 }
