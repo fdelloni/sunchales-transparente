@@ -425,6 +425,42 @@ export const brechas: Brecha[] = [
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-10"
   },
+  {
+    id: "per-genero-distribucion",
+    modulo: "personal",
+    titulo: "Distribución por género del personal municipal (mujeres / varones / no binario)",
+    descripcion:
+      "El PDF oficial de la nómina no incluye el género del personal. Sin ese dato no es posible analizar brecha de género en la composición de la planta, ni el acceso a cargos jerárquicos, ni la segregación por sector (por ejemplo, predominio masculino en Obras y Servicios Públicos o femenino en Cultura y Educación). La publicación debe respetar la Ley Nacional 26.743 de Identidad de Género (categorías: mujer, varón, identidad no binaria, sin declarar), no inferirse desde el nombre, y publicarse agregada por categoría y sector.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley Nacional 26.485 art. 11 inc. 5 (estadísticas con perspectiva de género en todos los organismos públicos) · Ley Nacional 26.743 de Identidad de Género · Convención CEDAW (jerarquía constitucional, CN art. 75 inc. 22) · Ley provincial 13.348 (adhesión a Ley 26.485).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-genero-cargos-jerarquicos",
+    modulo: "personal",
+    titulo: "Brecha de género en cargos jerárquicos",
+    descripcion:
+      "No se publica la distribución por género de los cargos jerárquicos (secretarías, subsecretarías, direcciones, coordinaciones). Es el indicador clave para evaluar si la Municipalidad cumple con los compromisos de paridad asumidos por el Estado argentino tras la adhesión a CEDAW y la Ley 26.485. Permite ver el llamado 'techo de cristal' a nivel municipal.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · CEDAW (jerarquía constitucional) · Ley 26.485 art. 11 inc. 5 · Plan Nacional de Igualdad en la Diversidad.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-genero-remuneracion",
+    modulo: "personal",
+    titulo: "Brecha salarial de género en el municipio",
+    descripcion:
+      "No se publica la diferencia agregada entre remuneraciones promedio percibidas por mujeres y por varones dentro del municipio, ni desagregada por categoría y por sector. Es el indicador que permite verificar la implementación efectiva del principio constitucional de 'igual remuneración por igual tarea' (CN art. 14 bis) y los compromisos de CEDAW.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · CN art. 14 bis · CEDAW · Ley Nacional 26.485 art. 11 inc. 5 (estadísticas con perspectiva de género).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
 
   // ===== AUDIENCIAS PÚBLICAS =====
   {

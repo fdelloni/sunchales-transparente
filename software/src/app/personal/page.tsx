@@ -32,6 +32,8 @@ import {
   type TipoLicencia,
 } from "@/lib/data/licencias";
 import EvolucionNominaChart from "./EvolucionNominaChart";
+import EvolucionNominaBarras from "./EvolucionNominaBarras";
+import GeneroSection from "./GeneroSection";
 import { formatARS, formatARSCompact, formatNumber } from "@/lib/format";
 
 /* ------------------------------------------------------------------ */
@@ -918,9 +920,61 @@ export default function PersonalPage() {
           demás series sólo existen desde 2025-09.
         </div>
 
-        {/* Gráfico */}
-        <div className="mt-5">
-          <EvolucionNominaChart />
+        {/* Gráficos: línea y barras lado a lado */}
+        <div className="mt-5 grid gap-4 lg:grid-cols-2">
+          <div>
+            <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-slate-500">
+              Evolución como línea de tendencia
+            </h3>
+            <EvolucionNominaChart />
+          </div>
+          <div>
+            <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-slate-500">
+              Comparación período a período (barras)
+            </h3>
+            <EvolucionNominaBarras />
+          </div>
+        </div>
+
+        {/* Aviso destacado: cobertura insuficiente */}
+        <div className="mt-5 rounded-2xl border-2 border-amber-400 bg-amber-50/70 p-5">
+          <div className="flex items-start gap-3">
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg bg-amber-500 text-xl font-black text-white">
+              !
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-amber-900">
+                La cobertura histórica es insuficiente para análisis serio
+              </h3>
+              <p className="mt-1 max-w-3xl text-[14px] text-amber-900/90">
+                La página oficial de la municipalidad enlaza{" "}
+                <strong>sólo 5 PDFs en aproximadamente 20 meses</strong>{" "}
+                (agosto/2024, octubre/2024, enero/2025, septiembre/2025 y
+                abril/2026). Entre publicaciones hay saltos de 6 a 8 meses, y
+                los 3 PDFs más antiguos sólo listaban personal transitorio (no
+                la nómina completa). Con esta granularidad{" "}
+                <strong>no es posible</strong> detectar tendencias estacionales,
+                evaluar impactos de cambios de gestión, ni calcular tasas de
+                rotación con precisión. El estándar mínimo para análisis
+                serio es publicación <strong>mensual continua</strong> en
+                formato abierto (CSV/JSON).
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a
+                  href="/suscripciones"
+                  className="inline-flex min-h-[36px] items-center rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
+                >
+                  Pedir publicación mensual
+                </a>
+                <a
+                  href="#brechas"
+                  className="inline-flex min-h-[36px] items-center rounded-md border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-50"
+                >
+                  Ver brechas relacionadas
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Tabla con valores y variación intermensual */}
@@ -1025,7 +1079,26 @@ export default function PersonalPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 7. Licencias del personal — pendiente de publicación         */}
+      {/* 7. Distribución por género — total y por sector              */}
+      {/* ============================================================ */}
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl font-bold text-navy">
+          Distribución por género
+        </h2>
+        <p className="mt-1 max-w-3xl text-sm text-slate-600">
+          Cuántas mujeres, varones, personas con identidad no binaria y sin
+          dato de género hay en cada categoría de personal y en cada sector
+          del municipio. Es el indicador clave para evaluar paridad y brechas
+          de acceso a cargos jerárquicos (Ley 26.485 art. 11 inc. 5; CEDAW).
+        </p>
+
+        <div className="mt-5">
+          <GeneroSection />
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 8. Licencias del personal — pendiente de publicación         */}
       {/* ============================================================ */}
       <section className="mt-12">
         <h2 className="font-serif text-2xl font-bold text-navy">
@@ -1264,7 +1337,7 @@ export default function PersonalPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. Brechas formales del módulo                                */}
+      {/* 9. Brechas formales del módulo                                */}
       {/* ============================================================ */}
       <div id="brechas">
         <BrechasTransparencia
