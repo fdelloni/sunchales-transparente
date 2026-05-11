@@ -354,4 +354,45 @@ export default function CatastroPage() {
           </li>
           <li>
             <strong className="text-navy">Fase 3 — Publicada:</strong> mapa
-            Leaf
+            Leaflet interactivo con tiles OSM y overlays GeoJSON de las 727
+            manzanas y 29 radios censales del IPEC, más buscador integrado de
+            nomenclador catastral para abrir el SCIT con contexto. El embed
+            directo del visualizador IDESF quedó descartado por el header CSP{" "}
+            <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
+              frame-ancestors 'self'
+            </code>{" "}
+            del servidor provincial — esa imposibilidad técnica está declarada
+            en la propia página.
+          </li>
+          <li>
+            <strong className="text-navy">Fase 4 — A evaluar:</strong> convenio
+            formal con SCIT para integrar el nomenclador municipal con el
+            provincial, lo que habilitaría un visualizador propio con la capa
+            parcelaria oficial vía API negociada (no vía WMS sin CORS).
+            Requiere acto administrativo expreso.
+          </li>
+        </ol>
+      </section>
+
+      {/* Nota metodológica */}
+      <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 text-xs text-slate-600 sm:p-6">
+        <strong className="block font-semibold text-navy">Nota metodológica</strong>
+        <p className="mt-2">
+          Los datos de oficina, encargado y trámites se basan en la información
+          declarada en el portal municipal de trámites
+          (sunchales.gob.ar/gestion/sunchales-impulsa/tramites/) y en el listado
+          oficial de autoridades. Las normas citadas fueron verificadas en sitios
+          oficiales el 2026-05-10. Si alguna información debe corregirse, se
+          recibe corrección formal y se actualiza la fuente.
+        </p>
+        <p className="mt-2">
+          Este módulo no expone datos personales del titular registral, su DNI ni
+          su domicilio fiscal: esos datos están protegidos por la Ley 25.326. Sí
+          se promueve la publicidad de los datos parcelarios objetivos
+          (geometría, nomenclador, superficie, valuación fiscal, zonificación),
+          por aplicación directa del Art. 1° inc. b de la Ley 26.209.
+        </p>
+      </section>
+    </div>
+  );
+}

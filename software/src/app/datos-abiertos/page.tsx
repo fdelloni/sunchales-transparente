@@ -126,4 +126,7 @@ export default function DatosAbiertosPage() {
             </div>
           </li>
         ))}
-      </u
+      </ul>
+    </div>
+  );
+}
