@@ -1,47 +1,41 @@
 /**
  * DISTRIBUCIÓN POR GÉNERO DEL PERSONAL MUNICIPAL — Sunchales.
  *
- * ESTADO ACTUAL (verificado 2026-05-10):
+ * ESTADO ACTUAL (verificado 2026-05-11):
  *   La Municipalidad NO publica el género del personal en ninguno de los PDFs
- *   oficiales (Nómina del Personal Municipal). El proyecto deliberadamente
- *   NO infiere género a partir del nombre porque:
+ *   oficiales. El proyecto deliberadamente NO infiere género a partir del
+ *   nombre porque:
  *
- *     1. Nombres ambiguos generan errores (Camilo/Camila, René, Daniel/iel,
- *        Cris, nombres de origen extranjero, abreviaturas).
- *     2. Personas trans o no binarias pueden tener nombre que no corresponde
- *        a la identidad de género auto-percibida — inferir desde un padrón
- *        las invisibiliza o las identifica forzosamente.
- *     3. La inferencia algorítmica tiene un margen de error documentado de
- *        5-10 % (Argentina) y presentar ese número como exacto sería
- *        engañoso para la lectura ciudadana.
+ *     1. Nombres ambiguos generan errores (Camilo/Camila, René, Cris, etc.).
+ *     2. La inferencia algorítmica tiene un margen de error documentado
+ *        del 5-10 % (Argentina) — presentarlo como exacto sería engañoso.
  *
- *   Por tanto este módulo expone hoy únicamente la ESTRUCTURA que tendría la
+ *   Por tanto este módulo expone hoy únicamente la ESTRUCTURA que tendrá la
  *   estadística cuando se reciba la información: por publicación voluntaria
- *   del municipio o por respuesta a pedido formal de acceso a la información
- *   (Ord. Sunchales 1872/2009).
+ *   del municipio o por respuesta a pedido formal bajo la Ord. 1872/2009.
  *
- *   La categorización de género que el municipio debe respetar:
- *     - Mujer
- *     - Varón
- *     - Identidad de género no binaria (Ley Nacional 26.743 art. 2)
- *     - Sin declarar / sin dato
- *
- *   La Ley de Identidad de Género (26.743) reconoce expresamente identidades
- *   no binarias y obliga al Estado a respetar la auto-percepción.
+ *   CATEGORÍAS DE PERSONAL incluidas (las 4 — todas son empleados del municipio):
+ *     - Planta política (intendente, secretarías, subsecretarías).
+ *     - Planta permanente.
+ *     - Personal transitorio.
+ *     - Contratación de servicios.
  */
 
-export type Genero = "mujer" | "varon" | "no_binario" | "sin_dato";
+import {
+  registrosPlanta,
+  registrosTransitorios,
+  registrosContratados,
+  porSeccion,
+} from "./nomina";
+import { empleados } from "./personal";
+
+export type Genero = "mujer" | "varon";
 
 export const etiquetaGenero: Record<Genero, string> = {
   mujer: "Mujeres",
   varon: "Varones",
-  no_binario: "Identidad no binaria",
-  sin_dato: "Sin declarar / sin dato",
 };
 
-/**
- * Distribución de género por sector dentro de una categoría de vinculación.
- */
 export type DistribucionSector = {
   /** Sector como figura en el PDF (ej. "OBRAS Y SERV. PÚBLICOS"). */
   seccion: string;
@@ -52,11 +46,13 @@ export type DistribucionSector = {
 };
 
 export type CategoriaVinculacionGenero =
+  | "planta_politica"
   | "planta_permanente"
   | "transitorios"
   | "contratados";
 
 export const etiquetaCategoria: Record<CategoriaVinculacionGenero, string> = {
+  planta_politica: "Planta política",
   planta_permanente: "Planta Permanente",
   transitorios: "Personal Transitorio",
   contratados: "Contratación de Servicios",
@@ -72,19 +68,8 @@ export type DistribucionCategoria = {
   porSector: DistribucionSector[];
 };
 
-/**
- * Datos verificados para abril 2026 — los totales por categoría y por sector
- * SÍ son verificables contra el PDF oficial (los parseamos en este proyecto).
- * Los conteos por género están en null porque el municipio no los publica.
- */
-import {
-  registrosPlanta,
-  registrosTransitorios,
-  registrosContratados,
-  porSeccion,
-} from "./nomina";
-
-function construirCategoria(
+/** Construye la distribución para una categoría no política (usa registros del PDF). */
+function construirCategoriaPDF(
   categoria: CategoriaVinculacionGenero,
   registros: typeof registrosPlanta
 ): DistribucionCategoria {
@@ -93,40 +78,65 @@ function construirCategoria(
   return {
     categoria,
     totalAgentes,
-    totalPorGenero: {
-      mujer: null,
-      varon: null,
-      no_binario: null,
-      sin_dato: null,
-    },
+    totalPorGenero: { mujer: null, varon: null },
     porSector: sectores.map((s) => ({
       seccion: s.seccion,
       totalAgentes: s.cantidad,
-      conteos: {
-        mujer: null,
-        varon: null,
-        no_binario: null,
-        sin_dato: null,
-      },
+      conteos: { mujer: null, varon: null },
     })),
   };
 }
 
+/**
+ * Construye la distribución para la planta política. La planta política se
+ * estructura por área (Departamento Ejecutivo, Secretaría de Gestión,
+ * Secretaría de Desarrollo, etc.) — no usa secciones de la nómina.
+ */
+function construirCategoriaPolitica(): DistribucionCategoria {
+  const totalAgentes = empleados.length;
+  // Agrupamos por área del organigrama
+  const porArea = new Map<string, number>();
+  for (const e of empleados) {
+    porArea.set(e.area, (porArea.get(e.area) ?? 0) + 1);
+  }
+  const sectores: DistribucionSector[] = Array.from(porArea.entries())
+    .map(([seccion, cantidad]) => ({
+      seccion,
+      totalAgentes: cantidad,
+      conteos: { mujer: null, varon: null } as Partial<
+        Record<Genero, number | null>
+      >,
+    }))
+    .sort((a, b) => b.totalAgentes - a.totalAgentes);
+  return {
+    categoria: "planta_politica",
+    totalAgentes,
+    totalPorGenero: { mujer: null, varon: null },
+    porSector: sectores,
+  };
+}
+
+/**
+ * Distribución vigente — totales verificados contra el PDF oficial abril 2026
+ * y contra el organigrama público para la planta política. Los conteos por
+ * género están en null porque el municipio no los publica.
+ */
 export const distribucionPersonalActual: DistribucionCategoria[] = [
-  construirCategoria(
+  construirCategoriaPolitica(),
+  construirCategoriaPDF(
     "planta_permanente",
     registrosPlanta.filter((r) => r.modalidad === "Planta Permanente")
   ),
-  construirCategoria("transitorios", registrosTransitorios),
-  construirCategoria("contratados", registrosContratados),
+  construirCategoriaPDF("transitorios", registrosTransitorios),
+  construirCategoriaPDF("contratados", registrosContratados),
 ];
 
 export const fuenteGenero = {
   periodoReferencia: "Abril 2026",
   notaMetodologica:
-    "Los totales por categoría y por sector están verificados contra el PDF oficial del municipio. El género de cada agente NO figura en el PDF y deliberadamente no se infiere desde el nombre, porque la inferencia tiene un margen de error documentado y puede invisibilizar identidades trans o no binarias protegidas por la Ley 26.743 de Identidad de Género.",
+    "Los totales por categoría y por sector están verificados contra el PDF oficial del municipio (planta permanente, transitorios y contratados) y contra el organigrama público (planta política). El género de cada agente NO figura en el PDF y deliberadamente no se infiere desde el nombre.",
   fundamentoPublicacion:
-    "Ordenanza Sunchales 1872/2009 (acceso a la información pública municipal) · Ley 26.485 de Protección Integral contra la Violencia hacia las Mujeres art. 11 inc. 5 (estadísticas con perspectiva de género en organismos públicos) · Ley 26.743 de Identidad de Género · Convención CEDAW (jerarquía constitucional CN art. 75 inc. 22).",
+    "Ordenanza Sunchales 1872/2009 (acceso a la información pública municipal) · Ley 26.485 de Protección Integral contra la Violencia hacia las Mujeres art. 11 inc. 5 (estadísticas con perspectiva de género en organismos públicos) · Convención CEDAW (jerarquía constitucional CN art. 75 inc. 22).",
 } as const;
 
 /** ¿Hay al menos un valor de género publicado? */

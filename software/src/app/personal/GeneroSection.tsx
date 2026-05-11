@@ -22,21 +22,26 @@ import {
 } from "@/lib/data/genero";
 
 /**
- * Sección de distribución por género. Como el municipio NO publica este dato,
- * los gráficos van llenos de placeholders honestos. La idea es que cuando
- * llegue el dato (por publicación voluntaria o por respuesta a pedido de
- * acceso) baste con cargar los conteos en genero.ts y los componentes se
- * pueblan solos.
+ * Sección de distribución por género. El municipio NO publica este dato,
+ * así que los gráficos van con placeholders honestos. Cuando lleguen los
+ * conteos (vía publicación oficial o respuesta a pedido de acceso), basta
+ * con cargarlos en genero.ts y la sección se pueblan sola.
+ *
+ * Categorías de personal incluidas (4):
+ *   1. Planta política
+ *   2. Planta permanente
+ *   3. Personal transitorio
+ *   4. Contratación de servicios
  */
 
-const GENEROS: Genero[] = ["mujer", "varon", "no_binario", "sin_dato"];
+const GENEROS: Genero[] = ["mujer", "varon"];
 
 const COLOR_GENERO: Record<Genero, string> = {
   mujer: "#7E22CE", // morado
   varon: "#2563EB", // azul
-  no_binario: "#10B981", // verde
-  sin_dato: "#94A3B8", // gris
 };
+
+const COLOR_PENDIENTE = "#fde68a";
 
 function BarrasPorSector({
   categoria,
@@ -48,14 +53,8 @@ function BarrasPorSector({
   );
   if (!datos) return null;
 
-  // Datos para el gráfico. Si no hay género publicado, mostramos la barra
-  // entera en gris ("sin dato"). Cuando se cargue, las series por género
-  // aparecen automáticamente.
   const data = datos.porSector.map((s) => {
-    const fila: Record<string, number | string> = {
-      seccion: s.seccion,
-      "Total verificado": s.totalAgentes,
-    };
+    const fila: Record<string, number | string> = { seccion: s.seccion };
     let asignado = 0;
     for (const g of GENEROS) {
       const v = s.conteos[g];
@@ -65,12 +64,7 @@ function BarrasPorSector({
       }
     }
     const sinDato = s.totalAgentes - asignado;
-    if (asignado === 0) {
-      // No hay nada cargado → toda la barra es "pendiente"
-      fila["Pendiente de publicar"] = s.totalAgentes;
-    } else if (sinDato > 0) {
-      fila["Pendiente de publicar"] = sinDato;
-    }
+    if (sinDato > 0) fila["Pendiente de publicar"] = sinDato;
     return fila;
   });
 
@@ -83,7 +77,7 @@ function BarrasPorSector({
       <h4 className="font-serif text-base font-bold text-navy">
         {etiquetaCategoria[categoria]}{" "}
         <span className="ml-1 text-xs font-normal text-slate-500">
-          {datos.totalAgentes} agentes
+          {datos.totalAgentes} {datos.totalAgentes === 1 ? "agente" : "agentes"}
         </span>
       </h4>
       <div className="mt-2 h-[320px] w-full">
@@ -135,7 +129,7 @@ function BarrasPorSector({
             <Bar
               dataKey="Pendiente de publicar"
               stackId="genero"
-              fill="#fde68a"
+              fill={COLOR_PENDIENTE}
               maxBarSize={28}
             >
               {data.map((_, i) => (
@@ -150,16 +144,8 @@ function BarrasPorSector({
 }
 
 function ResumenAgregado() {
-  // Suma de todas las categorías. Si nada está publicado, la barra agregada
-  // sale completamente "pendiente". Cuando se cargue genero.ts las barras
-  // de mujeres/varones/no_binario aparecen.
   const total = totalPlantel();
-  const sumPorGenero: Record<Genero, number> = {
-    mujer: 0,
-    varon: 0,
-    no_binario: 0,
-    sin_dato: 0,
-  };
+  const sumPorGenero: Record<Genero, number> = { mujer: 0, varon: 0 };
   let asignado = 0;
   for (const c of distribucionPersonalActual) {
     for (const g of GENEROS) {
@@ -178,8 +164,8 @@ function ResumenAgregado() {
         Distribución agregada — todo el personal municipal
       </h4>
       <p className="mt-1 text-[12px] text-white/70">
-        Total verificado: <strong>{total}</strong> personas
-        (planta permanente + retiro especial + transitorios + contratados).
+        Total verificado: <strong>{total}</strong> personas (planta política +
+        planta permanente + retiro especial + transitorios + contratados).
       </p>
 
       <div className="mt-4 flex h-9 w-full overflow-hidden rounded-lg bg-white/10">
@@ -203,7 +189,7 @@ function ResumenAgregado() {
             className="flex items-center justify-center text-[11px] font-semibold text-amber-900"
             style={{
               width: `${(pendiente / total) * 100}%`,
-              backgroundColor: "#fde68a",
+              backgroundColor: COLOR_PENDIENTE,
             }}
             title={`Pendiente de publicar: ${pendiente}`}
           >
@@ -212,7 +198,7 @@ function ResumenAgregado() {
         ) : null}
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
+      <div className="mt-3 grid grid-cols-3 gap-2">
         {GENEROS.map((g) => (
           <div
             key={g}
@@ -235,7 +221,7 @@ function ResumenAgregado() {
         <div className="flex items-center gap-2 rounded-lg bg-amber-100/20 p-2">
           <span
             className="inline-block h-3 w-3 rounded-sm"
-            style={{ backgroundColor: "#fde68a" }}
+            style={{ backgroundColor: COLOR_PENDIENTE }}
           />
           <div className="leading-tight">
             <div className="text-[10px] uppercase tracking-wider text-amber-100/80">
@@ -257,16 +243,16 @@ export default function GeneroSection() {
       {!tieneDatosGenero() && (
         <div className="rounded-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-[13px] text-amber-900">
           <strong>Hoy no se publica.</strong> La Municipalidad de Sunchales no
-          publica el género del personal en sus PDFs oficiales. Los gráficos
-          que siguen muestran el <strong>total verificado por sector</strong>{" "}
-          (parseado de la nómina abril 2026) con la franja en amarillo
-          marcando lo que falta publicar. Cuando se reciba la información
-          (vía publicación oficial o respuesta a pedido bajo Ord. 1872/2009),
-          las barras se segmentan automáticamente.
+          publica el género del personal. Los gráficos que siguen muestran el{" "}
+          <strong>total verificado por sector</strong> (parseado de la nómina
+          oficial abril 2026 y del organigrama público para la planta política)
+          con la franja amarilla marcando lo que falta publicar. Cuando se
+          reciba la información, las barras se segmentan automáticamente.
         </div>
       )}
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2">
+        <BarrasPorSector categoria="planta_politica" />
         <BarrasPorSector categoria="planta_permanente" />
         <BarrasPorSector categoria="transitorios" />
         <BarrasPorSector categoria="contratados" />
