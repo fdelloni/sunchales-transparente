@@ -54,22 +54,88 @@ export async function recuperar(
   const topK = opts.topK ?? 8;
   const poolInicial = opts.poolInicial ?? 30;
 
-  // Lanzar las dos busquedas EN PARALELO para minimizar latencia.
-  const [vectorChunks, keywordChunks] = await Promise.all([
+  // Lanzar las tres busquedas EN PARALELO para minimizar latencia.
+  // forzarFuncionarios: cuando la pregunta menciona un cargo + remuneracion,
+  // traemos SIEMPRE los chunks del padron de funcionarios al frente del topK.
+  // Sin esto, preguntas como "cuanto gana el intendente" pueden no recuperar
+  // el chunk del funcionario porque el vector search se inunda con menciones
+  // de "intendente" en el Digesto (964 normas) y la FAQ "quien es el intendente".
+  const [vectorChunks, keywordChunks, funcionariosBoost] = await Promise.all([
     busquedaVectorial(pregunta, poolInicial, opts),
-    busquedaPorPalabrasClave(pregunta, MAX_KEYWORD_HITS)
+    busquedaPorPalabrasClave(pregunta, MAX_KEYWORD_HITS),
+    boostFuncionariosPorCargo(pregunta)
   ]);
 
-  // Deduplicar: si un chunk aparece en ambas busquedas, prevalece su version
-  // de keyword (con similarity boosteada).
-  const idsKeyword = new Set(keywordChunks.map((c) => c.id));
+  // Deduplicar: prioridad funcionariosBoost > keyword > vector.
+  const idsForzados = new Set(funcionariosBoost.map((c) => c.id));
+  const keywordSinDup = keywordChunks.filter((c) => !idsForzados.has(c.id));
+  const idsKeyword = new Set([...idsForzados, ...keywordSinDup.map((c) => c.id)]);
   const vectorSinDup = vectorChunks.filter((c) => !idsKeyword.has(c.id));
 
   // Reranking estratificado del lado vectorial: garantizar curados.
-  const vectorEstratificado = estratificar(vectorSinDup, topK - keywordChunks.length);
+  const cuposVector = Math.max(0, topK - funcionariosBoost.length - keywordSinDup.length);
+  const vectorEstratificado = estratificar(vectorSinDup, cuposVector);
 
-  // Resultado final: keyword chunks PRIMERO (mas prioridad), despues vectoriales.
-  return [...keywordChunks, ...vectorEstratificado].slice(0, topK);
+  // Resultado final: boost funcionarios PRIMERO (forzados), despues keywords, despues vectoriales.
+  return [...funcionariosBoost, ...keywordSinDup, ...vectorEstratificado].slice(0, topK);
+}
+
+// ====================== Boost de funcionarios por cargo ======================
+
+/**
+ * Cuando la pregunta combina un cargo politico (intendente, secretario, etc.)
+ * con palabras de remuneracion (sueldo, cobra, gana, salario), forzamos la
+ * inclusion de los chunks de tipo "funcionario" que mencionan ese cargo.
+ *
+ * Esto resuelve el problema de que el vector search se "inunda" con menciones
+ * del cargo en otros corpus (Digesto, FAQ), dejando afuera al chunk autoritativo
+ * con la remuneracion real.
+ */
+async function boostFuncionariosPorCargo(pregunta: string): Promise<ChunkRecuperado[]> {
+  if (!supabase) return [];
+
+  const norm = pregunta.toLowerCase();
+
+  // Mapa cargo-en-pregunta -> patron ILIKE para matchear el cargo en el chunk
+  const cargosMap: Array<{ patron: RegExp; ilike: string }> = [
+    { patron: /\bintendente\b/, ilike: "%intendente%" },
+    { patron: /\bsecretari[oa]\b|\bsecretaria\b/, ilike: "%secretari%" },
+    { patron: /\bsubsecretari[oa]\b/, ilike: "%subsecretari%" },
+    { patron: /\bdirector[a]?\b/, ilike: "%director%" },
+    { patron: /\bcoordinador[a]?\b/, ilike: "%coordinador%" }
+  ];
+
+  const cargosMatch = cargosMap.filter((c) => c.patron.test(norm));
+  if (cargosMatch.length === 0) return [];
+
+  // Solo activamos el boost si la pregunta sugiere consulta sobre remuneracion
+  // o sobre identidad/funcion del cargo. Asi no hacemos queries de mas para
+  // preguntas que no necesitan al padron.
+  const requiereFuncionario =
+    /(sueldo|salari|cobra|gana|remunera|honorari|quien|integra|integran|conforma|cargo|funcion|trabaja|encarga|responsable)/.test(norm);
+  if (!requiereFuncionario) return [];
+
+  const out: ChunkRecuperado[] = [];
+  for (const { ilike } of cargosMatch) {
+    const { data, error } = await supabase
+      .from("chunks_rag")
+      .select("*")
+      .eq("fuente_tipo", "funcionario")
+      .ilike("texto", ilike)
+      .limit(3);
+    if (error || !data) continue;
+    for (const row of data as Array<Record<string, unknown>>) {
+      out.push({ ...mapearChunk(row), similarity: 0.99 });
+    }
+  }
+
+  // Dedupe por id.
+  const yaVistos = new Set<string>();
+  return out.filter((c) => {
+    if (yaVistos.has(c.id)) return false;
+    yaVistos.add(c.id);
+    return true;
+  });
 }
 
 // ====================== Busqueda vectorial ======================
@@ -257,6 +323,36 @@ function extraerPalabrasClave(pregunta: string): string[] {
   const tieneAnioExplicito = /\b(?:19|20)\d{2}\b/.test(pregunta);
   if (esPresupuestaria && !tieneAnioExplicito) {
     out.push("2026");
+  }
+
+  // 7. CARGOS POLITICOS como keywords. Si la pregunta menciona un cargo
+  //    (intendente, secretario, subsecretario, director, coordinador, concejal),
+  //    lo agregamos como keyword para garantizar que el ILIKE matchee con los
+  //    chunks de tipo "funcionario" que tienen ese cargo en el texto.
+  //    Antes este bloque no existia y preguntas como "¿cuánto gana el intendente?"
+  //    no producian ningun keyword, dejando todo al vector search.
+  const cargosPoliticos = [
+    "intendente",
+    "secretari",       // secretario, secretaria
+    "subsecretari",
+    "director",
+    "directora",
+    "coordinador",
+    "coordinadora",
+    "concejal",
+    "juez"
+  ];
+  for (const cargo of cargosPoliticos) {
+    if (norm.includes(cargo)) out.push(cargo);
+  }
+
+  // 8. TEMA REMUNERACION: si la pregunta es sobre cuanto cobra/gana alguien o
+  //    sobre sueldo/salario/remuneracion, agregamos esas palabras como keywords
+  //    para reforzar el match con los chunks de funcionarios (que las repiten
+  //    en multiples variantes naturales).
+  const palabrasRemu = ["sueldo", "salario", "salari", "cobra", "gana", "remunera", "honorari"];
+  for (const p of palabrasRemu) {
+    if (norm.includes(p)) out.push(p);
   }
 
   // Dedupe preservando orden.
