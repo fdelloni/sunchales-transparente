@@ -293,4 +293,7 @@ function Submodulo({
         {letra}
       </div>
       <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
-      <p className="mt-1 text-sm text-slate-600">{desc}</
+      <p className="mt-1 text-sm text-slate-600">{desc}</p>
+    </div>
+  );
+}

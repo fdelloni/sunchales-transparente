@@ -317,4 +317,10 @@ function FiltroChip({
       className={
         activo
           ? "rounded-full border-2 border-coral bg-coral/15 px-3 py-1 text-xs font-semibold text-coral-dark"
-          : "rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-med
+          : "rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:border-coral/40 hover:bg-amber-50"
+      }
+    >
+      {label}
+    </Link>
+  );
+}

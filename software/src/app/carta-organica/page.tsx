@@ -289,4 +289,3 @@ function Estandar({ n, t, d }: { n: string; t: string; d: string }) {
     </div>
   );
 }
-           
