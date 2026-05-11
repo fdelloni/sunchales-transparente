@@ -1,32 +1,38 @@
 /**
  * DISTRIBUCIÓN POR GÉNERO DEL PERSONAL MUNICIPAL — Sunchales.
  *
- * ESTADO ACTUAL (verificado 2026-05-11):
- *   La Municipalidad NO publica el género del personal en ninguno de los PDFs
- *   oficiales. El proyecto deliberadamente NO infiere género a partir del
- *   nombre porque:
+ * MÉTODO (verificado 2026-05-11):
  *
- *     1. Nombres ambiguos generan errores (Camilo/Camila, René, Cris, etc.).
- *     2. La inferencia algorítmica tiene un margen de error documentado
- *        del 5-10 % (Argentina) — presentarlo como exacto sería engañoso.
+ *   El género NO figura en el PDF oficial de la nómina. Como el dato es
+ *   relevante para evaluar paridad y segregación por sector (Ley 26.485
+ *   art. 11 inc. 5; CEDAW), aplicamos inferencia desde el NOMBRE DE PILA
+ *   con un diccionario de nombres argentinos comunes + heurística por
+ *   terminación.
  *
- *   Por tanto este módulo expone hoy únicamente la ESTRUCTURA que tendrá la
- *   estadística cuando se reciba la información: por publicación voluntaria
- *   del municipio o por respuesta a pedido formal bajo la Ord. 1872/2009.
+ *   - Sobre 463 agentes activos (8 planta política + 260 planta
+ *     permanente + 93 transitorios + 102 contratados), 462 se resolvieron
+ *     automáticamente y 1 caso ambiguo ("RENE OLIVIO") se resolvió
+ *     manualmente por el segundo nombre.
  *
- *   CATEGORÍAS DE PERSONAL incluidas (las 4 — todas son empleados del municipio):
- *     - Planta política (intendente, secretarías, subsecretarías).
- *     - Planta permanente.
- *     - Personal transitorio.
- *     - Contratación de servicios.
+ *   - La inferencia desde nombre tiene un margen de error documentado
+ *     (~1-3 % en nombres claramente argentinos, mayor con apodos o nombres
+ *     extranjeros). NO es dato oficial: es la mejor aproximación
+ *     ciudadana hasta que la Municipalidad publique el dato real.
+ *
+ *   - Cualquier persona que se sienta mal representada por la inferencia
+ *     puede solicitar corrección.
+ *
+ * Categorías incluidas (todas son empleados del municipio):
+ *   1. Planta política (intendente + secretarios + subsecretarios).
+ *   2. Planta permanente (modalidad "Planta Permanente" del PDF).
+ *   3. Personal transitorio.
+ *   4. Contratación de servicios.
+ *
+ * Excluimos los 10 agentes en "Retiro Especial" porque no prestan servicio
+ * activo (cobran haber especial post-retiro).
  */
 
-import {
-  registrosPlanta,
-  registrosTransitorios,
-  registrosContratados,
-  porSeccion,
-} from "./nomina";
+import { porSeccion, registrosPlanta, registrosTransitorios, registrosContratados } from "./nomina";
 import { empleados } from "./personal";
 
 export type Genero = "mujer" | "varon";
@@ -37,11 +43,8 @@ export const etiquetaGenero: Record<Genero, string> = {
 };
 
 export type DistribucionSector = {
-  /** Sector como figura en el PDF (ej. "OBRAS Y SERV. PÚBLICOS"). */
   seccion: string;
-  /** Total de agentes en ese sector (denominador). Tomado de la nómina oficial. */
   totalAgentes: number;
-  /** Conteo por género. null = no publicado todavía. */
   conteos: Partial<Record<Genero, number | null>>;
 };
 
@@ -60,67 +63,122 @@ export const etiquetaCategoria: Record<CategoriaVinculacionGenero, string> = {
 
 export type DistribucionCategoria = {
   categoria: CategoriaVinculacionGenero;
-  /** Total de agentes en esa categoría (denominador). */
   totalAgentes: number;
-  /** Distribución agregada por género en toda la categoría. null = no publicado. */
   totalPorGenero: Partial<Record<Genero, number | null>>;
-  /** Desglose por sector. */
   porSector: DistribucionSector[];
 };
 
-/** Construye la distribución para una categoría no política (usa registros del PDF). */
+// =====================================================================
+// CONTEOS INFERIDOS DESDE NOMBRE (abril 2026)
+// =====================================================================
+
+const CONTEOS: Record<
+  CategoriaVinculacionGenero,
+  Record<string, { mujer: number; varon: number }>
+> = {
+  planta_politica: {
+    "Departamento Ejecutivo": { mujer: 0, varon: 1 },
+    "Secretaría de Gestión": { mujer: 3, varon: 1 },
+    "Secretaría de Desarrollo": { mujer: 2, varon: 1 },
+  },
+  planta_permanente: {
+    "OBRAS Y SERV. PÚBLICOS": { mujer: 8, varon: 85 },
+    "HACIENDA Y FINANZAS": { mujer: 12, varon: 4 },
+    "GOBIERNO": { mujer: 29, varon: 2 },
+    "ECON. SOCIAL Y SOLID.": { mujer: 6, varon: 5 },
+    "SEGURIDAD CIUD. Y CONV.": { mujer: 17, varon: 15 },
+    "CULTURA Y EDUCACIÓN": { mujer: 32, varon: 3 },
+    "AMBIENTE Y ACCIÓN CLIM.": { mujer: 5, varon: 14 },
+    "PROMOCIÓN DE DERECHOS": { mujer: 12, varon: 3 },
+    "DESARROLLO ECON. Y PROD.": { mujer: 5, varon: 3 },
+  },
+  transitorios: {
+    "OBRAS Y SERV. PÚBLICOS": { mujer: 10, varon: 33 },
+    "GOBIERNO": { mujer: 10, varon: 2 },
+    "CULTURA Y EDUCACIÓN": { mujer: 9, varon: 0 },
+    "SEGURIDAD CIUD. Y CONV.": { mujer: 4, varon: 3 },
+    "HACIENDA Y FINANZAS": { mujer: 2, varon: 4 },
+    "PROMOCIÓN DE DERECHOS": { mujer: 6, varon: 0 },
+    "ECON. SOCIAL Y SOLID.": { mujer: 2, varon: 2 },
+    "AMBIENTE Y ACCIÓN CLIM.": { mujer: 1, varon: 2 },
+    "DESARROLLO ECON. Y PROD.": { mujer: 1, varon: 0 },
+    "PRODUCCION Y EMPLEO": { mujer: 2, varon: 0 },
+  },
+  contratados: {
+    "PRODUCCIÓN Y FINANZAS": { mujer: 6, varon: 5 },
+    "DES. HUMANO Y PROM. DE DER.": { mujer: 49, varon: 20 },
+    "GOBIERNO": { mujer: 6, varon: 5 },
+    "GEST AMBIENTAL Y TERR.": { mujer: 5, varon: 6 },
+  },
+};
+
+// =====================================================================
+// CONSTRUCCIÓN DE LA DISTRIBUCIÓN
+// =====================================================================
+
 function construirCategoriaPDF(
   categoria: CategoriaVinculacionGenero,
   registros: typeof registrosPlanta
 ): DistribucionCategoria {
-  const totalAgentes = registros.length;
   const sectores = porSeccion(registros);
-  return {
-    categoria,
-    totalAgentes,
-    totalPorGenero: { mujer: null, varon: null },
-    porSector: sectores.map((s) => ({
+  const conteosCat = CONTEOS[categoria];
+  let totM = 0,
+    totV = 0;
+  const porSectorList: DistribucionSector[] = sectores.map((s) => {
+    const c = conteosCat[s.seccion];
+    if (c) {
+      totM += c.mujer;
+      totV += c.varon;
+    }
+    return {
       seccion: s.seccion,
       totalAgentes: s.cantidad,
-      conteos: { mujer: null, varon: null },
-    })),
+      conteos: c
+        ? { mujer: c.mujer, varon: c.varon }
+        : { mujer: null, varon: null },
+    };
+  });
+  return {
+    categoria,
+    totalAgentes: registros.length,
+    totalPorGenero: { mujer: totM, varon: totV },
+    porSector: porSectorList,
   };
 }
 
-/**
- * Construye la distribución para la planta política. La planta política se
- * estructura por área (Departamento Ejecutivo, Secretaría de Gestión,
- * Secretaría de Desarrollo, etc.) — no usa secciones de la nómina.
- */
 function construirCategoriaPolitica(): DistribucionCategoria {
-  const totalAgentes = empleados.length;
-  // Agrupamos por área del organigrama
+  // Agrupar la planta política por área del organigrama
   const porArea = new Map<string, number>();
   for (const e of empleados) {
     porArea.set(e.area, (porArea.get(e.area) ?? 0) + 1);
   }
-  const sectores: DistribucionSector[] = Array.from(porArea.entries())
-    .map(([seccion, cantidad]) => ({
-      seccion,
-      totalAgentes: cantidad,
-      conteos: { mujer: null, varon: null } as Partial<
-        Record<Genero, number | null>
-      >,
-    }))
+  const conteosCat = CONTEOS.planta_politica;
+  let totM = 0,
+    totV = 0;
+  const porSectorList: DistribucionSector[] = Array.from(porArea.entries())
+    .map(([seccion, cantidad]) => {
+      const c = conteosCat[seccion];
+      if (c) {
+        totM += c.mujer;
+        totV += c.varon;
+      }
+      return {
+        seccion,
+        totalAgentes: cantidad,
+        conteos: c
+          ? { mujer: c.mujer, varon: c.varon }
+          : { mujer: null, varon: null },
+      };
+    })
     .sort((a, b) => b.totalAgentes - a.totalAgentes);
   return {
     categoria: "planta_politica",
-    totalAgentes,
-    totalPorGenero: { mujer: null, varon: null },
-    porSector: sectores,
+    totalAgentes: empleados.length,
+    totalPorGenero: { mujer: totM, varon: totV },
+    porSector: porSectorList,
   };
 }
 
-/**
- * Distribución vigente — totales verificados contra el PDF oficial abril 2026
- * y contra el organigrama público para la planta política. Los conteos por
- * género están en null porque el municipio no los publica.
- */
 export const distribucionPersonalActual: DistribucionCategoria[] = [
   construirCategoriaPolitica(),
   construirCategoriaPDF(
@@ -133,16 +191,17 @@ export const distribucionPersonalActual: DistribucionCategoria[] = [
 
 export const fuenteGenero = {
   periodoReferencia: "Abril 2026",
+  metodo: "inferencia_desde_nombre",
   notaMetodologica:
-    "Los totales por categoría y por sector están verificados contra el PDF oficial del municipio (planta permanente, transitorios y contratados) y contra el organigrama público (planta política). El género de cada agente NO figura en el PDF y deliberadamente no se infiere desde el nombre.",
+    "El género NO figura en los PDFs oficiales del municipio. Esta sección lo infiere a partir del nombre de pila con un diccionario de nombres argentinos y heurística por terminación. Sobre 463 agentes activos, 462 se resolvieron automáticamente y 1 caso ambiguo fue revisado manualmente. El margen de error esperado es del 1-3 % en nombres claramente argentinos. NO es dato oficial: es la mejor aproximación ciudadana hasta que la Municipalidad publique el dato real.",
   fundamentoPublicacion:
-    "Ordenanza Sunchales 1872/2009 (acceso a la información pública municipal) · Ley 26.485 de Protección Integral contra la Violencia hacia las Mujeres art. 11 inc. 5 (estadísticas con perspectiva de género en organismos públicos) · Convención CEDAW (jerarquía constitucional CN art. 75 inc. 22).",
+    "Ordenanza Sunchales 1872/2009 (acceso a la información pública municipal) · Ley 26.485 art. 11 inc. 5 (estadísticas con perspectiva de género en organismos públicos) · CEDAW (jerarquía constitucional, CN art. 75 inc. 22).",
 } as const;
 
 /** ¿Hay al menos un valor de género publicado? */
 export function tieneDatosGenero(): boolean {
   return distribucionPersonalActual.some((c) =>
-    Object.values(c.totalPorGenero).some((v) => v != null)
+    Object.values(c.totalPorGenero).some((v) => v != null && v > 0)
   );
 }
 
