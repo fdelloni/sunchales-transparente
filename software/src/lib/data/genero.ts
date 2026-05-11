@@ -233,7 +233,7 @@ const CONTEOS: Record<
 // =====================================================================
 
 function construirCategoriaPDF(
-  categoria: CategoriaVinculacionGenero,
+  categoria: Exclude<CategoriaVinculacionGenero, "planta_politica">,
   registros: typeof registrosPlanta
 ): DistribucionCategoria {
   const sectores = porSeccion(registros);
