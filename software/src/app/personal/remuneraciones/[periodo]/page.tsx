@@ -157,7 +157,7 @@ export default function PeriodoDetalle({ params }: Props) {
           </div>
 
           {/* Tabla de filas */}
-          <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+          <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
             Detalle por funcionario
           </h2>
           <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">

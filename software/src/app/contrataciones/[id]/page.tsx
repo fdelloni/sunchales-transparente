@@ -44,7 +44,7 @@ export default async function ContratacionDetallePage({
       {/* Oferentes */}
       {c.oferentes.length > 0 && (
         <>
-          <h2 className="mt-10 font-serif text-2xl font-bold text-navy">Oferentes</h2>
+          <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">Oferentes</h2>
           <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
             <table className="w-full min-w-[640px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
@@ -83,7 +83,7 @@ export default async function ContratacionDetallePage({
       {/* Pagos */}
       {c.pagos && c.pagos.length > 0 && (
         <>
-          <h2 className="mt-10 font-serif text-2xl font-bold text-navy">Pagos efectuados</h2>
+          <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">Pagos efectuados</h2>
           <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
             <table className="w-full min-w-[480px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
@@ -110,7 +110,7 @@ export default async function ContratacionDetallePage({
       {/* Documentos */}
       {c.documentos.length > 0 && (
         <>
-          <h2 className="mt-10 font-serif text-2xl font-bold text-navy">Documentos del expediente</h2>
+          <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">Documentos del expediente</h2>
           <ul className="mt-3 space-y-2">
             {c.documentos.map((d, i) => (
               <li
@@ -138,7 +138,7 @@ export default async function ContratacionDetallePage({
 
       {/* Timeline + auditoría */}
       <div className="mt-12 flex items-center justify-between">
-        <h2 className="font-serif text-2xl font-bold text-navy">Línea de tiempo</h2>
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">Línea de tiempo</h2>
         <Link
           href={`/contrataciones/${c.id}/auditar`}
           className="rounded-lg bg-coral px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-amber-400"

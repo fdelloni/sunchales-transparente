@@ -143,7 +143,7 @@ export default function AudienciasPublicasPage() {
       </div>
 
       {/* Tarjetas de las dos audiencias */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Detalle de las audiencias documentadas
       </h2>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -247,7 +247,7 @@ export default function AudienciasPublicasPage() {
       </div>
 
       {/* Cómo convocar / cómo reclamar */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Cómo reclamar la convocatoria de una audiencia
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">

@@ -23,7 +23,7 @@ export default function SuscripcionesPage() {
       </div>
 
       {/* Form */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Datos de contacto</h2>
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">Datos de contacto</h2>
       <p className="mt-2 max-w-3xl text-sm text-slate-600">
         Completá al menos un canal (email o WhatsApp). Si querés recibir alertas
         por ambos, completá los dos.
@@ -36,7 +36,7 @@ export default function SuscripcionesPage() {
       </div>
 
       {/* Privacidad */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Tu privacidad</h2>
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">Tu privacidad</h2>
       <ul className="mt-3 space-y-2 text-sm text-slate-700">
         <li>• Solo guardamos tu email (o WhatsApp) y los temas que elegiste.</li>
         <li>• Para activar tu suscripción tenés que confirmar con un click en el email que te llega.</li>

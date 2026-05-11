@@ -32,7 +32,7 @@ export default function CartaOrganicaPage() {
       </p>
 
       {/* Marco habilitante */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Marco que habilita la Carta Orgánica
       </h2>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -67,7 +67,7 @@ export default function CartaOrganicaPage() {
       </div>
 
       {/* Por qué importa */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         ¿Qué cambia para el vecino una Carta Orgánica propia?
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -82,7 +82,7 @@ export default function CartaOrganicaPage() {
       </p>
 
       {/* Brechas — lo que aún no se sabe */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Brechas de información: lo que todavía no fue publicado
       </h2>
       <div className="mt-4 overflow-hidden rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-amber-50 to-white">
@@ -147,7 +147,7 @@ export default function CartaOrganicaPage() {
       </div>
 
       {/* Estándares mínimos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Estándares mínimos esperables del proceso
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -289,3 +289,4 @@ function Estandar({ n, t, d }: { n: string; t: string; d: string }) {
     </div>
   );
 }
+           

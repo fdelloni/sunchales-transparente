@@ -90,7 +90,7 @@ export default function CatastroPage() {
 
       {/* Oficina municipal */}
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Oficina de Catastro municipal
         </h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -142,7 +142,7 @@ export default function CatastroPage() {
 
       {/* Trámites */}
       <section className="mt-10">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Trámites catastrales municipales
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -172,7 +172,7 @@ export default function CatastroPage() {
 
       {/* Marco normativo */}
       <section className="mt-10">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Marco normativo verificado
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -217,7 +217,7 @@ export default function CatastroPage() {
 
       {/* Recursos provinciales y comparados */}
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Recursos públicos provinciales y comparados
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -256,7 +256,7 @@ export default function CatastroPage() {
 
       {/* Brechas declaradas — link al módulo central */}
       <section className="mt-10 rounded-2xl border-2 border-dashed border-amber-400 bg-white p-6">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Brechas catastrales declaradas
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -304,7 +304,7 @@ export default function CatastroPage() {
       {/* Subpágina: zonificación */}
       <section className="mt-10 rounded-2xl border-2 border-emerald-300 bg-emerald-50 p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="font-serif text-2xl font-bold text-navy">
+          <h2 className="section-heading font-serif text-2xl font-bold text-navy">
             Zonificación urbana
           </h2>
           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
@@ -332,7 +332,7 @@ export default function CatastroPage() {
 
       {/* Hoja de ruta */}
       <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           Hoja de ruta del módulo
         </h2>
         <ol className="mt-4 space-y-3 text-sm text-slate-700">
@@ -354,45 +354,4 @@ export default function CatastroPage() {
           </li>
           <li>
             <strong className="text-navy">Fase 3 — Publicada:</strong> mapa
-            Leaflet interactivo con tiles OSM y overlays GeoJSON de las 727
-            manzanas y 29 radios censales del IPEC, más buscador integrado de
-            nomenclador catastral para abrir el SCIT con contexto. El embed
-            directo del visualizador IDESF quedó descartado por el header CSP{" "}
-            <code className="rounded bg-slate-100 px-1 py-0.5 font-mono">
-              frame-ancestors 'self'
-            </code>{" "}
-            del servidor provincial — esa imposibilidad técnica está declarada
-            en la propia página.
-          </li>
-          <li>
-            <strong className="text-navy">Fase 4 — A evaluar:</strong> convenio
-            formal con SCIT para integrar el nomenclador municipal con el
-            provincial, lo que habilitaría un visualizador propio con la capa
-            parcelaria oficial vía API negociada (no vía WMS sin CORS).
-            Requiere acto administrativo expreso.
-          </li>
-        </ol>
-      </section>
-
-      {/* Nota metodológica */}
-      <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 text-xs text-slate-600 sm:p-6">
-        <strong className="block font-semibold text-navy">Nota metodológica</strong>
-        <p className="mt-2">
-          Los datos de oficina, encargado y trámites se basan en la información
-          declarada en el portal municipal de trámites
-          (sunchales.gob.ar/gestion/sunchales-impulsa/tramites/) y en el listado
-          oficial de autoridades. Las normas citadas fueron verificadas en sitios
-          oficiales el 2026-05-10. Si alguna información debe corregirse, se
-          recibe corrección formal y se actualiza la fuente.
-        </p>
-        <p className="mt-2">
-          Este módulo no expone datos personales del titular registral, su DNI ni
-          su domicilio fiscal: esos datos están protegidos por la Ley 25.326. Sí
-          se promueve la publicidad de los datos parcelarios objetivos
-          (geometría, nomenclador, superficie, valuación fiscal, zonificación),
-          por aplicación directa del Art. 1° inc. b de la Ley 26.209.
-        </p>
-      </section>
-    </div>
-  );
-}
+            Leaf

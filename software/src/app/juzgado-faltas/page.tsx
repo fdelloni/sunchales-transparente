@@ -74,7 +74,7 @@ export default function JuzgadoFaltasPage() {
       </p>
 
       {/* Encuadre legal: dos columnas */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Qué juzga este organismo y bajo qué reglas
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -142,7 +142,7 @@ export default function JuzgadoFaltasPage() {
       />
 
       {/* Qué propone el módulo (siete componentes) */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Qué propone el módulo (siete componentes)
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -173,7 +173,7 @@ export default function JuzgadoFaltasPage() {
       </div>
 
       {/* Tensiones de diseño */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Tres tensiones que se resuelven por diseño
       </h2>
       <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -194,7 +194,7 @@ export default function JuzgadoFaltasPage() {
       </div>
 
       {/* Plan de construcción */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Cómo se construye, paso a paso
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -293,7 +293,4 @@ function Submodulo({
         {letra}
       </div>
       <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
-      <p className="mt-1 text-sm text-slate-600">{desc}</p>
-    </div>
-  );
-}
+      <p className="mt-1 text-sm text-slate-600">{desc}</

@@ -68,7 +68,7 @@ export default function PresupuestoPage() {
       </div>
 
       {/* Tabla agrupada */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Distribución por finalidad
       </h2>
       <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
@@ -96,7 +96,7 @@ export default function PresupuestoPage() {
 
       {/* Detalle por partida */}
       <div className="mt-10 flex items-center justify-between">
-        <h2 className="font-serif text-2xl font-bold text-navy">Detalle por función</h2>
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">Detalle por función</h2>
         <a
           href="/api/v1/presupuesto?format=csv"
           className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50"

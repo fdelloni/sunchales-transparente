@@ -53,7 +53,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Plazos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Plazos de respuesta</h2>
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">Plazos de respuesta</h2>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div className="rounded-2xl border border-slate-200 bg-white p-5">
           <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
@@ -85,7 +85,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Generador */}
-      <h2 id="generador" className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 id="generador" className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Generador de plantilla de pedido AIP
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -99,7 +99,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Vías de presentación */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Dónde y cómo presentarlo
       </h2>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -134,7 +134,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Si no responden */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Qué pasa si no responden o niegan información
       </h2>
       <div className="mt-4 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm text-amber-900">
@@ -159,7 +159,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Límites legítimos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Límites legítimos al derecho
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -173,7 +173,7 @@ export default function AIPPage({ searchParams }: SP) {
       </p>
 
       {/* Registro público de pedidos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Pedidos AIP presentados por este proyecto
       </h2>
       <div className="mt-4 rounded-2xl border-2 border-dashed border-amber-400 bg-white p-6 text-sm text-slate-700">
@@ -195,7 +195,7 @@ export default function AIPPage({ searchParams }: SP) {
       </div>
 
       {/* Marco legal */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Marco legal aplicable
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -266,3 +266,4 @@ function ViaPresentacion({
     </div>
   );
 }
+           

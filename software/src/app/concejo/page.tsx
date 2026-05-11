@@ -73,7 +73,7 @@ export default function ConcejoPage() {
       </section>
 
       {/* CONCEJALES ACTUALES */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Concejales actuales
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -145,7 +145,7 @@ export default function ConcejoPage() {
       </div>
 
       {/* COMISIONES */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Comisiones, consejos y mesas
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -183,7 +183,7 @@ export default function ConcejoPage() {
       </div>
 
       {/* TIPOS DE NORMAS */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Tipos de normas que sanciona el Concejo
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -234,7 +234,7 @@ export default function ConcejoPage() {
       </section>
 
       {/* PERSONAL DEL CONCEJO */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Personal del Concejo
       </h2>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -260,7 +260,7 @@ export default function ConcejoPage() {
         <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
           Datos completos
         </span>
-        <h2 className="mt-1 font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading mt-1 font-serif text-2xl font-bold text-navy">
           Toda la actividad del Concejo en un panel
         </h2>
         <p className="mt-2 max-w-3xl text-slate-600">
@@ -278,7 +278,7 @@ export default function ConcejoPage() {
       </section>
 
       {/* TRANSPARENCIA ECONÓMICA */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Transparencia económica del Concejo
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -342,7 +342,7 @@ export default function ConcejoPage() {
       </div>
 
       {/* RESÚMENES ANUALES */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Resúmenes anuales del Concejo
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -355,7 +355,7 @@ export default function ConcejoPage() {
           <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
             Más reciente
           </span>
-          <h3 className="mt-1 font-serif text-2xl font-bold text-navy">
+          <h3 className="section-heading mt-1 font-serif text-2xl font-bold text-navy">
             {resumenesAnuales[0].titulo}
           </h3>
           <p className="mt-1 text-sm text-slate-600">
@@ -388,7 +388,7 @@ export default function ConcejoPage() {
             rel="noopener noreferrer"
             className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
-            <div className="font-serif text-2xl font-bold text-navy">
+            <div className="section-heading font-serif text-2xl font-bold text-navy">
               {r.anio}
             </div>
             <div className="mt-0.5 text-xs text-slate-500">

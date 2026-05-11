@@ -42,7 +42,7 @@ export default function WhatsAppSection() {
               </span>
             </div>
 
-            <h2 className="mt-3 font-serif text-2xl font-bold text-navy md:text-3xl">
+            <h2 className="section-heading mt-3 font-serif text-2xl font-bold text-navy md:text-3xl">
               También respondemos por WhatsApp
             </h2>
 

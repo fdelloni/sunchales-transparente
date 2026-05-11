@@ -38,7 +38,7 @@ export default function DatosAbiertosPage() {
       </div>
 
       {/* Listado */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Datasets disponibles</h2>
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">Datasets disponibles</h2>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {datasets.map((d) => (
           <article
@@ -100,7 +100,7 @@ export default function DatosAbiertosPage() {
       </div>
 
       {/* Fuentes */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">Fuentes citadas</h2>
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">Fuentes citadas</h2>
       <p className="mt-2 max-w-3xl text-slate-600">
         Cada dato del portal trae su trazabilidad explícita. Esta es la lista de fuentes
         consultadas para alimentar la versión 0.1 de la plataforma.
@@ -126,7 +126,4 @@ export default function DatosAbiertosPage() {
             </div>
           </li>
         ))}
-      </ul>
-    </div>
-  );
-}
+      </u
