@@ -1,0 +1,350 @@
+{
+  "institucional": {
+    "direccion": "Av. Belgrano 103 - 2° piso",
+    "ciudad": "Sunchales",
+    "provincia": "Santa Fe",
+    "pais": "Argentina",
+    "telefonos": [
+      "(03493) 452793",
+      "(03493) 452794",
+      "(03493) 452845"
+    ],
+    "email": "concejo@concejosunchales.gob.ar",
+    "sitioWeb": "https://concejosunchales.gob.ar",
+    "redes": {
+      "facebook": "https://www.facebook.com/concejomunicipaldesunchales",
+      "twitter": "https://twitter.com/ConcejoSunch",
+      "youtube": "https://www.youtube.com/user/ConcSunch",
+      "instagram": "https://www.instagram.com/concejosunchales/"
+    }
+  },
+  "concejales": [
+    {
+      "id": "cattaneo-fernando",
+      "nombre": "Fernando Cattaneo",
+      "rol": "Presidente",
+      "bloque": "Más para Santa Fe",
+      "mandato": "2025-2029",
+      "email": "fc2249@gmail.com",
+      "telefono": "03493-15418500"
+    },
+    {
+      "id": "balduino-laura",
+      "nombre": "Laura Balduino",
+      "rol": "Vicepresidente Primero",
+      "bloque": "La Libertad Avanza",
+      "mandato": "2023-2027",
+      "email": "laura.balduino@hotmail.com",
+      "telefono": "03493-15415764"
+    },
+    {
+      "id": "torriri-brenda",
+      "nombre": "Brenda Torriri",
+      "rol": "Vicepresidente Segunda",
+      "bloque": "Ahora Sunchales - Partido Socialista",
+      "mandato": "2023-2027",
+      "email": "brendatorririconcejal@gmail.com",
+      "telefono": "03493-15455600"
+    },
+    {
+      "id": "astor-juan-ignacio",
+      "nombre": "Juan Ignacio Astor",
+      "rol": "Concejal",
+      "bloque": "Ahora Sunchales - Partido Socialista",
+      "mandato": "2023-2027",
+      "email": "juan.astor95@gmail.com",
+      "telefono": "03493-15495863"
+    },
+    {
+      "id": "delmastro-jose",
+      "nombre": "José Delmastro",
+      "rol": "Concejal",
+      "bloque": "Ahora Sunchales - Partido Socialista",
+      "mandato": "2025-2029",
+      "email": "josedelmastro41@gmail.com",
+      "telefono": "3493-416305"
+    },
+    {
+      "id": "nicolau-sebastian",
+      "nombre": "Sebastián Nicolau",
+      "rol": "Concejal",
+      "bloque": "La Libertad Avanza",
+      "mandato": "2025-2029",
+      "email": "sebastian.nicolau@gmail.com",
+      "telefono": "3493-401164"
+    }
+  ],
+  "personalConcejo": [
+    {
+      "nombre": "Soledad Mendoza",
+      "cargo": "Secretaria",
+      "email": "secretaria@concejosunchales.gob.ar",
+      "telefono": "(03493) 452793 / 452794"
+    },
+    {
+      "nombre": "Marina Mondino",
+      "cargo": "Responsable Área Administrativa",
+      "email": "secretaria@concejosunchales.gob.ar",
+      "telefono": "(03493) 452793 / 452794"
+    },
+    {
+      "nombre": "Micaela Bergesio",
+      "cargo": "Responsable Área de Comunicación Institucional",
+      "email": "prensa@concejosunchales.gob.ar",
+      "telefono": "(03493) 452793 / 452794"
+    }
+  ],
+  "comisiones": [
+    {
+      "nombre": "Comité de Cuenca Departamento Castellanos Zona Norte",
+      "resolucion": "Resolución N° 879/2025",
+      "integrantes": [
+        "Juan Ignacio Astor",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "ADESu (Agencia para el Desarrollo Económico de Sunchales)",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Juan Ignacio Astor",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "CAMSUA (Comisión de Acción Municipal sobre la utilización de agroquímicos)",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "Juan Ignacio Astor",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Casa del Emprendedor",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Comisión Asesora para el Desarrollo y Promoción de la Cultura y las Artes",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Comisión de Caminos Rurales Sunchales",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Comisión para el tratamiento del Régimen de Retiro Especial",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Comisión para la Promoción de los Derechos de Niños, Niñas y Adolescentes",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Comisión Permanente de Evaluación de Aspirantes a Viviendas Sociales",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Consejo Asesor de Patrimonio Cultural Sunchalense",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Consejo Consultivo Ambiental",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Consejo Consultivo de Medios de Comunicación",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "Juan Ignacio Astor",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Consejo de Arbolado Público",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Consejo de Inclusión para Personas con Discapacidad",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Consejo Ejecutivo de Seguridad",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Entidades de Bien Público",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Instituto del Becario",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Instituto Municipal de la Vivienda",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "Juan Ignacio Astor",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Mesa de Articulación para la Prevención y Abordaje de Consumos Problemáticos",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Mesa de Coordinación Plan Integral de Género",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Juan Ignacio Astor",
+        "Laura Balduino",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Mesa de Reforma del Código de Faltas o Convivencia Ciudadana Municipal",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Juan Ignacio Astor",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Mesa de trabajo Tenencia Responsable de Mascotas",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Mesa Intersectorial por los Derechos de las Personas Mayores",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Laura Balduino"
+      ]
+    },
+    {
+      "nombre": "Observatorio de Seguridad y Siniestralidad Vial",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "José Delmastro",
+        "Sebastián Nicolau"
+      ]
+    },
+    {
+      "nombre": "Protección Civil",
+      "resolucion": "Resolución N° 878/2025",
+      "integrantes": [
+        "Brenda Torriri",
+        "Fernando Cattaneo",
+        "José Delmastro",
+        "Juan Ignacio Astor",
+        "Laura Balduino",
+        "Sebastián Nicolau"
+      ]
+    }
+  ],
+  "tiposDeNorma": [
+    {
+      "tipo": "Ordenanza",
+      "descripcion": "Dictámen o proyecto destinado a legislar o dictar disposiciones de carácter permanente, o a reformar, abolir o suspender otra Ordenanza, instrucción o regla general."
+    },
+    {
+      "tipo": "Resolución",
+      "descripcion": "Proposición de carácter denegatorio sobre solicitudes particulares o proyectos, o de adopción de medidas relativas a la organización interna del Concejo. No requiere \"Cúmplase\" del Departamento Ejecutivo."
+    },
+    {
+      "tipo": "Minuta de Comunicación",
+      "descripcion": "Proposición destinada a requerir informes, recomendar, solicitar o exponer algo al Departamento Ejecutivo."
+    },
+    {
+      "tipo": "Declaración",
+      "descripcion": "Proposición que tiene por objeto expresar la opinión del Concejo sobre cualquier asunto de carácter público."
+    }
+  ],
+  "accesoInfoLocal": {
+    "ordenanza": "1872/2009",
+    "alcance": "Toda persona tiene derecho a solicitar y recibir información completa, veraz, adecuada y oportuna de cualquier órgano de la Municipalidad de Sunchales, entes autárquicos o descentralizados, Concejo Municipal, Juzgado de Faltas y empresas privadas o prestatarias de servicios públicos donde la Municipalidad tenga participación.",
+    "formaSolicitud": "Mediante formulario suscripto suministrado gratuitamente por la Municipalidad. También puede realizarse oralmente. No requiere expresar motivos ni patrocinio letrado.",
+    "plazoRespuestaDiasHabiles": 10,
+    "plazoProrrogaDiasHabiles": 5,
+    "fundamentos": [
+      "Declaración Universal de los Derechos Humanos",
+      "Convención Americana sobre Derechos Humanos",
+      "Constitución Nacional Art. 75"
+    ]
+  }
+}

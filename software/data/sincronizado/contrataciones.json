@@ -1,0 +1,160 @@
+{
+  "items": [
+    {
+      "id": "lp-2026-001",
+      "expediente": "EX-2026-001/SG",
+      "ejercicio": 2026,
+      "procedimiento": "licitacion_publica",
+      "numero": "LP N.º 01/2026",
+      "objeto": "Pavimento urbano — Plan POU 2026, sectores barrio Norte y barrio Sur",
+      "categoria": "obra_publica",
+      "area": "Subsecretaría de Infraestructura Urbana y Rural",
+      "presupuestoOficial": 1000000000,
+      "estado": "ejecucion",
+      "fechaApertura": "2026-03-27T21:06:39.311Z",
+      "fechaAdjudicacion": "2026-04-16T21:06:39.311Z",
+      "cantidadOferentes": 3,
+      "oferentes": [
+        {
+          "razonSocial": "Vialidad del Centro S.A.",
+          "monto": 985400000
+        },
+        {
+          "razonSocial": "Constructora Castellanos SRL",
+          "monto": 998700000
+        },
+        {
+          "razonSocial": "Pavimentos Litoral S.A.",
+          "monto": 1012300000
+        }
+      ],
+      "adjudicado": {
+        "razonSocial": "Vialidad del Centro S.A.",
+        "monto": 985400000,
+        "resolucion": "Resolución DEM N.º 142/2026"
+      },
+      "cantidadDocumentos": 3,
+      "verificado": false
+    },
+    {
+      "id": "lpr-2026-002",
+      "expediente": "EX-2026-014/SG",
+      "ejercicio": 2026,
+      "procedimiento": "licitacion_privada",
+      "numero": "LPR N.º 02/2026",
+      "objeto": "Provisión e instalación de 350 luminarias LED para alumbrado público",
+      "categoria": "bienes",
+      "area": "Subsecretaría de Infraestructura Urbana y Rural",
+      "presupuestoOficial": 142000000,
+      "estado": "evaluacion",
+      "fechaApertura": "2026-04-29T21:06:39.311Z",
+      "fechaAdjudicacion": null,
+      "cantidadOferentes": 2,
+      "oferentes": [
+        {
+          "razonSocial": "Iluminar SRL",
+          "monto": 138750000
+        },
+        {
+          "razonSocial": "LED Sunchales Cooperativa",
+          "monto": 141900000
+        }
+      ],
+      "adjudicado": null,
+      "cantidadDocumentos": 2,
+      "verificado": false
+    },
+    {
+      "id": "cp-2026-003",
+      "expediente": "EX-2026-031/SG",
+      "ejercicio": 2026,
+      "procedimiento": "concurso_precios",
+      "numero": "CP N.º 03/2026",
+      "objeto": "Adquisición de 25 equipos informáticos para áreas administrativas",
+      "categoria": "informatica",
+      "area": "Subsecretaría de Hacienda y Finanzas",
+      "presupuestoOficial": 18500000,
+      "estado": "convocatoria",
+      "fechaApertura": "2026-05-18T21:06:39.311Z",
+      "fechaAdjudicacion": null,
+      "cantidadOferentes": 0,
+      "oferentes": [],
+      "adjudicado": null,
+      "cantidadDocumentos": 1,
+      "verificado": false
+    },
+    {
+      "id": "cd-2026-004",
+      "expediente": "EX-2026-052/SG",
+      "ejercicio": 2026,
+      "procedimiento": "contratacion_directa",
+      "numero": "CD N.º 12/2026",
+      "objeto": "Reparación de urgencia de bomba en Estación de Depuración de Sunchales",
+      "categoria": "servicios",
+      "area": "Subsecretaría de Ambiente y Servicios a la Comunidad",
+      "presupuestoOficial": 4200000,
+      "estado": "cierre",
+      "fechaApertura": null,
+      "fechaAdjudicacion": "2026-05-02T21:06:39.311Z",
+      "cantidadOferentes": 1,
+      "oferentes": [
+        {
+          "razonSocial": "Hidráulica del Centro",
+          "monto": 4180000
+        }
+      ],
+      "adjudicado": {
+        "razonSocial": "Hidráulica del Centro",
+        "monto": 4180000,
+        "resolucion": "Resolución DEM N.º 178/2026"
+      },
+      "cantidadDocumentos": 3,
+      "verificado": false
+    }
+  ],
+  "labels": {
+    "procedimiento": {
+      "licitacion_publica": "Licitación Pública",
+      "licitacion_privada": "Licitación Privada",
+      "concurso_precios": "Concurso de Precios",
+      "contratacion_directa": "Contratación Directa"
+    },
+    "estado": {
+      "preparacion": "En preparación",
+      "convocatoria": "Convocatoria abierta",
+      "apertura": "Apertura de ofertas",
+      "evaluacion": "En evaluación",
+      "adjudicacion": "Adjudicada",
+      "ejecucion": "En ejecución",
+      "ampliacion": "Ampliación en curso",
+      "cierre": "Finalizada",
+      "desierta": "Desierta",
+      "fracasada": "Fracasada",
+      "cancelada": "Cancelada"
+    },
+    "categoria": {
+      "obra_publica": "Obra pública",
+      "bienes": "Bienes",
+      "servicios": "Servicios",
+      "consultoria": "Consultoría",
+      "alquileres": "Alquileres",
+      "informatica": "Informática"
+    },
+    "evento": {
+      "creacion_expediente": "Creación del expediente",
+      "publicacion_pliego": "Publicación del pliego",
+      "apertura_ofertas": "Apertura de ofertas",
+      "evaluacion": "Evaluación de ofertas",
+      "adjudicacion": "Adjudicación",
+      "orden_compra": "Orden de compra emitida",
+      "ejecucion": "Ejecución",
+      "declaracion_urgencia": "Declaración de urgencia",
+      "presupuesto_recibido": "Presupuesto recibido",
+      "pago_anticipo": "Pago — anticipo",
+      "pago_parcial": "Pago — parcial",
+      "pago_total": "Pago — total",
+      "ampliacion": "Ampliación adjudicada",
+      "cierre": "Cierre del expediente"
+    }
+  }
+}

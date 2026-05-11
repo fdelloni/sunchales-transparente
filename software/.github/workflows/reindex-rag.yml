@@ -28,13 +28,18 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/lib/data/personal.ts"
-      - "src/lib/data/presupuesto.ts"
-      - "src/lib/whatsapp/data/faq.ts"
+      # Cualquier cambio en datos institucionales sincronizables (.ts del repo).
+      # Este patron amplio captura todos los rubros sincronizados:
+      # personal, presupuesto, faq, concejo, juzgado, contrataciones, brechas,
+      # marco normativo, catastro, zonificacion, licencias, recaudacion.
+      - "src/lib/data/**.ts"
+      - "src/lib/whatsapp/data/**.ts"
+      # JSONs ya sincronizados (comiteados por el sync local) y outputs del scrape.
       - "data/sincronizado/**"
       - "data/digesto-oficial/items_completos.json"
       - "data/concejo/_indice.json"
       - "data/concejo/**/*.txt"
+      # Scripts del propio pipeline de indexado.
       - "scripts/indexar-rag.mjs"
       - "scripts/exportar-datos-sincronizados.ts"
   workflow_dispatch:
@@ -56,6 +61,14 @@ on:
           - "presupuesto"
           - "faq"
           - "normativa-marco"
+          - "concejo"
+          - "juzgado"
+          - "contratacion"
+          - "brecha"
+          - "catastro"
+          - "zonificacion"
+          - "licencias"
+          - "recaudacion"
           - "digesto"
           - "pdf-concejo"
           - "resumen-anual"

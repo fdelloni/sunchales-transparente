@@ -36,7 +36,21 @@ export type OpcionesRecuperacion = {
   umbral?: number;
 };
 
-const TIPOS_CURADOS = ["presupuesto", "funcionario", "faq", "normativa-marco"];
+const TIPOS_CURADOS = [
+  "presupuesto",
+  "funcionario",
+  "faq",
+  "normativa-marco",
+  // Rubros sincronizados desde src/lib/data/*.ts (mayo 2026)
+  "concejo",
+  "juzgado",
+  "contratacion",
+  "brecha",
+  "catastro",
+  "zonificacion",
+  "licencias",
+  "recaudacion"
+];
 const TIPOS_CURADOS_SET = new Set(TIPOS_CURADOS);
 
 const MIN_CURADOS_TOP = 4;
@@ -272,6 +286,32 @@ function detectarTiposObjetivo(pregunta: string): string[] {
   }
   if (/(tgi|tasa|tr[aá]mite|licencia|habilitaci[oó]n|horario|atenci[oó]n|pagar|pago|p[uú]blico|donde|c[oó]mo)/.test(norm)) {
     tipos.push("faq");
+  }
+
+  // === Tipos nuevos (rubros sincronizados desde .ts) ===
+  if (/(concejo|concejal|deliberante|legislativo|comisi[oó]n|presidente del concejo|cattaneo|balduino|torriri|astor|delmastro|nicolau)/.test(norm)) {
+    tipos.push("concejo");
+  }
+  if (/(juzgado|juez|jueza|falta|faltas|multa|multas|sancionatori|infracc|t[oó]tem)/.test(norm)) {
+    tipos.push("juzgado");
+  }
+  if (/(licitaci[oó]n|contrataci[oó]n|concurso de precios|adjudicaci[oó]n|oferente|expediente|naos)/.test(norm)) {
+    tipos.push("contratacion");
+  }
+  if (/(brecha|no publicad|falta publicar|opacidad|incumpl|pendiente de publicar)/.test(norm)) {
+    tipos.push("brecha");
+  }
+  if (/(catastro|parcela|parcelario|valuaci[oó]n|inmueble fiscal|nomenclador|scit)/.test(norm)) {
+    tipos.push("catastro");
+  }
+  if (/(zonificaci[oó]n|zona urbana|zona rural|uso de suelo|plano de [aá]reas|2800)/.test(norm)) {
+    tipos.push("zonificacion");
+  }
+  if (/(licencia de conducir|carnet|cetos|registro de conducir|emisi[oó]n de licencia)/.test(norm)) {
+    tipos.push("licencias");
+  }
+  if (/(recauda|recaudaci[oó]n|recurso|coparticipa|dreir|drei|tributari|copartici)/.test(norm)) {
+    tipos.push("recaudacion");
   }
 
   return tipos;
