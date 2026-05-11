@@ -253,7 +253,7 @@ async function consultarLlmConChunksPgvector(
   const systemPrompt =
     construirSystemPrompt("web") +
     "\n\nINSTRUCCIONES DE FORMATO DE RESPUESTA:\n" +
-    "- Respondé en 2 a 5 oraciones, en español rioplatense, claro y útil.\n" +
+    "- Respondé en español rioplatense, claro y útil. La respuesta tiene que ser COMPLETA: si una pregunta requiere enumerar varios elementos, listalos todos. Si requiere explicar varios pasos, explicalos todos. NO cortes la respuesta a la mitad ni dejes información afuera.\n" +
     "- Empezá directamente con el dato; NO digas 'Según los documentos...'.\n" +
     "- Si la respuesta involucra una cifra, presentala con unidad y formato (ej: '$30.940 millones').\n" +
     "- Citá la fuente entre paréntesis al final, breve y legible (ej: '(Ord. 1872/2009)', '(Presupuesto 2026)', '(Padrón Municipal)').\n" +
@@ -273,7 +273,7 @@ async function consultarLlmConChunksPgvector(
   const salida = await proveedor.generar({
     systemPrompt,
     pregunta,
-    maxTokens: 1200
+    maxTokens: 2500
   });
   return { texto: salida.texto, modelo: salida.modelo };
 }
@@ -314,7 +314,7 @@ async function consultarLlmConBM25Local(
   const salida = await proveedor.generar({
     systemPrompt,
     pregunta,
-    maxTokens: 1200
+    maxTokens: 2500
   });
   return { texto: salida.texto, modelo: salida.modelo, contextoIds };
 }
