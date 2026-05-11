@@ -17,6 +17,11 @@ import {
   porModalidad,
   fuenteNomina,
 } from "@/lib/data/nomina";
+import {
+  evolucionNomina,
+  fuenteEvolucion,
+} from "@/lib/data/nomina-evolucion";
+import EvolucionNominaChart from "./EvolucionNominaChart";
 import { formatARS, formatARSCompact, formatNumber } from "@/lib/format";
 
 /* ------------------------------------------------------------------ */
@@ -862,7 +867,155 @@ export default function PersonalPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. Brechas formales del módulo                                */}
+      {/* 6. Evolución histórica de la nómina                           */}
+      {/* ============================================================ */}
+      <section className="mt-12">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="font-serif text-2xl font-bold text-navy">
+              Evolución histórica de la nómina
+            </h2>
+            <p className="mt-1 max-w-3xl text-sm text-slate-600">
+              La página oficial del municipio enlaza <strong>5 PDFs históricos</strong>{" "}
+              de nómina entre agosto 2024 y abril 2026. Con esos archivos —
+              parseados uno a uno y verificados por cruce de nombres — armamos
+              la serie temporal real. Sin invenciones ni interpolaciones.
+            </p>
+          </div>
+          <a
+            href={fuenteEvolucion.paginaIndice}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-verde-dark px-4 py-2 text-xs font-semibold text-white hover:bg-verde-dark/90"
+          >
+            Ver fuente oficial ↗
+          </a>
+        </div>
+
+        {/* Nota metodológica destacada */}
+        <div className="mt-4 rounded-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-[13px] text-amber-900">
+          <strong className="font-semibold">Cambio metodológico documentado:</strong>{" "}
+          los PDFs anteriores a septiembre 2025 publicaban{" "}
+          <strong>únicamente</strong> el listado de personal no permanente
+          (equivalente a la categoría &ldquo;Transitorios&rdquo; del formato
+          actual). Desde 2025-09 la Municipalidad amplió su transparencia
+          activa y empezó a publicar la nómina <strong>completa</strong>{" "}
+          (Planta Permanente + Retiro Especial + Transitorios + Contratación
+          de Servicios). El cruce de nombres entre los listados antiguos y la
+          sub-lista &ldquo;Transitorios&rdquo; del PDF actual confirma la
+          equivalencia, por lo que la serie de Transitorios{" "}
+          <strong>es comparable</strong> a lo largo de los 5 períodos. Las
+          demás series sólo existen desde 2025-09.
+        </div>
+
+        {/* Gráfico */}
+        <div className="mt-5">
+          <EvolucionNominaChart />
+        </div>
+
+        {/* Tabla con valores y variación intermensual */}
+        <h3 className="mt-8 font-serif text-lg font-bold text-navy">
+          Cifras período por período
+        </h3>
+        <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+          <table className="w-full min-w-[680px] text-sm">
+            <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+              <tr>
+                <th className="px-4 py-3">Período</th>
+                <th className="px-4 py-3 text-right">Planta Permanente</th>
+                <th className="px-4 py-3 text-right">Retiro Especial</th>
+                <th className="px-4 py-3 text-right">Transitorios</th>
+                <th className="px-4 py-3 text-right">Contratados</th>
+                <th className="px-4 py-3 text-right">Total</th>
+                <th className="px-4 py-3 text-center">PDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              {evolucionNomina.map((p, i) => {
+                const prev = i > 0 ? evolucionNomina[i - 1] : null;
+                const renderCell = (
+                  val: number | null,
+                  prevVal: number | null | undefined
+                ) => {
+                  if (val == null) {
+                    return (
+                      <span className="text-[11px] italic text-slate-400">
+                        no publicado
+                      </span>
+                    );
+                  }
+                  if (prevVal == null) {
+                    return (
+                      <span className="tabular-nums">{formatNumber(val)}</span>
+                    );
+                  }
+                  const diff = val - prevVal;
+                  const sign = diff > 0 ? "+" : "";
+                  const color =
+                    diff > 0
+                      ? "text-emerald-700"
+                      : diff < 0
+                      ? "text-rose-700"
+                      : "text-slate-500";
+                  return (
+                    <span className="tabular-nums">
+                      {formatNumber(val)}{" "}
+                      <span className={`text-[11px] font-semibold ${color}`}>
+                        ({sign}
+                        {diff})
+                      </span>
+                    </span>
+                  );
+                };
+                return (
+                  <tr key={p.periodo} className="border-t border-slate-100">
+                    <td className="px-4 py-3 font-medium text-navy">
+                      {p.label}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {renderCell(p.plantaPermanente, prev?.plantaPermanente)}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {renderCell(p.retiroEspecial, prev?.retiroEspecial)}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {renderCell(p.transitorios, prev?.transitorios)}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      {renderCell(p.contratados, prev?.contratados)}
+                    </td>
+                    <td className="px-4 py-3 text-right font-semibold">
+                      {renderCell(p.total, prev?.total)}
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <a
+                        href={p.urlPdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-semibold text-teal-700 underline"
+                      >
+                        ver
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mt-3 text-xs text-slate-500">
+          Las variaciones entre paréntesis se calculan respecto del período
+          anterior <em>publicado</em> (no respecto del mes calendario
+          anterior). El salto que se observa para Planta Permanente,
+          Contratados, Retiro Especial y Total entre &ldquo;no publicado&rdquo;
+          y un valor concreto corresponde al cambio metodológico descripto
+          arriba, no a una contratación masiva real.
+        </p>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 7. Brechas formales del módulo                                */}
       {/* ============================================================ */}
       <div id="brechas">
         <BrechasTransparencia
