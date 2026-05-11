@@ -82,21 +82,21 @@ export async function GET() {
 function armarAvisoEstado(proveedor: Proveedor | null, ragActivo: boolean): string {
   if (proveedor && ragActivo) {
     return (
-      "Asistente unificado. Recupera información sobre el corpus completo del municipio " +
-      `(Digesto Oficial, PDFs del Concejo, presupuesto, padrón) vía pgvector y la sintetiza ` +
-      `con ${proveedor.nombre === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}.`
+      "Asistente municipal con IA. Recupera información sobre el corpus completo del " +
+      "municipio (Digesto Oficial, PDFs del Concejo, presupuesto, padrón) y sintetiza " +
+      "la respuesta citando la fuente."
     );
   }
   if (proveedor) {
     return (
-      "Asistente híbrido legacy. Primero busca en la base documental local; si no encuentra, " +
-      `consulta a ${proveedor.nombre === "google" ? "Gemini 2.5 Flash" : "Claude Haiku"}. ` +
-      "Configurá NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY para activar pgvector."
+      "Asistente híbrido: primero busca en la base documental local; si no encuentra, " +
+      "sintetiza con IA. Configurá NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY " +
+      "para activar el corpus completo."
     );
   }
   return (
-    "Modo RAG sin LLM: respuestas pregrabadas desde la base documental verificada. " +
-    "Configurá GOOGLE_API_KEY o ANTHROPIC_API_KEY para habilitar IA generativa."
+    "Modo sin IA: respuestas pregrabadas desde la base documental verificada. " +
+    "Configurá GOOGLE_API_KEY o ANTHROPIC_API_KEY para habilitar IA."
   );
 }
 
@@ -150,8 +150,8 @@ export async function POST(req: NextRequest) {
   if (supabase && proveedor) {
     try {
       const chunks = await recuperar(pregunta, {
-        topK: 12,
-        poolInicial: 40,
+        topK: 20,
+        poolInicial: 50,
         umbral: 0.05
       });
 

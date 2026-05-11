@@ -349,7 +349,7 @@ function Burbuja({ mensaje }: { mensaje: Mensaje }) {
       ? { texto: "Documento verificado", color: "bg-sky-50 text-sky-700 border-sky-200" }
       : mensaje.origen === "ia"
         ? {
-            texto: `IA generativa · ${mensaje.proveedor === "google" ? "Gemini Flash" : "Claude Haiku"}`,
+            texto: "Respondido con IA",
             color: "bg-emerald-50 text-emerald-700 border-emerald-200"
           }
         : mensaje.origen === "guardrail"

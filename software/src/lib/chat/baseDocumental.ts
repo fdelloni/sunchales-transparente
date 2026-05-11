@@ -436,9 +436,9 @@ export const baseDocumental: Documento[] = [
     texto:
       "El Asistente Ciudadano usa una arquitectura híbrida en tres capas: (1) busca primero en una base documental local de " +
       "información pública verificada — sin tocar IA — y devuelve la cita textual con su fuente; (2) si la búsqueda local no " +
-      "alcanza, llama a un modelo de lenguaje (Claude Haiku 4.5 o Gemini 2.5 Flash, configurable) con un system prompt de " +
-      "reglas duras: cero invención, apolítico, deriva al canal oficial cuando no sabe; (3) NO persiste preguntas ni respuestas. " +
-      "Esto reduce el costo de la IA al mínimo y refuerza la auditabilidad: cada respuesta cita textualmente un documento público.",
+      "alcanza, llama a un modelo de inteligencia artificial con un system prompt de reglas duras: cero invención, apolítico, " +
+      "deriva al canal oficial cuando no sabe; (3) NO persiste preguntas ni respuestas. Esto reduce el costo de la IA al mínimo " +
+      "y refuerza la auditabilidad: cada respuesta cita textualmente un documento público.",
     fuente: "Sunchales Transparente — Documento técnico 08_CHATBOT_WEB_SETUP.md",
     categoria: "identidad",
     keywords: [

@@ -276,7 +276,7 @@ export default function EstadisticasCharts() {
       {/* Estado de vigencia (análisis IA) */}
       <ChartCard
         titulo="Normas por estado de vigencia"
-        hint={`Clasificación algorítmica con Gemini 2.5 Flash sobre el texto de cada norma. Detecta derogaciones y modificaciones EXPLÍCITAS (ej. "Derógase la Ord. N° X"). Las relaciones tácitas no se cuentan.`}
+        hint={`Clasificación algorítmica con IA sobre el texto de cada norma. Detecta derogaciones y modificaciones EXPLÍCITAS (ej. "Derógase la Ord. N° X"). Las relaciones tácitas no se cuentan.`}
       >
         <div className="h-64 w-full sm:h-72">
           <ResponsiveContainer width="100%" height="100%">

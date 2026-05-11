@@ -377,6 +377,54 @@ export const brechas: Brecha[] = [
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-10"
   },
+  {
+    id: "per-licencias-tipos",
+    modulo: "personal",
+    titulo: "Agentes con licencia, agregados por tipo (salud, salud mental, ART, sin goce, sin asignación)",
+    descripcion:
+      "No se publica cuántos agentes municipales están con licencia, ni de qué tipo. Lo que pedimos publicar son cantidades agregadas (sin nombres) en categorías que son indicadores de gestión: salud corta y larga duración, salud mental, accidente de trabajo, licencias particulares sin goce de sueldo y agentes sin asignación de tareas. NO pedimos información sobre licencias familiares (maternidad/paternidad/cuidado), por estudio, ni vacaciones, porque son derechos previstos por ley y no situaciones a controlar. El agregado anónimo no es dato sensible: la Ley 25.326 art. 11 autoriza expresamente el tratamiento estadístico con disociación.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley 25.326 art. 11 (tratamiento estadístico con disociación está permitido) · principio republicano de control del costo real del Estado: el ausentismo es un componente del costo.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-licencias-evolucion",
+    modulo: "personal",
+    titulo: "Evolución mensual de licencias y tasa de ausentismo",
+    descripcion:
+      "No se publica una serie mensual que muestre cómo evolucionan las licencias en el tiempo, ni el cálculo derivado de la tasa de ausentismo (porcentaje del plantel que está con licencia cada mes). Sin esa serie es imposible detectar picos atípicos, problemas de salud organizacional o impactos de cambios de gestión.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · estándares de transparencia laboral del sector público (Open Government Partnership).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-licencias-salud-mental",
+    modulo: "personal",
+    titulo: "Licencias por salud mental — cantidad agregada, con regla anti-reidentificación",
+    descripcion:
+      "No se publica cuántos agentes municipales están con licencia específicamente por afecciones de salud mental. Este dato es de alto valor para diseño de políticas de salud ocupacional. Para que la publicación sea respetuosa y no estigmatice, debe aplicarse la regla habitual de la estadística pública: cuando hay menos de 5 casos en el mes se reporta '<5' en lugar del número exacto, evitando que alguien pueda deducir de quién se trata. Cuando hay 5 o más se publica el número real.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley Nacional 26.657 de Salud Mental art. 3 (el trabajo es uno de los determinantes sociales de la salud mental) · Ley 25.326 (autoriza el tratamiento estadístico anónimo) · estándares INDEC sobre estadísticas de salud agregadas.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
+  {
+    id: "per-sin-asignacion",
+    modulo: "personal",
+    titulo: "Agentes en planta sin asignación de tareas",
+    descripcion:
+      "No se publica la cantidad de agentes que figuran en la planta municipal pero no están cumpliendo funciones, sea por sumario administrativo en curso, junta médica abierta sin definir, o cualquier otra situación administrativa. Esta es la categoría de licencia más sensible para auditar porque puede esconder casos de irregularidad que afectan la calidad institucional y el gasto público.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · principio republicano de control del costo real del Estado · Ley Nacional 24.557 art. 9 (reasignación de tareas tras junta médica).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-10"
+  },
 
   // ===== AUDIENCIAS PÚBLICAS =====
   {
