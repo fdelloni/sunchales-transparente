@@ -160,12 +160,19 @@ function ResumenAgregado() {
 
   return (
     <div className="rounded-2xl border-2 border-navy bg-navy p-5 text-white">
-      <h4 className="font-serif text-base font-bold">
-        Distribución agregada — todo el personal municipal
-      </h4>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h4 className="font-serif text-base font-bold">
+          Distribución agregada — todo el personal municipal
+        </h4>
+        <span className="rounded-md bg-amber-400/80 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-950">
+          Inferido desde nombre
+        </span>
+      </div>
       <p className="mt-1 text-[12px] text-white/70">
         Total verificado: <strong>{total}</strong> personas (planta política +
-        planta permanente + retiro especial + transitorios + contratados).
+        planta permanente + transitorios + contratación de servicios). Los
+        agentes en Retiro Especial se excluyen porque no prestan servicio
+        activo.
       </p>
 
       <div className="mt-4 flex h-9 w-full overflow-hidden rounded-lg bg-white/10">
@@ -240,16 +247,18 @@ export default function GeneroSection() {
     <div className="space-y-6">
       <ResumenAgregado />
 
-      {!tieneDatosGenero() && (
-        <div className="rounded-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-[13px] text-amber-900">
-          <strong>Hoy no se publica.</strong> La Municipalidad de Sunchales no
-          publica el género del personal. Los gráficos que siguen muestran el{" "}
-          <strong>total verificado por sector</strong> (parseado de la nómina
-          oficial abril 2026 y del organigrama público para la planta política)
-          con la franja amarilla marcando lo que falta publicar. Cuando se
-          reciba la información, las barras se segmentan automáticamente.
-        </div>
-      )}
+      <div className="rounded-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-[13px] text-amber-900">
+        <strong>Importante — método de cálculo.</strong> La Municipalidad de
+        Sunchales <strong>no publica</strong> el género del personal. Los
+        números que se muestran son <strong>inferidos a partir del nombre de
+        pila</strong> de cada agente (con un diccionario de nombres argentinos
+        comunes y heurística por terminación). Sobre 463 personas, 462 se
+        resolvieron automáticamente y 1 caso ambiguo fue revisado manualmente.
+        El margen de error esperado es del 1–3 %. <strong>No es dato oficial</strong>
+        ; es la mejor aproximación ciudadana hasta que el municipio publique
+        el dato real bajo la Ord. 1872/2009. Cualquier persona que se sienta
+        mal representada puede solicitar corrección.
+      </div>
 
       <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2">
         <BarrasPorSector categoria="planta_politica" />
