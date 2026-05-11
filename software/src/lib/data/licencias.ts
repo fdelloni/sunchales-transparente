@@ -66,20 +66,24 @@ export const etiquetaTipo: Record<TipoLicencia, string> = {
   sin_asignacion: "Sin asignación de tareas",
 };
 
-/** Texto llano que se muestra al ciudadano cuando pasa el cursor sobre la fila. */
-export const descripcionTipo: Record<TipoLicencia, string> = {
+/**
+ * "Indicador de qué" — texto corto que explica al ciudadano POR QUÉ esa
+ * categoría es relevante (no qué es la licencia en sí). Se muestra debajo del
+ * nombre, en gris chico, para que cualquier lector entienda de un vistazo
+ * para qué sirve mirar ese número.
+ */
+export const indicadorDeQue: Record<TipoLicencia, string> = {
   salud_corta:
-    "Enfermedades comunes que afectan la asistencia hasta por 30 días. Indicador clásico de salud laboral; cuando sube de forma sostenida puede indicar problemas de ambiente o de carga de trabajo.",
+    "Salud laboral común. Si sube de forma sostenida puede indicar problemas de ambiente o carga de trabajo.",
   salud_larga:
-    "Enfermedades prolongadas que requieren junta médica. Permite ver cuántos agentes están temporalmente fuera del servicio por motivos de salud serios.",
+    "Cuántos agentes están temporalmente fuera por motivos serios de salud.",
   salud_mental:
-    "Licencias específicamente vinculadas a afecciones de salud mental. Se publica como número solo si hay 5 o más casos en el mes; cuando son menos se muestra '<5' para evitar que se pueda deducir de quién se trata.",
-  accidente_trabajo:
-    "Agentes con licencia por accidente o enfermedad ocurrida en el trabajo. Indicador directo de condiciones de seguridad e higiene laboral.",
+    "Categoría visible y propia, con regla N≥5 para no estigmatizar.",
+  accidente_trabajo: "Condiciones de seguridad e higiene.",
   particular_sin_goce:
-    "El agente sigue vinculado al municipio pero no presta servicios ni cobra. Cuando se prolonga sin razón clara puede indicar irregularidades.",
+    "Vínculo activo sin prestación — cuando se prolonga sin razón puede indicar irregularidad.",
   sin_asignacion:
-    "Agentes que están en planta pero no cumplen funciones (por sumario en curso, junta médica abierta sin definir, u otras situaciones administrativas). Es la categoría más sensible para auditar.",
+    "Sumarios sin resolver, juntas médicas estancadas. La más sensible para auditar.",
 };
 
 export type ConteoLicencia = {

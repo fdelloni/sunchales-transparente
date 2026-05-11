@@ -24,7 +24,7 @@ import {
 import {
   evolucionLicencias,
   etiquetaTipo,
-  descripcionTipo,
+  indicadorDeQue,
   fuenteLicencias,
   tieneDatosPublicados,
   totalConLicencia,
@@ -1061,18 +1061,19 @@ export default function PersonalPage() {
               de acceso a la información pública.
             </p>
 
-            {/* Tabla con las categorías y placeholders */}
+            {/* Tabla con las categorías. El "indicador de qué" va debajo del
+                nombre, no en una columna aparte — queda más limpio y se lee
+                mejor en celular. */}
             <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-amber-200 bg-white px-0 sm:mx-0">
-              <table className="w-full min-w-[640px] text-sm">
+              <table className="w-full min-w-[560px] text-sm">
                 <thead className="bg-amber-50/60 text-left text-xs uppercase tracking-wider text-amber-800">
                   <tr>
-                    <th className="px-4 py-3">Tipo de licencia</th>
+                    <th className="px-4 py-3">Tipo de licencia · indicador de qué</th>
                     {evolucionLicencias.map((p) => (
                       <th key={p.periodo} className="px-4 py-3 text-right">
                         {p.label}
                       </th>
                     ))}
-                    <th className="px-4 py-3 text-center">Qué es</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1084,20 +1085,25 @@ export default function PersonalPage() {
                         className="border-t border-amber-100 align-top"
                       >
                         <td className="px-4 py-3">
-                          <span
-                            className={
-                              esSaludMental
-                                ? "font-semibold text-navy"
-                                : "font-medium text-navy"
-                            }
-                          >
-                            {etiquetaTipo[tipo]}
-                          </span>
-                          {esSaludMental && (
-                            <span className="ml-2 rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-700">
-                              regla N≥5
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span
+                              className={
+                                esSaludMental
+                                  ? "font-semibold text-navy"
+                                  : "font-medium text-navy"
+                              }
+                            >
+                              {etiquetaTipo[tipo]}
                             </span>
-                          )}
+                            {esSaludMental && (
+                              <span className="rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-700">
+                                regla N≥5
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 max-w-md text-[12px] leading-snug text-slate-500">
+                            {indicadorDeQue[tipo]}
+                          </p>
                         </td>
                         {evolucionLicencias.map((p) => {
                           const c = p.conteos.find(
@@ -1127,9 +1133,6 @@ export default function PersonalPage() {
                             </td>
                           );
                         })}
-                        <td className="px-4 py-3 text-[12px] leading-snug text-slate-600">
-                          {descripcionTipo[tipo]}
-                        </td>
                       </tr>
                     );
                   })}
@@ -1156,11 +1159,15 @@ export default function PersonalPage() {
                         </td>
                       );
                     })}
-                    <td />
                   </tr>
                   <tr className="border-t border-amber-100 bg-amber-50/40">
-                    <td className="px-4 py-3 text-[13px] italic text-slate-700">
-                      % del plantel con licencia
+                    <td className="px-4 py-3">
+                      <span className="text-[13px] italic text-slate-700">
+                        % del plantel con licencia
+                      </span>
+                      <p className="mt-1 max-w-md text-[12px] italic text-slate-500">
+                        Total con licencia ÷ plantel activo del mes.
+                      </p>
                     </td>
                     {evolucionLicencias.map((p) => {
                       const t = totalConLicencia(p);
@@ -1184,13 +1191,13 @@ export default function PersonalPage() {
                         </td>
                       );
                     })}
-                    <td className="px-4 py-3 text-[11px] italic text-slate-500">
-                      Total con licencia ÷ plantel activo del mes.
-                    </td>
                   </tr>
                   <tr className="border-t border-amber-100 text-[12px] text-slate-500">
-                    <td className="px-4 py-3 italic">
-                      Plantel activo del mes
+                    <td className="px-4 py-3">
+                      <span className="italic">Plantel activo del mes</span>
+                      <p className="mt-1 max-w-md text-[11px] italic text-slate-500">
+                        Verificado contra el PDF oficial del mes.
+                      </p>
                     </td>
                     {evolucionLicencias.map((p) => (
                       <td
@@ -1202,9 +1209,6 @@ export default function PersonalPage() {
                           : "—"}
                       </td>
                     ))}
-                    <td className="px-4 py-3 text-[11px] italic text-slate-500">
-                      Verificado contra el PDF oficial del mes.
-                    </td>
                   </tr>
                 </tbody>
               </table>
