@@ -347,14 +347,12 @@ function Burbuja({ mensaje }: { mensaje: Mensaje }) {
   const origenLabel =
     mensaje.origen === "documento"
       ? { texto: "Documento verificado", color: "bg-sky-50 text-sky-700 border-sky-200" }
-      : mensaje.origen === "ia"
-        ? {
-            texto: "Respondido con IA",
-            color: "bg-emerald-50 text-emerald-700 border-emerald-200"
-          }
-        : mensaje.origen === "guardrail"
-          ? { texto: "Política del asistente", color: "bg-slate-100 text-slate-700 border-slate-300" }
-          : null;
+      : mensaje.origen === "guardrail"
+        ? { texto: "Política del asistente", color: "bg-slate-100 text-slate-700 border-slate-300" }
+        : null;
+  // Nota: cuando la respuesta viene del LLM (mensaje.origen === "ia") NO se muestra
+  // chip de origen. El ciudadano lee la respuesta tal cual, con su cita de fuente,
+  // sin etiquetas que ensucien la lectura.
 
   return (
     <div className="flex justify-start">

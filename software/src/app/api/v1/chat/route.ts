@@ -257,14 +257,17 @@ async function consultarLlmConChunksPgvector(
     "- Empezá directamente con el dato; NO digas 'Según los documentos...'.\n" +
     "- Si la respuesta involucra una cifra, presentala con unidad y formato (ej: '$30.940 millones').\n" +
     "- Citá la fuente entre paréntesis al final, breve y legible (ej: '(Ord. 1872/2009)', '(Presupuesto 2026)', '(Padrón Municipal)').\n" +
-    "- Si NO podés responder con los documentos provistos, decilo en una oración y derivá al canal oficial.\n\n" +
+    "- Solo derivás al canal oficial si VERDADERAMENTE ningún chunk contiene info aunque sea parcialmente relevante. Antes de derivar, leé TODO el contexto con cuidado.\n\n" +
     "REGLAS DURAS — leer con cuidado:\n" +
     "1. Solo podés usar información presente en el [CONTEXTO RECUPERADO]. NO inventes cifras, fechas, nombres ni normativa.\n" +
-    "2. Cada chunk tiene una etiqueta al inicio: [OFICIAL VIGENTE 2026 - tipo] o [HISTORICO - tipo]. " +
+    "2. **MUY IMPORTANTE**: si el contexto contiene la respuesta — aunque sea entre varias variantes naturales de la misma pregunta — USALA. NO digas 'no tengo información' cuando el dato está ahí.\n" +
+    "   Ejemplo: si la pregunta es '¿cuánto cobra el intendente?' y un chunk del Padrón Municipal contiene 'Cargo: Intendente Municipal / Remuneracion bruta mensual: $X (verificado oficial)' — la respuesta correcta es '$X brutos por mes (Padrón Municipal, verificado oficial)'. NO derives al sitio porque el dato está en el contexto.\n" +
+    "3. Cada chunk tiene una etiqueta al inicio: [OFICIAL VIGENTE 2026 - tipo] o [HISTORICO - tipo]. " +
     "Los OFICIAL VIGENTE 2026 son SIEMPRE prioritarios sobre los HISTORICO cuando hablamos del presente. " +
     "Solo usás los HISTORICO cuando la pregunta pide explícitamente datos del pasado.\n" +
-    "3. Para datos de remuneración: respetá la trazabilidad declarada en el chunk (verificado_oficial vs estimacion_referencial). " +
-    "Si es estimación, aclaralo al ciudadano.\n\n" +
+    "4. Para datos de remuneración: respetá la trazabilidad declarada en el chunk (verificado_oficial vs estimacion_referencial vs pendiente). " +
+    "Si es estimación, aclaralo. Si es verificado oficial, presentalo con seguridad. Si es pendiente, decilo y derivá.\n" +
+    "5. PREGUNTAS GENÉRICAS SIN NOMBRE PROPIO: cuando el ciudadano pregunta '¿cuánto cobra el intendente?' sin mencionar el nombre, buscá en los chunks de tipo 'funcionario' el que tenga 'Intendente Municipal' como cargo y respondé con esos datos. Lo mismo para Secretario/Subsecretario/Director: identificá el cargo en los chunks y respondé. NO digas 'no sé a quién te referís'.\n\n" +
     `[CONTEXTO RECUPERADO]\n${contexto}\n[FIN DEL CONTEXTO]`;
 
   const salida = await proveedor.generar({
