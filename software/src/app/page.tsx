@@ -106,7 +106,7 @@ export default function HomePage() {
 
       {/* Módulos */}
       <section className="mx-auto max-w-6xl px-6 py-10">
-        <h2 className="mb-2 font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading mb-2 font-serif text-2xl font-bold text-navy">
           Módulos disponibles en esta prueba
         </h2>
         <p className="mb-6 max-w-3xl text-slate-600">
@@ -210,7 +210,7 @@ export default function HomePage() {
       {/* Principios */}
       <section className="bg-white py-12">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="mb-2 font-serif text-2xl font-bold text-navy">Cómo abordamos los datos</h2>
+          <h2 className="section-heading mb-2 font-serif text-2xl font-bold text-navy">Cómo abordamos los datos</h2>
           <p className="mb-6 max-w-3xl text-slate-600">
             Tres reglas que toda fila respeta:
           </p>
@@ -260,42 +260,4 @@ export default function HomePage() {
                 Información que el municipio está jurídicamente obligado a publicar y que aún no
                 expone. Cada brecha se declara con su fundamento normativo y vía formal de pedido
                 de acceso a la información, sin exponer datos de ciudadanos privados.
-                <span className="ml-1 font-semibold text-amber-800 group-hover:underline">
-                  Ver detalle →
-                </span>
-              </p>
-            </div>
-          </div>
-        </Link>
-      </section>
-    </>
-  );
-}
-
-function ModuleCard({ href, tag, title, desc }: { href: string; tag: string; title: string; desc: string }) {
-  return (
-    <Link
-      href={href}
-      className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <span className="rounded-full border border-oro/40 bg-oro/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-navy">
-        {tag}
-      </span>
-      <h3 className="mt-2 font-serif text-lg font-bold text-navy">{title}</h3>
-      <p className="mt-1 text-sm text-slate-600">{desc}</p>
-      <span className="mt-3 inline-block text-xs font-semibold text-coral-dark group-hover:text-coral">
-        Abrir →
-      </span>
-    </Link>
-  );
-}
-
-function Principle({ n, t, d }: { n: string; t: string; d: string }) {
-  return (
-    <div className="rounded-2xl border-l-4 border-coral bg-sand p-5">
-      <div className="font-serif text-lg font-bold text-coral-dark">{n}</div>
-      <h3 className="mt-1 font-serif text-base font-bold text-navy">{t}</h3>
-      <p className="mt-1 text-sm text-slate-700">{d}</p>
-    </div>
-  );
-}
+                <span className="ml-1 font-semibold text-amber-800 g

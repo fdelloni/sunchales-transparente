@@ -66,7 +66,7 @@ export default function MarcoNormativoPage() {
 
       {/* Principio constitucional destacado */}
       <section className="mt-12">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           1. El cimiento: la publicidad de los actos de gobierno
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">
@@ -97,7 +97,7 @@ export default function MarcoNormativoPage() {
 
       {/* Jerarquía normativa */}
       <section className="mt-12">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           2. Jerarquía normativa aplicable a Sunchales
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">
@@ -160,7 +160,7 @@ export default function MarcoNormativoPage() {
 
       {/* Limitaciones */}
       <section className="mt-12">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           3. Bajo qué fundamentos puede el municipio negarte información
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">
@@ -218,7 +218,7 @@ export default function MarcoNormativoPage() {
 
       {/* Cómo ejercer */}
       <section className="mt-12">
-        <h2 className="font-serif text-2xl font-bold text-navy">
+        <h2 className="section-heading font-serif text-2xl font-bold text-navy">
           4. Cómo ejercer tu derecho hoy
         </h2>
         <p className="mt-3 max-w-3xl text-slate-700">

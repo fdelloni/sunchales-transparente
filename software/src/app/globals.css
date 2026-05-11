@@ -35,6 +35,44 @@ html, body { background: #F8FAFC; color: #0F172A; }
     font-weight: 700;
     color: var(--oro-dark);
   }
+
+  /* Encabezado de sección con destacado lateral (paleta bandera).
+     Barra vertical dorada a la izquierda + leve fondo gradiente verde.
+     Pensado para los H2 que organizan cada página. */
+  .section-heading {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1rem;
+    margin-left: 0;
+    background-image: linear-gradient(
+      to right,
+      rgba(252, 200, 29, 0.10),
+      rgba(252, 200, 29, 0) 60%
+    );
+    border-radius: 0 6px 6px 0;
+  }
+  .section-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 5px;
+    background: linear-gradient(
+      to bottom,
+      var(--oro) 0%,
+      var(--oro-dark) 100%
+    );
+    border-radius: 3px;
+  }
+
+  /* Variante para títulos principales (H1 de página) — barra un poco
+     más gruesa y subrayado dorado completo abajo. */
+  .page-heading {
+    position: relative;
+    padding-bottom: 0.4rem;
+    border-bottom: 4px solid var(--oro);
+    display: inline-block;
+  }
 }
 
 /* Estilos para el HTML del Digesto Municipal renderizado en /digesto/[id]

@@ -132,7 +132,7 @@ export default function BrechasPage({ searchParams }: SP) {
       </div>
 
       {/* Conteo por módulo (también funciona como atajo de filtro) */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Distribución por módulo
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -184,7 +184,7 @@ export default function BrechasPage({ searchParams }: SP) {
       </div>
 
       {/* Listado */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         {filtradas.length === total
           ? `${filtradas.length} brechas declaradas`
           : `${filtradas.length} de ${total} brechas (filtradas)`}
@@ -317,10 +317,4 @@ function FiltroChip({
       className={
         activo
           ? "rounded-full border-2 border-coral bg-coral/15 px-3 py-1 text-xs font-semibold text-coral-dark"
-          : "rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:border-coral/40 hover:bg-amber-50"
-      }
-    >
-      {label}
-    </Link>
-  );
-}
+          : "rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-med

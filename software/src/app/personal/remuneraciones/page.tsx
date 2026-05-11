@@ -144,7 +144,7 @@ export default function RemuneracionesPage({ searchParams }: SP) {
       )}
 
       {/* Filtro por año */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Listado por año
       </h2>
       <div className="mt-3 flex flex-wrap gap-2">

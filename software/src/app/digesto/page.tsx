@@ -44,7 +44,7 @@ export default function DigestoPage() {
       </p>
 
       {/* Submódulos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Qué encontrás en este módulo
       </h2>
       <p className="mt-2 max-w-3xl text-slate-600">
@@ -112,7 +112,7 @@ export default function DigestoPage() {
       </section>
 
       {/* Próximas sesiones */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Próximas sesiones del Concejo
       </h2>
       <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
@@ -162,7 +162,7 @@ export default function DigestoPage() {
       {/* Coherencia + Jerarquía */}
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <section>
-          <h2 className="font-serif text-2xl font-bold text-navy">
+          <h2 className="section-heading font-serif text-2xl font-bold text-navy">
             Tablero de salud normativa
           </h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -189,7 +189,7 @@ export default function DigestoPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-2xl font-bold text-navy">
+          <h2 className="section-heading font-serif text-2xl font-bold text-navy">
             Jerarquía normativa
           </h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -212,7 +212,7 @@ export default function DigestoPage() {
       </div>
 
       {/* Explorador del Digesto oficial — datos REALES sincronizados */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Explorador del Digesto oficial
       </h2>
       <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -276,7 +276,7 @@ export default function DigestoPage() {
       {/* ============================================================ */}
       {/*  Digesto del Concejo Municipal — listado completo sincronizado */}
       {/* ============================================================ */}
-      <h2 className="mt-16 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-16 font-serif text-2xl font-bold text-navy">
         Digesto del Concejo Municipal — {normasConcejo.length.toLocaleString("es-AR")} normas
         sincronizadas
       </h2>
@@ -324,145 +324,4 @@ export default function DigestoPage() {
           Ver listado oficial →
         </a>
         <a
-          href="/api/v1/digesto-concejo?format=csv"
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
-        >
-          Descargar CSV
-        </a>
-        <a
-          href="/api/v1/digesto-concejo"
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-navy hover:bg-slate-50"
-        >
-          API JSON
-        </a>
-      </div>
-
-      <h3 className="mt-8 font-serif text-lg font-bold text-navy">
-        Distribución por año
-      </h3>
-      <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white p-4">
-        <div className="flex min-w-[760px] items-end gap-1.5">
-          {Object.entries(digestoConcejoMeta.porAnio)
-            .map(([a, c]) => ({ anio: Number(a), cantidad: Number(c) }))
-            .sort((a, b) => a.anio - b.anio)
-            .map(({ anio, cantidad }) => {
-              const max = Math.max(
-                ...Object.values(digestoConcejoMeta.porAnio).map(Number)
-              );
-              const altura = Math.max(4, Math.round((cantidad / max) * 80));
-              return (
-                <div
-                  key={anio}
-                  className="group flex flex-col items-center"
-                  title={`${anio}: ${cantidad} normas`}
-                >
-                  <div
-                    className="w-3 rounded-sm bg-coral/70 group-hover:bg-coral"
-                    style={{ height: `${altura}px` }}
-                  />
-                  <div className="mt-1 -rotate-45 text-[8px] tabular-nums text-slate-500">
-                    {anio}
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      </div>
-
-      <p className="mt-3 text-xs text-slate-500">
-        Sincronizado por{" "}
-        <code className="rounded bg-slate-100 px-1.5 py-0.5">
-          npm run scrapear-digesto-concejo
-        </code>{" "}
-        contra el sitio oficial del Concejo. Última corrida:{" "}
-        {new Date(digestoConcejoMeta.sincronizadoEl).toLocaleString("es-AR")}.
-      </p>
-
-      {/* Proyectos en tratamiento */}
-      <h2 className="mt-16 font-serif text-2xl font-bold text-navy">
-        Proyectos en tratamiento
-      </h2>
-      <div className="mt-4 grid gap-3 md:grid-cols-2">
-        {proyectosDemo.map((p) => (
-          <div
-            key={p.expediente}
-            className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
-          >
-            <div className="text-[11px] font-bold uppercase tracking-widest text-coral-dark">
-              Expediente {p.expediente}
-            </div>
-            <h3 className="mt-1 font-serif text-lg font-bold text-navy">
-              {p.titulo}
-            </h3>
-            <p className="mt-1 text-xs text-slate-500">
-              Comisión: {p.comision} · {p.estadoLabel}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* CTA a la sección Concejo */}
-      <section className="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6">
-        <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
-          Sección complementaria
-        </span>
-        <h2 className="mt-1 font-serif text-2xl font-bold text-navy">
-          Concejo Municipal
-        </h2>
-        <p className="mt-2 max-w-3xl text-slate-600">
-          Concejales actuales con su bloque y mandato, las 23 comisiones donde
-          participan, personal del Concejo, régimen local de Acceso a la
-          Información Pública (Ord. 1872/09) y datos institucionales completos.
-        </p>
-        <Link
-          href="/concejo"
-          className="mt-4 inline-block rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy-soft"
-        >
-          Ir a la sección Concejo Municipal →
-        </Link>
-      </section>
-
-      {/* BRECHAS DE TRANSPARENCIA */}
-      <BrechasTransparencia
-        modulo="digesto"
-        titulo="Información legislativa de publicación obligatoria que aún no se expone"
-        intro="Tras un mapeo sistemático del sitio del Concejo Municipal (03/05/2026), confirmamos que el Concejo publica abundante información (boletines, resúmenes anuales, ejecución presupuestaria, normativa, comisiones). Sin embargo, persisten estas brechas concretas, que se mantienen hasta tanto el municipio las subsane."
-      />
-    </div>
-  );
-}
-
-function Submodulo({
-  letra,
-  titulo,
-  desc
-}: {
-  letra: string;
-  titulo: string;
-  desc: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="grid h-9 w-9 place-items-center rounded-lg border border-oro/40 bg-oro/30 font-serif font-black text-navy">
-        {letra}
-      </div>
-      <h3 className="mt-2 font-serif text-lg font-bold text-navy">{titulo}</h3>
-      <p className="mt-1 text-sm text-slate-600">{desc}</p>
-    </div>
-  );
-}
-
-function jerarquiaColor(nivel: number): string {
-  switch (nivel) {
-    case 1:
-      return "#7C3AED";
-    case 2:
-      return "#2563EB";
-    case 3:
-      return "#0891B2";
-    case 4:
-      return "#0F766E";
-    default:
-      return "#FCC81D";
-  }
-}
+          href="/api/v1/digesto-concejo?form

@@ -44,7 +44,7 @@ export default function EstadisticasPage() {
       </p>
 
       {/* KPIs principales */}
-      <h2 className="mt-10 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">
         Indicadores principales
       </h2>
       <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-3">
@@ -138,7 +138,7 @@ export default function EstadisticasPage() {
       </section>
 
       {/* Gráficos */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Análisis visual
       </h2>
       <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -150,7 +150,7 @@ export default function EstadisticasPage() {
       </div>
 
       {/* Resumen en bloque */}
-      <h2 className="mt-12 font-serif text-2xl font-bold text-navy">
+      <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Resumen por módulo
       </h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -274,7 +274,4 @@ function ResumenCard({
       <p className="mt-2 text-sm text-slate-600">{desc}</p>
       <span className="mt-3 inline-block text-xs font-semibold text-coral-dark group-hover:text-coral">
         Abrir →
-      </span>
-    </Link>
-  );
-}
+      </span
