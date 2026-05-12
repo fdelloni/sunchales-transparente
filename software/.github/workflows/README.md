@@ -50,3 +50,52 @@ ORDER BY fuente_tipo;
 
 Y probar una pregunta nueva en el chat web (`ciudadan.com/`) o en el bot WhatsApp.
 Como ambos consultan la misma tabla, el resultado debe coincidir.
+
+## `scrape-fuentes.yml` — Scrape diario de fuentes municipales
+
+Todos los días a las **06:00 ART (09:00 UTC)** este workflow lee los portales
+públicos del Municipio y del Concejo, y si algo cambió desde el último corrida,
+commitea los `.generated.ts` actualizados a `main`. Ese commit dispara
+automáticamente `reindex-rag.yml` por matching de paths, de modo que el chat
+web y el bot de WhatsApp reflejan la novedad sin intervención manual.
+
+Scrapers livianos que corre (todos contra fuentes públicas, sin auth):
+
+| Scraper | Fuente | Archivo generado |
+| --- | --- | --- |
+| `scrapear-publicaciones-concejo` | `concejosunchales.gob.ar` (boletines + resúmenes) | `src/lib/data/publicaciones-concejo.generated.ts` |
+| `scrapear-licitaciones` | `sunchales.gob.ar` | `src/lib/data/licitaciones.generated.ts` |
+| `scrapear-digesto-concejo` | `concejosunchales.gob.ar` (digesto) | `src/lib/data/digesto-concejo.generated.ts` |
+| `scrapear-remuneraciones` | `sunchales.gob.ar` (sólo lista, no descarga PDFs) | `src/lib/data/remuneraciones.generated.ts` |
+| `sincronizar-digesto` | `sunchales.miportal.ar/digesto` | `src/lib/data/digesto-oficial.generated.ts` + `data/digesto-oficial/items_completos.json` |
+
+Procesos pesados que **NO** entran al cron diario y se siguen corriendo a mano
+cuando hace falta:
+
+- `ocr-remuneraciones`, `parsear-remuneraciones` (Tesseract.js sobre PDFs).
+- `descargar-pdfs-concejo`, `procesar-pdfs-concejo` (descargas masivas).
+- `analizar-derogaciones` (costo Gemini).
+- `indexar-resumenes` (depende de descarga previa).
+
+### Disparos manuales
+
+Desde **Actions → Scrape fuentes municipales (diario) → Run workflow** podés
+correr ahora mismo todo el set, o usar el campo `solo` para correr un único
+scraper (handy al debuggear uno puntual).
+
+### Si falla
+
+GitHub manda email automáticamente al owner del repo cuando un workflow falla.
+Las causas más probables son:
+
+1. El portal cambió HTML/JSON y el parser del scraper quedó desfasado.
+2. El portal devuelve 5xx temporal — en ese caso, re-correr a mano suele alcanzar.
+3. Conflicto de push (alguien commiteó entre el `npm ci` y el `git push`).
+   El próximo run diario lo resuelve solo, pero si urge podés disparar manual.
+
+### Permisos
+
+El workflow usa `permissions: contents: write` para que el `GITHUB_TOKEN` pueda
+hacer push. No requiere PAT (Personal Access Token). El commit lo firma
+`github-actions[bot]`, visible en el historial como "chore(scrape): actualización
+automática de fuentes municipales".
