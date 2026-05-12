@@ -1,0 +1,154 @@
+name: Scrape fuentes municipales (diario)
+
+# Cuándo se dispara:
+#   - Cron diario: 09:00 UTC = 06:00 ART (Argentina, UTC-3).
+#     Hora elegida para que los cambios publicados durante el día anterior por el
+#     Municipio aparezcan en el sitio antes del horario de oficina.
+#   - Manual desde Actions → Run workflow, con opción `solo` para correr una sola
+#     fuente (útil al debuggear un scraper).
+#
+# Qué hace:
+#   1. Corre los scrapers "livianos" que sólo leen HTML/JSON público del Municipio
+#      y del Concejo, sin OCR ni llamadas a Gemini (esos son procesos caros y
+#      siguen siendo manuales: ocr-remuneraciones, analizar-derogaciones,
+#      descargar/procesar PDFs del Concejo).
+#   2. Si algún `.generated.ts` cambió, hace commit con el bot `github-actions[bot]`
+#      y push a `main`.
+#   3. Ese push dispara automáticamente `reindex-rag.yml` por matching de paths
+#      (porque toca `src/lib/data/**.ts` o `data/digesto-oficial/items_completos.json`).
+#
+# Por qué este enfoque:
+#   - Separa scraping (leer afuera) de indexado (escribir en pgvector).
+#   - Si un scraper falla, el reindex sigue intacto sobre el corpus anterior.
+#   - GitHub manda email a Franco cuando el workflow falla, sin alertas custom.
+#
+# Scrapers incluidos (todos rápidos, todos contra fuentes públicas sin auth):
+#   - scrapear-publicaciones-concejo  → boletines bimestrales + resúmenes anuales
+#   - scrapear-licitaciones           → contrataciones publicadas
+#   - scrapear-digesto-concejo        → digesto del Concejo (listado HTML)
+#   - scrapear-remuneraciones         → lista de PDFs de sueldos (no los descarga)
+#   - sincronizar-digesto             → digesto oficial del Municipio (incremental)
+#
+# Scrapers excluidos (correr a mano cuando haga falta):
+#   - ocr-remuneraciones, parsear-remuneraciones (pesados, dependen de PDFs locales).
+#   - descargar-pdfs-concejo, procesar-pdfs-concejo (descargan muchos PDFs).
+#   - analizar-derogaciones (costo Gemini).
+#   - indexar-resumenes (depende de descarga previa).
+
+on:
+  schedule:
+    # 09:00 UTC todos los días = 06:00 ART. Si querés cambiar la hora, recordá que
+    # cron en GitHub Actions usa UTC. Para 06:00 de Argentina (UTC-3) usá "0 9 * * *".
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      solo:
+        description: "Correr solo un scraper (vacío = todos)"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - "publicaciones-concejo"
+          - "licitaciones"
+          - "digesto-concejo"
+          - "remuneraciones"
+          - "digesto-oficial"
+
+permissions:
+  # Necesario para que el bot pueda commitear los .generated.ts actualizados.
+  contents: write
+
+# Evitar carreras: si ya hay un scrape corriendo, esperar a que termine.
+concurrency:
+  group: scrape-fuentes
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Token con permiso de push, necesario para que el commit dispare
+          # otros workflows (en este caso `reindex-rag.yml` por paths).
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrapear publicaciones del Concejo
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'publicaciones-concejo'
+        run: npm run scrapear-publicaciones-concejo
+
+      - name: Scrapear licitaciones
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'licitaciones'
+        run: npm run scrapear-licitaciones
+
+      - name: Scrapear digesto del Concejo
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-concejo'
+        run: npm run scrapear-digesto-concejo
+
+      - name: Scrapear remuneraciones (listado de PDFs)
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'remuneraciones'
+        run: npm run scrapear-remuneraciones
+
+      - name: Sincronizar digesto oficial del Municipio
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-oficial'
+        run: npm run sincronizar-digesto
+
+      - name: Detectar cambios
+        id: cambios
+        run: |
+          # Comparar contra HEAD para ver si algún scraper modificó archivos rastreados.
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "hay_cambios=false" >> "$GITHUB_OUTPUT"
+            echo "Sin cambios detectados — ningún portal publicó novedades."
+          else
+            echo "hay_cambios=true" >> "$GITHUB_OUTPUT"
+            echo "Cambios detectados:"
+            git status --porcelain
+          fi
+
+      - name: Commit y push (si hubo cambios)
+        if: steps.cambios.outputs.hay_cambios == 'true'
+        run: |
+          # Identidad del bot oficial de GitHub Actions.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Sólo agregar archivos generados por los scrapers — nada más.
+          git add "src/lib/data/*.generated.ts" \
+                  "data/digesto-oficial/items_completos.json" \
+                  "data/digesto-oficial/detalles" 2>/dev/null || true
+
+          # Si después del add no quedó nada staged, salir sin error.
+          if git diff --cached --quiet; then
+            echo "Cambios detectados fuera de paths esperados; no se commitea automáticamente."
+            git status
+            exit 0
+          fi
+
+          FECHA=$(date -u +"%Y-%m-%d")
+          git commit -m "chore(scrape): actualización automática de fuentes municipales (${FECHA})
+
+Scrape diario disparado por scrape-fuentes.yml.
+Este commit gatilla automáticamente reindex-rag.yml."
+
+          git push origin HEAD:main
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "Scrape finalizado. Estado: ${{ job.status }}"
+          echo "Trigger: ${{ github.event_name }}"
+          echo "Cambios detectados: ${{ steps.cambios.outputs.hay_cambios }}"
