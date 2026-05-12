@@ -395,6 +395,26 @@ function extraerPalabrasClave(pregunta: string): string[] {
     if (norm.includes(p)) out.push(p);
   }
 
+  // 9. TEMAS DE RUBROS NUEVOS (mayo 2026): cuando la pregunta menciona algo
+  //    relacionado con brechas, contrataciones, juzgado, etc., agregamos
+  //    palabras-señal que vamos a encontrar literalmente en los chunks de
+  //    ese tipo. Sin esto, preguntas como "¿qué brechas hay?" no producen
+  //    ningun keyword y el vector search solo no alcanza para traer los
+  //    chunks autoritativos al top.
+  const temasMap = [
+    { regex: /(brecha|transparencia|publicad|publicar|opacidad|incumpl|pendiente.de.publicar)/, keyword: "brecha" },
+    { regex: /(concejal|deliberante|comisi[oó]n|presidente.del.concejo)/, keyword: "concejo" },
+    { regex: /(juzgado|jueza?|multa|sancionatori|infracc|t[oó]tem)/, keyword: "juzgado" },
+    { regex: /(licitaci[oó]n|contrataci[oó]n|adjudicaci[oó]n|oferente|expediente|naos)/, keyword: "licitacion" },
+    { regex: /(catastro|parcela|parcelario|valuaci[oó]n|nomenclador|scit)/, keyword: "catastro" },
+    { regex: /(zonificaci[oó]n|zona.urbana|zona.rural|uso.de.suelo|plano.de.[aá]reas)/, keyword: "zonificacion" },
+    { regex: /(licencia.de.conducir|carnet|cetos|registro.de.conducir)/, keyword: "licencia" },
+    { regex: /(recauda|coparticipa|dreir|drei|tributari)/, keyword: "recauda" }
+  ];
+  for (const t of temasMap) {
+    if (t.regex.test(norm)) out.push(t.keyword);
+  }
+
   // Dedupe preservando orden.
   return Array.from(new Set(out));
 }
