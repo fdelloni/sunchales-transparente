@@ -461,19 +461,60 @@ export const brechas: Brecha[] = [
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-10"
   },
+  {
+    id: "per-remuneraciones-2017-falsificadas",
+    modulo: "personal",
+    titulo: "Remuneraciones 2017: 12 PDFs rotulados con año falso (apuntan a archivos 2018)",
+    descripcion:
+      "En la página oficial /municipio-transparente/remuneraciones-de-funcionarios-municipales/ los 12 ítems del año 2017 (enero a diciembre) están rotulados visualmente con el año '2017', pero todos los enlaces apuntan a archivos cuya URL contiene `_2018.pdf` (por ejemplo `01_remuneraciones_funcionarios_enero_2018.pdf` para el ítem 'Enero 2017'). Sea por error sistemático de carga o por carga deliberada del año equivocado, el ciudadano que pretende auditar las remuneraciones 2017 está accediendo en realidad a los archivos 2018. Es una falla grave de integridad documental que afecta a 12 meses completos de un ejercicio fiscal y requiere rectificación visible. Detectado durante auditoría exhaustiva del sitio el 12-may-2026.",
+    categoria: "trazabilidad_fondos",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de integridad documental y veracidad de la información pública.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/municipio-transparente/remuneraciones-de-funcionarios-municipales/"
+  },
+  {
+    id: "per-concursos-sin-resultados",
+    modulo: "personal",
+    titulo: "Concursos finalizados: se publica el llamado pero no los resultados",
+    descripcion:
+      "La página /concursos-y-seleccion-de-personal/ del Municipio lista 7 concursos finalizados (Habilitaciones y Tesorería - Decreto 3441/2024, Médico - Decreto 3494, Auxiliar de Sistemas - Decreto 3527/2025, Secretario de Juzgado - Decreto 3526/2025, Agentes Fiscalización - Decreto 3528/2025, Ingresos Públicos - Decreto 3500/2025, Tesorería abierto - Decreto 3501/2025). De los 7 se publica únicamente el decreto de llamado. NO se publica: cantidad de postulantes inscriptos, integrantes del jurado, fecha de evaluación, dictamen del jurado, orden de mérito, persona designada y decreto de designación. Sin los resultados, los concursos finalizados son sólo un trámite formal, no un mecanismo de selección verificable. Adicionalmente, el sitio mismo declara que 'en julio de 2024 se presentó al Concejo un proyecto de ordenanza que propone el establecimiento de un régimen de concursos. A pesar de que aún no se ha convertido en ordenanza, ya se ha iniciado un proceso de concursos…' — el régimen funciona sin marco normativo sancionado casi dos años después de presentado el proyecto.",
+    categoria: "calidad_institucional",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · Constitución Nacional art. 16 (idoneidad como condición de admisibilidad en empleos públicos) · Ley provincial 9.286 · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/concursos-y-seleccion-de-personal/"
+  },
+  {
+    id: "per-inconsistencia-galli-cultura-educacion",
+    modulo: "personal",
+    titulo: "Inconsistencia oficial: Galli figura con dos cargos distintos en dos páginas del sitio",
+    descripcion:
+      "El funcionario José Galli aparece como 'Subsecretario de Cultura y Educación' en la página oficial /municipio/autoridades/, pero como 'Subsecretaría de Cultura' (sin Educación) en el Organigrama Municipal PDF 2025/2026 publicado en /municipio/organigrama/. La inconsistencia entre dos fuentes oficiales del mismo municipio impide al ciudadano saber con certeza qué área dirige formalmente este funcionario. En el organigrama PDF, Educación figura por separado como Dirección a cargo de María de los Ángeles Gorosito. Requiere rectificación pública por acto administrativo que explicite la estructura vigente y la fecha desde la cual rige.",
+    categoria: "estructura_organica",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio republicano de publicidad de la estructura orgánica del Estado · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/municipio/autoridades/"
+  },
 
   // ===== AUDIENCIAS PÚBLICAS =====
   {
     id: "aud-hueco-2020-2026",
     modulo: "audiencias-publicas",
-    titulo: "Audiencias públicas: hueco de 4 años (2020-2026)",
+    titulo: "Audiencias públicas municipales: 7 años sin convocatoria (2019-2026)",
     descripcion:
-      "El sitio oficial sólo documenta dos audiencias públicas: una del 05/09/2019 (proyecto Complejo Ambiental) y otra del 25/10/2022 (caso 'Caglieris c/ Municipalidad' por basural a cielo abierto, ordenada judicialmente). No hay registro de audiencias en 2020, 2021, 2023, 2024, 2025 ni 2026. La sección funciona como archivo histórico, no como mecanismo activo de participación ciudadana.",
+      "El sitio oficial sólo documenta dos audiencias públicas: una del 05/09/2019 (proyecto Complejo Ambiental, única audiencia convocada por el Municipio) y otra del 25/10/2022 (caso 'Caglieris c/ Municipalidad', ordenada judicialmente por la Cámara Civil de Rafaela y no convocada por el Municipio). No hay registro de audiencias municipales en 2020, 2021, 2022 (sí la judicial), 2023, 2024, 2025 ni 2026. La gestión Pinotti (asumida en diciembre 2023) no registra ninguna audiencia pública convocada. La sección funciona como archivo histórico, no como mecanismo activo de participación ciudadana. Verificación adicional: tampoco está publicado un reglamento general de audiencias públicas; solo el reglamento específico de la audiencia 2019.",
     categoria: "participacion_ciudadana",
     estado: "publicado_parcial",
     fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio republicano de participación previa en decisiones que afectan derechos colectivos (urbanismo, ambiente, tarifas, servicios públicos).`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-09",
+    ultimoSeguimiento: "2026-05-12",
     publicacionParcialUrl:
       "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/audiencias-publicas/"
   },
@@ -525,12 +566,41 @@ export const brechas: Brecha[] = [
     modulo: "contrataciones",
     titulo: "Adjudicaciones, oferentes y montos finales contratados",
     descripcion:
-      "El listado oficial de licitaciones publica pliegos, decretos de llamado y presupuestos oficiales. No publica el resultado del procedimiento: oferentes presentados, ofertas recibidas y montos, decreto de adjudicación, monto final contratado, plazo de ejecución comprometido y, eventualmente, ampliaciones. Sin esa segunda mitad, la trazabilidad termina antes del momento más relevante para el control ciudadano.",
+      "El listado oficial de licitaciones publica pliegos, decretos de llamado y presupuestos oficiales para los procesos 2019-2025 (LP 03/2020 a LP 04/2025, entre otros). No publica el resultado del procedimiento para NINGUNO de esos años: oferentes presentados, ofertas recibidas y montos, decreto de adjudicación, monto final contratado, plazo de ejecución comprometido y, eventualmente, ampliaciones. Sin esa segunda mitad, la trazabilidad termina antes del momento más relevante para el control ciudadano. Tampoco se publican las compras directas ni los concursos de precios (procesos bajo el monto de licitación).",
     categoria: "contrataciones",
     estado: "publicado_parcial",
     fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de competencia y publicidad en contrataciones públicas (Ley provincial de obras públicas y reglamentación local concordante).`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-09",
+    ultimoSeguimiento: "2026-05-12",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
+  {
+    id: "contr-cero-llamados-2026",
+    modulo: "contrataciones",
+    titulo: "Cero licitaciones públicas publicadas en 2026",
+    descripcion:
+      "Al 12 de mayo de 2026 (4 meses y 12 días corridos), el listado oficial de Licitaciones y Contrataciones del Municipio no exhibe ninguna licitación pública correspondiente al ejercicio 2026. La última publicada es la LP 04/2025 (Decreto 3537/2025, apertura 04-dic-2025, 261 luminarias NAOS 220W por $56.714.843,25). En contraste, durante 2025 se publicaron 4 procesos completos. La ausencia total de actividad licitatoria visible para 2026 es incompatible con un presupuesto vigente de $30.938 millones y exige aclaración pública: o no se realizaron procesos, o se realizaron por compra directa/concurso de precios sin publicarse, o sí se realizaron y no se publican. Las tres hipótesis configuran brechas.",
+    categoria: "contrataciones",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de competencia y publicidad activa en contrataciones públicas.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl:
+      "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
+  {
+    id: "contr-planos-girsu-rotos",
+    modulo: "contrataciones",
+    titulo: "Planos 3 a 9 de LP 01/2025 GIRSU apuntan al mismo archivo (PLANO-1.pdf)",
+    descripcion:
+      "En el llamado a Licitación Pública N° 01/2025 GIRSU (obras civiles del Complejo Ambiental: alcantarillas, terraplenado, retardador pluvial 30.000 m², presupuesto oficial $270.000.000, apertura 03-sep-2025) los enlaces de descarga rotulados 'Plano N° 3', 'Plano N° 4', 'Plano N° 5', 'Plano N° 6', 'Plano N° 7', 'Plano N° 8' y 'Plano N° 9' apuntan TODOS al mismo archivo `PLANO-1.pdf`. Sólo Plano 1 y Plano 2 son archivos únicos. Es un error técnico-publicitario verificable que impacta sobre el derecho de los oferentes a acceder a la documentación completa del pliego y exige rectificación inmediata.",
+    categoria: "contrataciones",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio de transparencia activa en pliegos de obra pública.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
     publicacionParcialUrl:
       "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
   },
@@ -539,28 +609,43 @@ export const brechas: Brecha[] = [
   {
     id: "pre-ord-2026-texto",
     modulo: "presupuesto",
-    titulo: "Texto íntegro de la Ordenanza de Presupuesto 2026 con anexo de partidas",
+    titulo: "Texto íntegro de las Ordenanzas de Presupuesto 2024, 2025 y 2026 con anexo de partidas",
     descripcion:
-      "Las cifras macro del Presupuesto 2026 ($30.938 M de gastos, $30.950 M de recursos) circulan por prensa local y discursos institucionales. La sección oficial /presupuesto/ del Departamento Ejecutivo expone ejecuciones mensuales, pero no se ubicó publicada la Ordenanza completa con sus anexos clasificadores (estructura por finalidad, función, jurisdicción, programa y partida) que permitirían al ciudadano leer el plan financiero original aprobado por el Concejo.",
+      "Las cifras macro del Presupuesto 2026 sancionadas por el Concejo Municipal el 22-dic-2025 ($30.938.107.965 de gastos, $30.950.227.077 de recursos) circulan por prensa local (Meridiano Digital, SunchalesHoy, Diario Castellanos, El Eco de Sunchales). La sección oficial /municipio-transparente/presupuesto/ del Departamento Ejecutivo expone ejecuciones mensuales completas para 2022, 2023, 2024, 2025 y 2026 (hasta abril). Para 2022 y 2023 sí se publica el PDF de la Ordenanza presupuestaria sancionada. Para 2024, 2025 y 2026 NO se publica la Ordenanza completa con sus anexos clasificadores (finalidad, función, jurisdicción, programa, partida) que permitirían al ciudadano leer el plan financiero original aprobado por el Concejo. Es brecha activa de tres ejercicios consecutivos.",
     categoria: "presupuesto",
     estado: "publicado_parcial",
     fundamento: `${FUND_LOCAL} · publicidad de las normas (art. 2 CCyCN) · principio de legalidad presupuestaria (toda erogación debe estar en una ley/ordenanza pública).`,
     fundamentoUrl: URL_OAIP_LOCAL,
     detectadaEl: "2026-05-09",
+    ultimoSeguimiento: "2026-05-12",
     publicacionParcialUrl:
       "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/presupuesto/"
   },
   {
     id: "pre-boletin-oficial-municipal",
     modulo: "presupuesto",
-    titulo: "Boletín Oficial Municipal sin canal accesible",
+    titulo: "Boletín Oficial Municipal: fragmentado en 3 plataformas y aparentemente desactualizado",
     descripcion:
-      "El hub 'Municipio Transparente' lista 'Boletín Oficial' como uno de sus seis ejes, pero al día de hoy no se ubicó una URL accesible que permita consultar y descargar los decretos del Departamento Ejecutivo en forma ordenada (por número, fecha o materia). Los decretos sólo aparecen citados de forma fragmentaria en el listado de licitaciones (ej.: 3537/2025) y en algunos PDFs sueltos. La inexistencia de un Boletín Oficial Municipal navegable es una brecha estructural: el ciudadano no tiene un punto único donde leer la actividad reglamentaria del Ejecutivo.",
+      "El hub 'Municipio Transparente' lista 'Boletín Oficial' como uno de sus seis ejes; el link redirige fuera del dominio principal a sunchales.miportal.ar/digesto (plataforma externa de un proveedor). Coexisten en paralelo, sin redirecciones ni catálogo único: (a) la URL nueva en miportal.ar; (b) la URL Drupal legacy /boletines-oficiales y /content/contenido-boletin-oficial, todavía activa; (c) el subdominio boletinoficial.sunchales.gob.ar/archive-filter/. El último PDF mensual completo confirmado vía buscadores es abril 2025 (`boletin_completo_abril_2025.pdf`, subido en junio 2025); las búsquedas no devuelven boletines posteriores. Si efectivamente no hay BO regular desde abril 2025, serían 13 meses sin publicación periódica, lo que infringe el principio de publicidad de los actos administrativos como condición de su vigencia. Requiere verificación manual con captura de pantalla del estado actual de las 3 plataformas.",
     categoria: "boletin_oficial",
-    estado: "no_publicado",
+    estado: "publicado_parcial",
     fundamento: `${FUND_LOCAL} · publicidad de los actos administrativos como condición de su vigencia (principio general de derecho administrativo) · ${FUND_CONST}.`,
     fundamentoUrl: URL_OAIP_LOCAL,
-    detectadaEl: "2026-05-09"
+    detectadaEl: "2026-05-09",
+    ultimoSeguimiento: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/wp-content/uploads/2025/06/boletin_completo_abril_2025.pdf"
+  },
+  {
+    id: "pre-formulario-aip-inexistente",
+    modulo: "presupuesto",
+    titulo: "No existe formulario público de solicitud de información Ord. 1872/2009",
+    descripcion:
+      "La Ordenanza Municipal 1872/2009 reconoce el derecho de toda persona a solicitar información pública al Municipio, en forma gratuita, sin patrocinio letrado y sin necesidad de expresar motivos (arts. 3 y 6), con plazo de respuesta de 10 días hábiles + 5 de prórroga (art. 7). Sin embargo, en el sitio oficial sunchales.gob.ar NO existe: (a) un formulario público que permita iniciar la solicitud, (b) la identificación del funcionario responsable de acceso a la información, (c) la mención del plazo legal de respuesta, (d) un informe anual del responsable sobre solicitudes recibidas y respondidas. La sección 'Municipio Transparente' índice tampoco enlaza el procedimiento. El derecho está formalmente reconocido en una norma pero sin canal operativo público para ejercerlo.",
+    categoria: "marco_normativo",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} (arts. 3, 6 y 7) · ${FUND_PROV} · ${FUND_CONST}`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12"
   },
 
   // ===== CATASTRO =====
