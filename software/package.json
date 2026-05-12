@@ -25,7 +25,8 @@
     "parsear-remuneraciones": "node scripts/parsear-remuneraciones.mjs",
     "scrapear-digesto-concejo": "node scripts/scrapear-digesto-concejo.mjs",
     "ocr-remuneraciones": "node scripts/ocr-remuneraciones.mjs",
-    "scrapear-publicaciones-concejo": "node scripts/scrapear-publicaciones-concejo.mjs"
+    "scrapear-publicaciones-concejo": "node scripts/scrapear-publicaciones-concejo.mjs",
+    "verificar-brechas-auditoria": "node scripts/verificar-brechas-auditoria.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.0",
