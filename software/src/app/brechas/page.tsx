@@ -25,6 +25,10 @@ const ETIQUETAS_MODULO: Record<BrechaModulo, string> = {
   concejo: "Concejo Municipal",
   "audiencias-publicas": "Audiencias públicas",
   catastro: "Catastro",
+  ambiente: "Ambiente",
+  seguridad: "Seguridad",
+  salud: "Salud",
+  "servicios-ciudadanos": "Servicios al ciudadano",
 };
 
 type SP = { searchParams?: { modulo?: string; estado?: string } };
