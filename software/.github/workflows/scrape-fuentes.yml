@@ -28,6 +28,10 @@ name: Scrape fuentes municipales (diario)
 #   - scrapear-digesto-concejo        → digesto del Concejo (listado HTML)
 #   - scrapear-remuneraciones         → lista de PDFs de sueldos (no los descarga)
 #   - sincronizar-digesto             → digesto oficial del Municipio (incremental)
+#   - verificar-brechas-auditoria     → 3 verificaciones automatizadas de brechas
+#                                       (concejales actuales, Boletín Oficial,
+#                                       farmacias de turno) → produce
+#                                       src/lib/data/verificaciones-auditoria.generated.ts
 #
 # Scrapers excluidos (correr a mano cuando haga falta):
 #   - ocr-remuneraciones, parsear-remuneraciones (pesados, dependen de PDFs locales).
@@ -54,6 +58,7 @@ on:
           - "digesto-concejo"
           - "remuneraciones"
           - "digesto-oficial"
+          - "verificar-brechas-auditoria"
 
 permissions:
   # Necesario para que el bot pueda commitear los .generated.ts actualizados.
@@ -105,6 +110,11 @@ jobs:
       - name: Sincronizar digesto oficial del Municipio
         if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-oficial'
         run: npm run sincronizar-digesto
+
+      - name: Verificar brechas auditadas (concejales / BO / farmacias)
+        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'verificar-brechas-auditoria'
+        run: npm run verificar-brechas-auditoria
+        continue-on-error: true
 
       - name: Detectar cambios
         id: cambios
