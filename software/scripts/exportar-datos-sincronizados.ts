@@ -249,10 +249,9 @@ function main() {
     clasesSuelo,
     parcelasArt4,
     poligonosArea: poligonosArea.map((p) => ({
-      id: p.id,
+      area: p.area,
       nombre: p.nombre,
-      tipo: p.tipo,
-      descripcion: p.descripcion
+      referencia: p.referencia
     })),
     fuentes: {
       ordenanza2800: URL_ORD_2800,
