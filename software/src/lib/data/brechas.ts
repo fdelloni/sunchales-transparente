@@ -45,7 +45,11 @@ export type BrechaModulo =
   | "recaudacion"
   | "concejo"
   | "audiencias-publicas"
-  | "catastro";
+  | "catastro"
+  | "ambiente"
+  | "seguridad"
+  | "salud"
+  | "servicios-ciudadanos";
 
 export type BrechaCategoria =
   | "actividad_sancionatoria"
@@ -757,6 +761,144 @@ export const brechas: Brecha[] = [
     fundamentoUrl: "https://www.santafe.gob.ar/idesf/visualizador/",
     detectadaEl: "2026-05-10",
     publicacionParcialUrl: "https://www.santafe.gob.ar/idesf/buscadorparcela/tramite.php"
+  },
+
+  // ===== AMBIENTE =====
+  {
+    id: "amb-recoleccion-residuos-jpg",
+    modulo: "ambiente",
+    titulo: "Cronograma de recolección de residuos: solo imágenes JPG, sin texto accesible",
+    descripcion:
+      "La página /recoleccion-de-residuos/ del sitio oficial publica únicamente 4 imágenes JPG con los mapas de los Sectores 1, 2, 3 y 4. Día y horario de recolección quedan embebidos dentro de la imagen, no en texto. Esto rompe accesibilidad WCAG (lectores de pantalla no pueden leerlo), no es indexable por buscadores, no es procesable por máquinas y no se puede traducir. Adicionalmente, el sitio no publica el operador del servicio de recolección, ni el costo del contrato, ni la flota afectada, ni indicadores cuantitativos (toneladas recolectadas, frecuencia, cobertura).",
+    categoria: "datos_abiertos",
+    estado: "publicado_formato_cerrado",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} · Ley provincial 13.055 (gestión integral de residuos) · estándares WCAG 2.1 AA de accesibilidad web.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/recoleccion-de-residuos/"
+  },
+  {
+    id: "amb-arbolado-sin-inventario",
+    modulo: "ambiente",
+    titulo: "Arbolado público y espacios verdes sin inventario ni indicadores cuantitativos",
+    descripcion:
+      "La sección /ambiente/arbolado-publico-y-espacios-verdes/ describe institucionalmente el Corredor Biológico, el Bioparque Municipal y el programa de Padrinazgo de Espacios Verdes (Ord. 2270/2013, Ord. 2420/2014, Ley pcial. 13.836). Pero NO se publica: cantidad de árboles por barrio, m² verdes per cápita, podas y extracciones autorizadas por año, listado de espacios apadrinados vs. vacantes, procedimiento escrito de poda/extracción. Tampoco existe formulario online para gestionar trámites (sólo presentación física de notas en Belgrano 103). Es información ambiental de oficio bajo el estándar de la Ley pcial. 13.836 y la Ley nacional 25.831 (acceso a la información ambiental).",
+    categoria: "datos_abiertos",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} · Ley Nacional 25.831 (acceso a la información ambiental) · Ley provincial 11.717 (Ambiente y Desarrollo Sustentable Santa Fe).`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/ambiente/arbolado-publico-y-espacios-verdes/"
+  },
+  {
+    id: "amb-ecoestacion-sin-indicadores",
+    modulo: "ambiente",
+    titulo: "EcoEstación Reaquila: programa de canje sin indicadores de desempeño",
+    descripcion:
+      "El programa EcoEstación Reaquila (canje de materiales reciclables por puntos en app de empresa privada, alianza con el Centro Industrial y de la Producción y Sancor Seguros Impulsa) opera en el Parque de los Encuentros (Güemes y Rotania) en horario L-V 7-14 y 16-19. Sin embargo, la página oficial /ambiente/ecoestacion-reaquila/ no publica indicadores cuantitativos: toneladas de cada material recuperadas, usuarios registrados, comercios adheridos, informe anual del programa. El ciudadano no puede evaluar el desempeño de un programa público-privado financiado/avalado con el escudo municipal.",
+    categoria: "calidad_institucional",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · Ley Nacional 25.831 · principio republicano de control sobre programas avalados con marca institucional.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/ambiente/ecoestacion-reaquila/"
+  },
+
+  // ===== SEGURIDAD =====
+  {
+    id: "seg-observatorio-vial-informes",
+    modulo: "seguridad",
+    titulo: "Observatorio de Seguridad Vial: 10 años sin informes anuales publicados",
+    descripcion:
+      "El Observatorio de Seguridad y Siniestralidad Vial funciona desde 2015 ('10 años de vida ininterrumpida' en 2025, según texto oficial) en convenio con Fundación Sancor Seguros, ADeSu, Fundación ATILRA y Hospital Almilcar Gorosito. El propio sitio declara que emite un Informe Anual al Concejo Municipal. Sin embargo, la página /gestion/sunchales-protege/observatorio-de-seguridad-y-siniestralidad-vial/ NO enlaza ningún informe anual descargable. Diez años de informes existentes pero invisibles desde el sitio oficial. Es la antítesis de un observatorio público.",
+    categoria: "calidad_institucional",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · ${FUND_CONST} · principio republicano de rendición de cuentas de los observatorios públicos.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/gestion/sunchales-protege/observatorio-de-seguridad-y-siniestralidad-vial/"
+  },
+  {
+    id: "seg-omvsd-informes-mensuales",
+    modulo: "seguridad",
+    titulo: "OMVSD (Ord. 2576/2016): informes mensuales mencionados pero no publicados",
+    descripcion:
+      "El Observatorio Municipal de Violencias y Seguridad Democrática (OMVSD) fue creado por Ordenanza 2576/2016. El propio sitio /gestion/sunchales-protege/observatorio-municipal-de-violencias-y-seguridad-democratica-omvsd/ declara que el observatorio emite informes mensuales sobre violencia, conflictividad y delito. NO se publica ni uno solo de esos informes mensuales. Dado que la ordenanza de creación es el fundamento normativo específico de la producción de esos informes, no publicarlos es incumplimiento directo del acto que creó el organismo.",
+    categoria: "calidad_institucional",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ordenanza Municipal 2576/2016 (norma de creación del OMVSD que estructura su obligación de informe) · ${FUND_CONST}.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/gestion/sunchales-protege/observatorio-municipal-de-violencias-y-seguridad-democratica-omvsd/"
+  },
+
+  // ===== SALUD =====
+  {
+    id: "sal-farmacias-turno-desactualizado",
+    modulo: "salud",
+    titulo: "Farmacias de turno: cronograma sin actualizar al mes en curso",
+    descripcion:
+      "Al 12 de mayo de 2026, la página /farmacias-de-turno/ del sitio oficial publica el cronograma de farmacias de turno únicamente para Enero, Febrero, Marzo y Abril 2026 (4 imágenes PNG). Mayo 2026 (mes en curso) NO está publicado. El ciudadano no puede saber qué farmacia está de turno hoy. Adicionalmente, el cronograma se publica como imagen PNG, no como tabla HTML accesible — limita lectores de pantalla, búsqueda y reutilización. Para un servicio sanitario crítico (farmacia de turno = acceso a medicamentos fuera de horario comercial), la desactualización es de alto impacto.",
+    categoria: "calidad_institucional",
+    estado: "publicado_parcial",
+    fundamento: `${FUND_LOCAL} · principio de servicio público sanitario continuo · ${FUND_CONST}.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/farmacias-de-turno/"
+  },
+  {
+    id: "sal-centros-salud-listado-falta",
+    modulo: "salud",
+    titulo: "Centros de salud municipales: anunciados sin información publicada",
+    descripcion:
+      "En el pilar /gestion/sunchales-protege/, 'Centros de salud' aparece como ítem listado pero SIN link a una página propia. No se publica el listado de centros de salud municipales con dirección, horario de atención, especialidades disponibles, teléfono de contacto, ni unidades sanitarias móviles. Es información sanitaria básica de oficio: el ciudadano que necesita atención no puede saber a qué centro acudir. Sólo aparece (en /ciudad/telefonos-utiles/) el teléfono del Centro de Salud Nº 2 y del Hospital Almilcar Gorosito, sin más detalle ni desagregación.",
+    categoria: "estructura_organica",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley Nacional 27.611 (Atención y Cuidado Integral de la Salud) · principio de acceso a información sanitaria básica.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/gestion/sunchales-protege/"
+  },
+
+  // ===== SERVICIOS CIUDADANOS =====
+  {
+    id: "sci-mapa-interactivo-vacio",
+    modulo: "servicios-ciudadanos",
+    titulo: "Mapa interactivo: la página existe pero no contiene mapa alguno",
+    descripcion:
+      "La página /ciudad/mapa-interactivo/ del sitio oficial existe como ítem del menú 'Ciudad'. Sin embargo, el HTML servido contiene únicamente el título 'Mapa interactivo' y los elementos comunes de layout (menú, footer, números de emergencia). NO hay iframe, NO hay capas, NO hay enlace a un visor SIG, NO hay leyenda. No se publica catastro, obras, transporte, recolección, ni ninguna otra capa. Una sección titulada 'Mapa interactivo' que no contiene mapa es engañosa para el ciudadano y debilita la confianza en la integridad del sitio.",
+    categoria: "datos_abiertos",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · ${FUND_PROV} (principio de máxima divulgación: la publicación debe ser efectiva, no meramente formal) · principio de veracidad de la información pública.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/ciudad/mapa-interactivo/"
+  },
+  {
+    id: "sci-estacion-meteorologica-sin-datos",
+    modulo: "servicios-ciudadanos",
+    titulo: "Estación meteorológica: 24/7 operativa, sin publicación de datos en vivo ni históricos",
+    descripcion:
+      "La Estación Meteorológica de Sunchales (inaugurada el 22-oct-2009, convenio SMN + Grupo Sancor Seguros) es una estación sinóptica/climática/aeronáutica que opera 24/7, integra la red de 125 estaciones nacionales del Servicio Meteorológico Nacional y oficia de capacitadora regional. Sin embargo, la página /ciudad/estacion-meteorologica-sunchales/ se limita a describir institucionalmente la estación con 4 fotos: NO publica datos meteorológicos en tiempo real (temperatura, presión, lluvia, viento), NO publica datos históricos, NO enlaza al SMN, NO publica el dataset abierto. Es un activo público que mide y transmite hora por hora cuyos datos no se exponen al ciudadano local.",
+    categoria: "datos_abiertos",
+    estado: "no_publicado",
+    fundamento: `${FUND_LOCAL} · Ley Nacional 25.831 (acceso a la información ambiental) · principio de aprovechamiento ciudadano de los activos públicos.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/ciudad/estacion-meteorologica-sunchales/"
+  },
+  {
+    id: "sci-organigrama-no-navegable",
+    modulo: "servicios-ciudadanos",
+    titulo: "Organigrama Municipal: solo imagen JPG + PDF, no navegable ni accesible",
+    descripcion:
+      "El Organigrama Municipal publicado en /municipio/organigrama/ consiste exclusivamente en una imagen JPG embebida y un PDF descargable (organigrama-2526-horizontal.pdf). NO es HTML semántico, NO se puede clickear un cargo para llegar a la ficha del funcionario, NO es accesible para lectores de pantalla (los nombres y cargos quedan encerrados como pixeles dentro de la imagen). Adicionalmente, el sitio no cita el acto administrativo (decreto u ordenanza) que aprueba la estructura ni la fecha formal de aprobación. Y se detectó una inconsistencia con la página de Autoridades: ver brecha per-inconsistencia-galli-cultura-educacion.",
+    categoria: "estructura_organica",
+    estado: "publicado_formato_cerrado",
+    fundamento: `${FUND_LOCAL} · estándares WCAG 2.1 AA de accesibilidad web · principio de publicidad efectiva (no meramente formal) de la estructura del Estado.`,
+    fundamentoUrl: URL_OAIP_LOCAL,
+    detectadaEl: "2026-05-12",
+    publicacionParcialUrl: "https://sunchales.gob.ar/municipio/organigrama/"
   }
 ];
 
