@@ -1,6 +1,7 @@
 import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
+import BrechaVerificacionBadge from "@/components/BrechaVerificacionBadge";
 import {
   brechas,
   labelEstado,
@@ -268,6 +269,7 @@ export default function BrechasPage({ searchParams }: SP) {
               )}
               <code className="font-mono text-slate-400">{b.id}</code>
             </div>
+            <BrechaVerificacionBadge brechaId={b.id} variante="detailed" />
           </article>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrechaVerificacionBadge from "@/components/BrechaVerificacionBadge";
 import {
   brechasPorModulo,
   labelEstado,
@@ -123,6 +124,7 @@ export default function BrechasTransparencia({ modulo, titulo, intro }: Props) {
               <div className="mt-3 text-[11px] text-slate-500">
                 Detectado: {b.detectadaEl}
               </div>
+              <BrechaVerificacionBadge brechaId={b.id} variante="compact" />
             </article>
           ))}
         </div>
