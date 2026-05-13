@@ -19,6 +19,7 @@ import {
 } from "@/lib/data/recaudacion";
 import { formatARSCompact } from "@/lib/format";
 import ChartTooltip from "@/components/ChartTooltip";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 // Colores derivados de la Bandera de Sunchales (oro + verde) y tonos afines.
 const COLORS_CATEGORIA: Record<string, string> = {
@@ -30,6 +31,7 @@ const COLORS_CATEGORIA: Record<string, string> = {
 };
 
 export default function RecaudacionCharts() {
+  const esMobile = useIsMobile();
   // Agregado por categoría (excluyendo recursos de capital del comparativo principal)
   const porCategoria = agregadosPorCategoria()
     .filter((a) => a.categoria !== "recursos_capital")
@@ -51,22 +53,22 @@ export default function RecaudacionCharts() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {/* Pie por categoría */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
         <h3 className="mb-1 font-serif text-base font-bold text-navy">
           Origen de los recursos corrientes
         </h3>
         <p className="mb-3 text-xs text-slate-500">
           Total: {formatARSCompact(totalesRecaudacion.recursosCorrientesTotal)}
         </p>
-        <div className="h-72 w-full">
+        <div className="h-56 w-full sm:h-72">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={porCategoria}
                 dataKey="value"
                 nameKey="name"
-                outerRadius={100}
-                innerRadius={50}
+                outerRadius={esMobile ? 80 : 100}
+                innerRadius={esMobile ? 40 : 50}
                 paddingAngle={2}
               >
                 {porCategoria.map((entry) => (
@@ -92,7 +94,7 @@ export default function RecaudacionCharts() {
       </div>
 
       {/* Bar chart de tributos locales */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
         <h3 className="mb-1 font-serif text-base font-bold text-navy">
           Tributos locales (recursos propios)
         </h3>
@@ -100,24 +102,29 @@ export default function RecaudacionCharts() {
           Tasas y derechos que cobra el municipio. Cada uno tiene una
           contraprestación específica.
         </p>
-        <div className="h-72 w-full">
+        <div className="h-[320px] w-full sm:h-72">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={tributosLocales}
               layout="vertical"
-              margin={{ top: 5, right: 24, bottom: 5, left: 8 }}
+              margin={{
+                top: 5,
+                right: esMobile ? 12 : 24,
+                bottom: 5,
+                left: esMobile ? 0 : 8,
+              }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
               <XAxis
                 type="number"
                 tickFormatter={(v) => formatARSCompact(v)}
-                tick={{ fontSize: 11, fill: "#64748B" }}
+                tick={{ fontSize: esMobile ? 10 : 11, fill: "#64748B" }}
               />
               <YAxis
                 dataKey="name"
                 type="category"
-                width={150}
-                tick={{ fontSize: 11, fill: "#0F172A" }}
+                width={esMobile ? 110 : 150}
+                tick={{ fontSize: esMobile ? 10 : 11, fill: "#0F172A" }}
               />
               <Tooltip content={<ChartTooltip formatValue={formatARSCompact} />} />
               <Bar dataKey="value" fill="#10B981" radius={[0, 6, 6, 0]} />

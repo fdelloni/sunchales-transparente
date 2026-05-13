@@ -67,7 +67,7 @@ export default function BrechasPage({ searchParams }: SP) {
     .sort((a, b) => b.total - a.total);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       <div className="mb-8">
         <BuscadorSeccion
           placeholder="Buscar sobre brechas de transparencia…"

@@ -28,7 +28,7 @@ export default function WhatsAppSection() {
   const link = construirLinkWA();
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-10">
+    <section className="container-page py-10">
       <div className="overflow-hidden rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-50/40 shadow-sm">
         <div className="grid gap-0 md:grid-cols-[1fr_auto] md:items-center">
           {/* Lado izquierdo: explicacion */}

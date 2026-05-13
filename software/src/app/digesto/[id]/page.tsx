@@ -159,7 +159,7 @@ export default function NormaDetallePage({ params }: { params: { id: string } })
   const estado: EstadoVigencia = estadosNormas[id] ?? "vigente";
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12">
       {/* Breadcrumb */}
       <nav className="text-xs text-slate-500">
         <Link href="/digesto" className="hover:text-coral-dark">

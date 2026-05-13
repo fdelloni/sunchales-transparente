@@ -18,7 +18,7 @@ export default async function AuditarPage({ params }: { params: { id: string } }
   const cadena = await sellarCadena(c.expediente, c.ejercicio, c.cadenaSinSellar);
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12">
       <Link href={`/contrataciones/${c.id}`} className="text-xs text-coral-dark hover:underline">
         ← Volver al detalle
       </Link>

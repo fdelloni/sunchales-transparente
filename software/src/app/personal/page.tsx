@@ -176,7 +176,7 @@ export default function PersonalPage() {
   const organigrama = construirOrganigrama();
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       {/* Buscador arriba del título — entrada principal de la sección */}
       <div className="mb-8">
         <BuscadorSeccion
@@ -325,8 +325,8 @@ export default function PersonalPage() {
           la nómina salarial estructurada (ver brecha #per-remuneraciones-reales).
         </p>
 
-        <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-          <table className="w-full min-w-[600px] text-sm">
+        <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+          <table className="w-full sm:min-w-[600px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Área</th>
@@ -398,8 +398,8 @@ export default function PersonalPage() {
             Descargar CSV
           </a>
         </div>
-        <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-          <table className="w-full min-w-[820px] text-sm">
+        <div className="mt-4 overflow-x-auto rounded-xl sm:border sm:border-slate-200 sm:bg-white sm:shadow-sm">
+          <table className="tabla-cards w-full text-sm sm:min-w-[820px]">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Apellido y nombre</th>
@@ -416,13 +416,13 @@ export default function PersonalPage() {
             <tbody>
               {empleados.map((e) => (
                 <tr key={e.id} className="border-t border-slate-100">
-                  <td className="px-4 py-3 font-medium text-navy">
+                  <td data-label="Apellido y nombre" className="px-4 py-3 font-medium text-navy">
                     {e.apellidoNombre}
                   </td>
-                  <td className="px-4 py-3 text-slate-700">{e.cargo}</td>
-                  <td className="px-4 py-3 text-slate-600">{e.area}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex flex-col">
+                  <td data-label="Cargo" className="px-4 py-3 text-slate-700">{e.cargo}</td>
+                  <td data-label="Área" className="px-4 py-3 text-slate-600">{e.area}</td>
+                  <td data-label="Asumió" className="px-4 py-3">
+                    <div className="flex flex-col items-end sm:items-start">
                       <span className="tabular-nums text-slate-700">
                         {formatearFecha(e.fechaInicio)}
                       </span>
@@ -439,12 +439,12 @@ export default function PersonalPage() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums">
+                  <td data-label="Rem. bruta mensual" className="px-4 py-3 text-right tabular-nums">
                     {e.remuneracionBruta != null
                       ? formatARS(e.remuneracionBruta)
                       : "—"}
                   </td>
-                  <td className="px-4 py-3">
+                  <td data-label="Estado rem." className="px-4 py-3">
                     {e.fuenteRemuneracion === "verificado_oficial" ? (
                       <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                         verificada
@@ -455,7 +455,7 @@ export default function PersonalPage() {
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-3">
+                  <td data-label="Fuente" className="px-4 py-3">
                     <SourceTag id="organigramaMunicipal" />
                   </td>
                 </tr>
@@ -554,8 +554,8 @@ export default function PersonalPage() {
               </div>
 
               {/* Tabla por sección */}
-              <div className="-mx-6 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full min-w-[480px] text-sm">
+              <div className="-mx-4 sm:-mx-6 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full sm:min-w-[480px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector / Secretaría</th>
@@ -689,8 +689,8 @@ export default function PersonalPage() {
               <h3 className="mt-8 font-serif text-lg font-bold text-navy">
                 Personal Transitorio por sector
               </h3>
-              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full min-w-[420px] text-sm">
+              <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector</th>
@@ -736,8 +736,8 @@ export default function PersonalPage() {
               <h3 className="mt-8 font-serif text-lg font-bold text-navy">
                 Contratación de Servicios por modalidad
               </h3>
-              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full min-w-[420px] text-sm">
+              <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Modalidad</th>
@@ -781,8 +781,8 @@ export default function PersonalPage() {
               <h3 className="mt-8 font-serif text-lg font-bold text-navy">
                 Contratación de Servicios por sector
               </h3>
-              <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full min-w-[420px] text-sm">
+              <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+                <table className="w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector</th>
@@ -981,8 +981,8 @@ export default function PersonalPage() {
         <h3 className="mt-8 font-serif text-lg font-bold text-navy">
           Cifras período por período
         </h3>
-        <div className="-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-          <table className="w-full min-w-[680px] text-sm">
+        <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+          <table className="w-full sm:min-w-[680px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Período</th>
@@ -1137,8 +1137,8 @@ export default function PersonalPage() {
             {/* Tabla con las categorías. El "indicador de qué" va debajo del
                 nombre, no en una columna aparte — queda más limpio y se lee
                 mejor en celular. */}
-            <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-amber-200 bg-white px-0 sm:mx-0">
-              <table className="w-full min-w-[560px] text-sm">
+            <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-amber-200 bg-white px-0 sm:mx-0">
+              <table className="w-full sm:min-w-[560px] text-sm">
                 <thead className="bg-amber-50/60 text-left text-xs uppercase tracking-wider text-amber-800">
                   <tr>
                     <th className="px-4 py-3">Tipo de licencia · indicador de qué</th>

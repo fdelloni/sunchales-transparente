@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="h-1 w-full bg-verde" />
       </div>
       <div className="border-t border-slate-200 py-10">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="container-page">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p>
               <strong className="text-slate-700">Sunchales Transparente</strong> · Plataforma cívica · v0.1

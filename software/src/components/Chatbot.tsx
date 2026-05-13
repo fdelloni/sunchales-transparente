@@ -184,12 +184,15 @@ export default function Chatbot() {
         </div>
       )}
 
-      {/* Botón flotante con pulse sutil de respiración + badge de "no leído" */}
+      {/* Botón flotante con pulse sutil de respiración + badge de "no leído".
+          Bottom calculado con safe-area-inset-bottom para no quedar tapado por
+          la barra gestual de Android ni el home indicator de iPhone. */}
       <button
         type="button"
         aria-label={abierto ? "Cerrar asistente" : "Abrir Asistente Ciudadano"}
         onClick={() => (abierto ? setAbierto(false) : abrirChat())}
-        className="group fixed bottom-5 right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-coral text-zinc-900 shadow-xl shadow-coral/40 transition-transform duration-200 hover:scale-110 hover:bg-amber-400 focus:outline-none focus:ring-4 focus:ring-coral/40 sm:bottom-6 sm:right-6"
+        className="group fixed right-5 z-50 grid h-16 w-16 place-items-center rounded-full bg-coral text-zinc-900 shadow-xl shadow-coral/40 transition-transform duration-200 hover:scale-110 hover:bg-amber-400 focus:outline-none focus:ring-4 focus:ring-coral/40 sm:right-6"
+        style={{ bottom: "calc(1.25rem + var(--safe-bottom))" }}
       >
         {/* Halo animado: dos anillos pulsantes detrás del botón. Solo cuando NO está abierto. */}
         {!abierto && (
@@ -236,12 +239,17 @@ export default function Chatbot() {
         )}
       </button>
 
-      {/* Panel */}
+      {/* Panel — usa dvh para que en Chrome Android no se corte cuando la URL
+          bar aparece/desaparece. Bottom respeta safe-area-inset-bottom. */}
       {abierto && (
         <div
           role="dialog"
           aria-label="Asistente Ciudadano"
-          className="fixed bottom-24 right-3 z-50 flex h-[60vh] max-h-[480px] w-[calc(100vw-1.5rem)] max-w-[320px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:right-6 sm:w-[340px]"
+          className="fixed right-3 z-50 flex w-[calc(100vw-1.5rem)] max-w-[340px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl sm:right-6 sm:w-[340px]"
+          style={{
+            bottom: "calc(6rem + var(--safe-bottom))",
+            height: "min(70dvh, 520px)",
+          }}
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-3 bg-navy px-4 py-3 text-white">
@@ -269,7 +277,7 @@ export default function Chatbot() {
               type="button"
               onClick={() => setAbierto(false)}
               aria-label="Cerrar"
-              className="rounded p-1 text-slate-300 hover:bg-white/10 hover:text-white"
+              className="grid h-11 w-11 place-items-center rounded text-slate-300 hover:bg-white/10 hover:text-white"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                 <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
@@ -306,6 +314,7 @@ export default function Chatbot() {
               enviar(input);
             }}
             className="flex items-center gap-2 border-t border-slate-200 bg-white px-3 py-2"
+            style={{ paddingBottom: "calc(0.5rem + max(0px, env(safe-area-inset-bottom) - 1rem))" }}
           >
             <input
               type="text"
@@ -313,13 +322,17 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribí tu consulta…"
               maxLength={600}
-              className="flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm text-navy outline-none focus:border-coral focus:ring-2 focus:ring-coral/30"
+              /* font-size 16px en mobile (vía globals.css) evita el zoom
+                 automático que hace iOS Safari cuando se focusea un input
+                 con font-size < 16px. */
+              className="min-h-[44px] flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm text-navy outline-none focus:border-coral focus:ring-2 focus:ring-coral/30"
               disabled={cargando}
+              enterKeyHint="send"
             />
             <button
               type="submit"
               disabled={!input.trim() || cargando}
-              className="grid h-9 w-9 place-items-center rounded-lg bg-coral text-zinc-900 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-40"
+              className="grid h-11 w-11 place-items-center rounded-lg bg-coral text-zinc-900 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-40"
               aria-label="Enviar"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">

@@ -16,7 +16,7 @@ export default function PresupuestoPage() {
   ).sort((a, b) => b.total - a.total);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       {/* Buscador arriba del título — entrada principal de la sección */}
       <div className="mb-8">
         <BuscadorSeccion
@@ -71,8 +71,8 @@ export default function PresupuestoPage() {
       <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Distribución por finalidad
       </h2>
-      <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full min-w-[560px] text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl sm:border sm:border-slate-200 sm:bg-white sm:shadow-sm">
+        <table className="tabla-cards w-full text-sm sm:min-w-[560px]">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Finalidad</th>
@@ -83,9 +83,9 @@ export default function PresupuestoPage() {
           <tbody>
             {porFinalidad.map((row) => (
               <tr key={row.finalidad} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium text-navy">{row.finalidad}</td>
-                <td className="px-4 py-3 text-right tabular-nums">{formatARS(row.total)}</td>
-                <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                <td data-label="Finalidad" className="px-4 py-3 font-medium text-navy">{row.finalidad}</td>
+                <td data-label="Presupuestado" className="px-4 py-3 text-right tabular-nums">{formatARS(row.total)}</td>
+                <td data-label="% del total" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                   {((row.total / totales.gastos_total) * 100).toFixed(1)}%
                 </td>
               </tr>
@@ -95,17 +95,17 @@ export default function PresupuestoPage() {
       </div>
 
       {/* Detalle por partida */}
-      <div className="mt-10 flex items-center justify-between">
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-3">
         <h2 className="section-heading font-serif text-2xl font-bold text-navy">Detalle por función</h2>
         <a
           href="/api/v1/presupuesto?format=csv"
-          className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50"
+          className="inline-flex min-h-[44px] items-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50"
         >
           Descargar CSV
         </a>
       </div>
-      <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full min-w-[760px] text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl sm:border sm:border-slate-200 sm:bg-white sm:shadow-sm">
+        <table className="tabla-cards w-full text-sm sm:min-w-[760px]">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Finalidad</th>
@@ -118,12 +118,12 @@ export default function PresupuestoPage() {
           <tbody>
             {partidas.map((p) => (
               <tr key={p.id} className="border-t border-slate-100">
-                <td className="px-4 py-3 text-slate-600">{p.finalidad}</td>
-                <td className="px-4 py-3 font-medium text-navy">{p.funcion}</td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td data-label="Finalidad" className="px-4 py-3 text-slate-600">{p.finalidad}</td>
+                <td data-label="Función" className="px-4 py-3 font-medium text-navy">{p.funcion}</td>
+                <td data-label="Presupuestado" className="px-4 py-3 text-right tabular-nums">
                   {formatARS(p.presupuestado)}
                 </td>
-                <td className="px-4 py-3 text-right">
+                <td data-label="Verificación" className="px-4 py-3 text-right">
                   {p.verificado ? (
                     <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                       verificado
@@ -134,7 +134,7 @@ export default function PresupuestoPage() {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Fuente" className="px-4 py-3">
                   <SourceTag id={p.sourceId} />
                 </td>
               </tr>

@@ -94,7 +94,7 @@ export default function TablaConcejoArchivos({
               setQ(e.target.value);
               setPagina(0);
             }}
-            className="flex-1 min-w-[160px] rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-coral focus:outline-none"
+            className="min-h-[44px] flex-1 min-w-[160px] rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:border-coral focus:outline-none"
           />
         )}
         {conFiltroAnio && aniosDisponibles.length > 0 && (
@@ -104,7 +104,7 @@ export default function TablaConcejoArchivos({
               setAnio(e.target.value === "" ? "" : parseInt(e.target.value, 10));
               setPagina(0);
             }}
-            className="rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+            className="min-h-[44px] rounded-md border border-slate-300 px-2 py-1.5 text-sm"
           >
             <option value="">Todos los años</option>
             {aniosDisponibles.map((a) => (
@@ -121,16 +121,16 @@ export default function TablaConcejoArchivos({
           <button
             type="button"
             onClick={descargarCsv}
-            className="ml-auto rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-slate-50"
+            className="ml-auto min-h-[44px] rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-navy hover:bg-slate-50"
           >
             Descargar CSV
           </button>
         )}
       </div>
 
-      {/* Tabla */}
+      {/* Tabla — en mobile se renderiza como tarjetas via .tabla-cards */}
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[600px] text-sm">
+        <table className="tabla-cards w-full text-sm sm:min-w-[600px]">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-3 py-2">Documento</th>
@@ -143,18 +143,18 @@ export default function TablaConcejoArchivos({
           <tbody>
             {visibles.map((it, i) => (
               <tr key={i} className="border-t border-slate-100 hover:bg-slate-50/50">
-                <td className="px-3 py-2 font-medium text-navy">{it.etiqueta}</td>
-                <td className="px-3 py-2 text-slate-600">{it.anio ?? "—"}</td>
-                <td className="px-3 py-2 text-slate-600">{it.fechaPublicacion ?? "—"}</td>
-                <td className="px-3 py-2 text-right tabular-nums text-slate-500">
+                <td data-label="Documento" className="px-3 py-2 font-medium text-navy">{it.etiqueta}</td>
+                <td data-label="Año" className="px-3 py-2 text-slate-600">{it.anio ?? "—"}</td>
+                <td data-label="Publicado" className="px-3 py-2 text-slate-600">{it.fechaPublicacion ?? "—"}</td>
+                <td data-label="Tamaño" className="px-3 py-2 text-right tabular-nums text-slate-500">
                   {(it.tamanioBytes / 1024).toFixed(0)} KB
                 </td>
-                <td className="px-3 py-2 text-right">
+                <td data-label="Archivo" className="px-3 py-2 text-right">
                   <a
                     href={it.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-coral-dark hover:underline"
+                    className="inline-flex min-h-[36px] items-center text-coral-dark hover:underline"
                   >
                     PDF →
                   </a>
@@ -172,7 +172,7 @@ export default function TablaConcejoArchivos({
             type="button"
             onClick={() => setPagina((p) => Math.max(0, p - 1))}
             disabled={paginaActual === 0}
-            className="min-h-[36px] rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
+            className="min-h-[44px] rounded-md border border-slate-300 px-4 py-2 disabled:opacity-50"
           >
             ← Anterior
           </button>
@@ -183,7 +183,7 @@ export default function TablaConcejoArchivos({
             type="button"
             onClick={() => setPagina((p) => Math.min(totalPaginas - 1, p + 1))}
             disabled={paginaActual >= totalPaginas - 1}
-            className="min-h-[36px] rounded-md border border-slate-300 px-3 py-1 disabled:opacity-50"
+            className="min-h-[44px] rounded-md border border-slate-300 px-4 py-2 disabled:opacity-50"
           >
             Siguiente →
           </button>

@@ -50,7 +50,7 @@ export default function PeriodoDetalle({ params }: Props) {
   const totalDescuentos = r.filas.reduce((acc, f) => acc + (f.descuentos ?? 0), 0);
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       <Link
         href="/personal/remuneraciones"
         className="text-sm text-coral-dark hover:underline"
@@ -160,8 +160,8 @@ export default function PeriodoDetalle({ params }: Props) {
           <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
             Detalle por funcionario
           </h2>
-          <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-            <table className="w-full min-w-[820px] text-sm">
+          <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+            <table className="w-full sm:min-w-[820px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">#</th>
