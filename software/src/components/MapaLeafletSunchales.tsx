@@ -157,7 +157,7 @@ export default function MapaLeafletSunchales() {
 
   if (!mounted) {
     return (
-      <div className="grid h-[560px] w-full place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
+      <div className="grid h-[60dvh] max-h-[560px] min-h-[360px] w-full place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
         Cargando mapa de Sunchales…
       </div>
     );
@@ -165,7 +165,12 @@ export default function MapaLeafletSunchales() {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-      <div className="relative h-[560px] w-full">
+      {/* Altura adaptativa:
+          - 60dvh para usar el viewport dinámico del navegador móvil (Chrome iOS
+            recalcula viewport cuando aparece/desaparece la URL bar).
+          - min-h 360px para que en pantallas muy chicas siga siendo útil.
+          - max-h 560px para evitar mapas gigantes en desktop ultra-wide. */}
+      <div className="relative h-[60dvh] max-h-[560px] min-h-[360px] w-full">
         <MapContainer
           bounds={BOUNDS}
           maxBounds={BOUNDS}

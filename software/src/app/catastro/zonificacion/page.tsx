@@ -24,7 +24,7 @@ const MapaLeafletSunchales = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="grid h-[560px] w-full place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
+      <div className="grid h-[60dvh] max-h-[560px] min-h-[360px] w-full place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
         Cargando mapa de Sunchales…
       </div>
     ),
@@ -56,7 +56,7 @@ export default function ZonificacionPage() {
   const idesfCentrado = `${URL_IDESF_PORTAL}?lng=${centroSunchales.lng}&lat=${centroSunchales.lat}`;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       <div className="mb-6">
         <BuscadorSeccion
           placeholder="Buscar sobre zonificación urbana…"

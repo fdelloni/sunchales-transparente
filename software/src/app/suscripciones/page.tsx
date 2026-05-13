@@ -4,7 +4,7 @@ import SuscripcionForm from "./SuscripcionForm";
 
 export default function SuscripcionesPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12">
       <span className="eyebrow">Módulo · Alertas ciudadanas</span>
       <h1 className="mt-2 font-serif text-3xl font-bold text-navy md:text-4xl">
         Enterate apenas pasa algo en el municipio

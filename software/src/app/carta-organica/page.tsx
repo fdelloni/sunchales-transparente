@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function CartaOrganicaPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       <div className="mb-8">
         <BuscadorSeccion
           placeholder="Buscar sobre la Carta Orgánica…"

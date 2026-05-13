@@ -1,0 +1,129 @@
+name: Reindex RAG (Supabase pgvector)
+
+# Cuándo se dispara:
+#   - Push a main que toque archivos relevantes para el corpus indexado.
+#     Cualquier cambio en datos institucionales (.ts), data sincronizada, PDFs
+#     descargados o el indexer mismo gatilla un reindex incremental.
+#   - Manual desde la UI de GitHub Actions (workflow_dispatch).
+#
+# IMPORTANTE — estructura del repo:
+#   El proyecto Node vive en la subcarpeta `software/`. Por eso los paths del
+#   filtro y cada step ejecutan dentro de `software/`.
+#
+# Qué hace:
+#   1. Checkout del repo.
+#   2. npm ci (instala deps incluyendo tsx).
+#   3. npm run sincronizar-datos (TS → JSON).
+#   4. node scripts/indexar-rag.mjs (incremental: solo procesa lo que cambió).
+#
+# Tiempo esperado:
+#   - Sin cambios: ~30 segundos (verifica hashes y termina).
+#   - Cambios chicos (un funcionario, una FAQ): 1-2 minutos.
+#   - Reindex completo (--reset): 1-2 horas. NO se hace acá; reset es manual.
+#
+# Secrets requeridos en Settings → Secrets and variables → Actions:
+#   - GOOGLE_API_KEY                Para Gemini Embeddings (gemini-embedding-001).
+#   - NEXT_PUBLIC_SUPABASE_URL      URL de la instancia Supabase del proyecto.
+#   - SUPABASE_SERVICE_ROLE_KEY     Service-role key de Supabase (no la anon).
+#                                   Esta key tiene permisos de escritura, mantenerla
+#                                   estrictamente como secret.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Cualquier cambio en datos institucionales sincronizables (.ts del repo).
+      - "software/src/lib/data/**.ts"
+      - "software/src/lib/whatsapp/data/**.ts"
+      # JSONs ya sincronizados (comiteados por el sync local) y outputs del scrape.
+      - "software/data/sincronizado/**"
+      - "software/data/digesto-oficial/items_completos.json"
+      - "software/data/concejo/_indice.json"
+      - "software/data/concejo/**/*.txt"
+      # Scripts del propio pipeline de indexado.
+      - "software/scripts/indexar-rag.mjs"
+      - "software/scripts/exportar-datos-sincronizados.ts"
+  workflow_dispatch:
+    inputs:
+      reset:
+        description: "Reset completo del corpus (usar con precaución, ~1-2hs)"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+      solo:
+        description: "Indexar solo una fuente (vacío = todas)"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - "funcionario"
+          - "presupuesto"
+          - "faq"
+          - "normativa-marco"
+          - "concejo"
+          - "juzgado"
+          - "contratacion"
+          - "brecha"
+          - "catastro"
+          - "zonificacion"
+          - "licencias"
+          - "recaudacion"
+          - "digesto"
+          - "pdf-concejo"
+          - "resumen-anual"
+
+permissions:
+  contents: read
+
+jobs:
+  reindex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Reindex incremental NUNCA debe tardar más que esto.
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: software/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd software
+          npm ci
+
+      - name: Sincronizar datos .ts → JSON
+        run: |
+          cd software
+          npm run sincronizar-datos
+
+      - name: Indexar RAG (incremental)
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          cd software
+          ARGS=""
+          if [ "${{ github.event.inputs.reset }}" = "true" ]; then
+            ARGS="$ARGS --reset"
+          fi
+          if [ -n "${{ github.event.inputs.solo }}" ]; then
+            ARGS="$ARGS --solo=${{ github.event.inputs.solo }}"
+          fi
+          echo "Ejecutando: node scripts/indexar-rag.mjs $ARGS"
+          node scripts/indexar-rag.mjs $ARGS
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "## Reindex finalizado" >> $GITHUB_STEP_SUMMARY
+          echo "- Estado: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Trigger: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY

@@ -62,7 +62,7 @@ export default function RemuneracionesPage({ searchParams }: SP) {
     });
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       <Link href="/personal" className="text-sm text-coral-dark hover:underline">
         ← Volver a Personal
       </Link>

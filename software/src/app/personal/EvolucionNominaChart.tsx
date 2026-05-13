@@ -46,25 +46,29 @@ const labelCambio =
 
 export default function EvolucionNominaChart() {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="h-[360px] w-full">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+      {/* Altura mayor en mobile para que XAxis con labels de período (5 valores
+          tipo "ago-24") no se solapen al estar la Legend abajo. */}
+      <div className="h-[300px] w-full sm:h-[360px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
-            margin={{ top: 10, right: 20, left: 0, bottom: 10 }}
+            margin={{ top: 10, right: 12, left: 0, bottom: 10 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
             <XAxis
               dataKey="periodo"
               stroke="#64748b"
-              fontSize={12}
+              fontSize={11}
               tick={{ fill: "#475569" }}
+              interval="preserveStartEnd"
             />
             <YAxis
               stroke="#64748b"
-              fontSize={12}
+              fontSize={11}
               tick={{ fill: "#475569" }}
               allowDecimals={false}
+              width={36}
             />
             <Tooltip
               contentStyle={{

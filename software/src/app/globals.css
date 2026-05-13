@@ -17,10 +17,55 @@
   --verde-soft: #EAF3CC;
   --tierra: #1A6F2D;        /* deep — verde bosque oscuro */
   --oliva: #3F9430;         /* teal — verde medio vibrante */
+
+  /* Safe-area insets para iOS notch / barras nativas Android.
+     Fallback a 0 cuando el navegador no las soporta. */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 html, body { background: #F8FAFC; color: #0F172A; }
+html { -webkit-text-size-adjust: 100%; }
 * { -webkit-font-smoothing: antialiased; }
+
+/* Mobile UX base:
+   - Evita el "flash" gris al tocar elementos en iOS/Android.
+   - Hace que los enlaces táctiles se sientan nativos. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari hace zoom automático cuando el input tiene font-size < 16px.
+   Forzamos 16px en mobile para todos los campos editables. En >=sm
+   los inputs vuelven a su tamaño visual original (text-sm = 14px). */
+@media (max-width: 639.98px) {
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px;
+  }
+}
+
+/* Asegura tap target mínimo Material (48px) / Apple HIG (44px) en botones
+   y enlaces táctiles principales. Se aplica en mobile solamente. */
+@media (max-width: 639.98px) {
+  .tap-target,
+  button.tap-target,
+  a.tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Tipografía mobile-first: en pantallas chicas, los font-size grandes
+   se contienen para evitar overflow horizontal cuando hay palabras largas. */
+h1, h2, h3 {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
 
 /* Componente reutilizable para textos pre-título tipo "kicker".
    Por defecto usa oro oscuro (legible sobre blanco). Cuando se usa sobre
@@ -73,6 +118,161 @@ html, body { background: #F8FAFC; color: #0F172A; }
     border-bottom: 4px solid var(--oro);
     display: inline-block;
   }
+
+  /* ============================================================ */
+  /* Container responsivo unificado.                              */
+  /* Reemplaza el patrón repetido "mx-auto max-w-6xl px-6".       */
+  /* En mobile da 16px de padding (cómodo en 360px), en sm 24px,  */
+  /* en lg 32px. Aplicar en cada <section> o <div> top-level.     */
+  /* ============================================================ */
+  .container-page {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 72rem; /* 1152px = max-w-6xl */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* ============================================================ */
+  /* Tabla responsiva con vista "tarjeta" en mobile.              */
+  /* Uso:                                                          */
+  /*   <table class="tabla-cards">                                 */
+  /*     <thead>...</thead>                                        */
+  /*     <tbody>                                                   */
+  /*       <tr>                                                    */
+  /*         <td data-label="Finalidad">Salud</td>                 */
+  /*         <td data-label="Monto">$1.000.000</td>                */
+  /*       </tr>                                                   */
+  /*     </tbody>                                                  */
+  /*   </table>                                                    */
+  /* En desktop se ve como tabla normal. En <640px cada <tr> se   */
+  /* convierte en una tarjeta apilada label/valor. Sin JS.        */
+  /* ============================================================ */
+  @media (max-width: 639.98px) {
+    .tabla-cards {
+      display: block;
+      width: 100%;
+      min-width: 0 !important;
+    }
+    .tabla-cards thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .tabla-cards tbody,
+    .tabla-cards tr {
+      display: block;
+      width: 100%;
+    }
+    .tabla-cards tr {
+      border: 1px solid #E2E8F0;
+      border-radius: 0.75rem;
+      background: #FFFFFF;
+      padding: 0.5rem 0;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .tabla-cards td {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      text-align: right;
+      border: none;
+      border-top: 1px dashed #F1F5F9;
+    }
+    .tabla-cards td:first-child {
+      border-top: none;
+    }
+    .tabla-cards td::before {
+      content: attr(data-label);
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748B;
+      text-align: left;
+      max-width: 45%;
+    }
+    /* Cuando NO hay data-label (filas de totales), no mostrar el ::before
+       para evitar texto vacío en la izquierda. */
+    .tabla-cards td:not([data-label])::before {
+      content: none;
+    }
+    .tabla-cards td:not([data-label]) {
+      justify-content: flex-end;
+    }
+    /* Indicador visual para filas de "total" (cualquier <tr> con clase
+       tr-total se resalta). */
+    .tabla-cards tr.tr-total {
+      background: #F8FAFC;
+      border-color: #0F5E1F;
+    }
+  }
+
+  /* ============================================================ */
+  /* Helper para envoltorios de tabla con scroll horizontal:      */
+  /* gradiente lateral que indica "hay más contenido al costado". */
+  /* Solo aparece en mobile, sobre la tabla scrollable.           */
+  /* ============================================================ */
+  .scroll-shadow {
+    position: relative;
+  }
+  .scroll-shadow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(248, 250, 252, 0.85)
+    );
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .scroll-shadow::after {
+      display: none;
+    }
+  }
+
+  /* Safe-area helpers — se pueden combinar con Tailwind via className */
+  .pt-safe { padding-top: var(--safe-top); }
+  .pb-safe { padding-bottom: var(--safe-bottom); }
+  .pl-safe { padding-left: var(--safe-left); }
+  .pr-safe { padding-right: var(--safe-right); }
+
+  /* Bloquea scroll del body — usado mientras el drawer móvil está abierto.
+     Se aplica con className condicional desde el componente Header. */
+  body.body-lock {
+    overflow: hidden;
+    /* No usar position: fixed (rompe scroll restoration en iOS). */
+    touch-action: none;
+  }
 }
 
 /* Estilos para el HTML del Digesto Municipal renderizado en /digesto/[id]
@@ -119,3 +319,9 @@ html, body { background: #F8FAFC; color: #0F172A; }
   font-style: italic;
 }
 
+/* Leaflet en mobile: evita que el mapa robe el scroll vertical de la página
+   cuando el usuario está scrolleando sobre el mapa con un solo dedo.
+   Para hacer zoom en mobile se requiere usar dos dedos (pinch). */
+.leaflet-container {
+  touch-action: pan-x pan-y;
+}

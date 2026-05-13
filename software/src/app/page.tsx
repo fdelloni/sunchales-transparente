@@ -14,32 +14,35 @@ export default function HomePage() {
   return (
     <>
       {/* Buscador inteligente — entrada principal del ciudadano (arriba del hero) */}
-      <section className="mx-auto max-w-6xl px-6 pt-6 pb-6">
+      <section className="container-page pt-6 pb-6">
         <BuscadorSeccion placeholder="¿Qué querés saber del municipio?" />
       </section>
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-coral to-coral-dark" />
-        <div className="mx-auto max-w-6xl px-6 pt-8 pb-12">
+        <div className="container-page pt-8 pb-12">
           <span className="eyebrow text-oro">Plataforma cívica</span>
-          <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight md:text-5xl">
+          {/* Tipografía escalonada: 30px (mobile) → 36px (sm) → 48px (md).
+              text-4xl en 360px-wide era 36px, que con la headline larga
+              forzaba 4 líneas y desbordaba en algunos casos. */}
+          <h1 className="mt-3 max-w-3xl font-serif text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             Cada peso público, cada acto y cada cronograma trazables por cualquier vecino.
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-slate-300 md:text-lg">
+          <p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-base md:text-lg">
             Versión 0.1 del Portal de Transparencia de la Municipalidad de Sunchales.
             Construido con principios de máxima divulgación, privacidad por diseño y código abierto auditable.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/presupuesto"
-              className="rounded-lg bg-coral px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
+              className="inline-flex min-h-[44px] items-center rounded-lg bg-coral px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
             >
               Explorar el presupuesto
             </Link>
             <Link
               href="/datos-abiertos"
-              className="rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              className="inline-flex min-h-[44px] items-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
             >
               Datos abiertos + API
             </Link>
@@ -48,7 +51,7 @@ export default function HomePage() {
       </section>
 
       {/* KPIs */}
-      <section className="mx-auto max-w-6xl px-6 py-12">
+      <section className="container-page py-12">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard
             value={formatARSCompact(totales.gastos_total)}
@@ -81,7 +84,7 @@ export default function HomePage() {
       <WhatsAppSection />
 
       {/* Banner Asistente Web */}
-      <section className="mx-auto max-w-6xl px-6">
+      <section className="container-page">
         <div className="flex flex-col items-start gap-3 rounded-2xl border border-coral/30 bg-amber-50/60 p-5 sm:flex-row sm:items-center sm:gap-5">
           <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-gradient-to-br from-coral to-coral-dark text-zinc-900">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
@@ -105,7 +108,7 @@ export default function HomePage() {
       </section>
 
       {/* Módulos */}
-      <section className="mx-auto max-w-6xl px-6 py-10">
+      <section className="container-page py-10">
         <h2 className="section-heading mb-2 font-serif text-2xl font-bold text-navy">
           Módulos disponibles en esta prueba
         </h2>
@@ -209,7 +212,7 @@ export default function HomePage() {
 
       {/* Principios */}
       <section className="bg-white py-12">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="container-page">
           <h2 className="section-heading mb-2 font-serif text-2xl font-bold text-navy">Cómo abordamos los datos</h2>
           <p className="mb-6 max-w-3xl text-slate-600">
             Tres reglas que toda fila respeta:
@@ -240,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* Banner Brechas */}
-      <section className="mx-auto max-w-6xl px-6 pb-12">
+      <section className="container-page pb-12">
         <Link
           href="/brechas"
           className="group block overflow-hidden rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-amber-50 to-white p-6 transition hover:shadow-md sm:p-8"

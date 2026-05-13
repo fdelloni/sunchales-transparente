@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function DigestoPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       {/* Buscador arriba del título — entrada principal de la sección */}
       <div className="mb-8">
         <BuscadorSeccion placeholder="Buscar una norma o tema legislativo…" />
@@ -115,8 +115,8 @@ export default function DigestoPage() {
       <h2 className="section-heading mt-12 font-serif text-2xl font-bold text-navy">
         Próximas sesiones del Concejo
       </h2>
-      <div className="-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full min-w-[640px] text-sm">
+      <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
+        <table className="w-full sm:min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Fecha</th>

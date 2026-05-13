@@ -117,6 +117,19 @@ export default function Header() {
     setOpenMobile(null);
   }, [pathname]);
 
+  // Body lock cuando el drawer está abierto en mobile: evita que el fondo
+  // scrollee mientras el usuario navega el menú lateral. Se desactiva al
+  // cerrar, al desmontar y al cambiar de ruta (por el efecto anterior).
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (drawerOpen) {
+      document.body.classList.add("body-lock");
+    } else {
+      document.body.classList.remove("body-lock");
+    }
+    return () => document.body.classList.remove("body-lock");
+  }, [drawerOpen]);
+
   function isActive(href: string): boolean {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(href + "/");
@@ -127,7 +140,10 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-verde text-navy backdrop-blur">
+    <header
+      className="sticky top-0 z-50 bg-verde text-navy backdrop-blur"
+      style={{ paddingTop: "var(--safe-top)" }}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href="/"
@@ -229,13 +245,13 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Botón hamburguesa móvil/tablet */}
+        {/* Botón hamburguesa móvil/tablet — 44x44 mínimo (Apple HIG / Material) */}
         <button
           type="button"
           aria-label={drawerOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={drawerOpen}
           onClick={() => setDrawerOpen((v) => !v)}
-          className="grid h-9 w-9 place-items-center rounded-md border border-navy/30 text-navy hover:bg-navy/10 lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-md border border-navy/30 text-navy hover:bg-navy/10 lg:hidden"
         >
           {drawerOpen ? (
             <svg
@@ -267,14 +283,25 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Drawer móvil/tablet con accordion */}
+      {/* Drawer móvil/tablet con accordion.
+          - max-h con dvh para usar el viewport real (sin chrome del navegador).
+          - overflow-y-auto para que cuando hay muchos ítems se pueda scrollear
+            dentro del drawer sin afectar el body (body-lock activo).
+          - overscroll-contain evita que el "swipe vertical" del menú dispare
+            pull-to-refresh del navegador en Android. */}
       {drawerOpen && (
-        <nav className="border-t border-navy/15 bg-verde lg:hidden">
-          <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
+        <nav
+          className="overscroll-contain border-t border-navy/15 bg-verde lg:hidden"
+          style={{ maxHeight: "calc(100dvh - 56px - var(--safe-top))", overflowY: "auto" }}
+        >
+          <ul
+            className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6"
+            style={{ paddingBottom: "calc(0.5rem + var(--safe-bottom))" }}
+          >
             <li>
               <Link
                 href="/"
-                className={`block rounded-md px-3 py-3 text-[15px] hover:bg-navy/10 hover:text-navy ${
+                className={`flex min-h-[44px] items-center rounded-md px-3 py-3 text-[15px] hover:bg-navy/10 hover:text-navy ${
                   isActive("/") ? "font-bold text-navy" : "text-navy/85"
                 }`}
                 onClick={() => setDrawerOpen(false)}
@@ -292,7 +319,7 @@ export default function Header() {
                     type="button"
                     onClick={() => setOpenMobile(expanded ? null : g.id)}
                     aria-expanded={expanded}
-                    className={`flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-[15px] hover:bg-navy/10 ${
+                    className={`flex min-h-[44px] w-full items-center justify-between rounded-md px-3 py-3 text-left text-[15px] hover:bg-navy/10 ${
                       expanded || hasActive ? "font-bold text-navy" : "text-navy/85"
                     }`}
                   >
@@ -316,7 +343,7 @@ export default function Header() {
                         <li key={it.href}>
                           <Link
                             href={it.href}
-                            className={`block rounded-md px-3 py-2 text-sm hover:bg-navy/10 hover:text-navy ${
+                            className={`flex min-h-[44px] flex-col justify-center rounded-md px-3 py-2 text-sm hover:bg-navy/10 hover:text-navy ${
                               isActive(it.href) ? "font-bold text-navy" : "text-navy/80"
                             }`}
                             onClick={() => setDrawerOpen(false)}
@@ -338,7 +365,7 @@ export default function Header() {
             <li className="mt-2 border-t border-navy/15 pt-2">
               <Link
                 href={ctaSuscripcion.href}
-                className={`block rounded-md bg-oro px-3 py-3 text-center text-sm font-bold uppercase tracking-wider text-navy shadow-sm hover:bg-amber-400 ${
+                className={`flex min-h-[44px] items-center justify-center rounded-md bg-oro px-3 py-3 text-center text-sm font-bold uppercase tracking-wider text-navy shadow-sm hover:bg-amber-400 ${
                   isActive(ctaSuscripcion.href) ? "ring-2 ring-navy" : ""
                 }`}
                 onClick={() => setDrawerOpen(false)}

@@ -1,0 +1,70 @@
+{
+  "name": "Sunchales Transparente",
+  "short_name": "S. Transparente",
+  "description": "Plataforma cívica de transparencia y gestión municipal de Sunchales — datos abiertos, brechas declaradas, AIP y asistente IA.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0F5E1F",
+  "lang": "es-AR",
+  "dir": "ltr",
+  "categories": ["government", "civics", "education", "news"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Presupuesto 2026",
+      "short_name": "Presupuesto",
+      "description": "Ver el presupuesto municipal 2026 por finalidad y función",
+      "url": "/presupuesto?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Pedido de Acceso a la Información",
+      "short_name": "Pedir info",
+      "description": "Generar pedido AIP bajo Ord. 1872/2009",
+      "url": "/aip?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Brechas declaradas",
+      "short_name": "Brechas",
+      "description": "Información obligatoria que el municipio aún no publica",
+      "url": "/brechas?source=pwa-shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

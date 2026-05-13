@@ -7,7 +7,7 @@ import { formatNumber } from "@/lib/format";
 
 export default function DatosAbiertosPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="container-page py-12">
       {/* Buscador arriba del título — entrada principal de la sección */}
       <div className="mb-8">
         <BuscadorSeccion
