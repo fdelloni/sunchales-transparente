@@ -8,12 +8,12 @@ on:
   workflow_dispatch:
     inputs:
       solo:
-        description: "Correr solo un scraper (vacio = todos)"
+        description: "Correr solo un scraper (default = todos)"
         required: false
-        default: ""
+        default: "todos"
         type: choice
         options:
-          - ""
+          - "todos"
           - "publicaciones-concejo"
           - "licitaciones"
           - "digesto-concejo"
@@ -48,27 +48,27 @@ jobs:
         run: npm ci
 
       - name: Scrapear publicaciones del Concejo
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'publicaciones-concejo'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'publicaciones-concejo' || github.event_name == 'schedule'
         run: npm run scrapear-publicaciones-concejo
 
       - name: Scrapear licitaciones
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'licitaciones'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'licitaciones' || github.event_name == 'schedule'
         run: npm run scrapear-licitaciones
 
       - name: Scrapear digesto del Concejo
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-concejo'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'digesto-concejo' || github.event_name == 'schedule'
         run: npm run scrapear-digesto-concejo
 
       - name: Scrapear remuneraciones
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'remuneraciones'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'remuneraciones' || github.event_name == 'schedule'
         run: npm run scrapear-remuneraciones
 
       - name: Sincronizar digesto oficial del Municipio
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-oficial'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'digesto-oficial' || github.event_name == 'schedule'
         run: npm run sincronizar-digesto
 
       - name: Verificar brechas auditadas
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'verificar-brechas-auditoria'
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'verificar-brechas-auditoria' || github.event_name == 'schedule'
         run: npm run verificar-brechas-auditoria
         continue-on-error: true
 
