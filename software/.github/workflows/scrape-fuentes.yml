@@ -1,3 +1,5 @@
+# Workflow del scraper diario de fuentes municipales.
+# Cron 09:00 UTC = 06:00 ART. Manual disponible vía workflow_dispatch.
 name: Scrape fuentes municipales (diario)
 
 on:
