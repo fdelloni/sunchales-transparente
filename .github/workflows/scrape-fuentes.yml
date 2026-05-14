@@ -1,49 +1,17 @@
 name: Scrape fuentes municipales (diario)
 
-# Cuándo se dispara:
-#   - Cron diario: 09:00 UTC = 06:00 ART (Argentina, UTC-3).
-#     Hora elegida para que los cambios publicados durante el día anterior por el
-#     Municipio aparezcan en el sitio antes del horario de oficina.
-#   - Manual desde Actions → Run workflow, con opción `solo` para correr una sola
-#     fuente (útil al debuggear un scraper).
-#
-# IMPORTANTE — estructura del repo:
-#   El proyecto Node vive en la subcarpeta `software/`. Por eso cada step que
-#   ejecuta scripts hace `cd software` primero, igual que `descargar-pdfs-concejo.yml`.
-#
-# Qué hace:
-#   1. Corre los scrapers "livianos" que sólo leen HTML/JSON público del Municipio
-#      y del Concejo, sin OCR ni llamadas a Gemini (esos son procesos caros y
-#      siguen siendo manuales: ocr-remuneraciones, analizar-derogaciones).
-#      Nota: la descarga + procesado de PDFs del Concejo + indexar-resumenes ya
-#      la hace el workflow separado `descargar-pdfs-concejo.yml`.
-#   2. Si algún `.generated.ts` cambió, hace commit con el bot `github-actions[bot]`
-#      y push a `main`.
-#   3. Ese push dispara automáticamente `reindex-rag.yml` por matching de paths.
-#
-# Scrapers incluidos (todos rápidos, todos contra fuentes públicas sin auth):
-#   - scrapear-publicaciones-concejo  → boletines bimestrales + resúmenes anuales
-#   - scrapear-licitaciones           → contrataciones publicadas
-#   - scrapear-digesto-concejo        → digesto del Concejo (listado HTML)
-#   - scrapear-remuneraciones         → lista de PDFs de sueldos (no los descarga)
-#   - sincronizar-digesto             → digesto oficial del Municipio (incremental)
-#   - verificar-brechas-auditoria     → concejales actuales / Boletín Oficial /
-#                                       farmacias de turno (continue-on-error)
-
 on:
   schedule:
-    # 09:00 UTC = 06:00 ART. Para cambiar la hora, recordá que cron en GitHub
-    # Actions usa UTC. Para 06:00 de Argentina (UTC-3) usá "0 9 * * *".
     - cron: "0 9 * * *"
   workflow_dispatch:
     inputs:
       solo:
-        description: "Correr solo un scraper (vacío = todos)"
+        description: "Correr solo un scraper (default = todos)"
         required: false
-        default: ""
+        default: "todos"
         type: choice
         options:
-          - ""
+          - "todos"
           - "publicaciones-concejo"
           - "licitaciones"
           - "digesto-concejo"
@@ -52,10 +20,8 @@ on:
           - "verificar-brechas-auditoria"
 
 permissions:
-  # Necesario para que el bot pueda commitear los .generated.ts actualizados.
   contents: write
 
-# Evitar carreras: si ya hay un scrape corriendo, esperar a que termine.
 concurrency:
   group: scrape-fuentes
   cancel-in-progress: false
@@ -64,13 +30,13 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
+    defaults:
+      run:
+        working-directory: software
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Token con permiso de push, necesario para que el commit dispare
-          # otros workflows (en este caso `reindex-rag.yml` por paths).
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
@@ -81,88 +47,55 @@ jobs:
           cache-dependency-path: software/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd software
-          npm ci
+        run: npm ci
 
       - name: Scrapear publicaciones del Concejo
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'publicaciones-concejo'
-        run: |
-          cd software
-          npm run scrapear-publicaciones-concejo
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'publicaciones-concejo' || github.event_name == 'schedule'
+        run: npm run scrapear-publicaciones-concejo
 
       - name: Scrapear licitaciones
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'licitaciones'
-        run: |
-          cd software
-          npm run scrapear-licitaciones
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'licitaciones' || github.event_name == 'schedule'
+        run: npm run scrapear-licitaciones
 
       - name: Scrapear digesto del Concejo
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-concejo'
-        run: |
-          cd software
-          npm run scrapear-digesto-concejo
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'digesto-concejo' || github.event_name == 'schedule'
+        run: npm run scrapear-digesto-concejo
 
-      - name: Scrapear remuneraciones (listado de PDFs)
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'remuneraciones'
-        run: |
-          cd software
-          npm run scrapear-remuneraciones
+      - name: Scrapear remuneraciones
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'remuneraciones' || github.event_name == 'schedule'
+        run: npm run scrapear-remuneraciones
 
       - name: Sincronizar digesto oficial del Municipio
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'digesto-oficial'
-        run: |
-          cd software
-          npm run sincronizar-digesto
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'digesto-oficial' || github.event_name == 'schedule'
+        run: npm run sincronizar-digesto
 
-      - name: Verificar brechas auditadas (concejales / BO / farmacias)
-        if: github.event.inputs.solo == '' || github.event.inputs.solo == 'verificar-brechas-auditoria'
+      - name: Verificar brechas auditadas
+        if: github.event.inputs.solo == 'todos' || github.event.inputs.solo == 'verificar-brechas-auditoria' || github.event_name == 'schedule'
+        run: npm run verificar-brechas-auditoria
         continue-on-error: true
-        run: |
-          cd software
-          npm run verificar-brechas-auditoria
 
       - name: Detectar cambios
         id: cambios
+        working-directory: ${{ github.workspace }}
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "hay_cambios=false" >> "$GITHUB_OUTPUT"
-            echo "Sin cambios detectados — ningún portal publicó novedades."
           else
             echo "hay_cambios=true" >> "$GITHUB_OUTPUT"
-            echo "Cambios detectados:"
             git status --porcelain
           fi
 
-      - name: Commit y push (si hubo cambios)
+      - name: Commit y push
         if: steps.cambios.outputs.hay_cambios == 'true'
+        working-directory: ${{ github.workspace }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Sólo agregar los archivos producidos por los scrapers.
-          git add "software/src/lib/data/*.generated.ts" \
-                  "software/data/digesto-oficial/items_completos.json" \
-                  "software/data/digesto-oficial/detalles" 2>/dev/null || true
-
+          git add "software/src/lib/data/*.generated.ts" "software/data/digesto-oficial/items_completos.json" "software/data/digesto-oficial/detalles" 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "Cambios detectados fuera de paths esperados; no se commitea automáticamente."
-            git status
+            echo "Sin cambios staged"
             exit 0
           fi
-
           FECHA=$(date -u +"%Y-%m-%d")
-          git commit -m "chore(scrape): actualización automática de fuentes municipales (${FECHA})
-
-Scrape diario disparado por scrape-fuentes.yml.
-Este commit gatilla automáticamente reindex-rag.yml."
-
+          git commit -m "chore(scrape): actualizacion automatica ${FECHA}"
           git push origin HEAD:main
-
-      - name: Resumen
-        if: always()
-        run: |
-          echo "## Resultado del scrape" >> $GITHUB_STEP_SUMMARY
-          echo "- Estado: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Trigger: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Cambios detectados: ${{ steps.cambios.outputs.hay_cambios }}" >> $GITHUB_STEP_SUMMARY
