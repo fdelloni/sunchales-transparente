@@ -149,10 +149,12 @@ jobs:
           fi
 
           FECHA=$(date -u +"%Y-%m-%d")
-          git commit -m "chore(scrape): actualización automática de fuentes municipales (${FECHA})
-
-Scrape diario disparado por scrape-fuentes.yml.
-Este commit gatilla automáticamente reindex-rag.yml."
+          # Doble -m: el primero es el subject (oneline), el segundo el body.
+          # Evita comillas multilínea que rompen el bloque literal '|' de YAML
+          # — antes el body sin indentar cortaba el parsing en GitHub Actions.
+          git commit \
+            -m "chore(scrape): actualización automática de fuentes municipales (${FECHA})" \
+            -m "Scrape diario disparado por scrape-fuentes.yml. Este commit gatilla automáticamente reindex-rag.yml."
 
           git push origin HEAD:main
 
