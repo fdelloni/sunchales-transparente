@@ -53,7 +53,12 @@ export const proveedorGoogle: Proveedor = {
         generationConfig: {
           maxOutputTokens: maxTokens,
           // Temperatura baja: queremos respuestas factuales, no creativas.
-          temperature: 0.2
+          temperature: 0.2,
+          // Desactivamos el "thinking" interno de gemini-2.5-flash. Sin esto,
+          // el modelo gasta parte de maxOutputTokens en thinking tokens (no
+          // visibles) y la respuesta se corta a mitad de oracion. Nuestro
+          // chat es factual (recupera + cita), no necesita reasoning complejo.
+          thinkingConfig: { thinkingBudget: 0 }
         },
         // Bloqueamos contenido "harm" alto (default). Para chatbot ciudadano
         // los defaults de Google son apropiados.
