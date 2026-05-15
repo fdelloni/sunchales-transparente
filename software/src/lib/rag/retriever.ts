@@ -140,29 +140,51 @@ async function boostFuncionariosPorCargo(pregunta: string): Promise<ChunkRecuper
   ];
 
   const cargosMatch = cargosMap.filter((c) => c.patron.test(norm));
-  if (cargosMatch.length === 0) return [];
-
-  // Activamos el boost si la pregunta sugiere consulta sobre remuneracion,
-  // identidad o funcion del cargo. Si SOLO menciona un nombre propio (ej.
-  // "Pinotti"), tambien activamos porque cualquier consulta sobre la persona
-  // se beneficia del chunk autoritativo del padron.
   const hayNombrePropio = /\b(pinotti|garc[ií]a|ochat|bongiovanni|chamorro|bovo|s[aá]nchez|gamero|cabalaro|sinner|bernini|galli|kemmerer|gorosito|marti)\b/.test(norm);
   const requiereFuncionario =
-    hayNombrePropio ||
-    /(sueldo|salari|cobra|gana|remunera|honorari|quien|integra|integran|conforma|cargo|funcion|trabaja|encarga|responsable|a\s+cargo)/.test(norm);
-  if (!requiereFuncionario) return [];
+    cargosMatch.length > 0 && (
+      hayNombrePropio ||
+      /(sueldo|salari|cobra|gana|remunera|honorari|quien|integra|integran|conforma|cargo|funcion|trabaja|encarga|responsable|a\s+cargo)/.test(norm)
+    );
+
+  // BOOST ESPECIAL "digesto-presentacion": cuando la pregunta es genérica sobre
+  // digesto / ordenanzas / "hay normativa consultable", traemos el chunk
+  // resumen del digesto. Independiente del boost de funcionarios.
+  const preguntaSobreDigestoGenerico =
+    /\b(digesto|ordenanza|ordenanzas|normativa)\b/.test(norm) &&
+    /(hay|existe|consultable|consultar|d[oó]nde|tienen|disponible|online|c[oó]mo)/.test(norm) &&
+    !/\b\d{2,5}[\/\-]\d{2,4}\b/.test(norm);  // si menciona ord X/YYYY especifica, no boostear el de presentacion
+
+  if (!requiereFuncionario && !preguntaSobreDigestoGenerico) return [];
 
   const out: ChunkRecuperado[] = [];
-  for (const { ilike } of cargosMatch) {
+
+  if (requiereFuncionario) {
+    for (const { ilike } of cargosMatch) {
+      const { data, error } = await supabase
+        .from("chunks_rag")
+        .select("*")
+        .eq("fuente_tipo", "funcionario")
+        .ilike("texto", ilike)
+        .limit(3);
+      if (error || !data) continue;
+      for (const row of data as Array<Record<string, unknown>>) {
+        out.push({ ...mapearChunk(row), similarity: 0.99 });
+      }
+    }
+  }
+
+  if (preguntaSobreDigestoGenerico) {
     const { data, error } = await supabase
       .from("chunks_rag")
       .select("*")
-      .eq("fuente_tipo", "funcionario")
-      .ilike("texto", ilike)
-      .limit(3);
-    if (error || !data) continue;
-    for (const row of data as Array<Record<string, unknown>>) {
-      out.push({ ...mapearChunk(row), similarity: 0.99 });
+      .eq("fuente_tipo", "digesto")
+      .eq("fuente_id", "digesto-presentacion")
+      .limit(1);
+    if (!error && data) {
+      for (const row of data as Array<Record<string, unknown>>) {
+        out.push({ ...mapearChunk(row), similarity: 0.99 });
+      }
     }
   }
 
