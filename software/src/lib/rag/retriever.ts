@@ -116,17 +116,40 @@ async function boostFuncionariosPorCargo(pregunta: string): Promise<ChunkRecuper
     { patron: /\bsecretari[oa]\b|\bsecretaria\b/, ilike: "%secretari%" },
     { patron: /\bsubsecretari[oa]\b/, ilike: "%subsecretari%" },
     { patron: /\bdirector[a]?\b/, ilike: "%director%" },
-    { patron: /\bcoordinador[a]?\b/, ilike: "%coordinador%" }
+    { patron: /\bcoordinador[a]?\b/, ilike: "%coordinador%" },
+    // Nombres propios de funcionarios conocidos (en el padron):
+    // si la pregunta menciona el apellido sin el cargo, igualmente
+    // boosteamos el chunk del funcionario correspondiente.
+    { patron: /\bpinotti\b/, ilike: "%pinotti%" },
+    { patron: /\bgarc[ií]a\b/, ilike: "%García%" },
+    { patron: /\bochat\b/, ilike: "%Ochat%" },
+    { patron: /\bbongiovanni\b/, ilike: "%Bongiovanni%" },
+    { patron: /\bchamorro\b/, ilike: "%Chamorro%" },
+    { patron: /\bbovo\b/, ilike: "%Bovo%" },
+    { patron: /\bs[aá]nchez\b/, ilike: "%Sánchez%" },
+    { patron: /\bgamero\b/, ilike: "%Gamero%" },
+    { patron: /\bcabalaro\b/, ilike: "%Cabalaro%" },
+    { patron: /\bsinner\b/, ilike: "%Sinner%" },
+    { patron: /\bbernini\b/, ilike: "%Bernini%" },
+    { patron: /\bgalli\b/, ilike: "%Galli%" },
+    { patron: /\bkemmerer\b/, ilike: "%Kemmerer%" },
+    { patron: /\bgorosito\b/, ilike: "%Gorosito%" },
+    { patron: /\bmarti\b/, ilike: "%Marti%" },
+    // Areas / oficios sueltos que tambien deben llevar al padron
+    { patron: /\bcomunicaci[oó]n\b|\bprensa\b/, ilike: "%omunicaci%" }
   ];
 
   const cargosMatch = cargosMap.filter((c) => c.patron.test(norm));
   if (cargosMatch.length === 0) return [];
 
-  // Solo activamos el boost si la pregunta sugiere consulta sobre remuneracion
-  // o sobre identidad/funcion del cargo. Asi no hacemos queries de mas para
-  // preguntas que no necesitan al padron.
+  // Activamos el boost si la pregunta sugiere consulta sobre remuneracion,
+  // identidad o funcion del cargo. Si SOLO menciona un nombre propio (ej.
+  // "Pinotti"), tambien activamos porque cualquier consulta sobre la persona
+  // se beneficia del chunk autoritativo del padron.
+  const hayNombrePropio = /\b(pinotti|garc[ií]a|ochat|bongiovanni|chamorro|bovo|s[aá]nchez|gamero|cabalaro|sinner|bernini|galli|kemmerer|gorosito|marti)\b/.test(norm);
   const requiereFuncionario =
-    /(sueldo|salari|cobra|gana|remunera|honorari|quien|integra|integran|conforma|cargo|funcion|trabaja|encarga|responsable)/.test(norm);
+    hayNombrePropio ||
+    /(sueldo|salari|cobra|gana|remunera|honorari|quien|integra|integran|conforma|cargo|funcion|trabaja|encarga|responsable|a\s+cargo)/.test(norm);
   if (!requiereFuncionario) return [];
 
   const out: ChunkRecuperado[] = [];
@@ -301,7 +324,7 @@ function detectarTiposObjetivo(pregunta: string): string[] {
   if (/(brecha|no publicad|falta publicar|opacidad|incumpl|pendiente de publicar)/.test(norm)) {
     tipos.push("brecha");
   }
-  if (/(catastro|parcela|parcelario|valuaci[oó]n|inmueble fiscal|nomenclador|scit)/.test(norm)) {
+  if (/(catastro|parcela|parcelario|valuaci[oó]n|inmueble fiscal|nomenclador|scit|26\.?209|10\.?921|2\.?996)/.test(norm)) {
     tipos.push("catastro");
   }
   if (/(zonificaci[oó]n|zona urbana|zona rural|uso de suelo|plano de [aá]reas|2800)/.test(norm)) {

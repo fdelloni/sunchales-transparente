@@ -34,6 +34,16 @@ const PALABRAS_RECLAMO = [
 
 export function esComienzoDeReclamo(texto: string): boolean {
   const n = texto.toLowerCase();
+  // Si el mensaje es una pregunta (signo ?, o empieza con palabras
+  // interrogativas), NO activamos el flujo de reclamo aunque mencione
+  // "luminaria" o "bache". Ejemplos:
+  //   "¿hay licitaciones de luminarias?" → consulta, NO reclamo.
+  //   "tengo un bache enorme en Belgrano" → reclamo de verdad.
+  const esConsulta =
+    /[?¿]/.test(texto) ||
+    /^\s*(qu[eé]|cu[aá]l|cu[aá]nto|c[oó]mo|d[oó]nde|cu[aá]ndo|qui[eé]n|por\s+qu[eé]|hay|existen?|cu[eé]nt[ao]me|list[ao]me|mostr[aá]me|cont[aá]me|inform[aá]me|dec[ií]me|sab[eé]s|conoc[eé]s|me\s+pod[eé]s)/i.test(texto);
+  if (esConsulta) return false;
+
   return PALABRAS_RECLAMO.some((p) => n.includes(p));
 }
 

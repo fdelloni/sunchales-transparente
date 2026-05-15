@@ -44,9 +44,35 @@ export async function rutearMensaje(ctx: ContextoHandler): Promise<{ handler: Ha
     };
   }
 
-  // 2. Sub-flujo de reclamo activo: prioridad maxima hasta que termine.
+  // 2. Sub-flujo de reclamo activo: prioridad alta MIENTRAS el usuario
+  // este respondiendo el flujo. Pero si el usuario manda una pregunta
+  // clara (signo ?, "qu[eé]", "hay", etc.), salimos del flujo y dejamos
+  // que IA responda la consulta. Esto evita el caso "abri flujo por
+  // luminaria y la siguiente pregunta no se contesta".
   if (ctx.sesion.intentActivo === "reclamo" && ctx.sesion.pasoReclamo !== null) {
-    return { intent: "reclamo", handler: manejarReclamo };
+    const esConsultaClara =
+      /[?¿]/.test(texto) ||
+      /^\s*(qu[eé]|cu[aá]l|cu[aá]nto|c[oó]mo|d[oó]nde|cu[aá]ndo|qui[eé]n|por\s+qu[eé]|hay|existen?|list[ao]me|mostr[aá]me|cont[aá]me|inform[aá]me|dec[ií]me)/i.test(texto);
+    if (!esConsultaClara) {
+      return { intent: "reclamo", handler: manejarReclamo };
+    }
+    // Cae a IA y limpiamos el estado de reclamo en el handler. Lo hacemos
+    // envolviendo el handler de IA en un wrapper que tambien resetea estado.
+    return {
+      intent: "ia",
+      handler: async (ctx2) => {
+        const r = await manejarIa(ctx2);
+        return {
+          ...r,
+          nuevoEstado: {
+            ...(r.nuevoEstado ?? {}),
+            intentActivo: "ia",
+            pasoReclamo: null,
+            reclamoBorrador: {}
+          }
+        };
+      }
+    };
   }
 
   // 3. Saludos / pedido de menu → mensaje breve de bienvenida.
