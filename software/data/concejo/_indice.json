@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-05-14T11:14:01.140Z",
+  "actualizado": "2026-05-15T11:21:42.368Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -6042,7 +6042,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5652.3043DEM.pdf",
       "nombreArchivo": "link.5652.3043DEM.pdf",
       "textoEnlace": "19/03/26 - Expte. N°3043. P. de O. Determina el aumento de la Unidad de Cuenta Municipal a partir del 1° de abril de 2026.-",
-      "fechaContexto": "19/03/26",
+      "fechaContexto": "14/05/26",
       "tamanioBytes": 1590851,
       "hashSha256": "8a2ed277c408a709afd29876a629b393a588141ebb7ad5b035363cc8df05ac24",
       "descargadoEl": "2026-05-03T10:05:30.784Z",
@@ -12950,9 +12950,51 @@
       "descargadoEl": "2026-05-13T11:31:16.930Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 10643
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5691.3086AS-PS.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5691.3086AS-PS.pdf",
+      "nombreArchivo": "link.5691.3086AS-PS.pdf",
+      "textoEnlace": "14/05/26 - Expte. N°3086. P. de O. Incorpora artículo nuevo a la Ordenanza N°3267.-",
+      "fechaContexto": null,
+      "tamanioBytes": 185268,
+      "hashSha256": "c3e6684704d32859552698211c0a739979b1f36c1f39636e155c09fcc017c728",
+      "descargadoEl": "2026-05-15T11:21:38.528Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 4502
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5689.3078DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5689.3078DEM.pdf",
+      "nombreArchivo": "link.5689.3078DEM.pdf",
+      "textoEnlace": "14/05/26 - Expte. N°3078. P. de O. Establece un régimen transitorio de retiro especial para algunos empleados municipales.- AC. 3086AS-PS",
+      "fechaContexto": null,
+      "tamanioBytes": 4829932,
+      "hashSha256": "11601886db7d52cbc16797d9781816eb00adac1ab0c2b7967d8a44a60cbeb000",
+      "descargadoEl": "2026-05-15T11:21:39.724Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5690.3085LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5690.3085LLA.pdf",
+      "nombreArchivo": "link.5690.3085LLA.pdf",
+      "textoEnlace": "14/05/26 - Expte. N°3085. P. de O. Declara la Emergencia Habitacional respecto de las viviendas correspondientes al Plan de Ahorro Municipal.-",
+      "fechaContexto": null,
+      "tamanioBytes": 198302,
+      "hashSha256": "a052030c40d7d2ef9676faa36ddabca4f6522c575dbf40f83e0f553c122261ab",
+      "descargadoEl": "2026-05-15T11:21:39.970Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 2502
     }
   ],
-  "totalPdfs": 925,
-  "procesado": "2026-05-14T11:14:09.243Z",
-  "totalConTexto": 925
+  "totalPdfs": 928,
+  "procesado": "2026-05-15T11:21:53.900Z",
+  "totalConTexto": 928
 }
