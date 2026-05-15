@@ -85,7 +85,12 @@ async function intentarGenerar(
     contents: [{ role: "user", parts: [{ text: pregunta }] }],
     generationConfig: {
       maxOutputTokens: cfg.maxOutputTokens ?? 600,
-      temperature: cfg.temperatura ?? 0.3
+      temperature: cfg.temperatura ?? 0.3,
+      // Desactivamos thinking tokens para gemini-2.5-flash.
+      // El thinking interno se come parte del maxOutputTokens y corta
+      // respuestas largas a mitad de oracion. Nuestro bot es factual
+      // (recuperar + citar fuente), no necesita reasoning complejo.
+      thinkingConfig: { thinkingBudget: 0 }
     }
   };
 
@@ -117,6 +122,13 @@ async function intentarGenerar(
 
   if (data.promptFeedback?.blockReason) {
     throw new Error(`Gemini bloqueo el prompt: ${data.promptFeedback.blockReason}`);
+  }
+
+  // Loggeo de truncamiento por limite de tokens. Si esto aparece en producción,
+  // hay que subir maxOutputTokens en el handler que llamo a generar().
+  const finishReason = data.candidates?.[0]?.finishReason;
+  if (finishReason && finishReason !== "STOP") {
+    console.warn(`[gemini] respuesta interrumpida (finishReason=${finishReason}) modelo=${modelo}`);
   }
 
   const texto = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
