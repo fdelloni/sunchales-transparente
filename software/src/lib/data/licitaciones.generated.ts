@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-05-09T21:11:37.473Z
+// Última sincronización: 2026-05-15T11:15:21.339Z
 // Total licitaciones extraídas: 64
 
 export type ProcedimientoOficial =
@@ -2175,7 +2175,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-05-09T21:11:37.473Z",
+  sincronizadoEl: "2026-05-15T11:15:21.339Z",
   total: 64,
   porAnio: {
   "2016": 8,
