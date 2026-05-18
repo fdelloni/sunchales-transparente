@@ -989,6 +989,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1192, tipo:"Decreto", numero:"3582", anio:2026, fecha:"2026-04-20", titulo:"3582/2026 - Llama a concurso interno para la cobertura de una vacante del cargo de Asesor/a de Normativa y Procesos Jurídico-Administrativos.", pdf:"1192-digesto.pdf"},
   {id:1193, tipo:"Decreto", numero:"3583", anio:2026, fecha:"2026-04-20", titulo:"3583/2026 - Llama a concurso interno para la cobertura de dos cargos vacantes de Auxiliar de Compras.", pdf:"1193-digesto.pdf"},
   {id:1194, tipo:"Decreto", numero:"3584", anio:2026, fecha:"2026-04-29", titulo:"3584/2026 - Declara Huésped de Honor al Sr. Juan Carlos Pallarols.", pdf:"1194-digesto.pdf"},
+  {id:1200, tipo:"Ordenanza", numero:"3284", anio:2026, fecha:"2026-05-15", titulo:"3284/2026 - Reglas para el servicio particular de alquiler de autos con chofer.", pdf:"1200-digesto.pdf"},
+  {id:1201, tipo:"Decreto", numero:"3587", anio:2026, fecha:"2026-05-15", titulo:"3587/2026 - Promulga la Ordenanza N° 3284/2026.", pdf:"1201-digesto.pdf"},
+  {id:1202, tipo:"Decreto", numero:"3585", anio:2026, fecha:"2026-04-29", titulo:"3585/2026 - Designa como autoridad de aplicación de la Ordenanza N° 3283/2026 a la Subsecretaría de Hacienda y Finanzas", pdf:"1202-digesto.pdf"},
+  {id:1203, tipo:"Decreto", numero:"3586", anio:2026, fecha:"2026-05-04", titulo:"3586/2026 - Declara de Interés Municipal el 40° Aniversario de la Escuela N° 1213.", pdf:"1203-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
