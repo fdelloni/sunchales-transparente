@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-05-18T12:30:42.944Z",
+  "actualizado": "2026-05-19T12:11:46.430Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -12992,9 +12992,23 @@
       "descargadoEl": "2026-05-15T11:21:39.970Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 2502
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5692.Boletín Informativo Período Enero - Abril 2026.pdf",
+      "categoria": "boletines-bimestrales",
+      "categoriaDescripcion": "Boletín informativo bimestral del Concejo",
+      "rutaLocal": "boletines-bimestrales/link.5692.Boletín Informativo Período Enero - Abril 2026.pdf",
+      "nombreArchivo": "link.5692.Boletín Informativo Período Enero - Abril 2026.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": "18/05/26",
+      "tamanioBytes": 2852332,
+      "hashSha256": "3ba696aa7ad4a33d03676ee8de8c32deb9e96102013b2aad2b90febd6e902d8e",
+      "descargadoEl": "2026-05-19T12:11:31.581Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 16475
     }
   ],
-  "totalPdfs": 928,
-  "procesado": "2026-05-18T12:30:52.219Z",
-  "totalConTexto": 928
+  "totalPdfs": 929,
+  "procesado": "2026-05-19T12:11:57.058Z",
+  "totalConTexto": 929
 }
