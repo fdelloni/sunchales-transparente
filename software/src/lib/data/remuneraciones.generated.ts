@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/
 //
-// Última sincronización: 2026-05-18T12:27:20.789Z
-// Total PDFs detectados: 140
+// Última sincronización: 2026-05-19T12:00:19.837Z
+// Total PDFs detectados: 141
 // Cobertura: 2014 – 2026
 
 export type RemuneracionPdf = {
@@ -25,12 +25,20 @@ export type RemuneracionPdf = {
 
 export const remuneracionesPdfs: RemuneracionPdf[] = [
   {
+    "periodo": "2026-04",
+    "anio": 2026,
+    "mes": 4,
+    "sac": false,
+    "label": "Abril 2026",
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/05/ABRIL-2026-1.pdf"
+  },
+  {
     "periodo": "2026-03",
     "anio": 2026,
     "mes": 3,
     "sac": false,
     "label": "Marzo 2026",
-    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/04/MARZO-2026.pdf"
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/05/MARZO-2026.pdf"
   },
   {
     "periodo": "2026-02",
@@ -38,7 +46,7 @@ export const remuneracionesPdfs: RemuneracionPdf[] = [
     "mes": 2,
     "sac": false,
     "label": "Febrero 2026",
-    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/04/FEBRERO-2026.pdf"
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/05/FEBRERO-2026.pdf"
   },
   {
     "periodo": "2026-01",
@@ -46,7 +54,7 @@ export const remuneracionesPdfs: RemuneracionPdf[] = [
     "mes": 1,
     "sac": false,
     "label": "Enero 2026",
-    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/02/Sueldo-Funcionarios-01-2026.pdf"
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/05/ENERO-2026.pdf"
   },
   {
     "periodo": "2025-12",
@@ -1148,9 +1156,9 @@ export const remuneracionesPdfs: RemuneracionPdf[] = [
 
 export const remuneracionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/",
-  sincronizadoEl: "2026-05-18T12:27:20.789Z",
-  total: 140,
-  conPeriodoIdentificado: 140,
+  sincronizadoEl: "2026-05-19T12:00:19.837Z",
+  total: 141,
+  conPeriodoIdentificado: 141,
   sinPeriodo: 0,
   porAnio: {
   "2014": 12,
@@ -1164,6 +1172,6 @@ export const remuneracionesMeta = {
   "2023": 13,
   "2024": 14,
   "2025": 13,
-  "2026": 3
+  "2026": 4
 },
 } as const;

@@ -5,8 +5,8 @@
 //   https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx
 //   https://concejosunchales.gob.ar/resumen-anual.aspx
 //
-// Última sincronización: 2026-05-18T12:23:44.571Z
-// Boletines bimestrales: 66
+// Última sincronización: 2026-05-19T11:56:35.224Z
+// Boletines bimestrales: 67
 // Resúmenes anuales: 14
 
 export type TipoPublicacionConcejo = "boletin_bimestral" | "resumen_anual";
@@ -24,6 +24,14 @@ export type PublicacionConcejo = {
 };
 
 export const publicacionesConcejo: PublicacionConcejo[] = [
+  {
+    "tipo": "boletin_bimestral",
+    "idPublicacion": 5692,
+    "titulo": "Boletín informativo correspondiente al período Enero - Abril",
+    "fechaPublicacion": "2026-05-18",
+    "urlDetalle": "https://concejosunchales.gob.ar/boletin-informativo-bimestral-detalle.aspx?id=5692",
+    "urlPdf": "https://concejosunchales.gob.ar/Archivos/Link/link.5692.Boletín Informativo Período Enero - Abril 2026.pdf"
+  },
   {
     "tipo": "resumen_anual",
     "idPublicacion": 5658,
@@ -669,7 +677,7 @@ export const publicacionesConcejo: PublicacionConcejo[] = [
 export const publicacionesConcejoMeta = {
   fuenteBoletines: "https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx",
   fuenteResumenes: "https://concejosunchales.gob.ar/resumen-anual.aspx",
-  sincronizadoEl: "2026-05-18T12:23:44.571Z",
-  totalBoletines: 66,
+  sincronizadoEl: "2026-05-19T11:56:35.224Z",
+  totalBoletines: 67,
   totalResumenes: 14,
 } as const;
