@@ -7,7 +7,7 @@
 //   2) Boletín Oficial: ¿cuál es el último mes publicado en las 3 plataformas?
 //   3) Farmacias de turno: ¿hay cronograma para el mes en curso?
 //
-// Última sincronización: 2026-05-19T12:00:31.419Z
+// Última sincronización: 2026-05-20T11:48:59.649Z
 //
 // Política de honestidad: si una verificación no puede determinar el estado
 // con evidencia textual del HTML servido, el resultado es "indeterminado"
@@ -45,7 +45,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "con-cv-concejales-incompletos",
     "url": "https://concejosunchales.gob.ar/concejales-actuales.aspx",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-19T12:00:22.742Z",
+    "fechaVerificacion": "2026-05-20T11:48:52.262Z",
     "resultado": "ok",
     "hallazgos": [
       "6 de 6 apellidos vigentes detectados en el HTML: Delmastro, Nicolau, Cattaneo, Astor, Torriri, Balduino.",
@@ -69,7 +69,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "pre-boletin-oficial-municipal",
     "url": "https://sunchales.gob.ar/boletines-oficiales | https://sunchales.miportal.ar/digesto | https://boletinoficial.sunchales.gob.ar/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-19T12:00:28.804Z",
+    "fechaVerificacion": "2026-05-20T11:48:57.568Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "[drupal-legacy] Último mes/año mencionado en HTML: abril de 2025. (HTTP 200)",
@@ -119,12 +119,12 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "sal-farmacias-turno-desactualizado",
     "url": "https://sunchales.gob.ar/farmacias-de-turno/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-19T12:00:31.419Z",
-    "resultado": "desactualizado",
+    "fechaVerificacion": "2026-05-20T11:48:59.649Z",
+    "resultado": "ok",
     "hallazgos": [
       "Meses mencionados en la página: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, setiembre, octubre, noviembre.",
-      "Cronograma más reciente identificable por filename de imagen subida: abril de 2026.",
-      "El cronograma más reciente publicado está 1 mes(es) por detrás del mes en curso."
+      "Cronograma más reciente identificable por filename de imagen subida: junio de 2026.",
+      "El cronograma cubre el mes en curso o un mes futuro."
     ],
     "meta": {
       "mesActual": {
@@ -133,7 +133,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
       },
       "cronogramaMasReciente": {
         "anio": 2026,
-        "mes": 4
+        "mes": 6
       },
       "mesesDetectadosEnPagina": [
         1,
@@ -154,11 +154,11 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
 ];
 
 export const verificacionesAuditoriaMeta = {
-  sincronizadoEl: "2026-05-19T12:00:31.419Z",
+  sincronizadoEl: "2026-05-20T11:48:59.649Z",
   total: 3,
   resultadosPorTipo: {
-    ok: 1,
-    desactualizado: 2,
+    ok: 2,
+    desactualizado: 1,
     indeterminado: 0,
     error: 0,
   },
