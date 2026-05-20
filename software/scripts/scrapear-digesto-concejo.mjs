@@ -364,7 +364,12 @@ export type NormaConcejo = {
   urlPdf: string | null;
 };
 
-export const normasConcejo: NormaConcejo[] = ${JSON.stringify(todos, null, 2)};
+// Se emite con JSON.parse (no como array literal) para evitar el error de
+// TypeScript "Expression produces a union type that is too complex to represent",
+// que aparece cuando el array supera varios miles de objetos. JSON.parse devuelve
+// un valor sin inferencia de tipo literal, y JSON.stringify escapa correctamente
+// cualquier carácter de las descripciones.
+export const normasConcejo: NormaConcejo[] = JSON.parse(${JSON.stringify(JSON.stringify(todos))});
 
 export const digestoConcejoMeta = {
   fuenteUrl: ${JSON.stringify(`${BASE}/normativa-local.aspx`)},
