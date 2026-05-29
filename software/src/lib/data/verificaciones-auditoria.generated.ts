@@ -7,7 +7,7 @@
 //   2) Boletín Oficial: ¿cuál es el último mes publicado en las 3 plataformas?
 //   3) Farmacias de turno: ¿hay cronograma para el mes en curso?
 //
-// Última sincronización: 2026-05-28T12:26:06.800Z
+// Última sincronización: 2026-05-29T12:15:15.789Z
 //
 // Política de honestidad: si una verificación no puede determinar el estado
 // con evidencia textual del HTML servido, el resultado es "indeterminado"
@@ -44,23 +44,14 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "id": "concejales-actuales",
     "brechaIdRelacionada": "con-cv-concejales-incompletos",
     "url": "https://concejosunchales.gob.ar/concejales-actuales.aspx",
-    "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-28T12:25:56.996Z",
-    "resultado": "ok",
+    "estadoHttp": 503,
+    "fechaVerificacion": "2026-05-29T12:15:03.498Z",
+    "resultado": "error",
     "hallazgos": [
-      "6 de 6 apellidos vigentes detectados en el HTML: Delmastro, Nicolau, Cattaneo, Astor, Torriri, Balduino.",
-      "0 de 3 apellidos cesados todavía aparecen en el HTML: ninguno.",
-      "Los 6 apellidos vigentes aparecen y ningún cesado figura: composición consistente con jura 03-mar-2026."
+      "No se pudo acceder a la página: HTTP 503 Service Unavailable."
     ],
     "meta": {
-      "concejalesVigentesDetectados": [
-        "Delmastro",
-        "Nicolau",
-        "Cattaneo",
-        "Astor",
-        "Torriri",
-        "Balduino"
-      ],
+      "concejalesVigentesDetectados": [],
       "concejalesCesadosDetectados": []
     }
   },
@@ -69,7 +60,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "pre-boletin-oficial-municipal",
     "url": "https://sunchales.gob.ar/boletines-oficiales | https://sunchales.miportal.ar/digesto | https://boletinoficial.sunchales.gob.ar/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-28T12:26:03.720Z",
+    "fechaVerificacion": "2026-05-29T12:15:12.221Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "[drupal-legacy] Último mes/año mencionado en HTML: abril de 2025. (HTTP 200)",
@@ -119,7 +110,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "sal-farmacias-turno-desactualizado",
     "url": "https://sunchales.gob.ar/farmacias-de-turno/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-28T12:26:06.800Z",
+    "fechaVerificacion": "2026-05-29T12:15:15.789Z",
     "resultado": "ok",
     "hallazgos": [
       "Meses mencionados en la página: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, setiembre, octubre, noviembre.",
@@ -154,13 +145,13 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
 ];
 
 export const verificacionesAuditoriaMeta = {
-  sincronizadoEl: "2026-05-28T12:26:06.800Z",
+  sincronizadoEl: "2026-05-29T12:15:15.789Z",
   total: 3,
   resultadosPorTipo: {
-    ok: 2,
+    ok: 1,
     desactualizado: 1,
     indeterminado: 0,
-    error: 0,
+    error: 1,
   },
 } as const;
 
