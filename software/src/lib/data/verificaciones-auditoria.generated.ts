@@ -7,7 +7,7 @@
 //   2) Boletín Oficial: ¿cuál es el último mes publicado en las 3 plataformas?
 //   3) Farmacias de turno: ¿hay cronograma para el mes en curso?
 //
-// Última sincronización: 2026-05-31T10:57:01.211Z
+// Última sincronización: 2026-06-01T14:58:57.607Z
 //
 // Política de honestidad: si una verificación no puede determinar el estado
 // con evidencia textual del HTML servido, el resultado es "indeterminado"
@@ -45,7 +45,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "con-cv-concejales-incompletos",
     "url": "https://concejosunchales.gob.ar/concejales-actuales.aspx",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-31T10:56:52.837Z",
+    "fechaVerificacion": "2026-06-01T14:58:47.543Z",
     "resultado": "ok",
     "hallazgos": [
       "6 de 6 apellidos vigentes detectados en el HTML: Delmastro, Nicolau, Cattaneo, Astor, Torriri, Balduino.",
@@ -69,13 +69,13 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "pre-boletin-oficial-municipal",
     "url": "https://sunchales.gob.ar/boletines-oficiales | https://sunchales.miportal.ar/digesto | https://boletinoficial.sunchales.gob.ar/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-31T10:56:58.835Z",
+    "fechaVerificacion": "2026-06-01T14:58:54.502Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "[drupal-legacy] Último mes/año mencionado en HTML: abril de 2025. (HTTP 200)",
       "[miportal] No se encontró ningún par (mes, año) parseable en el HTML. (HTTP 200)",
       "[subdominio] HTTP 0 fetch failed (HTTP 0)",
-      "Más reciente entre plataformas: abril de 2025 (drupal-legacy). Distancia al mes en curso: 13 meses."
+      "Más reciente entre plataformas: abril de 2025 (drupal-legacy). Distancia al mes en curso: 14 meses."
     ],
     "meta": {
       "plataformas": [
@@ -119,7 +119,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "sal-farmacias-turno-desactualizado",
     "url": "https://sunchales.gob.ar/farmacias-de-turno/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-05-31T10:57:01.211Z",
+    "fechaVerificacion": "2026-06-01T14:58:57.607Z",
     "resultado": "ok",
     "hallazgos": [
       "Meses mencionados en la página: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, setiembre, octubre, noviembre.",
@@ -129,7 +129,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "meta": {
       "mesActual": {
         "anio": 2026,
-        "mes": 5
+        "mes": 6
       },
       "cronogramaMasReciente": {
         "anio": 2026,
@@ -154,7 +154,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
 ];
 
 export const verificacionesAuditoriaMeta = {
-  sincronizadoEl: "2026-05-31T10:57:01.211Z",
+  sincronizadoEl: "2026-06-01T14:58:57.607Z",
   total: 3,
   resultadosPorTipo: {
     ok: 2,
