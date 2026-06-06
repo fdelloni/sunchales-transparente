@@ -1,5 +1,5 @@
 {
-  "generadoEn": "2026-05-11T21:06:39.338Z",
+  "generadoEn": "2026-06-06T22:45:11.955Z",
   "fuentes": {
     "funcionarios": "src/lib/data/personal.ts",
     "presupuesto": "src/lib/data/presupuesto.ts",
@@ -12,7 +12,8 @@
     "catastro": "src/lib/data/catastro.ts",
     "zonificacion": "src/lib/data/zonificacion.ts",
     "licencias": "src/lib/data/licencias.ts",
-    "recaudacion": "src/lib/data/recaudacion.ts"
+    "recaudacion": "src/lib/data/recaudacion.ts",
+    "digestoConcejo": "src/lib/data/digesto-concejo.generated.ts"
   },
   "conteos": {
     "funcionarios": 21,
@@ -22,11 +23,12 @@
     "comisiones": 25,
     "personalConcejo": 3,
     "contrataciones": 4,
-    "brechas": 43,
+    "brechas": 59,
     "normasMarcoCompleto": 5,
     "normasCatastrales": 9,
     "clasesSuelo": 5,
     "tiposLicencia": 6,
-    "recursos": 19
+    "recursos": 19,
+    "normasDigestoConcejo": 4153
   }
 }

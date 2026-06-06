@@ -220,40 +220,64 @@
   ],
   "poligonosArea": [
     {
-      "nombre": "Polígono A"
+      "area": "urbanizado",
+      "nombre": "Polígono A",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono B"
+      "area": "urbanizado",
+      "nombre": "Polígono B",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono A"
+      "area": "urbanizable",
+      "nombre": "Polígono A",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono B"
+      "area": "urbanizable",
+      "nombre": "Polígono B",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono C"
+      "area": "urbanizable",
+      "nombre": "Polígono C",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono D"
+      "area": "urbanizable",
+      "nombre": "Polígono D",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono CLAAS"
+      "area": "suburbano",
+      "nombre": "Polígono CLAAS",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono Presser / Aeroclub"
+      "area": "suburbano",
+      "nombre": "Polígono Presser / Aeroclub",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono CET"
+      "area": "suburbano",
+      "nombre": "Polígono CET",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono Borgogno"
+      "area": "suburbano",
+      "nombre": "Polígono Borgogno",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono A"
+      "area": "no_urbanizable",
+      "nombre": "Polígono A",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     },
     {
-      "nombre": "Polígono B"
+      "area": "no_urbanizable",
+      "nombre": "Polígono B",
+      "referencia": "Anexo I-2 — Ord. 2800/2019"
     }
   ],
   "fuentes": {

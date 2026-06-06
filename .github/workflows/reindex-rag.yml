@@ -71,6 +71,7 @@ on:
           - "licencias"
           - "recaudacion"
           - "digesto"
+          - "digesto-concejo"
           - "pdf-concejo"
           - "resumen-anual"
 

@@ -49,7 +49,9 @@ const TIPOS_CURADOS = [
   "catastro",
   "zonificacion",
   "licencias",
-  "recaudacion"
+  "recaudacion",
+  // Digesto del Concejo (normativa local: minutas, declaraciones, etc. — junio 2026)
+  "digesto-concejo"
 ];
 const TIPOS_CURADOS_SET = new Set(TIPOS_CURADOS);
 
@@ -357,6 +359,9 @@ function detectarTiposObjetivo(pregunta: string): string[] {
   }
   if (/(recauda|recaudaci[oó]n|recurso|coparticipa|dreir|drei|tributari|copartici)/.test(norm)) {
     tipos.push("recaudacion");
+  }
+  if (/(minuta|declaraci[o\u00f3]n|normativa local|norma del concejo|ordenanza del concejo|resoluci[o\u00f3]n del concejo|proyecto del concejo|digesto del concejo|sancion[o\u00f3] el concejo|aprob[o\u00f3] el concejo)/.test(norm)) {
+    tipos.push("digesto-concejo");
   }
 
   return tipos;

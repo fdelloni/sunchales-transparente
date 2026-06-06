@@ -11,8 +11,8 @@
       "area": "Subsecretaría de Infraestructura Urbana y Rural",
       "presupuestoOficial": 1000000000,
       "estado": "ejecucion",
-      "fechaApertura": "2026-03-27T21:06:39.311Z",
-      "fechaAdjudicacion": "2026-04-16T21:06:39.311Z",
+      "fechaApertura": "2026-04-22T22:45:10.799Z",
+      "fechaAdjudicacion": "2026-05-12T22:45:10.799Z",
       "cantidadOferentes": 3,
       "oferentes": [
         {
@@ -47,7 +47,7 @@
       "area": "Subsecretaría de Infraestructura Urbana y Rural",
       "presupuestoOficial": 142000000,
       "estado": "evaluacion",
-      "fechaApertura": "2026-04-29T21:06:39.311Z",
+      "fechaApertura": "2026-05-25T22:45:10.799Z",
       "fechaAdjudicacion": null,
       "cantidadOferentes": 2,
       "oferentes": [
@@ -75,7 +75,7 @@
       "area": "Subsecretaría de Hacienda y Finanzas",
       "presupuestoOficial": 18500000,
       "estado": "convocatoria",
-      "fechaApertura": "2026-05-18T21:06:39.311Z",
+      "fechaApertura": "2026-06-13T22:45:10.799Z",
       "fechaAdjudicacion": null,
       "cantidadOferentes": 0,
       "oferentes": [],
@@ -95,7 +95,7 @@
       "presupuestoOficial": 4200000,
       "estado": "cierre",
       "fechaApertura": null,
-      "fechaAdjudicacion": "2026-05-02T21:06:39.311Z",
+      "fechaAdjudicacion": "2026-05-28T22:45:10.799Z",
       "cantidadOferentes": 1,
       "oferentes": [
         {

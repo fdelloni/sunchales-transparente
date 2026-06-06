@@ -30,6 +30,7 @@
  *   zonificacion.json
  *   licencias.json
  *   recaudacion.json
+ *   digesto-concejo.json
  *   _meta.json
  */
 
@@ -71,6 +72,7 @@ import {
 } from "../src/lib/data/zonificacion";
 import { evolucionLicencias, fuenteLicencias, etiquetaTipo, indicadorDeQue } from "../src/lib/data/licencias";
 import { totalesRecaudacion, recursos, labelsCategoria } from "../src/lib/data/recaudacion";
+import { normasConcejo, digestoConcejoMeta } from "../src/lib/data/digesto-concejo.generated";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.resolve(__dirname, "..");
@@ -287,6 +289,31 @@ function main() {
   };
   escribir("recaudacion.json", recaudacionExport);
 
+  // === 13. DIGESTO DEL CONCEJO (normativa local) ===
+  // Listado completo del digesto del Concejo Municipal (minutas, declaraciones,
+  // ordenanzas, resoluciones) scrapeado de concejosunchales.gob.ar. Solo metadata
+  // verbatim del sitio oficial (titulo, fecha, area, autor, descripcion, links).
+  const digestoConcejoExport = {
+    meta: {
+      fuenteUrl: digestoConcejoMeta.fuenteUrl,
+      sincronizadoEl: digestoConcejoMeta.sincronizadoEl,
+      total: digestoConcejoMeta.total
+    },
+    normas: normasConcejo.map((n) => ({
+      idDigesto: n.idDigesto,
+      titulo: n.titulo,
+      anio: n.anio,
+      fecha: n.fecha,
+      tipo: n.tipo,
+      area: n.area,
+      autor: n.autor,
+      descripcion: n.descripcion,
+      urlDetalle: n.urlDetalle,
+      urlPdf: n.urlPdf
+    }))
+  };
+  escribir("digesto-concejo.json", digestoConcejoExport);
+
   // === META ===
   escribir("_meta.json", {
     generadoEn: new Date().toISOString(),
@@ -302,7 +329,8 @@ function main() {
       catastro: "src/lib/data/catastro.ts",
       zonificacion: "src/lib/data/zonificacion.ts",
       licencias: "src/lib/data/licencias.ts",
-      recaudacion: "src/lib/data/recaudacion.ts"
+      recaudacion: "src/lib/data/recaudacion.ts",
+      digestoConcejo: "src/lib/data/digesto-concejo.generated.ts"
     },
     conteos: {
       funcionarios: funcionariosExport.length,
@@ -317,11 +345,12 @@ function main() {
       normasCatastrales: catastroExport.normas.length,
       clasesSuelo: zonificacionExport.clasesSuelo.length,
       tiposLicencia: Object.keys(licenciasExport.etiquetas).length,
-      recursos: recaudacionExport.recursos.length
+      recursos: recaudacionExport.recursos.length,
+      normasDigestoConcejo: digestoConcejoExport.normas.length
     }
   });
 
-  console.log("\n[sincronizar] OK — exportados 12 rubros");
+  console.log("\n[sincronizar] OK — exportados 13 rubros");
 }
 
 main();
