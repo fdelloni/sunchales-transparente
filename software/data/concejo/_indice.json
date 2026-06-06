@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-05T12:08:31.961Z",
+  "actualizado": "2026-06-06T10:53:36.384Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13018,8 +13018,9 @@
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 0
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5708.3096DEM.pdf",
@@ -13032,8 +13033,9 @@
       "tamanioBytes": 14435288,
       "hashSha256": "bba353b65a3392864e21a4acc569ebecbccd8db08d14a19841f1fec1a33952e1",
       "descargadoEl": "2026-06-05T12:08:28.424Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 0
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5709.3097DEM.pdf",
@@ -13046,8 +13048,9 @@
       "tamanioBytes": 5924947,
       "hashSha256": "780108f9a2ad282513ceabc2d74262a33e99fe5a4f4a4c05aae78e291d7f8790",
       "descargadoEl": "2026-06-05T12:08:28.812Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 0
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5710.3101LLA.pdf",
@@ -13060,8 +13063,9 @@
       "tamanioBytes": 200204,
       "hashSha256": "8c1a39a4378f01cbbdae6cfd289afa3e58b9f6d2bc0bc11f736abe56c581c766",
       "descargadoEl": "2026-06-05T12:08:29.064Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 2874
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5711.3102LLA.pdf",
@@ -13074,8 +13078,9 @@
       "tamanioBytes": 162116,
       "hashSha256": "408e4987c30ba4541b361512acd8a3a16477ef3030ce84976046f11f4c41106f",
       "descargadoEl": "2026-06-05T12:08:29.286Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 2284
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5712.3103LLA.pdf",
@@ -13088,11 +13093,12 @@
       "tamanioBytes": 179643,
       "hashSha256": "a611ee0e05529fa72905a1a9cd01271515c98d7190147f85b6b44a842ca39749",
       "descargadoEl": "2026-06-05T12:08:29.518Z",
-      "textoExtraido": false,
-      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs"
+      "textoExtraido": true,
+      "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
+      "tamanioTextoBytes": 3105
     }
   ],
   "totalPdfs": 935,
-  "procesado": "2026-06-05T12:08:39.348Z",
-  "totalConTexto": 929
+  "procesado": "2026-06-06T10:53:45.823Z",
+  "totalConTexto": 935
 }
