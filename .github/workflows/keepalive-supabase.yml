@@ -1,0 +1,56 @@
+# Keep-alive de Supabase (plan gratuito).
+#
+# Por qué existe:
+#   El plan gratuito de Supabase PAUSA el proyecto tras ~7 días sin actividad
+#   de API. El 2026-06-06 esto dejó caído el RAG del chat web y del bot de
+#   WhatsApp (incidente documentado). Este workflow hace una consulta mínima
+#   dos veces por día para que el proyecto nunca acumule 7 días de inactividad.
+#
+# Además sirve de ALERTA: si Supabase está pausado o caído, el step falla y
+# GitHub envía el mail de "workflow failed" — aviso temprano del problema.
+#
+# Secrets requeridos (ya existen, son los mismos de reindex-rag.yml):
+#   - NEXT_PUBLIC_SUPABASE_URL
+#   - SUPABASE_SERVICE_ROLE_KEY
+
+name: Keep-alive Supabase (anti-pausa)
+
+on:
+  schedule:
+    # 09:00 y 21:00 UTC = 06:00 y 18:00 ART. Dos corridas diarias por
+    # redundancia: si una falla por un hiccup de red, la otra cubre el día.
+    - cron: "0 9,21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consulta mínima a chunks_rag
+        env:
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          codigo=$(curl -s -o /tmp/resp.txt -w "%{http_code}" --max-time 30 \
+            "$SUPABASE_URL/rest/v1/chunks_rag?select=id&limit=1" \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY")
+          echo "HTTP $codigo"
+          if [ "$codigo" != "200" ]; then
+            echo "Respuesta:"
+            cat /tmp/resp.txt || true
+            echo "::error::Supabase no respondió 200 (HTTP $codigo). Puede estar pausado: https://supabase.com/dashboard/project/pmzrqofpppujanwtvheb"
+            exit 1
+          fi
+          echo "✓ Supabase activo — keep-alive OK"
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "## Keep-alive Supabase" >> $GITHUB_STEP_SUMMARY
+          echo "- Estado: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Fecha: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_STEP_SUMMARY
