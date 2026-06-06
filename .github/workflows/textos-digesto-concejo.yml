@@ -1,0 +1,125 @@
+# Descarga semanal de TEXTOS COMPLETOS de las normas del digesto del Concejo.
+#
+# Baja los PDFs de concejosunchales.gob.ar, extrae el texto (pdfjs-dist, sin
+# OCR: solo PDFs con capa de texto) y commitea los .txt. El push dispara
+# reindex-rag.yml, que vectoriza los textos para el chatbot (web + WhatsApp).
+#
+# Los PDFs escaneados (sin capa de texto) quedan registrados como "sin-texto"
+# en data/digesto-concejo-textos/_indice.json y NO se reintentan; necesitarian
+# OCR real (mejora futura).
+#
+# No requiere secrets: solo lee el sitio publico del Concejo.
+
+name: Textos digesto Concejo (semanal)
+
+on:
+  schedule:
+    # Lunes 10:00 UTC = 07:00 ART (despues del scrape diario de 06:00 ART).
+    - cron: "0 10 * * 1"
+  workflow_dispatch:
+    inputs:
+      desde:
+        description: "Año desde el cual descargar (default 2024)"
+        required: false
+        default: "2024"
+      hasta:
+        description: "Año hasta (vacio = sin tope)"
+        required: false
+        default: ""
+      limite:
+        description: "Maximo de normas a procesar (vacio = sin limite)"
+        required: false
+        default: ""
+      reintentar:
+        description: "Reintentar las que fallaron antes"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: textos-digesto-concejo
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: software/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd software
+          npm ci
+
+      - name: Sincronizar datos .ts → JSON
+        run: |
+          cd software
+          npm run sincronizar-datos
+
+      - name: Descargar y extraer textos de PDFs
+        run: |
+          cd software
+          ARGS="--desde=${{ github.event.inputs.desde || '2024' }}"
+          if [ -n "${{ github.event.inputs.hasta }}" ]; then
+            ARGS="$ARGS --hasta=${{ github.event.inputs.hasta }}"
+          fi
+          if [ -n "${{ github.event.inputs.limite }}" ]; then
+            ARGS="$ARGS --limite=${{ github.event.inputs.limite }}"
+          fi
+          if [ "${{ github.event.inputs.reintentar }}" = "true" ]; then
+            ARGS="$ARGS --reintentar"
+          fi
+          echo "Ejecutando: node scripts/descargar-textos-digesto-concejo.mjs $ARGS"
+          node scripts/descargar-textos-digesto-concejo.mjs $ARGS
+
+      - name: Detectar cambios
+        id: cambios
+        run: |
+          if [ -z "$(git status --porcelain software/data/digesto-concejo-textos)" ]; then
+            echo "hay_cambios=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "hay_cambios=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit y push (con rebase para evitar race con otros workflows)
+        if: steps.cambios.outputs.hay_cambios == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add software/data/digesto-concejo-textos
+          if git diff --cached --quiet; then
+            echo "Sin cambios staged"
+            exit 0
+          fi
+          FECHA=$(date -u +"%Y-%m-%d")
+          git commit -m "chore(digesto-concejo): textos completos de PDFs ${FECHA}"
+          for INTENTO in 1 2 3 4 5; do
+            echo "Push intento $INTENTO/5..."
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "Intento $INTENTO fallo; esperando 10s..."
+            sleep 10
+          done
+          echo "ERROR: push fallo tras 5 reintentos"
+          exit 1
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "## Textos digesto Concejo" >> $GITHUB_STEP_SUMMARY
+          echo "- Estado: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Cambios commiteados: ${{ steps.cambios.outputs.hay_cambios }}" >> $GITHUB_STEP_SUMMARY

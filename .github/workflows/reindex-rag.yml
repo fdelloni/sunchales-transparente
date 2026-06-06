@@ -40,6 +40,8 @@ on:
       - "software/data/digesto-oficial/items_completos.json"
       - "software/data/concejo/_indice.json"
       - "software/data/concejo/**/*.txt"
+      # Textos completos de PDFs del digesto del Concejo (workflow semanal).
+      - "software/data/digesto-concejo-textos/**"
       # Scripts del propio pipeline de indexado.
       - "software/scripts/indexar-rag.mjs"
       - "software/scripts/exportar-datos-sincronizados.ts"
