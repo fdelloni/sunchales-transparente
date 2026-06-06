@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-05-18
+ * Generado el: 2026-06-06
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -993,6 +993,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1201, tipo:"Decreto", numero:"3587", anio:2026, fecha:"2026-05-15", titulo:"3587/2026 - Promulga la Ordenanza N° 3284/2026.", pdf:"1201-digesto.pdf"},
   {id:1202, tipo:"Decreto", numero:"3585", anio:2026, fecha:"2026-04-29", titulo:"3585/2026 - Designa como autoridad de aplicación de la Ordenanza N° 3283/2026 a la Subsecretaría de Hacienda y Finanzas", pdf:"1202-digesto.pdf"},
   {id:1203, tipo:"Decreto", numero:"3586", anio:2026, fecha:"2026-05-04", titulo:"3586/2026 - Declara de Interés Municipal el 40° Aniversario de la Escuela N° 1213.", pdf:"1203-digesto.pdf"},
+  {id:1204, tipo:"Resolución", numero:"4363", anio:2026, fecha:"2026-04-24", titulo:"4363/2026 - Regula los procedimientos operativos aplicables a todos los concursos de ingreso y ascenso convocados bajo el régimen de la Ordenanza N° 3244/2025.", pdf:"1204-digesto.pdf"},
+  {id:1205, tipo:"Resolución", numero:"4364", anio:2026, fecha:"2026-04-30", titulo:"4364/2026 -Rechaza el descargo formulado por la agente Melina Jeanette Italiano.", pdf:"1205-digesto.pdf"},
+  {id:1206, tipo:"Resolución", numero:"4365", anio:2026, fecha:"2026-05-07", titulo:"4365/2026 - Autoriza a utilizar el vehículo marca Toyota Etios.", pdf:"1206-digesto.pdf"},
+  {id:1207, tipo:"Resolución", numero:"4366", anio:2026, fecha:"2026-05-08", titulo:"4366/2026 - Aprueba el Protocolo de Actuación ante Emergencias y Accidentes Laborales.", pdf:"1207-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
