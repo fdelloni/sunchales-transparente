@@ -10,12 +10,14 @@
 #
 # No requiere secrets: solo lee el sitio publico del Concejo.
 
-name: Textos digesto Concejo (semanal)
+name: Textos digesto Concejo (cada 48hs)
 
 on:
   schedule:
-    # Lunes 10:00 UTC = 07:00 ART (despues del scrape diario de 06:00 ART).
-    - cron: "0 10 * * 1"
+    # Dias impares del mes a las 10:00 UTC = 07:00 ART (despues del scrape
+    # diario de 06:00 ART). Equivale a "cada 48 horas" — unica salvedad: en
+    # meses de 31 dias, entre el dia 31 y el 1 pasa solo un dia.
+    - cron: "0 10 1-31/2 * *"
   workflow_dispatch:
     inputs:
       desde:
