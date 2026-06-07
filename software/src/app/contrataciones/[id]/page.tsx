@@ -137,7 +137,7 @@ export default async function ContratacionDetallePage({
       )}
 
       {/* Timeline + auditoría */}
-      <div className="mt-12 flex items-center justify-between">
+      <div className="mt-12 flex flex-wrap items-center justify-between gap-3">
         <h2 className="section-heading font-serif text-2xl font-bold text-navy">Línea de tiempo</h2>
         <Link
           href={`/contrataciones/${c.id}/auditar`}

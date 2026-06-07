@@ -387,7 +387,7 @@ export default function PersonalPage() {
       {/* 3. Detalle de cargos con fecha de asunción                    */}
       {/* ============================================================ */}
       <section className="mt-12">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="section-heading font-serif text-2xl font-bold text-navy">
             Detalle de cargos
           </h2>

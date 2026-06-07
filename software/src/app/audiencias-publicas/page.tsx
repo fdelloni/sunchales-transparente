@@ -154,7 +154,7 @@ export default function AudienciasPublicasPage() {
               key={a.id}
               className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                 <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
                   {new Date(a.fecha).toLocaleDateString("es-AR", {
                     year: "numeric",

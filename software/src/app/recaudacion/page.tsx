@@ -117,7 +117,7 @@ export default function RecaudacionPage() {
       </div>
 
       {/* Detalle */}
-      <div className="mt-10 flex items-center justify-between">
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-3">
         <h2 className="section-heading font-serif text-2xl font-bold text-navy">Detalle por tipo de recurso</h2>
         <a
           href="/api/v1/recaudacion?format=csv"

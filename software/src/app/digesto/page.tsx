@@ -174,9 +174,9 @@ export default function DigestoPage() {
             {coherenciaDemo.map((c, i) => (
               <div
                 key={i}
-                className="flex items-start justify-between gap-3 border-b border-slate-100 p-4 last:border-b-0"
+                className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1.5 border-b border-slate-100 p-4 last:border-b-0"
               >
-                <div>
+                <div className="min-w-0 flex-1 basis-52">
                   <div className="font-semibold text-navy">{c.norma}</div>
                   <p className="mt-0.5 text-xs text-slate-500">{c.descripcion}</p>
                 </div>

@@ -207,8 +207,8 @@ export default function BrechasPage({ searchParams }: SP) {
             key={b.id}
             className="rounded-xl border-2 border-dashed border-amber-400 bg-white p-5"
           >
-            <div className="flex items-start justify-between gap-3">
-              <div>
+            <div className="flex flex-col-reverse gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+              <div className="min-w-0">
                 <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-500">
                   {ETIQUETAS_MODULO[b.modulo]} · {labelCategoria[b.categoria]}
                 </span>
@@ -219,11 +219,11 @@ export default function BrechasPage({ searchParams }: SP) {
               <span
                 className={
                   b.estado === "subsanado"
-                    ? "shrink-0 rounded-md bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800"
+                    ? "max-w-full self-start sm:shrink-0 rounded-md bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800"
                     : b.estado === "pedido_presentado" ||
                       b.estado === "respondido_parcial"
-                    ? "shrink-0 rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800"
-                    : "shrink-0 rounded-md bg-red-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-red-800"
+                    ? "max-w-full self-start sm:shrink-0 rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800"
+                    : "max-w-full self-start sm:shrink-0 rounded-md bg-red-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-red-800"
                 }
               >
                 {labelEstado[b.estado]}
@@ -262,7 +262,7 @@ export default function BrechasPage({ searchParams }: SP) {
                 </Link>
               )}
             </div>
-            <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] text-slate-500">
               <span>Detectada: {b.detectadaEl}</span>
               {b.ultimoSeguimiento && (
                 <span>Último seguimiento: {b.ultimoSeguimiento}</span>

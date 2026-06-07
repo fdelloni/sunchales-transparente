@@ -71,9 +71,12 @@ html, body {
 }
 
 /* Tipografía mobile-first: en pantallas chicas, los font-size grandes
-   se contienen para evitar overflow horizontal cuando hay palabras largas. */
+   se contienen para evitar overflow horizontal cuando hay palabras largas.
+   Se usa break-word (NO anywhere): anywhere reduce el min-content a casi
+   cero y permite que un flex vecino aplaste el título rompiéndolo letra
+   por letra. break-word solo corta cuando una palabra sola no entra. */
 h1, h2, h3 {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
 }
 

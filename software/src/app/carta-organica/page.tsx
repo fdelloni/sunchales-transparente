@@ -251,7 +251,7 @@ function Card({
 }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5">
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <span className="text-[11px] font-semibold uppercase tracking-widest text-coral-dark">
           {eyebrow}
         </span>

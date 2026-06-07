@@ -81,18 +81,18 @@ export default function BrechasTransparencia({ modulo, titulo, intro }: Props) {
               key={b.id}
               className="rounded-xl border-2 border-dashed border-amber-400 bg-white p-5"
             >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="font-serif text-base font-bold text-navy">
+              <div className="flex flex-col-reverse gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                <h3 className="min-w-0 font-serif text-base font-bold text-navy">
                   {b.titulo}
                 </h3>
                 <span
                   className={
                     b.estado === "subsanado"
-                      ? "shrink-0 rounded-md bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800"
+                      ? "max-w-full self-start sm:shrink-0 rounded-md bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800"
                       : b.estado === "pedido_presentado" ||
                         b.estado === "respondido_parcial"
-                      ? "shrink-0 rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800"
-                      : "shrink-0 rounded-md bg-red-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-red-800"
+                      ? "max-w-full self-start sm:shrink-0 rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800"
+                      : "max-w-full self-start sm:shrink-0 rounded-md bg-red-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-red-800"
                   }
                 >
                   {labelEstado[b.estado]}
