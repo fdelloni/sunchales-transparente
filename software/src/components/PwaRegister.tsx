@@ -22,14 +22,35 @@ export default function PwaRegister() {
     if (process.env.NODE_ENV !== "production") return;
     if (!("serviceWorker" in navigator)) return;
 
+    // Cuando un SW nuevo toma control, recargamos UNA vez para que la
+    // app instalada use el HTML/CSS/JS nuevos. Sin esto, la PWA abierta
+    // sigue corriendo la versión vieja hasta que el usuario la mate.
+    let recargado = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (recargado) return;
+      recargado = true;
+      window.location.reload();
+    });
+
     const onLoad = async () => {
       try {
         const reg = await navigator.serviceWorker.register("/sw.js", {
           scope: "/",
+          // No usar el HTTP-cache para el script del SW ni sus imports:
+          // garantiza que cada visita revalide /sw.js contra el servidor.
+          updateViaCache: "none",
         });
 
         // Si ya hay una versión nueva en "waiting", activarla.
         if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
+
+        // Buscar updates al volver a la app (la PWA instalada puede pasar
+        // días suspendida sin una navegación "real" que dispare el update).
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") {
+            reg.update().catch(() => {});
+          }
+        });
 
         // Detectar actualizaciones posteriores.
         reg.addEventListener("updatefound", () => {

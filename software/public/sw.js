@@ -18,7 +18,10 @@
  * actualización.
  */
 
-const SW_VERSION = "v1-2026-05-13";
+// IMPORTANTE: bumpear en cada tanda de cambios visuales/estructurales.
+// Si esta constante no cambia, el navegador considera el SW idéntico y
+// NUNCA purga las caches viejas en los dispositivos instalados.
+const SW_VERSION = "v2-2026-06-07";
 const CACHE_SHELL = `sunchales-shell-${SW_VERSION}`;
 const CACHE_ASSETS = `sunchales-assets-${SW_VERSION}`;
 

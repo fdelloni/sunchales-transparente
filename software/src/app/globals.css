@@ -38,6 +38,21 @@ html, body {
   overflow-x: clip;
   max-width: 100%;
 }
+
+/* Los hijos directos de cualquier grilla no deben imponer su min-content
+   como ancho de columna. Sin esto, una grilla sin grid-cols-N explícito
+   (columna implícita "auto") se ensancha hasta el contenido mínimo más
+   grande — con la escala de fuente de Android/Samsung agrandando textos,
+   las tarjetas terminaban más anchas que la pantalla y se cortaban. */
+.grid > * {
+  min-width: 0;
+}
+
+/* Las palabras que no entran en una línea se cortan en vez de desbordar.
+   break-word (no anywhere) no altera el min-content: ver nota de h1-h3. */
+p, li, dd, figcaption {
+  overflow-wrap: break-word;
+}
 * { -webkit-font-smoothing: antialiased; }
 
 /* Mobile UX base:
