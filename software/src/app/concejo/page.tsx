@@ -155,7 +155,7 @@ export default function ConcejoPage() {
         N° 879/2025 del Concejo.
       </p>
       <div className="-mx-4 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[640px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Comisión / Mesa / Consejo</th>
@@ -165,13 +165,13 @@ export default function ConcejoPage() {
           <tbody>
             {comisiones.map((cm) => (
               <tr key={cm.nombre} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium text-navy">
+                <td data-label="Comisión / Mesa / Consejo" className="px-4 py-3 font-medium text-navy">
                   {cm.nombre}
                   <div className="text-[11px] font-normal text-slate-500">
                     {cm.resolucion}
                   </div>
                 </td>
-                <td className="px-4 py-3 text-slate-700">
+                <td data-label="Concejales que integran" className="px-4 py-3 text-slate-700">
                   {cm.integrantes
                     .map((id) => concejales.find((c) => c.id === id)?.nombre ?? id)
                     .join(", ")}

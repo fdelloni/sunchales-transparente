@@ -192,7 +192,7 @@ export default function ZonificacionPage() {
           en GeoJSON sin trabajo de cartógrafo. El listado:
         </p>
         <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="tabla-cards w-full text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wider text-slate-500">
                 <th className="px-3 py-2 font-semibold">Área de suelo</th>
@@ -208,17 +208,17 @@ export default function ZonificacionPage() {
                     key={`${p.area}-${p.nombre}-${i}`}
                     className="border-b border-slate-100"
                   >
-                    <td className="px-3 py-2">
+                    <td data-label="Área de suelo" className="px-3 py-2">
                       <span
                         className={`inline-block rounded border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${COLOR_AREA[p.area]}`}
                       >
                         {claseDef?.nombre ?? p.area}
                       </span>
                     </td>
-                    <td className="px-3 py-2 font-medium text-navy">
+                    <td data-label="Polígono" className="px-3 py-2 font-medium text-navy">
                       {p.nombre}
                     </td>
-                    <td className="px-3 py-2 text-slate-500">{p.referencia}</td>
+                    <td data-label="Referencia" className="px-3 py-2 text-slate-500">{p.referencia}</td>
                   </tr>
                 );
               })}
@@ -246,7 +246,7 @@ export default function ZonificacionPage() {
           catastral y alias coloquial (entre paréntesis en el texto original).
         </p>
         <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="tabla-cards w-full text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wider text-slate-500">
                 <th className="px-3 py-2 font-semibold">#</th>
@@ -260,9 +260,9 @@ export default function ZonificacionPage() {
                   key={`art4-${i}`}
                   className="border-b border-slate-100 hover:bg-slate-50"
                 >
-                  <td className="px-3 py-2 text-slate-400">{i + 1}</td>
-                  <td className="px-3 py-2 text-navy">{p.designacion}</td>
-                  <td className="px-3 py-2 font-medium text-slate-700">
+                  <td data-label="#" className="px-3 py-2 text-slate-400">{i + 1}</td>
+                  <td data-label="Designación catastral" className="px-3 py-2 text-navy">{p.designacion}</td>
+                  <td data-label="Alias" className="px-3 py-2 font-medium text-slate-700">
                     {p.alias}
                   </td>
                 </tr>

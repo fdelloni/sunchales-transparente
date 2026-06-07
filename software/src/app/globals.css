@@ -28,6 +28,16 @@
 
 html, body { background: #F8FAFC; color: #0F172A; }
 html { -webkit-text-size-adjust: 100%; }
+
+/* Red de seguridad anti-overflow horizontal en mobile/PWA:
+   ningún elemento desbordado puede generar scroll lateral de la página.
+   Se usa `clip` (no `hidden`) para no crear un contenedor de scroll
+   nuevo y no romper position: sticky. El scroll horizontal legítimo
+   queda confinado a los wrappers internos con overflow-x-auto. */
+html, body {
+  overflow-x: clip;
+  max-width: 100%;
+}
 * { -webkit-font-smoothing: antialiased; }
 
 /* Mobile UX base:
@@ -300,6 +310,17 @@ h1, h2, h3 {
   margin: 1em 0;
   width: 100%;
   font-size: 0.92em;
+}
+/* Las normas del Digesto traen tablas HTML arbitrarias que no podemos
+   convertir a tarjetas. En mobile se vuelven scrollables dentro de su
+   propio contenedor para no desbordar la página. */
+@media (max-width: 639.98px) {
+  .texto-norma table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
 }
 .texto-norma th, .texto-norma td {
   border: 1px solid #E2E8F0;

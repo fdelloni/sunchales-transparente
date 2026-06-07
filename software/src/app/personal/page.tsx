@@ -326,7 +326,7 @@ export default function PersonalPage() {
         </p>
 
         <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-          <table className="w-full sm:min-w-[600px] text-sm">
+          <table className="tabla-cards w-full sm:min-w-[600px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Área</th>
@@ -340,41 +340,41 @@ export default function PersonalPage() {
             <tbody>
               {agg.map((a) => (
                 <tr key={a.area} className="border-t border-slate-100">
-                  <td className="px-4 py-3 font-medium text-navy">{a.area}</td>
-                  <td className="px-4 py-3 text-right tabular-nums">
+                  <td data-label="Área" className="px-4 py-3 font-medium text-navy">{a.area}</td>
+                  <td data-label="Cargos" className="px-4 py-3 text-right tabular-nums">
                     {a.cantidad}
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums">
+                  <td data-label="Masa salarial mensual" className="px-4 py-3 text-right tabular-nums">
                     {formatARS(a.masaSalarial)}
                   </td>
-                  <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                  <td data-label="% del total" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                     {((a.masaSalarial / masaSalarial) * 100).toFixed(1)}%
                   </td>
                 </tr>
               ))}
-              <tr className="border-t-2 border-navy/30 bg-slate-50">
-                <td className="px-4 py-3 font-bold text-navy">
+              <tr className="tr-total border-t-2 border-navy/30 bg-slate-50">
+                <td data-label="Área" className="px-4 py-3 font-bold text-navy">
                   Total mensual estimado
                 </td>
-                <td className="px-4 py-3 text-right font-bold tabular-nums">
+                <td data-label="Cargos" className="px-4 py-3 text-right font-bold tabular-nums">
                   {total}
                 </td>
-                <td className="px-4 py-3 text-right font-bold tabular-nums">
+                <td data-label="Masa salarial mensual" className="px-4 py-3 text-right font-bold tabular-nums">
                   {formatARS(masaSalarial)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">100,0%</td>
+                <td data-label="% del total" className="px-4 py-3 text-right tabular-nums">100,0%</td>
               </tr>
-              <tr className="bg-slate-50">
-                <td className="px-4 py-3 font-bold text-navy">
+              <tr className="tr-total bg-slate-50">
+                <td data-label="Área" className="px-4 py-3 font-bold text-navy">
                   Total anual estimado (12 + SAC)
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums text-slate-400">
+                <td data-label="Cargos" className="px-4 py-3 text-right tabular-nums text-slate-400">
                   —
                 </td>
-                <td className="px-4 py-3 text-right font-bold tabular-nums">
+                <td data-label="Masa salarial mensual" className="px-4 py-3 text-right font-bold tabular-nums">
                   {formatARS(masaSalarialAnual)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums text-slate-400">
+                <td data-label="% del total" className="px-4 py-3 text-right tabular-nums text-slate-400">
                   —
                 </td>
               </tr>
@@ -555,7 +555,7 @@ export default function PersonalPage() {
 
               {/* Tabla por sección */}
               <div className="-mx-4 sm:-mx-6 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full sm:min-w-[480px] text-sm">
+                <table className="tabla-cards w-full sm:min-w-[480px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector / Secretaría</th>
@@ -571,25 +571,25 @@ export default function PersonalPage() {
                         key={s.seccion}
                         className="border-t border-slate-100"
                       >
-                        <td className="px-4 py-3 font-medium text-navy">
+                        <td data-label="Sector / Secretaría" className="px-4 py-3 font-medium text-navy">
                           {s.seccion}
                         </td>
-                        <td className="px-4 py-3 text-right tabular-nums">
+                        <td data-label="Agentes de planta permanente" className="px-4 py-3 text-right tabular-nums">
                           {s.cantidad}
                         </td>
-                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                        <td data-label="% del total" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                           {((s.cantidad / permanentes) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     ))}
-                    <tr className="border-t-2 border-navy/30 bg-slate-50">
-                      <td className="px-4 py-3 font-bold text-navy">
+                    <tr className="tr-total border-t-2 border-navy/30 bg-slate-50">
+                      <td data-label="Sector / Secretaría" className="px-4 py-3 font-bold text-navy">
                         Total planta permanente
                       </td>
-                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                      <td data-label="Agentes de planta permanente" className="px-4 py-3 text-right font-bold tabular-nums">
                         {formatNumber(permanentes)}
                       </td>
-                      <td className="px-4 py-3 text-right tabular-nums">
+                      <td data-label="% del total" className="px-4 py-3 text-right tabular-nums">
                         100,0%
                       </td>
                     </tr>
@@ -690,7 +690,7 @@ export default function PersonalPage() {
                 Personal Transitorio por sector
               </h3>
               <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full sm:min-w-[420px] text-sm">
+                <table className="tabla-cards w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector</th>
@@ -706,25 +706,25 @@ export default function PersonalPage() {
                         key={s.seccion}
                         className="border-t border-slate-100"
                       >
-                        <td className="px-4 py-3 font-medium text-navy">
+                        <td data-label="Sector" className="px-4 py-3 font-medium text-navy">
                           {s.seccion}
                         </td>
-                        <td className="px-4 py-3 text-right tabular-nums">
+                        <td data-label="Agentes transitorios" className="px-4 py-3 text-right tabular-nums">
                           {s.cantidad}
                         </td>
-                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                        <td data-label="% del subtotal" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                           {((s.cantidad / totT) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     ))}
-                    <tr className="border-t-2 border-navy/30 bg-slate-50">
-                      <td className="px-4 py-3 font-bold text-navy">
+                    <tr className="tr-total border-t-2 border-navy/30 bg-slate-50">
+                      <td data-label="Sector" className="px-4 py-3 font-bold text-navy">
                         Total transitorios
                       </td>
-                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                      <td data-label="Agentes transitorios" className="px-4 py-3 text-right font-bold tabular-nums">
                         {totT}
                       </td>
-                      <td className="px-4 py-3 text-right tabular-nums">
+                      <td data-label="% del subtotal" className="px-4 py-3 text-right tabular-nums">
                         100,0%
                       </td>
                     </tr>
@@ -737,7 +737,7 @@ export default function PersonalPage() {
                 Contratación de Servicios por modalidad
               </h3>
               <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full sm:min-w-[420px] text-sm">
+                <table className="tabla-cards w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Modalidad</th>
@@ -751,25 +751,25 @@ export default function PersonalPage() {
                         key={m.modalidad}
                         className="border-t border-slate-100"
                       >
-                        <td className="px-4 py-3 font-medium text-navy">
+                        <td data-label="Modalidad" className="px-4 py-3 font-medium text-navy">
                           {m.modalidad}
                         </td>
-                        <td className="px-4 py-3 text-right tabular-nums">
+                        <td data-label="Contratos" className="px-4 py-3 text-right tabular-nums">
                           {m.cantidad}
                         </td>
-                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                        <td data-label="% del subtotal" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                           {((m.cantidad / totC) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     ))}
-                    <tr className="border-t-2 border-navy/30 bg-slate-50">
-                      <td className="px-4 py-3 font-bold text-navy">
+                    <tr className="tr-total border-t-2 border-navy/30 bg-slate-50">
+                      <td data-label="Modalidad" className="px-4 py-3 font-bold text-navy">
                         Total contratados
                       </td>
-                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                      <td data-label="Contratos" className="px-4 py-3 text-right font-bold tabular-nums">
                         {totC}
                       </td>
-                      <td className="px-4 py-3 text-right tabular-nums">
+                      <td data-label="% del subtotal" className="px-4 py-3 text-right tabular-nums">
                         100,0%
                       </td>
                     </tr>
@@ -782,7 +782,7 @@ export default function PersonalPage() {
                 Contratación de Servicios por sector
               </h3>
               <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-                <table className="w-full sm:min-w-[420px] text-sm">
+                <table className="tabla-cards w-full sm:min-w-[420px] text-sm">
                   <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                     <tr>
                       <th className="px-4 py-3">Sector</th>
@@ -796,25 +796,25 @@ export default function PersonalPage() {
                         key={s.seccion}
                         className="border-t border-slate-100"
                       >
-                        <td className="px-4 py-3 font-medium text-navy">
+                        <td data-label="Sector" className="px-4 py-3 font-medium text-navy">
                           {s.seccion}
                         </td>
-                        <td className="px-4 py-3 text-right tabular-nums">
+                        <td data-label="Contratos" className="px-4 py-3 text-right tabular-nums">
                           {s.cantidad}
                         </td>
-                        <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                        <td data-label="% del subtotal" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                           {((s.cantidad / totC) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     ))}
-                    <tr className="border-t-2 border-navy/30 bg-slate-50">
-                      <td className="px-4 py-3 font-bold text-navy">
+                    <tr className="tr-total border-t-2 border-navy/30 bg-slate-50">
+                      <td data-label="Sector" className="px-4 py-3 font-bold text-navy">
                         Total contratados
                       </td>
-                      <td className="px-4 py-3 text-right font-bold tabular-nums">
+                      <td data-label="Contratos" className="px-4 py-3 text-right font-bold tabular-nums">
                         {totC}
                       </td>
-                      <td className="px-4 py-3 text-right tabular-nums">
+                      <td data-label="% del subtotal" className="px-4 py-3 text-right tabular-nums">
                         100,0%
                       </td>
                     </tr>
@@ -982,7 +982,7 @@ export default function PersonalPage() {
           Cifras período por período
         </h3>
         <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-          <table className="w-full sm:min-w-[680px] text-sm">
+          <table className="tabla-cards w-full sm:min-w-[680px] text-sm">
             <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
               <tr>
                 <th className="px-4 py-3">Período</th>
@@ -1033,25 +1033,25 @@ export default function PersonalPage() {
                 };
                 return (
                   <tr key={p.periodo} className="border-t border-slate-100">
-                    <td className="px-4 py-3 font-medium text-navy">
+                    <td data-label="Período" className="px-4 py-3 font-medium text-navy">
                       {p.label}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td data-label="Planta Permanente" className="px-4 py-3 text-right">
                       {renderCell(p.plantaPermanente, prev?.plantaPermanente)}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td data-label="Retiro Especial" className="px-4 py-3 text-right">
                       {renderCell(p.retiroEspecial, prev?.retiroEspecial)}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td data-label="Transitorios" className="px-4 py-3 text-right">
                       {renderCell(p.transitorios, prev?.transitorios)}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td data-label="Contratados" className="px-4 py-3 text-right">
                       {renderCell(p.contratados, prev?.contratados)}
                     </td>
-                    <td className="px-4 py-3 text-right font-semibold">
+                    <td data-label="Total" className="px-4 py-3 text-right font-semibold">
                       {renderCell(p.total, prev?.total)}
                     </td>
-                    <td className="px-4 py-3 text-center">
+                    <td data-label="PDF" className="px-4 py-3 text-center">
                       <a
                         href={p.urlPdf}
                         target="_blank"
@@ -1138,7 +1138,7 @@ export default function PersonalPage() {
                 nombre, no en una columna aparte — queda más limpio y se lee
                 mejor en celular. */}
             <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-amber-200 bg-white px-0 sm:mx-0">
-              <table className="w-full sm:min-w-[560px] text-sm">
+              <table className="tabla-cards w-full sm:min-w-[560px] text-sm">
                 <thead className="bg-amber-50/60 text-left text-xs uppercase tracking-wider text-amber-800">
                   <tr>
                     <th className="px-4 py-3">Tipo de licencia · indicador de qué</th>
@@ -1157,7 +1157,7 @@ export default function PersonalPage() {
                         key={tipo}
                         className="border-t border-amber-100 align-top"
                       >
-                        <td className="px-4 py-3">
+                        <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
                           <div className="flex flex-wrap items-center gap-2">
                             <span
                               className={
@@ -1185,6 +1185,7 @@ export default function PersonalPage() {
                           return (
                             <td
                               key={p.periodo}
+                              data-label={p.label}
                               className="px-4 py-3 text-right"
                             >
                               {c?.cantidad == null ? (
@@ -1209,8 +1210,8 @@ export default function PersonalPage() {
                       </tr>
                     );
                   })}
-                  <tr className="border-t-2 border-amber-300 bg-amber-50/40">
-                    <td className="px-4 py-3 font-bold text-navy">
+                  <tr className="tr-total border-t-2 border-amber-300 bg-amber-50/40">
+                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3 font-bold text-navy">
                       Total con licencia
                     </td>
                     {evolucionLicencias.map((p) => {
@@ -1218,6 +1219,7 @@ export default function PersonalPage() {
                       return (
                         <td
                           key={p.periodo}
+                          data-label={p.label}
                           className="px-4 py-3 text-right font-bold"
                         >
                           {t == null ? (
@@ -1233,8 +1235,8 @@ export default function PersonalPage() {
                       );
                     })}
                   </tr>
-                  <tr className="border-t border-amber-100 bg-amber-50/40">
-                    <td className="px-4 py-3">
+                  <tr className="tr-total border-t border-amber-100 bg-amber-50/40">
+                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
                       <span className="text-[13px] italic text-slate-700">
                         % del plantel con licencia
                       </span>
@@ -1250,6 +1252,7 @@ export default function PersonalPage() {
                       return (
                         <td
                           key={p.periodo}
+                          data-label={p.label}
                           className="px-4 py-3 text-right text-slate-700"
                         >
                           {tasa == null ? (
@@ -1265,8 +1268,8 @@ export default function PersonalPage() {
                       );
                     })}
                   </tr>
-                  <tr className="border-t border-amber-100 text-[12px] text-slate-500">
-                    <td className="px-4 py-3">
+                  <tr className="tr-total border-t border-amber-100 text-[12px] text-slate-500">
+                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
                       <span className="italic">Plantel activo del mes</span>
                       <p className="mt-1 max-w-md text-[11px] italic text-slate-500">
                         Verificado contra el PDF oficial del mes.
@@ -1275,6 +1278,7 @@ export default function PersonalPage() {
                     {evolucionLicencias.map((p) => (
                       <td
                         key={p.periodo}
+                        data-label={p.label}
                         className="px-4 py-3 text-right tabular-nums italic"
                       >
                         {p.plantelActivo != null

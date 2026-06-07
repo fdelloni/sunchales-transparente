@@ -116,7 +116,7 @@ export default function DigestoPage() {
         Próximas sesiones del Concejo
       </h2>
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[640px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[640px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Fecha</th>
@@ -128,11 +128,11 @@ export default function DigestoPage() {
           <tbody>
             {sesionesDemo.map((s, i) => (
               <tr key={i} className="border-t border-slate-100">
-                <td className="px-4 py-3">
+                <td data-label="Fecha" className="px-4 py-3">
                   <div className="font-medium text-navy">{s.fecha}</div>
                   <div className="text-xs text-slate-500">{s.hora}</div>
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Tipo" className="px-4 py-3">
                   {s.estado === "realizada" ? (
                     <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-semibold text-indigo-700">
                       Realizada
@@ -143,8 +143,8 @@ export default function DigestoPage() {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-slate-600">{s.sala}</td>
-                <td className="px-4 py-3 text-slate-600">
+                <td data-label="Sala" className="px-4 py-3 text-slate-600">{s.sala}</td>
+                <td data-label="Notas" className="px-4 py-3 text-slate-600">
                   {s.expedientes
                     ? `${s.expedientes} expedientes en tratamiento`
                     : s.notas ?? ""}

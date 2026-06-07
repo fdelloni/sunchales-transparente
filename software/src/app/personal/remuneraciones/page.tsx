@@ -166,8 +166,8 @@ export default function RemuneracionesPage({ searchParams }: SP) {
       <h3 className="mt-6 font-serif text-lg font-bold text-navy">
         {anioSel} — {items.length} PDFs
       </h3>
-      <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
-        <table className="w-full text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+        <table className="tabla-cards w-full text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Período</th>
@@ -178,7 +178,7 @@ export default function RemuneracionesPage({ searchParams }: SP) {
           </thead>
           <tbody>
             {items.length === 0 && (
-              <tr>
+              <tr className="tr-total">
                 <td colSpan={4} className="px-4 py-6 text-center text-slate-500">
                   Sin publicaciones para este año.
                 </td>
@@ -193,10 +193,10 @@ export default function RemuneracionesPage({ searchParams }: SP) {
                 !parseado && /sin texto digital/.test(det?.error ?? "");
               return (
                 <tr key={p.urlPdf} className="border-t border-slate-100">
-                  <td className="px-4 py-3 font-medium text-navy">
+                  <td data-label="Período" className="px-4 py-3 font-medium text-navy">
                     {p.mes ? NOMBRES_MES[p.mes] : "—"} {p.anio}
                   </td>
-                  <td className="px-4 py-3">
+                  <td data-label="Tipo" className="px-4 py-3">
                     {p.sac ? (
                       <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
                         SAC
@@ -207,7 +207,7 @@ export default function RemuneracionesPage({ searchParams }: SP) {
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-3">
+                  <td data-label="Estado" className="px-4 py-3">
                     {parseado ? (
                       <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                         ✓ {det.cantidadFilas} filas

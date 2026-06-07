@@ -90,7 +90,7 @@ export default function RecaudacionPage() {
         Resumen por origen
       </h2>
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[600px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[600px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Categoría</th>
@@ -102,12 +102,12 @@ export default function RecaudacionPage() {
           <tbody>
             {agregados.map((a) => (
               <tr key={a.categoria} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium text-navy">
+                <td data-label="Categoría" className="px-4 py-3 font-medium text-navy">
                   {labelsCategoria[a.categoria]}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">{a.cantidad}</td>
-                <td className="px-4 py-3 text-right tabular-nums">{formatARS(a.total)}</td>
-                <td className="px-4 py-3 text-right text-slate-500 tabular-nums">
+                <td data-label="Tipos" className="px-4 py-3 text-right tabular-nums">{a.cantidad}</td>
+                <td data-label="Presupuestado" className="px-4 py-3 text-right tabular-nums">{formatARS(a.total)}</td>
+                <td data-label="% del total corriente" className="px-4 py-3 text-right text-slate-500 tabular-nums">
                   {((a.total / totalesRecaudacion.recursosCorrientesTotal) * 100).toFixed(1)}%
                 </td>
               </tr>
@@ -127,7 +127,7 @@ export default function RecaudacionPage() {
         </a>
       </div>
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[760px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[760px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Recurso</th>
@@ -140,7 +140,7 @@ export default function RecaudacionPage() {
           <tbody>
             {recursos.map((r) => (
               <tr key={r.id} className="border-t border-slate-100">
-                <td className="px-4 py-3">
+                <td data-label="Recurso" className="px-4 py-3">
                   <div className="font-medium text-navy">{r.nombre}</div>
                   <div className="mt-1 text-xs text-slate-500">{r.descripcion}</div>
                   {r.contraprestacion && (
@@ -149,7 +149,7 @@ export default function RecaudacionPage() {
                     </div>
                   )}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Categoría" className="px-4 py-3">
                   <span
                     className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                       COLOR_CATEGORIA[r.categoria]
@@ -158,10 +158,10 @@ export default function RecaudacionPage() {
                     {labelsCategoria[r.categoria]}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td data-label="Presupuestado" className="px-4 py-3 text-right tabular-nums">
                   {formatARS(r.presupuestado)}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Estado" className="px-4 py-3">
                   {r.verificado ? (
                     <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                       verificado
@@ -172,7 +172,7 @@ export default function RecaudacionPage() {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Fuente" className="px-4 py-3">
                   <SourceTag id={r.fuenteId as Parameters<typeof SourceTag>[0]["id"]} />
                 </td>
               </tr>

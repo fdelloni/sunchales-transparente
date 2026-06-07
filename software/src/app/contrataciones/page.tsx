@@ -80,7 +80,7 @@ export default function ContratacionesPage() {
         Procesos en curso y finalizados
       </h2>
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[820px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[820px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Número</th>
@@ -94,11 +94,11 @@ export default function ContratacionesPage() {
           <tbody>
             {contrataciones.map((c) => (
               <tr key={c.id} className="border-t border-slate-100 hover:bg-slate-50">
-                <td className="px-4 py-3 font-medium text-navy">{c.numero}</td>
-                <td className="px-4 py-3 text-slate-700">
+                <td data-label="Número" className="px-4 py-3 font-medium text-navy">{c.numero}</td>
+                <td data-label="Procedimiento" className="px-4 py-3 text-slate-700">
                   {labels.procedimiento[c.procedimiento]}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Objeto" className="px-4 py-3">
                   <Link
                     href={`/contrataciones/${c.id}`}
                     className="text-navy underline-offset-2 hover:underline"
@@ -107,10 +107,10 @@ export default function ContratacionesPage() {
                   </Link>
                   <div className="text-xs text-slate-500">{c.area}</div>
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td data-label="Presupuesto oficial" className="px-4 py-3 text-right tabular-nums">
                   {formatARS(c.presupuestoOficial)}
                 </td>
-                <td className="px-4 py-3">
+                <td data-label="Estado" className="px-4 py-3">
                   <span
                     className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                       ESTADO_COLOR[c.estado]
@@ -119,7 +119,7 @@ export default function ContratacionesPage() {
                     {labels.estado[c.estado]}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-right">
+                <td data-label="Auditar" className="px-4 py-3 text-right">
                   <Link
                     href={`/contrataciones/${c.id}/auditar`}
                     className="rounded-md border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-navy hover:bg-slate-50"
@@ -183,7 +183,7 @@ export default function ContratacionesPage() {
       </div>
 
       <div className="-mx-4 sm:-mx-6 mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[820px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[820px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Número</th>
@@ -197,32 +197,32 @@ export default function ContratacionesPage() {
           <tbody>
             {licitacionesOficiales.map((l) => (
               <tr key={l.id} className="border-t border-slate-100 align-top">
-                <td className="px-4 py-3 font-medium text-navy whitespace-nowrap">
+                <td data-label="Número" className="px-4 py-3 font-medium text-navy whitespace-nowrap">
                   {l.numero}
                 </td>
-                <td className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                <td data-label="Decreto" className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
                   {l.decreto ?? "—"}
                 </td>
-                <td className="px-4 py-3 text-sm text-slate-700">
+                <td data-label="Objeto" className="px-4 py-3 text-sm text-slate-700">
                   {l.objeto ?? (
                     <span className="text-slate-400">
                       Objeto no extraído (ver pliego)
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td data-label="Presup. oficial" className="px-4 py-3 text-right tabular-nums">
                   {l.presupuestoOficial !== null ? (
                     formatARS(l.presupuestoOficial)
                   ) : (
                     <span className="text-slate-400">—</span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                <td data-label="Apertura" className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
                   {l.fechaApertura
                     ? new Date(l.fechaApertura).toLocaleDateString("es-AR")
                     : "—"}
                 </td>
-                <td className="px-4 py-3 text-right">
+                <td data-label="Pliego" className="px-4 py-3 text-right">
                   {l.documentos.length > 0 ? (
                     <div className="flex flex-col items-end gap-1">
                       {l.documentos

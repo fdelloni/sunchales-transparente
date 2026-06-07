@@ -46,7 +46,7 @@ export default async function ContratacionDetallePage({
         <>
           <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">Oferentes</h2>
           <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-            <table className="w-full sm:min-w-[640px] text-sm">
+            <table className="tabla-cards w-full sm:min-w-[640px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">CUIT</th>
@@ -60,8 +60,8 @@ export default async function ContratacionDetallePage({
                   const esAdjudicado = c.adjudicado?.cuit === o.cuit;
                   return (
                     <tr key={o.cuit} className="border-t border-slate-100">
-                      <td className="px-4 py-3 tabular-nums text-slate-600">{o.cuit}</td>
-                      <td className="px-4 py-3 font-medium text-navy">
+                      <td data-label="CUIT" className="px-4 py-3 tabular-nums text-slate-600">{o.cuit}</td>
+                      <td data-label="Razón social" className="px-4 py-3 font-medium text-navy">
                         {o.razonSocial}
                         {esAdjudicado && (
                           <span className="ml-2 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-emerald-700">
@@ -69,8 +69,8 @@ export default async function ContratacionDetallePage({
                           </span>
                         )}
                       </td>
-                      <td className="px-4 py-3 text-right tabular-nums">{formatARS(o.monto)}</td>
-                      <td className="px-4 py-3 text-xs text-slate-500">{o.observaciones ?? "—"}</td>
+                      <td data-label="Monto ofertado" className="px-4 py-3 text-right tabular-nums">{formatARS(o.monto)}</td>
+                      <td data-label="Observaciones" className="px-4 py-3 text-xs text-slate-500">{o.observaciones ?? "—"}</td>
                     </tr>
                   );
                 })}
@@ -85,7 +85,7 @@ export default async function ContratacionDetallePage({
         <>
           <h2 className="section-heading mt-10 font-serif text-2xl font-bold text-navy">Pagos efectuados</h2>
           <div className="-mx-4 sm:-mx-6 mt-3 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-            <table className="w-full sm:min-w-[480px] text-sm">
+            <table className="tabla-cards w-full sm:min-w-[480px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">Fecha</th>
@@ -96,9 +96,9 @@ export default async function ContratacionDetallePage({
               <tbody>
                 {c.pagos.map((p, i) => (
                   <tr key={i} className="border-t border-slate-100">
-                    <td className="px-4 py-3 text-slate-600">{new Date(p.fecha).toLocaleDateString("es-AR")}</td>
-                    <td className="px-4 py-3 font-medium text-navy">{p.orden}</td>
-                    <td className="px-4 py-3 text-right tabular-nums">{formatARS(p.monto)}</td>
+                    <td data-label="Fecha" className="px-4 py-3 text-slate-600">{new Date(p.fecha).toLocaleDateString("es-AR")}</td>
+                    <td data-label="Orden de pago" className="px-4 py-3 font-medium text-navy">{p.orden}</td>
+                    <td data-label="Monto" className="px-4 py-3 text-right tabular-nums">{formatARS(p.monto)}</td>
                   </tr>
                 ))}
               </tbody>

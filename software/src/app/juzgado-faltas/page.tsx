@@ -84,7 +84,7 @@ export default function JuzgadoFaltasPage() {
         el destino de los fondos.
       </p>
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[760px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[760px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Origen</th>
@@ -96,7 +96,7 @@ export default function JuzgadoFaltasPage() {
           <tbody>
             {marcoJuzgado.map((m, i) => (
               <tr key={i} className="border-t border-slate-100">
-                <td className="px-4 py-3">
+                <td data-label="Origen" className="px-4 py-3">
                   {m.origen === "provincial" ? (
                     <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-semibold text-blue-700">
                       {m.ambito}
@@ -107,9 +107,9 @@ export default function JuzgadoFaltasPage() {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-slate-700">{m.norma}</td>
-                <td className="px-4 py-3 text-slate-700">{m.tipos}</td>
-                <td className="px-4 py-3 text-slate-700">{m.regimen}</td>
+                <td data-label="Marco normativo" className="px-4 py-3 text-slate-700">{m.norma}</td>
+                <td data-label="Tipos de faltas" className="px-4 py-3 text-slate-700">{m.tipos}</td>
+                <td data-label="Régimen económico" className="px-4 py-3 text-slate-700">{m.regimen}</td>
               </tr>
             ))}
           </tbody>

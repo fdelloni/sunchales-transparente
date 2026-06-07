@@ -161,7 +161,7 @@ export default function PeriodoDetalle({ params }: Props) {
             Detalle por funcionario
           </h2>
           <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-            <table className="w-full sm:min-w-[820px] text-sm">
+            <table className="tabla-cards w-full sm:min-w-[820px] text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-4 py-3">#</th>
@@ -174,25 +174,25 @@ export default function PeriodoDetalle({ params }: Props) {
               <tbody>
                 {r.filas.map((f: { etiqueta: string; bruto: number | null; descuentos: number | null; neto: number | null }, i: number) => (
                   <tr key={i} className={esOcr ? "border-t border-orange-100" : "border-t border-slate-100"}>
-                    <td className="px-4 py-3 text-xs text-slate-500 tabular-nums">
+                    <td data-label="#" className="px-4 py-3 text-xs text-slate-500 tabular-nums">
                       {i + 1}
                     </td>
-                    <td className="px-4 py-3 text-sm text-slate-700">{f.etiqueta}</td>
-                    <td className="px-4 py-3 text-right tabular-nums">
+                    <td data-label="Cargo / Apellido y Nombre (texto literal del PDF)" className="px-4 py-3 text-sm text-slate-700">{f.etiqueta}</td>
+                    <td data-label="Bruto" className="px-4 py-3 text-right tabular-nums">
                       {f.bruto !== null ? (
                         formatARS(f.bruto)
                       ) : (
                         <span className="text-slate-400">—</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-right tabular-nums text-slate-600">
+                    <td data-label="Descuentos" className="px-4 py-3 text-right tabular-nums text-slate-600">
                       {f.descuentos !== null ? (
                         formatARS(f.descuentos)
                       ) : (
                         <span className="text-slate-400">—</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 text-right tabular-nums font-semibold text-navy">
+                    <td data-label="Neto" className="px-4 py-3 text-right tabular-nums font-semibold text-navy">
                       {f.neto !== null ? (
                         formatARS(f.neto)
                       ) : (

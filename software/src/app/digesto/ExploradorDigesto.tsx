@@ -157,7 +157,7 @@ export default function ExploradorDigesto() {
 
       {/* Tabla */}
       <div className="-mx-4 sm:-mx-6 mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[720px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[720px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-4 py-3">Tipo</th>
@@ -170,7 +170,7 @@ export default function ExploradorDigesto() {
           </thead>
           <tbody>
             {visibles.length === 0 ? (
-              <tr>
+              <tr className="tr-total">
                 <td
                   colSpan={6}
                   className="px-4 py-10 text-center text-sm text-slate-500"
@@ -183,8 +183,8 @@ export default function ExploradorDigesto() {
                 const e: EstadoVigencia = estadosNormas[n.id] ?? "vigente";
                 return (
                   <tr key={n.id} className="border-t border-slate-100 hover:bg-slate-50">
-                    <td className="px-4 py-3 text-slate-600">{n.tipo}</td>
-                    <td className="px-4 py-3 font-medium text-navy tabular-nums">
+                    <td data-label="Tipo" className="px-4 py-3 text-slate-600">{n.tipo}</td>
+                    <td data-label="N°" className="px-4 py-3 font-medium text-navy tabular-nums">
                       <Link
                         href={`/digesto/${n.id}`}
                         className="hover:text-coral-dark hover:underline"
@@ -192,11 +192,11 @@ export default function ExploradorDigesto() {
                         {n.numero}
                       </Link>
                     </td>
-                    <td className="px-4 py-3 text-slate-600 tabular-nums">{n.anio}</td>
-                    <td className="px-4 py-3 text-slate-500 tabular-nums">
+                    <td data-label="Año" className="px-4 py-3 text-slate-600 tabular-nums">{n.anio}</td>
+                    <td data-label="Fecha sanción" className="px-4 py-3 text-slate-500 tabular-nums">
                       {n.fecha ?? "—"}
                     </td>
-                    <td className="px-4 py-3 text-slate-700">
+                    <td data-label="Título" className="px-4 py-3 text-slate-700">
                       <Link
                         href={`/digesto/${n.id}`}
                         className="line-clamp-2 hover:text-navy"
@@ -204,7 +204,7 @@ export default function ExploradorDigesto() {
                         {n.titulo}
                       </Link>
                     </td>
-                    <td className="px-4 py-3">
+                    <td data-label="Estado" className="px-4 py-3">
                       <EstadoBadge estado={e} />
                     </td>
                   </tr>

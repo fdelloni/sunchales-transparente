@@ -203,7 +203,7 @@ export default function ConcejoTransparenciaPage() {
         impacta directamente en las tasas, multas y derechos municipales.
       </p>
       <div className="-mx-4 mt-5 overflow-x-auto rounded-xl border border-slate-200 bg-white px-0 shadow-sm sm:mx-0">
-        <table className="w-full sm:min-w-[600px] text-sm">
+        <table className="tabla-cards w-full sm:min-w-[600px] text-sm">
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
             <tr>
               <th className="px-3 py-2">Ordenanza</th>
@@ -215,11 +215,11 @@ export default function ConcejoTransparenciaPage() {
           <tbody>
             {ucmHistorico.map((u, i) => (
               <tr key={i} className="border-t border-slate-100 hover:bg-slate-50/50">
-                <td className="px-3 py-2 font-medium text-navy">
+                <td data-label="Ordenanza" className="px-3 py-2 font-medium text-navy">
                   {u.ordenanzaNumero ? `Ord. N° ${u.ordenanzaNumero}` : "(sin número)"}
                 </td>
-                <td className="px-3 py-2 text-slate-600">{u.anioOrdenanza}</td>
-                <td className="px-3 py-2 text-right tabular-nums text-slate-500">
+                <td data-label="Año" className="px-3 py-2 text-slate-600">{u.anioOrdenanza}</td>
+                <td data-label="Tamaño" className="px-3 py-2 text-right tabular-nums text-slate-500">
                   {(u.tamanioBytes / 1024).toFixed(0)} KB
                 </td>
                 <td className="px-3 py-2 text-right">
