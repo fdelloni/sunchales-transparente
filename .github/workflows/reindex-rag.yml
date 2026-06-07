@@ -29,6 +29,13 @@ name: Reindex RAG (Supabase pgvector)
 #                                   estrictamente como secret.
 
 on:
+  # Cron diario: los commits de los bots (scrape, PDFs, textos) NO disparan
+  # otros workflows (limitacion de GITHUB_TOKEN, anti-recursion), asi que el
+  # "reindex en cada push del bot" nunca corre solo. Este cron garantiza que
+  # todo lo scrapeado se indexe a diario. Incremental: sin cambios tarda ~30s.
+  # 12:00 UTC = 09:00 ART (despues del scrape de 06:00 y los textos de 07:00).
+  schedule:
+    - cron: "0 12 * * *"
   push:
     branches: [main]
     paths:
