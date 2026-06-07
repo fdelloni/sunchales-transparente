@@ -1,6 +1,2895 @@
 {
-  "actualizado": "2026-06-06T23:21:47.233Z",
+  "actualizado": "2026-06-07T18:50:40.449Z",
   "normas": {
+    "4943": {
+      "estado": "ok",
+      "titulo": "Resolución 836/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 6557,
+      "sha256Pdf": "8c6a87223636ac54",
+      "extraidoEl": "2026-06-07T18:49:38.252Z"
+    },
+    "4944": {
+      "estado": "ok",
+      "titulo": "Minuta 1188/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1011,
+      "sha256Pdf": "5e2ce6be8809a3ef",
+      "extraidoEl": "2026-06-07T18:49:38.694Z"
+    },
+    "4945": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3158/2024",
+      "anio": 2024,
+      "paginas": 76,
+      "chars": 9360,
+      "sha256Pdf": "f0fda22b884d2358",
+      "extraidoEl": "2026-06-07T18:49:39.329Z"
+    },
+    "4946": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3159/2024",
+      "anio": 2024,
+      "paginas": 26,
+      "chars": 970,
+      "sha256Pdf": "dd523ab0f4ee603a",
+      "extraidoEl": "2026-06-07T18:49:39.949Z"
+    },
+    "4947": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3160/2024",
+      "anio": 2024,
+      "paginas": 109,
+      "chars": 195676,
+      "sha256Pdf": "a3268cf0563d35ec",
+      "extraidoEl": "2026-06-07T18:49:40.933Z"
+    },
+    "4948": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3161/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1282,
+      "sha256Pdf": "039636de4facecf1",
+      "extraidoEl": "2026-06-07T18:49:41.376Z"
+    },
+    "4949": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3162/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1303,
+      "sha256Pdf": "80ea3a24a2132818",
+      "extraidoEl": "2026-06-07T18:49:41.812Z"
+    },
+    "4950": {
+      "estado": "ok",
+      "titulo": "Declaración 471/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1053,
+      "sha256Pdf": "908da621b0097267",
+      "extraidoEl": "2026-06-07T18:49:31.347Z"
+    },
+    "4951": {
+      "estado": "ok",
+      "titulo": "Declaración 472/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1041,
+      "sha256Pdf": "df1b0167346d5323",
+      "extraidoEl": "2026-06-07T18:50:19.773Z"
+    },
+    "4952": {
+      "estado": "ok",
+      "titulo": "Declaración 473/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1028,
+      "sha256Pdf": "05e167f974fe7fbc",
+      "extraidoEl": "2026-06-07T18:50:20.217Z"
+    },
+    "4953": {
+      "estado": "ok",
+      "titulo": "Declaración 474/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 725,
+      "sha256Pdf": "f9e1419fa703ea4c",
+      "extraidoEl": "2026-06-07T18:50:20.648Z"
+    },
+    "4954": {
+      "estado": "ok",
+      "titulo": "Declaración 475/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 773,
+      "sha256Pdf": "d971a1789a60e14b",
+      "extraidoEl": "2026-06-07T18:50:21.083Z"
+    },
+    "4955": {
+      "estado": "ok",
+      "titulo": "Minuta 1189/2024",
+      "anio": 2024,
+      "paginas": 60,
+      "chars": 86419,
+      "sha256Pdf": "e2324efc506b57fd",
+      "extraidoEl": "2026-06-07T18:50:21.913Z"
+    },
+    "4961": {
+      "estado": "ok",
+      "titulo": "Minuta 1195/2024",
+      "anio": 2024,
+      "paginas": 5,
+      "chars": 959,
+      "sha256Pdf": "4adb49c9af7eccdb",
+      "extraidoEl": "2026-06-07T18:49:37.291Z"
+    },
+    "4962": {
+      "estado": "ok",
+      "titulo": "Minuta 1196/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 937,
+      "sha256Pdf": "8ed24628abb4af65",
+      "extraidoEl": "2026-06-07T18:49:37.722Z"
+    },
+    "4963": {
+      "estado": "ok",
+      "titulo": "Minuta 1197/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1034,
+      "sha256Pdf": "9bca85c9510fa85d",
+      "extraidoEl": "2026-06-07T18:49:28.231Z"
+    },
+    "4964": {
+      "estado": "ok",
+      "titulo": "Minuta 1198/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1047,
+      "sha256Pdf": "fe2ea13b33e3f70b",
+      "extraidoEl": "2026-06-07T18:49:28.680Z"
+    },
+    "4965": {
+      "estado": "ok",
+      "titulo": "Minuta 1199/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1023,
+      "sha256Pdf": "7b24404deadc5f3c",
+      "extraidoEl": "2026-06-07T18:49:29.129Z"
+    },
+    "4966": {
+      "estado": "ok",
+      "titulo": "Minuta 1200/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1088,
+      "sha256Pdf": "3bdb6e0b8dfbc5a8",
+      "extraidoEl": "2026-06-07T18:49:29.562Z"
+    },
+    "4967": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3163/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1002,
+      "sha256Pdf": "fe74f1f692f45154",
+      "extraidoEl": "2026-06-07T18:49:29.995Z"
+    },
+    "4968": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3164/2024",
+      "anio": 2024,
+      "paginas": 5,
+      "chars": 958,
+      "sha256Pdf": "b463188071bba48f",
+      "extraidoEl": "2026-06-07T18:49:30.473Z"
+    },
+    "4969": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3165/2024",
+      "anio": 2024,
+      "paginas": 10,
+      "chars": 1235,
+      "sha256Pdf": "50869c4197140116",
+      "extraidoEl": "2026-06-07T18:49:30.909Z"
+    },
+    "4975": {
+      "estado": "ok",
+      "titulo": "Minuta 1204/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1000,
+      "sha256Pdf": "c9ce7fb5af14cc47",
+      "extraidoEl": "2026-06-07T18:49:26.867Z"
+    },
+    "4976": {
+      "estado": "ok",
+      "titulo": "Minuta 1205/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1103,
+      "sha256Pdf": "8f557f53ac683a50",
+      "extraidoEl": "2026-06-07T18:49:27.672Z"
+    },
+    "4977": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3168/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 3468,
+      "sha256Pdf": "879073389726bb6c",
+      "extraidoEl": "2026-06-07T18:49:19.731Z"
+    },
+    "4978": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3169/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 1630,
+      "sha256Pdf": "e2a9aca922216f6e",
+      "extraidoEl": "2026-06-07T18:49:20.173Z"
+    },
+    "4979": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3170/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2366,
+      "sha256Pdf": "3dad389589edce46",
+      "extraidoEl": "2026-06-07T18:49:20.612Z"
+    },
+    "4980": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3171/2024",
+      "anio": 2024,
+      "paginas": 11,
+      "chars": 25119,
+      "sha256Pdf": "5b2dc996386c014e",
+      "extraidoEl": "2026-06-07T18:50:17.383Z"
+    },
+    "4981": {
+      "estado": "ok",
+      "titulo": "Minuta 1206/2024",
+      "anio": 2024,
+      "paginas": 9,
+      "chars": 1038,
+      "sha256Pdf": "4714f3345a09cec9",
+      "extraidoEl": "2026-06-07T18:50:17.983Z"
+    },
+    "4982": {
+      "estado": "ok",
+      "titulo": "Minuta 1207/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1202,
+      "sha256Pdf": "f98afa07dca0796d",
+      "extraidoEl": "2026-06-07T18:50:18.422Z"
+    },
+    "4983": {
+      "estado": "ok",
+      "titulo": "Minuta 1208/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1275,
+      "sha256Pdf": "85d2ce8819de1a64",
+      "extraidoEl": "2026-06-07T18:50:18.862Z"
+    },
+    "4984": {
+      "estado": "ok",
+      "titulo": "Minuta 1209/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 1233,
+      "sha256Pdf": "dc33106dda8acc22",
+      "extraidoEl": "2026-06-07T18:50:19.316Z"
+    },
+    "4985": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3172/2024",
+      "anio": 2024,
+      "paginas": 10,
+      "chars": 9219,
+      "sha256Pdf": "01bf6e608ab52280",
+      "extraidoEl": "2026-06-07T18:49:17.506Z"
+    },
+    "4986": {
+      "estado": "ok",
+      "titulo": "Minuta 1210/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 1181,
+      "sha256Pdf": "b5fc6dbff0f3f26f",
+      "extraidoEl": "2026-06-07T18:49:17.943Z"
+    },
+    "4987": {
+      "estado": "ok",
+      "titulo": "Declaración 476/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1047,
+      "sha256Pdf": "e4485530c3657abd",
+      "extraidoEl": "2026-06-07T18:49:18.391Z"
+    },
+    "4988": {
+      "estado": "ok",
+      "titulo": "Minuta 1211/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1750,
+      "sha256Pdf": "aa06244e9602eacc",
+      "extraidoEl": "2026-06-07T18:49:18.830Z"
+    },
+    "4989": {
+      "estado": "ok",
+      "titulo": "Minuta 1212/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1028,
+      "sha256Pdf": "44824bf1d0f79c8b",
+      "extraidoEl": "2026-06-07T18:49:19.264Z"
+    },
+    "4990": {
+      "estado": "ok",
+      "titulo": "Minuta 1213/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 958,
+      "sha256Pdf": "7da286ce1dfb715a",
+      "extraidoEl": "2026-06-07T18:50:16.877Z"
+    },
+    "4996": {
+      "estado": "ok",
+      "titulo": "Declaración 477/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 931,
+      "sha256Pdf": "f753206c9a7e7e26",
+      "extraidoEl": "2026-06-07T18:49:16.561Z"
+    },
+    "4997": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3173/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 6903,
+      "sha256Pdf": "68e1bcb89f96b81e",
+      "extraidoEl": "2026-06-07T18:49:17.008Z"
+    },
+    "4998": {
+      "estado": "ok",
+      "titulo": "Resolución 837/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 846,
+      "sha256Pdf": "a2a0b9f80ecfa0af",
+      "extraidoEl": "2026-06-07T18:50:15.984Z"
+    },
+    "4999": {
+      "estado": "ok",
+      "titulo": "Declaración 478/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 778,
+      "sha256Pdf": "96a490fca74abc61",
+      "extraidoEl": "2026-06-07T18:50:35.646Z"
+    },
+    "5000": {
+      "estado": "ok",
+      "titulo": "Resolución 838/2024",
+      "anio": 2024,
+      "paginas": 64,
+      "chars": 165099,
+      "sha256Pdf": "2c2613f3e4321747",
+      "extraidoEl": "2026-06-07T18:50:36.435Z"
+    },
+    "5001": {
+      "estado": "ok",
+      "titulo": "Resolución 839/2024",
+      "anio": 2024,
+      "paginas": 6,
+      "chars": 817,
+      "sha256Pdf": "7711d7e6701be951",
+      "extraidoEl": "2026-06-07T18:50:36.878Z"
+    },
+    "5006": {
+      "estado": "ok",
+      "titulo": "Minuta 1223/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 857,
+      "sha256Pdf": "72f434f27c881ab0",
+      "extraidoEl": "2026-06-07T18:50:16.426Z"
+    },
+    "5007": {
+      "estado": "ok",
+      "titulo": "Minuta 1224/2024",
+      "anio": 2024,
+      "paginas": 8,
+      "chars": 904,
+      "sha256Pdf": "afac743779c6b293",
+      "extraidoEl": "2026-06-07T18:50:40.047Z"
+    },
+    "5008": {
+      "estado": "ok",
+      "titulo": "Resolución 840/2024",
+      "anio": 2024,
+      "paginas": 65,
+      "chars": 166614,
+      "sha256Pdf": "9ff9fdf399bf2ccf",
+      "extraidoEl": "2026-06-07T18:50:11.485Z"
+    },
+    "5009": {
+      "estado": "ok",
+      "titulo": "Declaración 479/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 774,
+      "sha256Pdf": "49b69651ef9ba0dd",
+      "extraidoEl": "2026-06-07T18:50:11.926Z"
+    },
+    "5010": {
+      "estado": "ok",
+      "titulo": "Declaración 480/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 873,
+      "sha256Pdf": "a812aa14174a8491",
+      "extraidoEl": "2026-06-07T18:50:12.363Z"
+    },
+    "5011": {
+      "estado": "ok",
+      "titulo": "Declaración 481/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 818,
+      "sha256Pdf": "359be5af6486d862",
+      "extraidoEl": "2026-06-07T18:50:15.531Z"
+    },
+    "5012": {
+      "estado": "ok",
+      "titulo": "Minuta 1225/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 910,
+      "sha256Pdf": "8fc8d4d8db2f2912",
+      "extraidoEl": "2026-06-07T18:50:12.796Z"
+    },
+    "5013": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3174/2024",
+      "anio": 2024,
+      "paginas": 38,
+      "chars": 82612,
+      "sha256Pdf": "f09cf2e8e06db4df",
+      "extraidoEl": "2026-06-07T18:50:13.549Z"
+    },
+    "5014": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3175/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 3604,
+      "sha256Pdf": "b4516e7803089883",
+      "extraidoEl": "2026-06-07T18:50:14.016Z"
+    },
+    "5015": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3176/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2252,
+      "sha256Pdf": "f67a782a3bf21598",
+      "extraidoEl": "2026-06-07T18:50:14.461Z"
+    },
+    "5016": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3177/2024",
+      "anio": 2024,
+      "paginas": 47,
+      "chars": 8766,
+      "sha256Pdf": "334db6616958fced",
+      "extraidoEl": "2026-06-07T18:50:15.099Z"
+    },
+    "5017": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3178/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 5078,
+      "sha256Pdf": "be43fe18faf81efa",
+      "extraidoEl": "2026-06-07T18:50:37.356Z"
+    },
+    "5018": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3179/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1476,
+      "sha256Pdf": "3bb30a275fbf0ff2",
+      "extraidoEl": "2026-06-07T18:50:37.795Z"
+    },
+    "5019": {
+      "estado": "ok",
+      "titulo": "Declaración 482/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 893,
+      "sha256Pdf": "40303542ae9a950c",
+      "extraidoEl": "2026-06-07T18:50:38.229Z"
+    },
+    "5020": {
+      "estado": "ok",
+      "titulo": "Resolución 841/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 3596,
+      "sha256Pdf": "18fe709c71fc1506",
+      "extraidoEl": "2026-06-07T18:50:38.670Z"
+    },
+    "5021": {
+      "estado": "ok",
+      "titulo": "Minuta 1226/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 1148,
+      "sha256Pdf": "f78d502c1c8c1b94",
+      "extraidoEl": "2026-06-07T18:50:39.110Z"
+    },
+    "5022": {
+      "estado": "ok",
+      "titulo": "Minuta 1227/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 1463,
+      "sha256Pdf": "d9127eb49349fe99",
+      "extraidoEl": "2026-06-07T18:50:39.567Z"
+    },
+    "5023": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3180/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2301,
+      "sha256Pdf": "a460900dcf82e6d6",
+      "extraidoEl": "2026-06-07T18:50:10.685Z"
+    },
+    "5024": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3181/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2244,
+      "sha256Pdf": "d4a93a5be286188b",
+      "extraidoEl": "2026-06-07T18:50:34.312Z"
+    },
+    "5025": {
+      "estado": "ok",
+      "titulo": "Declaración 483/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 819,
+      "sha256Pdf": "3a678d45d05f8c1e",
+      "extraidoEl": "2026-06-07T18:50:34.749Z"
+    },
+    "5026": {
+      "estado": "ok",
+      "titulo": "Declaración 484/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 903,
+      "sha256Pdf": "9fadff22ab10fb12",
+      "extraidoEl": "2026-06-07T18:50:35.182Z"
+    },
+    "5028": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3182/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1007,
+      "sha256Pdf": "2d692cf13cbac335",
+      "extraidoEl": "2026-06-07T18:50:06.906Z"
+    },
+    "5029": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3183/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 6017,
+      "sha256Pdf": "7270f03aae196bfa",
+      "extraidoEl": "2026-06-07T18:50:07.385Z"
+    },
+    "5030": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3184/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 3038,
+      "sha256Pdf": "2e0801b50eb91ce8",
+      "extraidoEl": "2026-06-07T18:50:07.833Z"
+    },
+    "5031": {
+      "estado": "ok",
+      "titulo": "Declaración 485/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 779,
+      "sha256Pdf": "0c8e91297ed22828",
+      "extraidoEl": "2026-06-07T18:50:08.370Z"
+    },
+    "5032": {
+      "estado": "ok",
+      "titulo": "Declaración 486/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 839,
+      "sha256Pdf": "a2fdab4d40626d92",
+      "extraidoEl": "2026-06-07T18:50:08.825Z"
+    },
+    "5033": {
+      "estado": "ok",
+      "titulo": "Minuta 1228/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 963,
+      "sha256Pdf": "5a3293cc307d5a84",
+      "extraidoEl": "2026-06-07T18:50:09.269Z"
+    },
+    "5034": {
+      "estado": "ok",
+      "titulo": "Minuta 1229/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 983,
+      "sha256Pdf": "039545395038197f",
+      "extraidoEl": "2026-06-07T18:50:09.751Z"
+    },
+    "5035": {
+      "estado": "ok",
+      "titulo": "Minuta 1230/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 1205,
+      "sha256Pdf": "b8ac7e27dd22000d",
+      "extraidoEl": "2026-06-07T18:50:10.215Z"
+    },
+    "5036": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3185/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2978,
+      "sha256Pdf": "04c9a3de9ffe5520",
+      "extraidoEl": "2026-06-07T18:50:33.407Z"
+    },
+    "5037": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3186/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1196,
+      "sha256Pdf": "f78394d9cee12c6a",
+      "extraidoEl": "2026-06-07T18:50:33.863Z"
+    },
+    "5045": {
+      "estado": "ok",
+      "titulo": "Minuta 1235/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 917,
+      "sha256Pdf": "64021c288719d652",
+      "extraidoEl": "2026-06-07T18:50:06.438Z"
+    },
+    "5046": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3188/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 3881,
+      "sha256Pdf": "d8da61b286ad8dce",
+      "extraidoEl": "2026-06-07T18:50:04.491Z"
+    },
+    "5047": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3189/2024",
+      "anio": 2024,
+      "paginas": 14,
+      "chars": 24403,
+      "sha256Pdf": "a7631e403dd00050",
+      "extraidoEl": "2026-06-07T18:50:05.049Z"
+    },
+    "5048": {
+      "estado": "ok",
+      "titulo": "Minuta 1236/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1032,
+      "sha256Pdf": "78c4ce78cd479741",
+      "extraidoEl": "2026-06-07T18:50:05.496Z"
+    },
+    "5049": {
+      "estado": "ok",
+      "titulo": "Minuta 1237/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1147,
+      "sha256Pdf": "b62c90cf4e770fc7",
+      "extraidoEl": "2026-06-07T18:50:05.953Z"
+    },
+    "5050": {
+      "estado": "ok",
+      "titulo": "Declaración 487/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 883,
+      "sha256Pdf": "9739c25cf2f2ebb3",
+      "extraidoEl": "2026-06-07T18:50:32.955Z"
+    },
+    "5051": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3190/2024",
+      "anio": 2024,
+      "paginas": 9,
+      "chars": 15827,
+      "sha256Pdf": "95a18a45d331aa75",
+      "extraidoEl": "2026-06-07T18:50:01.784Z"
+    },
+    "5052": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3191/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1632,
+      "sha256Pdf": "cb4fd75f59a6384f",
+      "extraidoEl": "2026-06-07T18:50:02.232Z"
+    },
+    "5053": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3192/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2108,
+      "sha256Pdf": "b17b8f05fcdf35de",
+      "extraidoEl": "2026-06-07T18:50:02.691Z"
+    },
+    "5054": {
+      "estado": "ok",
+      "titulo": "Resolución 844/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 950,
+      "sha256Pdf": "dbd56a55e56441a5",
+      "extraidoEl": "2026-06-07T18:50:03.167Z"
+    },
+    "5055": {
+      "estado": "ok",
+      "titulo": "Minuta 1238/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1523,
+      "sha256Pdf": "f4eb1e5e852d459c",
+      "extraidoEl": "2026-06-07T18:50:03.601Z"
+    },
+    "5056": {
+      "estado": "ok",
+      "titulo": "Minuta 1239/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 771,
+      "sha256Pdf": "0f04c89914ae764f",
+      "extraidoEl": "2026-06-07T18:50:04.039Z"
+    },
+    "5057": {
+      "estado": "ok",
+      "titulo": "Minuta 1240/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 982,
+      "sha256Pdf": "04424fe48cc3a3ad",
+      "extraidoEl": "2026-06-07T18:50:32.511Z"
+    },
+    "5065": {
+      "estado": "ok",
+      "titulo": "Minuta 1241/2024",
+      "anio": 2024,
+      "paginas": 25,
+      "chars": 1210,
+      "sha256Pdf": "46b5f32cbd24845f",
+      "extraidoEl": "2026-06-07T18:50:00.764Z"
+    },
+    "5066": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3198/2024",
+      "anio": 2024,
+      "paginas": 9,
+      "chars": 5865,
+      "sha256Pdf": "693980edca9b9f79",
+      "extraidoEl": "2026-06-07T18:50:01.255Z"
+    },
+    "5067": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3199/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1763,
+      "sha256Pdf": "58d510e7b95f1cbd",
+      "extraidoEl": "2026-06-07T18:50:31.575Z"
+    },
+    "5068": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3200/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 3671,
+      "sha256Pdf": "47df197df141c650",
+      "extraidoEl": "2026-06-07T18:50:32.060Z"
+    },
+    "5069": {
+      "estado": "ok",
+      "titulo": "Declaración 489/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 778,
+      "sha256Pdf": "0ef1c5fa1fa8141d",
+      "extraidoEl": "2026-06-07T18:49:59.256Z"
+    },
+    "5070": {
+      "estado": "ok",
+      "titulo": "Minuta 1242/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1124,
+      "sha256Pdf": "ea5c3ff55da76607",
+      "extraidoEl": "2026-06-07T18:49:59.699Z"
+    },
+    "5071": {
+      "estado": "ok",
+      "titulo": "Minuta 1243/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 857,
+      "sha256Pdf": "619ef5bfad36e923",
+      "extraidoEl": "2026-06-07T18:50:00.142Z"
+    },
+    "5073": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3201/2024",
+      "anio": 2024,
+      "paginas": 28,
+      "chars": 126140,
+      "sha256Pdf": "10ed2b2524a1780d",
+      "extraidoEl": "2026-06-07T18:49:58.340Z"
+    },
+    "5074": {
+      "estado": "ok",
+      "titulo": "Declaración 490/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 821,
+      "sha256Pdf": "c1ad91c0abde3859",
+      "extraidoEl": "2026-06-07T18:49:58.800Z"
+    },
+    "5078": {
+      "estado": "ok",
+      "titulo": "Minuta 1248/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 885,
+      "sha256Pdf": "1c81b3c1f6675f62",
+      "extraidoEl": "2026-06-07T18:49:56.848Z"
+    },
+    "5079": {
+      "estado": "ok",
+      "titulo": "Declaración 491/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1007,
+      "sha256Pdf": "2aa2835e0311d947",
+      "extraidoEl": "2026-06-07T18:49:57.302Z"
+    },
+    "5080": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3203/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 2519,
+      "sha256Pdf": "d0e361927696ae1b",
+      "extraidoEl": "2026-06-07T18:50:30.583Z"
+    },
+    "5081": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3204/2024",
+      "anio": 2024,
+      "paginas": 9,
+      "chars": 4857,
+      "sha256Pdf": "0cff0a9585c9a6e0",
+      "extraidoEl": "2026-06-07T18:50:31.112Z"
+    },
+    "5086": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3205/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 7705,
+      "sha256Pdf": "89eb2c32ecbe6bfe",
+      "extraidoEl": "2026-06-07T18:49:54.264Z"
+    },
+    "5087": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3206/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1065,
+      "sha256Pdf": "4eb21fb508be6650",
+      "extraidoEl": "2026-06-07T18:49:54.711Z"
+    },
+    "5088": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3207/2024",
+      "anio": 2024,
+      "paginas": 28,
+      "chars": 23250,
+      "sha256Pdf": "68ee56a8f8ba6f06",
+      "extraidoEl": "2026-06-07T18:49:55.327Z"
+    },
+    "5089": {
+      "estado": "ok",
+      "titulo": "Minuta 1251/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 878,
+      "sha256Pdf": "2537b066dd86e184",
+      "extraidoEl": "2026-06-07T18:49:55.917Z"
+    },
+    "5090": {
+      "estado": "ok",
+      "titulo": "Declaración 493/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 840,
+      "sha256Pdf": "ff5fbb0a08ab6126",
+      "extraidoEl": "2026-06-07T18:49:56.373Z"
+    },
+    "5091": {
+      "estado": "ok",
+      "titulo": "Minuta 1252/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1020,
+      "sha256Pdf": "4d891ca36fa8c22e",
+      "extraidoEl": "2026-06-07T18:50:30.134Z"
+    },
+    "5094": {
+      "estado": "ok",
+      "titulo": "Resolución 847/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1849,
+      "sha256Pdf": "f002b27985e5905a",
+      "extraidoEl": "2026-06-07T18:49:51.988Z"
+    },
+    "5095": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3208/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 3692,
+      "sha256Pdf": "c79588c9d4ab3222",
+      "extraidoEl": "2026-06-07T18:49:52.454Z"
+    },
+    "5096": {
+      "estado": "ok",
+      "titulo": "Declaración 495/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 988,
+      "sha256Pdf": "4bf116069696a462",
+      "extraidoEl": "2026-06-07T18:49:52.905Z"
+    },
+    "5097": {
+      "estado": "ok",
+      "titulo": "Minuta 1254/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 993,
+      "sha256Pdf": "3f967e5058e66e06",
+      "extraidoEl": "2026-06-07T18:49:53.358Z"
+    },
+    "5098": {
+      "estado": "ok",
+      "titulo": "Minuta 1255/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 891,
+      "sha256Pdf": "4859036d72261474",
+      "extraidoEl": "2026-06-07T18:49:53.798Z"
+    },
+    "5099": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3209/2024",
+      "anio": 2024,
+      "paginas": 6,
+      "chars": 13071,
+      "sha256Pdf": "8404d1beddbb2faa",
+      "extraidoEl": "2026-06-07T18:50:29.685Z"
+    },
+    "5105": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3211/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 3113,
+      "sha256Pdf": "f23d3d33c2619c8f",
+      "extraidoEl": "2026-06-07T18:49:48.481Z"
+    },
+    "5106": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3212/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 4371,
+      "sha256Pdf": "ca2a10ea0992d4af",
+      "extraidoEl": "2026-06-07T18:49:48.942Z"
+    },
+    "5107": {
+      "estado": "ok",
+      "titulo": "Declaración 498/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 825,
+      "sha256Pdf": "08b05c19e5241d3e",
+      "extraidoEl": "2026-06-07T18:49:49.397Z"
+    },
+    "5108": {
+      "estado": "ok",
+      "titulo": "Minuta 1257/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1523,
+      "sha256Pdf": "65dc62d58f12e4c3",
+      "extraidoEl": "2026-06-07T18:49:49.850Z"
+    },
+    "5109": {
+      "estado": "ok",
+      "titulo": "Minuta 1258/2024",
+      "anio": 2024,
+      "paginas": 14,
+      "chars": 83961,
+      "sha256Pdf": "210444d6de77d079",
+      "extraidoEl": "2026-06-07T18:49:50.607Z"
+    },
+    "5110": {
+      "estado": "ok",
+      "titulo": "Minuta 1259/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 857,
+      "sha256Pdf": "43e9dfae0e2d81a0",
+      "extraidoEl": "2026-06-07T18:49:51.078Z"
+    },
+    "5111": {
+      "estado": "ok",
+      "titulo": "Minuta 1260/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 930,
+      "sha256Pdf": "2757a34691427581",
+      "extraidoEl": "2026-06-07T18:49:51.532Z"
+    },
+    "5112": {
+      "estado": "ok",
+      "titulo": "Minuta 1261/2024",
+      "anio": 2024,
+      "paginas": 12,
+      "chars": 1282,
+      "sha256Pdf": "4145ffabe107e9af",
+      "extraidoEl": "2026-06-07T18:50:28.733Z"
+    },
+    "5113": {
+      "estado": "ok",
+      "titulo": "Minuta 1262/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1047,
+      "sha256Pdf": "14011d1bd09eaf20",
+      "extraidoEl": "2026-06-07T18:50:29.186Z"
+    },
+    "5120": {
+      "estado": "ok",
+      "titulo": "Minuta 1265/2024",
+      "anio": 2024,
+      "paginas": 2,
+      "chars": 1101,
+      "sha256Pdf": "84f0e6782adfa903",
+      "extraidoEl": "2026-06-07T18:49:47.073Z"
+    },
+    "5121": {
+      "estado": "ok",
+      "titulo": "Minuta 1266/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 915,
+      "sha256Pdf": "4d9f118f5e359bd6",
+      "extraidoEl": "2026-06-07T18:49:47.529Z"
+    },
+    "5122": {
+      "estado": "ok",
+      "titulo": "Minuta 1267/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 858,
+      "sha256Pdf": "743740adb197256d",
+      "extraidoEl": "2026-06-07T18:49:47.997Z"
+    },
+    "5123": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3214/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 7073,
+      "sha256Pdf": "9558baa07e2c832d",
+      "extraidoEl": "2026-06-07T18:49:43.615Z"
+    },
+    "5124": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3215/2024",
+      "anio": 2024,
+      "paginas": 15,
+      "chars": 25670,
+      "sha256Pdf": "2f4eab871147d5db",
+      "extraidoEl": "2026-06-07T18:49:44.232Z"
+    },
+    "5125": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3216/2024",
+      "anio": 2024,
+      "paginas": 12,
+      "chars": 8679,
+      "sha256Pdf": "83201bd88bccee60",
+      "extraidoEl": "2026-06-07T18:49:44.805Z"
+    },
+    "5126": {
+      "estado": "ok",
+      "titulo": "Declaración 502/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 863,
+      "sha256Pdf": "7967c49bcd72074b",
+      "extraidoEl": "2026-06-07T18:49:45.258Z"
+    },
+    "5127": {
+      "estado": "ok",
+      "titulo": "Declaración 503/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 942,
+      "sha256Pdf": "58229c3bacb7f0e0",
+      "extraidoEl": "2026-06-07T18:49:45.707Z"
+    },
+    "5128": {
+      "estado": "ok",
+      "titulo": "Declaración 504/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 772,
+      "sha256Pdf": "c51945a00e51b88c",
+      "extraidoEl": "2026-06-07T18:49:46.164Z"
+    },
+    "5129": {
+      "estado": "ok",
+      "titulo": "Declaración 505/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 963,
+      "sha256Pdf": "04051492cecfa387",
+      "extraidoEl": "2026-06-07T18:49:46.615Z"
+    },
+    "5130": {
+      "estado": "ok",
+      "titulo": "Minuta 1268/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1050,
+      "sha256Pdf": "6c9e405a177e6b31",
+      "extraidoEl": "2026-06-07T18:50:27.118Z"
+    },
+    "5131": {
+      "estado": "ok",
+      "titulo": "Minuta 1269/2024",
+      "anio": 2024,
+      "paginas": 12,
+      "chars": 798,
+      "sha256Pdf": "be8af67970e8305b",
+      "extraidoEl": "2026-06-07T18:50:27.702Z"
+    },
+    "5132": {
+      "estado": "ok",
+      "titulo": "Minuta 1270/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1003,
+      "sha256Pdf": "757777b07c51dddb",
+      "extraidoEl": "2026-06-07T18:50:28.150Z"
+    },
+    "5138": {
+      "estado": "ok",
+      "titulo": "Declaración 506/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 766,
+      "sha256Pdf": "7b06340299fcf93b",
+      "extraidoEl": "2026-06-07T18:49:42.253Z"
+    },
+    "5139": {
+      "estado": "ok",
+      "titulo": "Declaración 507/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 916,
+      "sha256Pdf": "f304e6ab260fb5c6",
+      "extraidoEl": "2026-06-07T18:49:42.698Z"
+    },
+    "5140": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3217/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1465,
+      "sha256Pdf": "818af375574bc764",
+      "extraidoEl": "2026-06-07T18:49:43.149Z"
+    },
+    "5142": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3218/2024",
+      "anio": 2024,
+      "paginas": 4,
+      "chars": 6261,
+      "sha256Pdf": "a7e4e17e08df1ddd",
+      "extraidoEl": "2026-06-07T18:50:25.949Z"
+    },
+    "5143": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3219/2024",
+      "anio": 2024,
+      "paginas": 35,
+      "chars": 52609,
+      "sha256Pdf": "560e075b0ba76e41",
+      "extraidoEl": "2026-06-07T18:50:26.662Z"
+    },
+    "5148": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3220/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 1022,
+      "sha256Pdf": "fb959d7debefe95d",
+      "extraidoEl": "2026-06-07T18:49:36.282Z"
+    },
+    "5149": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3221/2025",
+      "anio": 2025,
+      "paginas": 55,
+      "chars": 111125,
+      "sha256Pdf": "28ea7bab9465641d",
+      "extraidoEl": "2026-06-07T18:49:34.870Z"
+    },
+    "5150": {
+      "estado": "ok",
+      "titulo": "Resolución 851/2024",
+      "anio": 2024,
+      "paginas": 3,
+      "chars": 5794,
+      "sha256Pdf": "664525f77721307e",
+      "extraidoEl": "2026-06-07T18:49:36.774Z"
+    },
+    "5151": {
+      "estado": "ok",
+      "titulo": "Resolución 852/2025",
+      "anio": 2025,
+      "paginas": 5,
+      "chars": 4800,
+      "sha256Pdf": "cf4fb0cd3063fe4d",
+      "extraidoEl": "2026-06-07T18:49:35.393Z"
+    },
+    "5152": {
+      "estado": "ok",
+      "titulo": "Declaración 508/2024",
+      "anio": 2024,
+      "paginas": 1,
+      "chars": 849,
+      "sha256Pdf": "a092f15060b31a0b",
+      "extraidoEl": "2026-06-07T18:49:35.841Z"
+    },
+    "5156": {
+      "estado": "ok",
+      "titulo": "Minuta 1278/2024",
+      "anio": 2024,
+      "paginas": 40,
+      "chars": 48058,
+      "sha256Pdf": "b3d43e8b62eb568f",
+      "extraidoEl": "2026-06-07T18:50:25.467Z"
+    },
+    "5159": {
+      "estado": "ok",
+      "titulo": "Minuta 1281/2025",
+      "anio": 2025,
+      "paginas": 14,
+      "chars": 83454,
+      "sha256Pdf": "584bf4dccd598baf",
+      "extraidoEl": "2026-06-07T18:49:32.061Z"
+    },
+    "5160": {
+      "estado": "ok",
+      "titulo": "Minuta 1282/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 949,
+      "sha256Pdf": "b2ed6d164584529f",
+      "extraidoEl": "2026-06-07T18:49:32.506Z"
+    },
+    "5162": {
+      "estado": "ok",
+      "titulo": "Resolución 853/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 811,
+      "sha256Pdf": "ca6f934f910196da",
+      "extraidoEl": "2026-06-07T18:49:32.948Z"
+    },
+    "5163": {
+      "estado": "ok",
+      "titulo": "Minuta 1283/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 901,
+      "sha256Pdf": "3735bbb91a485a0f",
+      "extraidoEl": "2026-06-07T18:49:33.399Z"
+    },
+    "5164": {
+      "estado": "ok",
+      "titulo": "Minuta 1284/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 842,
+      "sha256Pdf": "6e7887c7f3a5ad8c",
+      "extraidoEl": "2026-06-07T18:49:33.843Z"
+    },
+    "5165": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3223/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 6169,
+      "sha256Pdf": "6b27ccecc3b13950",
+      "extraidoEl": "2026-06-07T18:49:23.682Z"
+    },
+    "5166": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3224/2025",
+      "anio": 2025,
+      "paginas": 25,
+      "chars": 156843,
+      "sha256Pdf": "2b89f737188fe0cd",
+      "extraidoEl": "2026-06-07T18:49:24.672Z"
+    },
+    "5167": {
+      "estado": "ok",
+      "titulo": "Declaración 511/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 761,
+      "sha256Pdf": "07a436e04ce72420",
+      "extraidoEl": "2026-06-07T18:49:25.119Z"
+    },
+    "5168": {
+      "estado": "ok",
+      "titulo": "Minuta 1285/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 48107,
+      "sha256Pdf": "371d41037a7bd968",
+      "extraidoEl": "2026-06-07T18:49:25.981Z"
+    },
+    "5169": {
+      "estado": "ok",
+      "titulo": "Minuta 1286/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 869,
+      "sha256Pdf": "f6e652f1624f3433",
+      "extraidoEl": "2026-06-07T18:49:26.426Z"
+    },
+    "5170": {
+      "estado": "ok",
+      "titulo": "Minuta 1287/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 819,
+      "sha256Pdf": "5f083e531085c448",
+      "extraidoEl": "2026-06-07T18:50:23.722Z"
+    },
+    "5171": {
+      "estado": "ok",
+      "titulo": "Minuta 1288/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1464,
+      "sha256Pdf": "c257a3ffb56091dc",
+      "extraidoEl": "2026-06-07T18:50:24.166Z"
+    },
+    "5172": {
+      "estado": "ok",
+      "titulo": "Minuta 1289/2025",
+      "anio": 2025,
+      "paginas": 13,
+      "chars": 1070,
+      "sha256Pdf": "ed26f7fb02098b70",
+      "extraidoEl": "2026-06-07T18:50:24.736Z"
+    },
+    "5178": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3226/2025",
+      "anio": 2025,
+      "paginas": 5,
+      "chars": 3879,
+      "sha256Pdf": "2f0dd91e44f5c77b",
+      "extraidoEl": "2026-06-07T18:49:21.086Z"
+    },
+    "5179": {
+      "estado": "ok",
+      "titulo": "Minuta 1292/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 47755,
+      "sha256Pdf": "635aab79c9f9f789",
+      "extraidoEl": "2026-06-07T18:49:21.787Z"
+    },
+    "5180": {
+      "estado": "ok",
+      "titulo": "Minuta 1293/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 978,
+      "sha256Pdf": "57ab8edf4c2022eb",
+      "extraidoEl": "2026-06-07T18:49:22.237Z"
+    },
+    "5181": {
+      "estado": "ok",
+      "titulo": "Minuta 1294/2025",
+      "anio": 2025,
+      "paginas": 7,
+      "chars": 873,
+      "sha256Pdf": "25b68ef48e710c1f",
+      "extraidoEl": "2026-06-07T18:49:22.759Z"
+    },
+    "5182": {
+      "estado": "ok",
+      "titulo": "Minuta 1295/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 798,
+      "sha256Pdf": "4450e656c9800831",
+      "extraidoEl": "2026-06-07T18:49:23.210Z"
+    },
+    "5183": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3227/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 1156,
+      "sha256Pdf": "6e1822173185fbea",
+      "extraidoEl": "2026-06-07T18:50:23.278Z"
+    },
+    "5188": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3228/2025",
+      "anio": 2025,
+      "paginas": 5,
+      "chars": 4336,
+      "sha256Pdf": "52a143c63a048081",
+      "extraidoEl": "2026-06-07T18:49:13.864Z"
+    },
+    "5189": {
+      "estado": "ok",
+      "titulo": "Declaración 514/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 998,
+      "sha256Pdf": "d819251082df9b52",
+      "extraidoEl": "2026-06-07T18:49:14.321Z"
+    },
+    "5190": {
+      "estado": "ok",
+      "titulo": "Resolución 856/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 990,
+      "sha256Pdf": "11e7bc39775afb99",
+      "extraidoEl": "2026-06-07T18:49:14.760Z"
+    },
+    "5191": {
+      "estado": "ok",
+      "titulo": "Resolución 857/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 3673,
+      "sha256Pdf": "1a429f63f7ef3086",
+      "extraidoEl": "2026-06-07T18:49:15.229Z"
+    },
+    "5192": {
+      "estado": "ok",
+      "titulo": "Resolución 858/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1740,
+      "sha256Pdf": "a87bcfdaf256e80b",
+      "extraidoEl": "2026-06-07T18:49:15.668Z"
+    },
+    "5193": {
+      "estado": "ok",
+      "titulo": "Minuta 1298/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 854,
+      "sha256Pdf": "45f1da679a5dec21",
+      "extraidoEl": "2026-06-07T18:49:16.118Z"
+    },
+    "5194": {
+      "estado": "ok",
+      "titulo": "Minuta 1299/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 913,
+      "sha256Pdf": "75726b4de51880d3",
+      "extraidoEl": "2026-06-07T18:50:22.375Z"
+    },
+    "5195": {
+      "estado": "ok",
+      "titulo": "Minuta 1300/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1459,
+      "sha256Pdf": "ee70c59454e7487a",
+      "extraidoEl": "2026-06-07T18:50:22.829Z"
+    },
+    "5196": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3229/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1778,
+      "sha256Pdf": "ee7046945d90a3c7",
+      "extraidoEl": "2026-06-07T18:49:10.583Z"
+    },
+    "5197": {
+      "estado": "ok",
+      "titulo": "Minuta 1301/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1049,
+      "sha256Pdf": "2829adcade9afde9",
+      "extraidoEl": "2026-06-07T18:49:11.031Z"
+    },
+    "5198": {
+      "estado": "ok",
+      "titulo": "Minuta 1302/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1239,
+      "sha256Pdf": "909c20d826e89c67",
+      "extraidoEl": "2026-06-07T18:49:11.468Z"
+    },
+    "5199": {
+      "estado": "ok",
+      "titulo": "Minuta 1303/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1240,
+      "sha256Pdf": "b0db50d0434deefa",
+      "extraidoEl": "2026-06-07T18:49:11.905Z"
+    },
+    "5200": {
+      "estado": "ok",
+      "titulo": "Minuta 1304/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 9403,
+      "sha256Pdf": "b64af8cce09d7cb7",
+      "extraidoEl": "2026-06-07T18:49:12.380Z"
+    },
+    "5201": {
+      "estado": "ok",
+      "titulo": "Minuta 1305/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 974,
+      "sha256Pdf": "bc2bc48bff5ae26a",
+      "extraidoEl": "2026-06-07T18:49:12.912Z"
+    },
+    "5202": {
+      "estado": "ok",
+      "titulo": "Resolución 859/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 6720,
+      "sha256Pdf": "6684cb85a1cb269b",
+      "extraidoEl": "2026-06-07T18:49:13.376Z"
+    },
+    "5203": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3230/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3645,
+      "sha256Pdf": "495365af3081c74a",
+      "extraidoEl": "2026-06-07T18:49:06.856Z"
+    },
+    "5204": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3231/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 3107,
+      "sha256Pdf": "4b17e0c686884180",
+      "extraidoEl": "2026-06-07T18:49:07.333Z"
+    },
+    "5205": {
+      "estado": "ok",
+      "titulo": "Resolución 860/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3683,
+      "sha256Pdf": "933ab847cfa326be",
+      "extraidoEl": "2026-06-07T18:49:07.782Z"
+    },
+    "5206": {
+      "estado": "ok",
+      "titulo": "Minuta 1306/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 962,
+      "sha256Pdf": "f55aa2685b09846a",
+      "extraidoEl": "2026-06-07T18:49:08.234Z"
+    },
+    "5207": {
+      "estado": "ok",
+      "titulo": "Minuta 1307/2025",
+      "anio": 2025,
+      "paginas": 7,
+      "chars": 1250,
+      "sha256Pdf": "b155b02928844a85",
+      "extraidoEl": "2026-06-07T18:49:08.719Z"
+    },
+    "5208": {
+      "estado": "ok",
+      "titulo": "Minuta 1308/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 984,
+      "sha256Pdf": "0aa10f0cc18882dd",
+      "extraidoEl": "2026-06-07T18:49:09.163Z"
+    },
+    "5209": {
+      "estado": "ok",
+      "titulo": "Minuta 1309/2025",
+      "anio": 2025,
+      "paginas": 13,
+      "chars": 1185,
+      "sha256Pdf": "fa04930b4245e28f",
+      "extraidoEl": "2026-06-07T18:49:09.707Z"
+    },
+    "5210": {
+      "estado": "ok",
+      "titulo": "Minuta 1310/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 908,
+      "sha256Pdf": "f872575262526176",
+      "extraidoEl": "2026-06-07T18:49:10.143Z"
+    },
+    "5211": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3232/2025",
+      "anio": 2025,
+      "paginas": 32,
+      "chars": 34345,
+      "sha256Pdf": "734fe5b7ef337e0e",
+      "extraidoEl": "2026-06-07T18:49:03.547Z"
+    },
+    "5212": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3233/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 6634,
+      "sha256Pdf": "5fe522e65209a0f2",
+      "extraidoEl": "2026-06-07T18:49:04.011Z"
+    },
+    "5213": {
+      "estado": "ok",
+      "titulo": "Declaración 515/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 757,
+      "sha256Pdf": "33045d9040e26c36",
+      "extraidoEl": "2026-06-07T18:49:04.463Z"
+    },
+    "5214": {
+      "estado": "ok",
+      "titulo": "Minuta 1311/2025",
+      "anio": 2025,
+      "paginas": 13,
+      "chars": 951,
+      "sha256Pdf": "084367e507d9d365",
+      "extraidoEl": "2026-06-07T18:49:05.023Z"
+    },
+    "5215": {
+      "estado": "ok",
+      "titulo": "Minuta 1312/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 822,
+      "sha256Pdf": "d7eaaaf6805767db",
+      "extraidoEl": "2026-06-07T18:49:05.514Z"
+    },
+    "5216": {
+      "estado": "ok",
+      "titulo": "Minuta 1313/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 839,
+      "sha256Pdf": "10aa1422791c4631",
+      "extraidoEl": "2026-06-07T18:49:05.954Z"
+    },
+    "5217": {
+      "estado": "ok",
+      "titulo": "Minuta 1314/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1441,
+      "sha256Pdf": "41ec9f05db9061eb",
+      "extraidoEl": "2026-06-07T18:49:06.395Z"
+    },
+    "5218": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3234/2025",
+      "anio": 2025,
+      "paginas": 13,
+      "chars": 6512,
+      "sha256Pdf": "d929c12342f54058",
+      "extraidoEl": "2026-06-07T18:49:00.171Z"
+    },
+    "5219": {
+      "estado": "ok",
+      "titulo": "Resolución 861/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 777,
+      "sha256Pdf": "1c63b8e71b758b0c",
+      "extraidoEl": "2026-06-07T18:49:00.624Z"
+    },
+    "5220": {
+      "estado": "ok",
+      "titulo": "Resolución 862/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 867,
+      "sha256Pdf": "d5e4d9354d5d06c3",
+      "extraidoEl": "2026-06-07T18:49:01.074Z"
+    },
+    "5221": {
+      "estado": "ok",
+      "titulo": "Minuta 1315/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1014,
+      "sha256Pdf": "b1dd0be7cbca3398",
+      "extraidoEl": "2026-06-07T18:49:01.522Z"
+    },
+    "5222": {
+      "estado": "ok",
+      "titulo": "Minuta 1316/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 1119,
+      "sha256Pdf": "d5c02d4d850730df",
+      "extraidoEl": "2026-06-07T18:49:02.015Z"
+    },
+    "5223": {
+      "estado": "ok",
+      "titulo": "Minuta 1317/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 829,
+      "sha256Pdf": "f176e41c1e34be72",
+      "extraidoEl": "2026-06-07T18:49:02.460Z"
+    },
+    "5224": {
+      "estado": "ok",
+      "titulo": "Declaración 516/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 839,
+      "sha256Pdf": "378a39951d67e6d3",
+      "extraidoEl": "2026-06-07T18:49:02.906Z"
+    },
+    "5225": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3235/2025",
+      "anio": 2025,
+      "paginas": 25,
+      "chars": 48269,
+      "sha256Pdf": "30c49e29149bdc80",
+      "extraidoEl": "2026-06-07T18:48:55.298Z"
+    },
+    "5226": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3236/2025",
+      "anio": 2025,
+      "paginas": 31,
+      "chars": 57817,
+      "sha256Pdf": "4900d5b56e0177f6",
+      "extraidoEl": "2026-06-07T18:48:56.066Z"
+    },
+    "5227": {
+      "estado": "ok",
+      "titulo": "Minuta 1318/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1126,
+      "sha256Pdf": "21f70c0b637bd9c4",
+      "extraidoEl": "2026-06-07T18:48:56.524Z"
+    },
+    "5228": {
+      "estado": "ok",
+      "titulo": "Declaración 517/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 921,
+      "sha256Pdf": "23459639b37f36f0",
+      "extraidoEl": "2026-06-07T18:48:56.984Z"
+    },
+    "5229": {
+      "estado": "ok",
+      "titulo": "Resolución 863/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 923,
+      "sha256Pdf": "fd51da00a564daf6",
+      "extraidoEl": "2026-06-07T18:48:57.433Z"
+    },
+    "5230": {
+      "estado": "ok",
+      "titulo": "Minuta 1319/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1223,
+      "sha256Pdf": "720b62afb4762842",
+      "extraidoEl": "2026-06-07T18:48:57.883Z"
+    },
+    "5231": {
+      "estado": "ok",
+      "titulo": "Minuta 1320/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 1075,
+      "sha256Pdf": "071f626d3b251c0a",
+      "extraidoEl": "2026-06-07T18:48:58.363Z"
+    },
+    "5232": {
+      "estado": "ok",
+      "titulo": "Resolución 864/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1236,
+      "sha256Pdf": "05ec920194e38ea5",
+      "extraidoEl": "2026-06-07T18:48:58.812Z"
+    },
+    "5233": {
+      "estado": "ok",
+      "titulo": "Minuta 1321/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 868,
+      "sha256Pdf": "fac8ad99c2e52968",
+      "extraidoEl": "2026-06-07T18:48:59.256Z"
+    },
+    "5234": {
+      "estado": "ok",
+      "titulo": "Minuta 1322/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1075,
+      "sha256Pdf": "fd66b6ae87df4e54",
+      "extraidoEl": "2026-06-07T18:48:59.702Z"
+    },
+    "5235": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3237/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 5960,
+      "sha256Pdf": "622cb34661fba731",
+      "extraidoEl": "2026-06-07T18:48:52.274Z"
+    },
+    "5236": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3238/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 4534,
+      "sha256Pdf": "fb10cd94eff586f1",
+      "extraidoEl": "2026-06-07T18:48:52.750Z"
+    },
+    "5237": {
+      "estado": "ok",
+      "titulo": "Declaración 518/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 647,
+      "sha256Pdf": "8f03b3a8a894fd89",
+      "extraidoEl": "2026-06-07T18:48:53.211Z"
+    },
+    "5238": {
+      "estado": "ok",
+      "titulo": "Minuta 1323/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1201,
+      "sha256Pdf": "88fb6db6aad6af37",
+      "extraidoEl": "2026-06-07T18:48:53.661Z"
+    },
+    "5239": {
+      "estado": "ok",
+      "titulo": "Minuta 1324/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 804,
+      "sha256Pdf": "5b5d1c11b9ad14e5",
+      "extraidoEl": "2026-06-07T18:48:54.148Z"
+    },
+    "5240": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3239/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1267,
+      "sha256Pdf": "b9bc2f2d60093c8a",
+      "extraidoEl": "2026-06-07T18:48:50.370Z"
+    },
+    "5244": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3240/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1831,
+      "sha256Pdf": "d763114e057276d4",
+      "extraidoEl": "2026-06-07T18:48:50.826Z"
+    },
+    "5245": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3241/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 982,
+      "sha256Pdf": "8b58fe7f2ff717bf",
+      "extraidoEl": "2026-06-07T18:48:51.259Z"
+    },
+    "5246": {
+      "estado": "ok",
+      "titulo": "Minuta 1325/2025",
+      "anio": 2025,
+      "paginas": 8,
+      "chars": 788,
+      "sha256Pdf": "50b32ee53d471292",
+      "extraidoEl": "2026-06-07T18:48:51.813Z"
+    },
+    "5247": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3242/2025",
+      "anio": 2025,
+      "paginas": 9,
+      "chars": 19923,
+      "sha256Pdf": "89e181c66a5f5ffc",
+      "extraidoEl": "2026-06-07T18:48:47.854Z"
+    },
+    "5248": {
+      "estado": "ok",
+      "titulo": "Declaración 519/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 928,
+      "sha256Pdf": "9ef15b45a555de3e",
+      "extraidoEl": "2026-06-07T18:48:48.314Z"
+    },
+    "5249": {
+      "estado": "ok",
+      "titulo": "Minuta 1326/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 47924,
+      "sha256Pdf": "4d82b45e622764eb",
+      "extraidoEl": "2026-06-07T18:48:49.035Z"
+    },
+    "5250": {
+      "estado": "ok",
+      "titulo": "Minuta 1327/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1136,
+      "sha256Pdf": "da9b04b6bce6dc1a",
+      "extraidoEl": "2026-06-07T18:48:49.487Z"
+    },
+    "5251": {
+      "estado": "ok",
+      "titulo": "Resolución 865/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 948,
+      "sha256Pdf": "e8b90e8b4f07af34",
+      "extraidoEl": "2026-06-07T18:48:49.930Z"
+    },
+    "5252": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3243/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1530,
+      "sha256Pdf": "79fca8a5d3e80059",
+      "extraidoEl": "2026-06-07T18:48:42.470Z"
+    },
+    "5253": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3244/2025",
+      "anio": 2025,
+      "paginas": 9,
+      "chars": 14656,
+      "sha256Pdf": "e6b1d5c4741be2fe",
+      "extraidoEl": "2026-06-07T18:48:43.026Z"
+    },
+    "5254": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3245/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1494,
+      "sha256Pdf": "face2d9e2795df6e",
+      "extraidoEl": "2026-06-07T18:48:43.477Z"
+    },
+    "5255": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3246/2025",
+      "anio": 2025,
+      "paginas": 9,
+      "chars": 7599,
+      "sha256Pdf": "3bc8bc86bea90831",
+      "extraidoEl": "2026-06-07T18:48:44.061Z"
+    },
+    "5256": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3247/2025",
+      "anio": 2025,
+      "paginas": 16,
+      "chars": 120550,
+      "sha256Pdf": "0bb33d5f8d8e5f3e",
+      "extraidoEl": "2026-06-07T18:48:44.910Z"
+    },
+    "5257": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3248/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1159,
+      "sha256Pdf": "bb866725166f6505",
+      "extraidoEl": "2026-06-07T18:48:45.373Z"
+    },
+    "5258": {
+      "estado": "ok",
+      "titulo": "Declaración 520/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 961,
+      "sha256Pdf": "0c33ed550683e28d",
+      "extraidoEl": "2026-06-07T18:48:45.833Z"
+    },
+    "5259": {
+      "estado": "ok",
+      "titulo": "Declaración 521/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 969,
+      "sha256Pdf": "3d849116b05c8e02",
+      "extraidoEl": "2026-06-07T18:48:46.274Z"
+    },
+    "5260": {
+      "estado": "ok",
+      "titulo": "Declaración 522/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 826,
+      "sha256Pdf": "0723588bf28b78ee",
+      "extraidoEl": "2026-06-07T18:48:46.728Z"
+    },
+    "5261": {
+      "estado": "ok",
+      "titulo": "Minuta 1328/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 2130,
+      "sha256Pdf": "893cbdb7fdabecfa",
+      "extraidoEl": "2026-06-07T18:48:47.176Z"
+    },
+    "5262": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3249/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1398,
+      "sha256Pdf": "45bdf6258b4dcaba",
+      "extraidoEl": "2026-06-07T18:48:40.149Z"
+    },
+    "5263": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3250/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 2890,
+      "sha256Pdf": "f1a680d17b8f5598",
+      "extraidoEl": "2026-06-07T18:48:40.622Z"
+    },
+    "5264": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3251/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3591,
+      "sha256Pdf": "c731df380131e5c6",
+      "extraidoEl": "2026-06-07T18:48:41.078Z"
+    },
+    "5265": {
+      "estado": "ok",
+      "titulo": "Minuta 1329/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1138,
+      "sha256Pdf": "b089a901c5a4de82",
+      "extraidoEl": "2026-06-07T18:48:41.526Z"
+    },
+    "5266": {
+      "estado": "ok",
+      "titulo": "Minuta 1330/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 1058,
+      "sha256Pdf": "0aa98d8028eba73d",
+      "extraidoEl": "2026-06-07T18:48:41.990Z"
+    },
+    "5267": {
+      "estado": "ok",
+      "titulo": "Declaración 523/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 940,
+      "sha256Pdf": "ab64bb24849734e7",
+      "extraidoEl": "2026-06-07T18:48:37.245Z"
+    },
+    "5268": {
+      "estado": "ok",
+      "titulo": "Declaración 524/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 812,
+      "sha256Pdf": "4b850ce722b5e11a",
+      "extraidoEl": "2026-06-07T18:48:37.687Z"
+    },
+    "5269": {
+      "estado": "ok",
+      "titulo": "Declaración 525/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 912,
+      "sha256Pdf": "3ad8041b12c393a6",
+      "extraidoEl": "2026-06-07T18:48:38.122Z"
+    },
+    "5270": {
+      "estado": "ok",
+      "titulo": "Resolución 866/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 844,
+      "sha256Pdf": "fca5ee9dd8271ca8",
+      "extraidoEl": "2026-06-07T18:48:38.617Z"
+    },
+    "5271": {
+      "estado": "ok",
+      "titulo": "Resolución 867/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 841,
+      "sha256Pdf": "5b1537a36fb37c39",
+      "extraidoEl": "2026-06-07T18:48:39.075Z"
+    },
+    "5272": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3252/2025",
+      "anio": 2025,
+      "paginas": 10,
+      "chars": 2031,
+      "sha256Pdf": "1c7409eb6dd418d9",
+      "extraidoEl": "2026-06-07T18:48:39.705Z"
+    },
+    "5273": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3253/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 2552,
+      "sha256Pdf": "9ae808024d8ca32a",
+      "extraidoEl": "2026-06-07T18:48:34.046Z"
+    },
+    "5274": {
+      "estado": "ok",
+      "titulo": "Minuta 1332/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 877,
+      "sha256Pdf": "7aab6cf087a2059d",
+      "extraidoEl": "2026-06-07T18:48:34.493Z"
+    },
+    "5275": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3254/2025",
+      "anio": 2025,
+      "paginas": 37,
+      "chars": 80601,
+      "sha256Pdf": "326fcdaa67f9c908",
+      "extraidoEl": "2026-06-07T18:48:35.348Z"
+    },
+    "5277": {
+      "estado": "ok",
+      "titulo": "Declaración 526/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 981,
+      "sha256Pdf": "af76d36290bb6f48",
+      "extraidoEl": "2026-06-07T18:48:35.819Z"
+    },
+    "5278": {
+      "estado": "ok",
+      "titulo": "Minuta 1333/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 9492,
+      "sha256Pdf": "ee3d49d76a69a322",
+      "extraidoEl": "2026-06-07T18:48:36.339Z"
+    },
+    "5279": {
+      "estado": "ok",
+      "titulo": "Minuta 1334/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1376,
+      "sha256Pdf": "f6b0d041823fc468",
+      "extraidoEl": "2026-06-07T18:48:36.784Z"
+    },
+    "5280": {
+      "estado": "ok",
+      "titulo": "Declaración 527/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 831,
+      "sha256Pdf": "e7abc26ec1b6083d",
+      "extraidoEl": "2026-06-07T18:48:31.328Z"
+    },
+    "5281": {
+      "estado": "ok",
+      "titulo": "Minuta 1335/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 47913,
+      "sha256Pdf": "8e939c31c31d588b",
+      "extraidoEl": "2026-06-07T18:48:32.064Z"
+    },
+    "5282": {
+      "estado": "ok",
+      "titulo": "Minuta 1336/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1179,
+      "sha256Pdf": "42bc49401b97a4ef",
+      "extraidoEl": "2026-06-07T18:48:32.519Z"
+    },
+    "5283": {
+      "estado": "ok",
+      "titulo": "Minuta 1337/2025",
+      "anio": 2025,
+      "paginas": 9,
+      "chars": 1832,
+      "sha256Pdf": "f0b4a855d832396d",
+      "extraidoEl": "2026-06-07T18:48:33.137Z"
+    },
+    "5284": {
+      "estado": "ok",
+      "titulo": "Minuta 1338/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 950,
+      "sha256Pdf": "a3ba3f8ca31cbbb0",
+      "extraidoEl": "2026-06-07T18:48:33.587Z"
+    },
+    "5285": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3255/2025",
+      "anio": 2025,
+      "paginas": 13,
+      "chars": 23089,
+      "sha256Pdf": "0590ea424d0ff638",
+      "extraidoEl": "2026-06-07T18:48:29.500Z"
+    },
+    "5286": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3256/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1046,
+      "sha256Pdf": "1817fda9f4d06c16",
+      "extraidoEl": "2026-06-07T18:48:29.956Z"
+    },
+    "5287": {
+      "estado": "ok",
+      "titulo": "Resolución 868/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 880,
+      "sha256Pdf": "28ee23f42b727bd1",
+      "extraidoEl": "2026-06-07T18:48:30.400Z"
+    },
+    "5288": {
+      "estado": "ok",
+      "titulo": "Declaración 528/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 931,
+      "sha256Pdf": "218ffdfcd02461f6",
+      "extraidoEl": "2026-06-07T18:48:30.859Z"
+    },
+    "5289": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3257/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1731,
+      "sha256Pdf": "216d400408ee87f8",
+      "extraidoEl": "2026-06-07T18:48:25.724Z"
+    },
+    "5290": {
+      "estado": "ok",
+      "titulo": "Minuta 1339/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 48007,
+      "sha256Pdf": "83f1a79cd9c8faa0",
+      "extraidoEl": "2026-06-07T18:48:26.469Z"
+    },
+    "5291": {
+      "estado": "ok",
+      "titulo": "Minuta 1340/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1018,
+      "sha256Pdf": "fdd1c9197136ccea",
+      "extraidoEl": "2026-06-07T18:48:26.940Z"
+    },
+    "5292": {
+      "estado": "ok",
+      "titulo": "Minuta 1341/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 1409,
+      "sha256Pdf": "18a41691c4dad09a",
+      "extraidoEl": "2026-06-07T18:48:27.481Z"
+    },
+    "5293": {
+      "estado": "ok",
+      "titulo": "Minuta 1342/2025",
+      "anio": 2025,
+      "paginas": 9,
+      "chars": 1198,
+      "sha256Pdf": "dce75102ba3a9f3d",
+      "extraidoEl": "2026-06-07T18:48:28.061Z"
+    },
+    "5294": {
+      "estado": "ok",
+      "titulo": "Declaración 529/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1102,
+      "sha256Pdf": "3a23c383a4faf50f",
+      "extraidoEl": "2026-06-07T18:48:28.525Z"
+    },
+    "5295": {
+      "estado": "ok",
+      "titulo": "Declaración 530/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 981,
+      "sha256Pdf": "a879a566f6ac9dee",
+      "extraidoEl": "2026-06-07T18:48:28.988Z"
+    },
+    "5296": {
+      "estado": "ok",
+      "titulo": "Declaración 531/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 875,
+      "sha256Pdf": "07a84f20c7b4f74e",
+      "extraidoEl": "2026-06-07T18:48:24.788Z"
+    },
+    "5297": {
+      "estado": "ok",
+      "titulo": "Resolución 869/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3101,
+      "sha256Pdf": "435118d94e1eaa50",
+      "extraidoEl": "2026-06-07T18:48:25.246Z"
+    },
+    "5298": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3258/2025",
+      "anio": 2025,
+      "paginas": 12,
+      "chars": 7826,
+      "sha256Pdf": "db156a8c2ed320f5",
+      "extraidoEl": "2026-06-07T18:48:22.525Z"
+    },
+    "5299": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3259/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 2389,
+      "sha256Pdf": "fd2b84537d64a4bc",
+      "extraidoEl": "2026-06-07T18:48:22.978Z"
+    },
+    "5300": {
+      "estado": "ok",
+      "titulo": "Minuta 1343/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 1008,
+      "sha256Pdf": "9a0529470eab9b8e",
+      "extraidoEl": "2026-06-07T18:48:23.430Z"
+    },
+    "5301": {
+      "estado": "ok",
+      "titulo": "Minuta 1344/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1559,
+      "sha256Pdf": "85ad1dee8cc63bb9",
+      "extraidoEl": "2026-06-07T18:48:23.899Z"
+    },
+    "5302": {
+      "estado": "ok",
+      "titulo": "Declaración 532/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 769,
+      "sha256Pdf": "35b7c5db04df3cd1",
+      "extraidoEl": "2026-06-07T18:48:24.344Z"
+    },
+    "5303": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3260/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 4332,
+      "sha256Pdf": "da913de7245fe72b",
+      "extraidoEl": "2026-06-07T18:48:18.744Z"
+    },
+    "5304": {
+      "estado": "ok",
+      "titulo": "Resolución 870/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 849,
+      "sha256Pdf": "5f490b6c3400c57e",
+      "extraidoEl": "2026-06-07T18:48:19.208Z"
+    },
+    "5305": {
+      "estado": "ok",
+      "titulo": "Resolución 871/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 834,
+      "sha256Pdf": "0d5f4788945cba24",
+      "extraidoEl": "2026-06-07T18:48:19.679Z"
+    },
+    "5306": {
+      "estado": "ok",
+      "titulo": "Resolución 872/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 821,
+      "sha256Pdf": "c131c8feba9715ab",
+      "extraidoEl": "2026-06-07T18:48:20.132Z"
+    },
+    "5307": {
+      "estado": "ok",
+      "titulo": "Declaración 533/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 836,
+      "sha256Pdf": "79e74d714a7e2e02",
+      "extraidoEl": "2026-06-07T18:48:20.583Z"
+    },
+    "5308": {
+      "estado": "ok",
+      "titulo": "Minuta 1345/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 1199,
+      "sha256Pdf": "7b43da6b73afc0c0",
+      "extraidoEl": "2026-06-07T18:48:21.033Z"
+    },
+    "5309": {
+      "estado": "ok",
+      "titulo": "Minuta 1346/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 837,
+      "sha256Pdf": "7b093e91a7744ce6",
+      "extraidoEl": "2026-06-07T18:48:21.484Z"
+    },
+    "5310": {
+      "estado": "ok",
+      "titulo": "Resolución 873/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1200,
+      "sha256Pdf": "78910c85cb3aa3be",
+      "extraidoEl": "2026-06-07T18:48:21.944Z"
+    },
+    "5311": {
+      "estado": "ok",
+      "titulo": "Minuta 1347/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 818,
+      "sha256Pdf": "db5e76194e8e2ddf",
+      "extraidoEl": "2026-06-07T18:48:17.780Z"
+    },
+    "5312": {
+      "estado": "ok",
+      "titulo": "Minuta 1348/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 1153,
+      "sha256Pdf": "c416948794ba028c",
+      "extraidoEl": "2026-06-07T18:48:18.266Z"
+    },
+    "5313": {
+      "estado": "ok",
+      "titulo": "Minuta 1349/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 1153,
+      "sha256Pdf": "2a487cd2108fa579",
+      "extraidoEl": "2026-06-07T18:48:16.828Z"
+    },
+    "5314": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3261/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 4331,
+      "sha256Pdf": "9a9edbc479733837",
+      "extraidoEl": "2026-06-07T18:48:17.326Z"
+    },
+    "5315": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3262/2025",
+      "anio": 2025,
+      "paginas": 7,
+      "chars": 2281,
+      "sha256Pdf": "cf1b8907730c78f1",
+      "extraidoEl": "2026-06-07T18:48:11.385Z"
+    },
+    "5316": {
+      "estado": "ok",
+      "titulo": "Declaración 534/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 854,
+      "sha256Pdf": "92307026b87a54d9",
+      "extraidoEl": "2026-06-07T18:48:11.832Z"
+    },
+    "5317": {
+      "estado": "ok",
+      "titulo": "Resolución 874/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 836,
+      "sha256Pdf": "9ab2ffa7795d3f46",
+      "extraidoEl": "2026-06-07T18:48:12.286Z"
+    },
+    "5318": {
+      "estado": "ok",
+      "titulo": "Resolución 875/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 953,
+      "sha256Pdf": "ecc86b89d958a141",
+      "extraidoEl": "2026-06-07T18:48:12.745Z"
+    },
+    "5319": {
+      "estado": "ok",
+      "titulo": "Minuta 1350/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 48051,
+      "sha256Pdf": "969bacae303d056d",
+      "extraidoEl": "2026-06-07T18:48:13.465Z"
+    },
+    "5320": {
+      "estado": "ok",
+      "titulo": "Declaración 535/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 840,
+      "sha256Pdf": "1597aff6a4e96b5a",
+      "extraidoEl": "2026-06-07T18:48:13.927Z"
+    },
+    "5321": {
+      "estado": "ok",
+      "titulo": "Declaración 536/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 824,
+      "sha256Pdf": "2fe26129a636b9c8",
+      "extraidoEl": "2026-06-07T18:48:14.397Z"
+    },
+    "5322": {
+      "estado": "ok",
+      "titulo": "Declaración 537/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 884,
+      "sha256Pdf": "52e5e8056e2feb81",
+      "extraidoEl": "2026-06-07T18:48:14.841Z"
+    },
+    "5323": {
+      "estado": "ok",
+      "titulo": "Minuta 1351/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1329,
+      "sha256Pdf": "a76302a4f69f73ea",
+      "extraidoEl": "2026-06-07T18:48:15.290Z"
+    },
+    "5324": {
+      "estado": "ok",
+      "titulo": "Declaración 538/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 910,
+      "sha256Pdf": "8a4ebfd5976bd274",
+      "extraidoEl": "2026-06-07T18:48:15.745Z"
+    },
+    "5325": {
+      "estado": "ok",
+      "titulo": "Resolución 876/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 838,
+      "sha256Pdf": "7f9a0d8881d75563",
+      "extraidoEl": "2026-06-07T18:48:16.198Z"
+    },
+    "5326": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3263/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1417,
+      "sha256Pdf": "aa752d7208153510",
+      "extraidoEl": "2026-06-07T18:48:10.367Z"
+    },
+    "5327": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3264/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1429,
+      "sha256Pdf": "093f77c2a343785a",
+      "extraidoEl": "2026-06-07T18:48:10.814Z"
+    },
+    "5328": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3265/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1445,
+      "sha256Pdf": "8e7763c8ade82482",
+      "extraidoEl": "2026-06-07T18:48:08.933Z"
+    },
+    "5329": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3266/2025",
+      "anio": 2025,
+      "paginas": 7,
+      "chars": 955,
+      "sha256Pdf": "eaccbf8c56cfae3d",
+      "extraidoEl": "2026-06-07T18:48:09.468Z"
+    },
+    "5330": {
+      "estado": "ok",
+      "titulo": "Minuta 1352/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1874,
+      "sha256Pdf": "9ee0176981c7ca25",
+      "extraidoEl": "2026-06-07T18:48:09.918Z"
+    },
+    "5331": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3267/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 6114,
+      "sha256Pdf": "759619bd701ffa40",
+      "extraidoEl": "2026-06-07T18:48:06.158Z"
+    },
+    "5332": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3268/2025",
+      "anio": 2025,
+      "paginas": 6,
+      "chars": 16896,
+      "sha256Pdf": "e43213d855d060a3",
+      "extraidoEl": "2026-06-07T18:48:06.670Z"
+    },
+    "5333": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3269/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1438,
+      "sha256Pdf": "d866bf2bddfed12c",
+      "extraidoEl": "2026-06-07T18:48:07.122Z"
+    },
+    "5334": {
+      "estado": "ok",
+      "titulo": "Minuta 1353/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1151,
+      "sha256Pdf": "34c57c2d4df2e777",
+      "extraidoEl": "2026-06-07T18:48:07.578Z"
+    },
+    "5335": {
+      "estado": "ok",
+      "titulo": "Declaración 539/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 851,
+      "sha256Pdf": "2265ce3a23827c7f",
+      "extraidoEl": "2026-06-07T18:48:08.027Z"
+    },
+    "5336": {
+      "estado": "ok",
+      "titulo": "Declaración 540/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 984,
+      "sha256Pdf": "afbf5d16f8cf822d",
+      "extraidoEl": "2026-06-07T18:48:08.479Z"
+    },
+    "5337": {
+      "estado": "ok",
+      "titulo": "Resolución 877/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1365,
+      "sha256Pdf": "ae86e12ad734f3bf",
+      "extraidoEl": "2026-06-07T18:48:05.690Z"
+    },
+    "5338": {
+      "estado": "ok",
+      "titulo": "Minuta 1354/2025",
+      "anio": 2025,
+      "paginas": 4,
+      "chars": 1055,
+      "sha256Pdf": "a9d659301d7c10fa",
+      "extraidoEl": "2026-06-07T18:48:02.875Z"
+    },
+    "5339": {
+      "estado": "ok",
+      "titulo": "Minuta 1355/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 1129,
+      "sha256Pdf": "640f891d5f051aff",
+      "extraidoEl": "2026-06-07T18:48:03.326Z"
+    },
+    "5340": {
+      "estado": "ok",
+      "titulo": "Resolución 878/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3639,
+      "sha256Pdf": "5684c115084c0f7b",
+      "extraidoEl": "2026-06-07T18:48:03.783Z"
+    },
+    "5341": {
+      "estado": "ok",
+      "titulo": "Resolución 879/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 983,
+      "sha256Pdf": "067abc04836e8dea",
+      "extraidoEl": "2026-06-07T18:48:04.237Z"
+    },
+    "5342": {
+      "estado": "ok",
+      "titulo": "Resolución 880/2025",
+      "anio": 2025,
+      "paginas": 1,
+      "chars": 863,
+      "sha256Pdf": "41bc731dda0a6da3",
+      "extraidoEl": "2026-06-07T18:48:04.684Z"
+    },
+    "5343": {
+      "estado": "ok",
+      "titulo": "Resolución 881/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 7906,
+      "sha256Pdf": "35553f0934e5d31d",
+      "extraidoEl": "2026-06-07T18:48:05.219Z"
+    },
+    "5344": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3270/2025",
+      "anio": 2025,
+      "paginas": 40,
+      "chars": 3153,
+      "sha256Pdf": "6dcfb8e60da630db",
+      "extraidoEl": "2026-06-07T18:48:00.004Z"
+    },
+    "5345": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3271/2025",
+      "anio": 2025,
+      "paginas": 3,
+      "chars": 2160,
+      "sha256Pdf": "23b5c6a902950ea0",
+      "extraidoEl": "2026-06-07T18:48:00.541Z"
+    },
+    "5346": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3272/2025",
+      "anio": 2025,
+      "paginas": 36,
+      "chars": 63199,
+      "sha256Pdf": "489a0e57bf0e92d6",
+      "extraidoEl": "2026-06-07T18:48:01.405Z"
+    },
+    "5347": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3273/2025",
+      "anio": 2025,
+      "paginas": 2,
+      "chars": 3642,
+      "sha256Pdf": "b02985aa7e6315cf",
+      "extraidoEl": "2026-06-07T18:48:01.879Z"
+    },
     "5348": {
       "estado": "ok",
       "titulo": "Ordenanza 3274/2026",
