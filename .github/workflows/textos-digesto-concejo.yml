@@ -110,6 +110,10 @@ jobs:
           fi
           FECHA=$(date -u +"%Y-%m-%d")
           git commit -m "chore(digesto-concejo): textos completos de PDFs ${FECHA}"
+          # Descartar archivos regenerados sin commitear (data/sincronizado/*
+          # que produce sincronizar-datos): git pull --rebase se niega si el
+          # working tree esta sucio. Son regenerables, no se pierde nada.
+          git checkout -- .
           for INTENTO in 1 2 3 4 5; do
             echo "Push intento $INTENTO/5..."
             git pull --rebase origin main && git push origin HEAD:main && exit 0

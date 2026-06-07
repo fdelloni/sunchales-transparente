@@ -240,8 +240,17 @@ async function busquedaPorPalabrasClave(
 ): Promise<ChunkRecuperado[]> {
   if (!supabase) return [];
 
-  const palabras = extraerPalabrasClave(pregunta);
+  let palabras = extraerPalabrasClave(pregunta);
   if (palabras.length === 0) return [];
+
+  // Si la pregunta tiene referencias de norma especificas (ej. "1368/2026"),
+  // usamos SOLO esas como keywords: son la señal mas precisa y evitan que
+  // palabras frecuentes (años, cargos) inunden el pool con falsos positivos
+  // en corpus grandes como el digesto del Concejo (>1000 chunks).
+  const refsNorma = palabras.filter((p) => /^\d{2,5}[\/\-]\d{2,4}$/.test(p));
+  if (refsNorma.length > 0) {
+    palabras = refsNorma;
+  }
 
   const tiposPreferidos = detectarTiposObjetivo(pregunta);
 
@@ -398,9 +407,17 @@ function extraerPalabrasClave(pregunta: string): string[] {
   // 5. Nombres propios: secuencias de palabra capitalizada (4+ chars) que NO
   //    arrancan la oracion (donde la mayuscula es esperada por gramatica).
   //    Detectamos solo a partir de la 2da palabra del input.
+  //    Excluimos palabras institucionales genericas (Concejo, Minuta, etc.):
+  //    matchean miles de chunks del digesto y ahogan a las señales especificas.
+  const NOMBRES_GENERICOS = new Set([
+    "Concejo", "Municipal", "Municipalidad", "Sunchales", "Minuta", "Minutas",
+    "Ordenanza", "Ordenanzas", "Declaracion", "Declaración", "Declaraciones",
+    "Resolucion", "Resolución", "Resoluciones", "Decreto", "Decretos",
+    "Digesto", "Norma", "Normas", "Normativa"
+  ]);
   const palabras = pregunta.split(/[\s,\.;:¿\?¡!()]+/).filter(Boolean);
   for (let i = 1; i < palabras.length; i++) {
-    if (/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{3,}$/.test(palabras[i])) {
+    if (/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{3,}$/.test(palabras[i]) && !NOMBRES_GENERICOS.has(palabras[i])) {
       out.push(palabras[i]);
     }
   }
