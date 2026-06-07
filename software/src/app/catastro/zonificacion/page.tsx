@@ -166,7 +166,7 @@ export default function ZonificacionPage() {
               key={c.id}
               className={`rounded-xl border p-4 ${COLOR_AREA[c.id]}`}
             >
-              <div className="flex items-baseline justify-between">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5">
                 <h3 className="font-serif text-base font-bold">
                   {c.numero}. {c.nombre}
                 </h3>

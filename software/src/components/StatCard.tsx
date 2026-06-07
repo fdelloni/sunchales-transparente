@@ -8,7 +8,7 @@ type Props = {
 export default function StatCard({ value, label, hint, verified }: Props) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex items-baseline justify-between gap-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
         <span className="font-serif text-3xl font-bold text-navy">{value}</span>
         {verified !== undefined && (
           <span

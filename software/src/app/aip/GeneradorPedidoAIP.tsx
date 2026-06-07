@@ -254,7 +254,7 @@ La presente plantilla NO constituye asesoramiento legal; el ciudadano puede modi
 
       {/* Vista previa */}
       <div>
-        <div className="mb-2 flex items-center justify-between">
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5">
           <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-500">
             Vista previa
           </span>

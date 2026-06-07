@@ -197,10 +197,10 @@ export default function ContratacionesPage() {
           <tbody>
             {licitacionesOficiales.map((l) => (
               <tr key={l.id} className="border-t border-slate-100 align-top">
-                <td data-label="Número" className="px-4 py-3 font-medium text-navy whitespace-nowrap">
+                <td data-label="Número" className="px-4 py-3 font-medium text-navy sm:whitespace-nowrap">
                   {l.numero}
                 </td>
-                <td data-label="Decreto" className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                <td data-label="Decreto" className="px-4 py-3 text-xs text-slate-600 sm:whitespace-nowrap">
                   {l.decreto ?? "—"}
                 </td>
                 <td data-label="Objeto" className="px-4 py-3 text-sm text-slate-700">
@@ -217,7 +217,7 @@ export default function ContratacionesPage() {
                     <span className="text-slate-400">—</span>
                   )}
                 </td>
-                <td data-label="Apertura" className="px-4 py-3 text-xs text-slate-600 whitespace-nowrap">
+                <td data-label="Apertura" className="px-4 py-3 text-xs text-slate-600 sm:whitespace-nowrap">
                   {l.fechaApertura
                     ? new Date(l.fechaApertura).toLocaleDateString("es-AR")
                     : "—"}

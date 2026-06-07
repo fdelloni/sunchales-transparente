@@ -64,20 +64,21 @@ function colorJerarquia(j: 1 | 2 | 3 | 4): string {
 /* ------------------------------------------------------------------ */
 
 function NodoCard({ nodo }: { nodo: NodoOrganigrama }) {
-  // Tarjeta más compacta para que el árbol entre sin scroll horizontal.
+  // Mobile: ancho completo (se apila en lista). Desktop: compacta de 230px
+  // para que el árbol horizontal entre sin scroll.
   return (
     <div
-      className={`w-[230px] rounded-lg border-2 px-3 py-2 shadow-sm ${colorJerarquia(
+      className={`w-full rounded-lg border-2 px-3 py-2 shadow-sm sm:w-[230px] ${colorJerarquia(
         nodo.jerarquia
       )}`}
     >
-      <div className="text-[9px] font-bold uppercase leading-tight tracking-wider opacity-80">
+      <div className="text-[10px] font-bold uppercase leading-tight tracking-wider opacity-80 sm:text-[9px]">
         {nodo.cargo}
       </div>
-      <div className="mt-0.5 font-serif text-[13px] font-bold leading-tight">
+      <div className="mt-0.5 font-serif text-sm font-bold leading-tight sm:text-[13px]">
         {nodo.apellidoNombre}
       </div>
-      <div className="mt-1.5 flex items-center justify-between gap-1.5 text-[10px] leading-tight opacity-90">
+      <div className="mt-1.5 flex items-center justify-between gap-1.5 text-[11px] leading-tight opacity-90 sm:text-[10px]">
         <span>
           Asumió:{" "}
           <strong>
@@ -119,15 +120,16 @@ function RamaOrganigrama({ nodo }: { nodo: NodoOrganigrama }) {
   const todosHijosSonHojas = nodo.hijos.every((h) => h.hijos.length === 0);
 
   // Padre con sólo hijos-hoja: lista vertical lateral.
+  // Mobile: sangría corta (12px) para no comerse el ancho de las tarjetas.
   if (todosHijosSonHojas) {
     return (
-      <div className="flex flex-col items-start">
+      <div className="flex w-full flex-col items-start sm:w-auto">
         <NodoCard nodo={nodo} />
-        <div className="ml-6 mt-3 flex flex-col gap-2.5 border-l-2 border-slate-300 pl-5">
+        <div className="ml-2 mt-3 flex w-[calc(100%-0.5rem)] flex-col gap-2.5 border-l-2 border-slate-300 pl-3 sm:ml-6 sm:w-auto sm:pl-5">
           {nodo.hijos.map((h) => (
             <div key={h.id} className="relative">
               <span
-                className="absolute -left-5 top-1/2 h-0.5 w-5 bg-slate-300"
+                className="absolute -left-3 top-1/2 h-0.5 w-3 bg-slate-300 sm:-left-5 sm:w-5"
                 aria-hidden
               />
               <NodoCard nodo={h} />
@@ -138,12 +140,14 @@ function RamaOrganigrama({ nodo }: { nodo: NodoOrganigrama }) {
     );
   }
 
-  // Niveles superiores: layout horizontal con conectores en T.
+  // Niveles superiores.
+  // Mobile: lista vertical con línea de jerarquía a la izquierda.
+  // Desktop (>=sm): layout horizontal clásico con conectores en T.
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex w-full flex-col items-stretch sm:w-auto sm:items-center">
       <NodoCard nodo={nodo} />
-      <div className="h-6 w-0.5 bg-slate-300" aria-hidden />
-      <div className="flex flex-wrap items-start justify-center gap-8 border-t-2 border-slate-300 pt-6">
+      <div className="hidden h-6 w-0.5 bg-slate-300 sm:block" aria-hidden />
+      <div className="ml-2 mt-3 flex flex-col gap-4 border-l-2 border-slate-300 pl-3 sm:ml-0 sm:mt-0 sm:flex-row sm:flex-wrap sm:items-start sm:justify-center sm:gap-8 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-6">
         {nodo.hijos.map((h) => (
           <RamaOrganigrama key={h.id} nodo={h} />
         ))}
@@ -272,7 +276,7 @@ export default function PersonalPage() {
       {/* 1. Organigrama                                                */}
       {/* ============================================================ */}
       <section className="mt-12">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="section-heading font-serif text-2xl font-bold text-navy">
               Organigrama de planta política
@@ -286,8 +290,8 @@ export default function PersonalPage() {
           <SourceTag id="organigramaMunicipal" />
         </div>
 
-        <div className="mt-6 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-sm">
-          <div className="flex justify-center overflow-x-auto">
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-3 shadow-sm sm:p-6">
+          <div className="overflow-x-auto sm:flex sm:justify-center">
             {organigrama.map((raiz) => (
               <RamaOrganigrama key={raiz.id} nodo={raiz} />
             ))}
@@ -478,7 +482,7 @@ export default function PersonalPage() {
       {/* 4. Personal de planta — datos oficiales del PDF municipal     */}
       {/* ============================================================ */}
       <section className="mt-12">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="section-heading font-serif text-2xl font-bold text-navy">
               Personal de planta
@@ -882,7 +886,7 @@ export default function PersonalPage() {
       {/* 6. Evolución histórica de la nómina                           */}
       {/* ============================================================ */}
       <section className="mt-12">
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="section-heading font-serif text-2xl font-bold text-navy">
               Evolución histórica de la nómina
