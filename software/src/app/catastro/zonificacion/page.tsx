@@ -218,7 +218,7 @@ export default function ZonificacionPage() {
                     <td data-label="Polígono" className="px-3 py-2 font-medium text-navy">
                       {p.nombre}
                     </td>
-                    <td data-label="Referencia" className="px-3 py-2 text-slate-500">{p.referencia}</td>
+                    <td data-label="Referencia" className="td-texto px-3 py-2 text-slate-500">{p.referencia}</td>
                   </tr>
                 );
               })}

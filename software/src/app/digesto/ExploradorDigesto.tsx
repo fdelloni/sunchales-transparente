@@ -196,7 +196,7 @@ export default function ExploradorDigesto() {
                     <td data-label="Fecha sanción" className="px-4 py-3 text-slate-500 tabular-nums">
                       {n.fecha ?? "—"}
                     </td>
-                    <td data-label="Título" className="px-4 py-3 text-slate-700">
+                    <td data-label="Título" className="td-texto px-4 py-3 text-slate-700">
                       <Link
                         href={`/digesto/${n.id}`}
                         className="line-clamp-2 hover:text-navy"

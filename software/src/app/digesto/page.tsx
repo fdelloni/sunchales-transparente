@@ -144,7 +144,7 @@ export default function DigestoPage() {
                   )}
                 </td>
                 <td data-label="Sala" className="px-4 py-3 text-slate-600">{s.sala}</td>
-                <td data-label="Notas" className="px-4 py-3 text-slate-600">
+                <td data-label="Notas" className="td-texto px-4 py-3 text-slate-600">
                   {s.expedientes
                     ? `${s.expedientes} expedientes en tratamiento`
                     : s.notas ?? ""}

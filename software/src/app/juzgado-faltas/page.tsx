@@ -107,9 +107,9 @@ export default function JuzgadoFaltasPage() {
                     </span>
                   )}
                 </td>
-                <td data-label="Marco normativo" className="px-4 py-3 text-slate-700">{m.norma}</td>
-                <td data-label="Tipos de faltas" className="px-4 py-3 text-slate-700">{m.tipos}</td>
-                <td data-label="Régimen económico" className="px-4 py-3 text-slate-700">{m.regimen}</td>
+                <td data-label="Marco normativo" className="td-texto px-4 py-3 text-slate-700">{m.norma}</td>
+                <td data-label="Tipos de faltas" className="td-texto px-4 py-3 text-slate-700">{m.tipos}</td>
+                <td data-label="Régimen económico" className="td-texto px-4 py-3 text-slate-700">{m.regimen}</td>
               </tr>
             ))}
           </tbody>

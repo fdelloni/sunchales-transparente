@@ -140,7 +140,7 @@ export default function RecaudacionPage() {
           <tbody>
             {recursos.map((r) => (
               <tr key={r.id} className="border-t border-slate-100">
-                <td data-label="Recurso" className="px-4 py-3">
+                <td data-label="Recurso" className="td-texto px-4 py-3">
                   <div className="font-medium text-navy">{r.nombre}</div>
                   <div className="mt-1 text-xs text-slate-500">{r.descripcion}</div>
                   {r.contraprestacion && (

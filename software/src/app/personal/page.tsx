@@ -1161,7 +1161,7 @@ export default function PersonalPage() {
                         key={tipo}
                         className="border-t border-amber-100 align-top"
                       >
-                        <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
+                        <td data-label="Tipo de licencia · indicador de qué" className="td-texto px-4 py-3">
                           <div className="flex flex-wrap items-center gap-2">
                             <span
                               className={
@@ -1215,7 +1215,7 @@ export default function PersonalPage() {
                     );
                   })}
                   <tr className="tr-total border-t-2 border-amber-300 bg-amber-50/40">
-                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3 font-bold text-navy">
+                    <td data-label="Tipo de licencia · indicador de qué" className="td-texto px-4 py-3 font-bold text-navy">
                       Total con licencia
                     </td>
                     {evolucionLicencias.map((p) => {
@@ -1240,7 +1240,7 @@ export default function PersonalPage() {
                     })}
                   </tr>
                   <tr className="tr-total border-t border-amber-100 bg-amber-50/40">
-                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
+                    <td data-label="Tipo de licencia · indicador de qué" className="td-texto px-4 py-3">
                       <span className="text-[13px] italic text-slate-700">
                         % del plantel con licencia
                       </span>
@@ -1273,7 +1273,7 @@ export default function PersonalPage() {
                     })}
                   </tr>
                   <tr className="tr-total border-t border-amber-100 text-[12px] text-slate-500">
-                    <td data-label="Tipo de licencia · indicador de qué" className="px-4 py-3">
+                    <td data-label="Tipo de licencia · indicador de qué" className="td-texto px-4 py-3">
                       <span className="italic">Plantel activo del mes</span>
                       <p className="mt-1 max-w-md text-[11px] italic text-slate-500">
                         Verificado contra el PDF oficial del mes.

@@ -242,6 +242,19 @@ h1, h2, h3 {
       text-align: left;
       max-width: 45%;
     }
+    /* Variante para celdas de TEXTO LARGO (descripciones, objetos de
+       contratación, listas de nombres). El layout flex label|valor a la
+       derecha es ilegible con párrafos: en su lugar, la etiqueta va
+       arriba y el texto abajo, alineado a la izquierda. */
+    .tabla-cards td.td-texto {
+      display: block;
+      text-align: left;
+    }
+    .tabla-cards td.td-texto::before {
+      display: block;
+      max-width: none;
+      margin-bottom: 0.3rem;
+    }
     /* Cuando NO hay data-label (filas de totales), no mostrar el ::before
        para evitar texto vacío en la izquierda. */
     .tabla-cards td:not([data-label])::before {

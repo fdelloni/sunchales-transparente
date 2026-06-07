@@ -70,7 +70,7 @@ export default async function ContratacionDetallePage({
                         )}
                       </td>
                       <td data-label="Monto ofertado" className="px-4 py-3 text-right tabular-nums">{formatARS(o.monto)}</td>
-                      <td data-label="Observaciones" className="px-4 py-3 text-xs text-slate-500">{o.observaciones ?? "—"}</td>
+                      <td data-label="Observaciones" className="td-texto px-4 py-3 text-xs text-slate-500">{o.observaciones ?? "—"}</td>
                     </tr>
                   );
                 })}

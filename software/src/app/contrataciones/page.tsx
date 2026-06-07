@@ -98,7 +98,7 @@ export default function ContratacionesPage() {
                 <td data-label="Procedimiento" className="px-4 py-3 text-slate-700">
                   {labels.procedimiento[c.procedimiento]}
                 </td>
-                <td data-label="Objeto" className="px-4 py-3">
+                <td data-label="Objeto" className="td-texto px-4 py-3">
                   <Link
                     href={`/contrataciones/${c.id}`}
                     className="text-navy underline-offset-2 hover:underline"
@@ -203,7 +203,7 @@ export default function ContratacionesPage() {
                 <td data-label="Decreto" className="px-4 py-3 text-xs text-slate-600 sm:whitespace-nowrap">
                   {l.decreto ?? "—"}
                 </td>
-                <td data-label="Objeto" className="px-4 py-3 text-sm text-slate-700">
+                <td data-label="Objeto" className="td-texto px-4 py-3 text-sm text-slate-700">
                   {l.objeto ?? (
                     <span className="text-slate-400">
                       Objeto no extraído (ver pliego)
