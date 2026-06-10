@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-09T12:01:26.451Z",
+  "actualizado": "2026-06-10T12:20:32.579Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13096,9 +13096,23 @@
       "textoExtraido": true,
       "errorExtraccion": "Cannot find package 'pdfjs-dist' imported from /home/runner/work/sunchales-transparente/sunchales-transparente/software/scripts/procesar-pdfs-concejo.mjs",
       "tamanioTextoBytes": 3105
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5714.MAYO.pdf",
+      "categoria": "ejecucion-presupuestaria",
+      "categoriaDescripcion": "Ejecución partida presupuestaria mensual",
+      "rutaLocal": "transparencia-economica/ejecucion-presupuestaria/link.5714.MAYO.pdf",
+      "nombreArchivo": "link.5714.MAYO.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 534509,
+      "hashSha256": "d8a67c89b2460e0d1714203643c80460511087b1b8ea8a92054d8365375b7d50",
+      "descargadoEl": "2026-06-10T12:20:23.524Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 10647
     }
   ],
-  "totalPdfs": 935,
-  "procesado": "2026-06-09T12:01:37.123Z",
-  "totalConTexto": 935
+  "totalPdfs": 936,
+  "procesado": "2026-06-10T12:20:42.244Z",
+  "totalConTexto": 936
 }
