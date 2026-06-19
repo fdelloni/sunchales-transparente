@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-06-18
+ * Generado el: 2026-06-19
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -997,6 +997,9 @@ export const normasOficiales: NormaOficial[] = [
   {id:1205, tipo:"Resolución", numero:"4364", anio:2026, fecha:"2026-04-30", titulo:"4364/2026 -Rechaza el descargo formulado por la agente Melina Jeanette Italiano.", pdf:"1205-digesto.pdf"},
   {id:1206, tipo:"Resolución", numero:"4365", anio:2026, fecha:"2026-05-07", titulo:"4365/2026 - Autoriza a utilizar el vehículo marca Toyota Etios.", pdf:"1206-digesto.pdf"},
   {id:1207, tipo:"Resolución", numero:"4366", anio:2026, fecha:"2026-05-08", titulo:"4366/2026 - Aprueba el Protocolo de Actuación ante Emergencias y Accidentes Laborales.", pdf:"1207-digesto.pdf"},
+  {id:1212, tipo:"Ordenanza", numero:"3285", anio:2026, fecha:"2026-06-18", titulo:"3285/2026 - Aprueba el Proyecto denominado \"Potenciar: adquisición de un (1) camión con caja volcadora\".", pdf:"1212-digesto.pdf"},
+  {id:1213, tipo:"Decreto", numero:"3592", anio:2026, fecha:"2026-06-18", titulo:"3592/2026 - Promulga la Ordenanza N° 3285, por la cual se aprueba el proyecto \"Potenciar: adquisición de un camión con caja volcadora\".", pdf:"1213-digesto.pdf"},
+  {id:1214, tipo:"Resolución", numero:"4371", anio:2026, fecha:"2026-06-10", titulo:"4371/2026 - Designa al Sr. Fabián O. Bongiovanni como representante del Departamento Ejecutivo Municipal en el Directorio del Instituto Municipal de la Vivienda.", pdf:"1214-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
