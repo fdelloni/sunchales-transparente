@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-18T12:26:16.321Z",
+  "actualizado": "2026-06-20T11:19:11.219Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": null,
+      "fechaContexto": "18/06/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13110,9 +13110,23 @@
       "descargadoEl": "2026-06-10T12:20:23.524Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 10647
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5721.3109DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5721.3109DEM.pdf",
+      "nombreArchivo": "link.5721.3109DEM.pdf",
+      "textoEnlace": "18/06/26 - Expte. N°3109. P. de O. Dispone el aumento de la Unidad de Cuenta Municipal a partir del 1 de julio de 2026.-",
+      "fechaContexto": null,
+      "tamanioBytes": 245367,
+      "hashSha256": "f976356a9750c5b6ed04a824bc78f62b79d14206e7807c0b99b3150e4d74ebbc",
+      "descargadoEl": "2026-06-20T11:19:08.573Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 936,
-  "procesado": "2026-06-18T12:26:25.202Z",
-  "totalConTexto": 936
+  "totalPdfs": 937,
+  "procesado": "2026-06-20T11:19:20.671Z",
+  "totalConTexto": 937
 }
