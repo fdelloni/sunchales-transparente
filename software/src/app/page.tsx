@@ -2,6 +2,7 @@ import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
 import WhatsAppSection from "@/components/WhatsAppSection";
+import VideoDestacado from "@/components/VideoDestacado";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
 import { datasets } from "@/lib/data/datasets";
@@ -49,6 +50,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Video institucional — banda destacada bajo el hero */}
+      <VideoDestacado />
 
       {/* KPIs */}
       <section className="container-page py-12">
