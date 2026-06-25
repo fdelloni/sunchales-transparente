@@ -2,7 +2,7 @@ import Link from "next/link";
 import StatCard from "@/components/StatCard";
 import BuscadorSeccion from "@/components/BuscadorSeccion";
 import WhatsAppSection from "@/components/WhatsAppSection";
-import VideoDestacado from "@/components/VideoDestacado";
+import VideoPlayer from "@/components/VideoPlayer";
 import { totales } from "@/lib/data/presupuesto";
 import { empleados } from "@/lib/data/personal";
 import { datasets } from "@/lib/data/datasets";
@@ -22,37 +22,37 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-b from-coral to-coral-dark" />
-        <div className="container-page pt-8 pb-12">
-          <span className="eyebrow text-oro">Plataforma cívica</span>
-          {/* Tipografía escalonada: 30px (mobile) → 36px (sm) → 48px (md).
-              text-4xl en 360px-wide era 36px, que con la headline larga
-              forzaba 4 líneas y desbordaba en algunos casos. */}
-          <h1 className="mt-3 max-w-3xl font-serif text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
-            Cada peso público, cada acto y cada cronograma trazables por cualquier vecino.
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-base md:text-lg">
-            Versión 0.1 del Portal de Transparencia de la Municipalidad de Sunchales.
-            Construido con principios de máxima divulgación, privacidad por diseño y código abierto auditable.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/presupuesto"
-              className="inline-flex min-h-[44px] items-center rounded-lg bg-coral px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
-            >
-              Explorar el presupuesto
-            </Link>
-            <Link
-              href="/datos-abiertos"
-              className="inline-flex min-h-[44px] items-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              Datos abiertos + API
-            </Link>
+        <div className="container-page grid gap-8 pt-8 pb-12 md:grid-cols-2 md:items-center md:gap-10">
+          <div>
+            <span className="eyebrow text-oro">Plataforma cívica</span>
+            {/* Tipografía escalonada: 30px (mobile) → 36px (sm) → 48px (md). */}
+            <h1 className="mt-3 font-serif text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+              Cada peso público, cada acto y cada cronograma trazables por cualquier vecino.
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm text-slate-300 sm:text-base md:text-lg">
+              Versión 0.1 del Portal de Transparencia de la Municipalidad de Sunchales.
+              Construido con principios de máxima divulgación, privacidad por diseño y código abierto auditable.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/presupuesto"
+                className="inline-flex min-h-[44px] items-center rounded-lg bg-coral px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-amber-400"
+              >
+                Explorar el presupuesto
+              </Link>
+              <Link
+                href="/datos-abiertos"
+                className="inline-flex min-h-[44px] items-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                Datos abiertos + API
+              </Link>
+            </div>
+          </div>
+          <div className="md:pl-2">
+            <VideoPlayer />
           </div>
         </div>
       </section>
-
-      {/* Video institucional — banda destacada bajo el hero */}
-      <VideoDestacado />
 
       {/* KPIs */}
       <section className="container-page py-12">
