@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-06-24T11:40:39.314Z
-// Total licitaciones extraídas: 64
+// Última sincronización: 2026-06-30T11:40:34.858Z
+// Total licitaciones extraídas: 65
 
 export type ProcedimientoOficial =
   | "licitacion_publica"
@@ -49,6 +49,25 @@ export type LicitacionOficial = {
 };
 
 export const licitacionesOficiales: LicitacionOficial[] = [
+  {
+    "id": "lp-01-2026",
+    "titulo": "Licitación Pública N° 01/2026",
+    "procedimiento": "licitacion_publica",
+    "numero": "01/2026",
+    "anio": 2026,
+    "decreto": "Decreto N° 3588/2026",
+    "objeto": null,
+    "presupuestoOficial": 43000000,
+    "fechaApertura": "2026-07-27T00:00:00.000Z",
+    "documentos": [
+      {
+        "nombre": "DECRETO N° 3588/2026-Pliego de Bases y Condiciones.",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/06/Decreto-3588-2026-Llamado-a-Lic.-Publica-01-2026.pdf"
+      }
+    ],
+    "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
   {
     "id": "lp-04-2025",
     "titulo": "Licitación Pública N° 04/2025",
@@ -2175,8 +2194,8 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-06-24T11:40:39.314Z",
-  total: 64,
+  sincronizadoEl: "2026-06-30T11:40:34.858Z",
+  total: 65,
   porAnio: {
   "2016": 8,
   "2017": 6,
@@ -2187,9 +2206,10 @@ export const licitacionesMeta = {
   "2022": 8,
   "2023": 7,
   "2024": 3,
-  "2025": 4
+  "2025": 4,
+  "2026": 1
 },
   porProcedimiento: {
-  "licitacion_publica": 64
+  "licitacion_publica": 65
 },
 } as const;
