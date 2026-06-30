@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-06-29
+ * Generado el: 2026-06-30
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1002,6 +1002,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1214, tipo:"Resolución", numero:"4371", anio:2026, fecha:"2026-06-10", titulo:"4371/2026 - Designa al Sr. Fabián O. Bongiovanni como representante del Departamento Ejecutivo Municipal en el Directorio del Instituto Municipal de la Vivienda.", pdf:"1214-digesto.pdf"},
   {id:1215, tipo:"Ordenanza", numero:"3286", anio:2026, fecha:"2026-06-25", titulo:"3286/2026 - Determina el valor de la Unidad de Cuenta Municipal a partir del 01/07/2026.", pdf:"1215-digesto.pdf"},
   {id:1216, tipo:"Ordenanza", numero:"3287", anio:2026, fecha:"2026-06-25", titulo:"3287/2027 - Declara de utilidad pública el proyecto de \"Recambio de Alumbrado Público - Etapa N° 5\"", pdf:"1216-digesto.pdf"},
+  {id:1217, tipo:"Decreto", numero:"3594", anio:2026, fecha:"2026-06-25", titulo:"3594/2026 - Promulga la Ordenanza N° 3286, por la cual se determina el valor de la Unidad de Cuenta Municipal a partir del 01/07/2026.", pdf:"1217-digesto.pdf"},
+  {id:1218, tipo:"Decreto", numero:"3595", anio:2026, fecha:"2026-06-25", titulo:"3595/2026 - Promulga la Ordenanza N° 3287, por la cual se declara de utilidad pública el proyecto \"Recambio de Alumbrado Público-5ta Etapa\".", pdf:"1218-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
