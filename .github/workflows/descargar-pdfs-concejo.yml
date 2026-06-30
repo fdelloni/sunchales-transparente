@@ -11,6 +11,11 @@ on:
 permissions:
   contents: write
 
+# Evita que dos corridas de ESTE workflow se solapen entre sí.
+concurrency:
+  group: descargar-pdfs-concejo
+  cancel-in-progress: false
+
 jobs:
   descargar:
     runs-on: ubuntu-latest
@@ -75,9 +80,26 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(concejo): actualización automática de PDFs (${{ steps.cambios.outputs.cantidad }} archivos)"
-          git push
+
+          # Otro workflow (scrape-fuentes) corre en el MISMO cron y también
+          # pushea a main. Si gana la carrera, main avanza y nuestro push
+          # queda 'non-fast-forward' y es rechazado. Reintentamos integrando
+          # los commits remotos con rebase antes de cada reintento.
+          for intento in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Push OK (intento $intento)."
+              exit 0
+            fi
+            echo "Push rechazado (intento $intento). Rebase sobre origin/main y reintento..."
+            git pull --rebase --autostash origin main || true
+            sleep $((RANDOM % 5 + 3))
+          done
+
+          echo "::error::No se pudo pushear a main tras 5 intentos."
+          exit 1
 
       - name: Resumen
+        if: always()
         run: |
           echo "## Resultado de la sincronización" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.cambios.outputs.hay_cambios }}" = "true" ]; then
