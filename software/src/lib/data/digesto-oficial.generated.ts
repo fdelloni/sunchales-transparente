@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-06-30
+ * Generado el: 2026-07-01
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1004,6 +1004,9 @@ export const normasOficiales: NormaOficial[] = [
   {id:1216, tipo:"Ordenanza", numero:"3287", anio:2026, fecha:"2026-06-25", titulo:"3287/2027 - Declara de utilidad pública el proyecto de \"Recambio de Alumbrado Público - Etapa N° 5\"", pdf:"1216-digesto.pdf"},
   {id:1217, tipo:"Decreto", numero:"3594", anio:2026, fecha:"2026-06-25", titulo:"3594/2026 - Promulga la Ordenanza N° 3286, por la cual se determina el valor de la Unidad de Cuenta Municipal a partir del 01/07/2026.", pdf:"1217-digesto.pdf"},
   {id:1218, tipo:"Decreto", numero:"3595", anio:2026, fecha:"2026-06-25", titulo:"3595/2026 - Promulga la Ordenanza N° 3287, por la cual se declara de utilidad pública el proyecto \"Recambio de Alumbrado Público-5ta Etapa\".", pdf:"1218-digesto.pdf"},
+  {id:1219, tipo:"Decreto", numero:"3588", anio:2026, fecha:"2026-06-09", titulo:"3588/2026 - Llama a Licitación Pública N° 01/2026 para la adquisición de 220 luminarias 220W y 145 columnas doble quiebre.", pdf:"1219-digesto.pdf"},
+  {id:1220, tipo:"Decreto", numero:"3589", anio:2026, fecha:"2026-06-09", titulo:"3589/2026 - Declara de Interés Municipal el evento TEDXSunchales 2026 \"Conversaciones Necesarias\", a realizarse el día 25/07/2026.", pdf:"1220-digesto.pdf"},
+  {id:1221, tipo:"Decreto", numero:"3590", anio:2026, fecha:"2026-06-12", titulo:"3590/2026 - Aprueba la operatoria complementaria para la adhesión al Régimen Especial de Regularización establecido por la Ordenanza N° 3283/2026 y reglamentado por el Decreto N° 3585/2026", pdf:"1221-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
