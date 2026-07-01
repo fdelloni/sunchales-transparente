@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-29T14:03:06.838Z",
+  "actualizado": "2026-07-01T12:33:10.500Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -3859,6 +3859,24 @@
       "chars": 5415,
       "sha256Pdf": "8431eb3fbf2215f5",
       "extraidoEl": "2026-06-19T13:35:08.617Z"
+    },
+    "5385": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3286/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 774,
+      "sha256Pdf": "1bc19a313af7d273",
+      "extraidoEl": "2026-07-01T12:33:09.339Z"
+    },
+    "5386": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3287/2026",
+      "anio": 2026,
+      "paginas": 6,
+      "chars": 9116,
+      "sha256Pdf": "a36938a6cd503f61",
+      "extraidoEl": "2026-07-01T12:33:10.098Z"
     }
   }
 }
