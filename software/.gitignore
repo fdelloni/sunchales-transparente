@@ -42,3 +42,8 @@ dist
 /st.txt
 /p*.txt
 COMMIT_MSG.txt
+
+# Datos crudos scrapeados (PDFs): regenerables por los scrapers, no se commitean.
+# Limpieza jul-2026: se purgaron ~1 GB de PDFs de la historia (git-filter-repo).
+/data/**/*.pdf
+/data/**/*.PDF
