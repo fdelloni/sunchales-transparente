@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-07-01
+ * Generado el: 2026-07-02
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1007,6 +1007,18 @@ export const normasOficiales: NormaOficial[] = [
   {id:1219, tipo:"Decreto", numero:"3588", anio:2026, fecha:"2026-06-09", titulo:"3588/2026 - Llama a Licitación Pública N° 01/2026 para la adquisición de 220 luminarias 220W y 145 columnas doble quiebre.", pdf:"1219-digesto.pdf"},
   {id:1220, tipo:"Decreto", numero:"3589", anio:2026, fecha:"2026-06-09", titulo:"3589/2026 - Declara de Interés Municipal el evento TEDXSunchales 2026 \"Conversaciones Necesarias\", a realizarse el día 25/07/2026.", pdf:"1220-digesto.pdf"},
   {id:1221, tipo:"Decreto", numero:"3590", anio:2026, fecha:"2026-06-12", titulo:"3590/2026 - Aprueba la operatoria complementaria para la adhesión al Régimen Especial de Regularización establecido por la Ordenanza N° 3283/2026 y reglamentado por el Decreto N° 3585/2026", pdf:"1221-digesto.pdf"},
+  {id:1222, tipo:"Decreto", numero:"3591", anio:2026, fecha:"2026-06-16", titulo:"3591/2026 - Crea el \"Programa de Acompañamiento a Instituciones de la localidad de Sunchales\".", pdf:"1222-digesto.pdf"},
+  {id:1223, tipo:"Decreto", numero:"3593", anio:2026, fecha:"2026-06-24", titulo:"3593/2026 - Declara de Interés Municipal la presentación del libro \"La respuesta está dentro tuyo\".", pdf:"1223-digesto.pdf"},
+  {id:1224, tipo:"Decreto", numero:"3596", anio:2026, fecha:"2026-06-30", titulo:"3596/2026 - Declara de Interés Municipal la presentación del libro \"Cooperativas escolares y parques viales: construyendo cultura de Paz\".", pdf:"1224-digesto.pdf"},
+  {id:1225, tipo:"Resolución", numero:"4360", anio:2026, fecha:"2026-04-13", titulo:"4360/2026 - Prorroga hasta el 30/04/2026 inclusive, el plazo de inscripción al Proceso de Selección Abierto convocado por Decreto N° 3569/2026 para la contratación de un Ingeniero Agrónomo - Órgano Técnico de Aplicación de la Ordenanza N° 2405.", pdf:"1225-digesto.pdf"},
+  {id:1226, tipo:"Resolución", numero:"4367", anio:2026, fecha:"2026-05-26", titulo:"4367/2026 - Autoriza a la empresa SMURFIT Westrock a efectuar el volcamiento de los residuos industriales líquidos a la red cloacal.", pdf:"1226-digesto.pdf"},
+  {id:1227, tipo:"Resolución", numero:"4368", anio:2026, fecha:"2026-05-27", titulo:"4368/2026 - Autoriza la modificación de las designaciones de lote correspondientes a la Sra. Maldonado y al Sr. Mansilla y la Sra. Palavecino, adjudicataria del Plan SunchaLote V.", pdf:"1227-digesto.pdf"},
+  {id:1228, tipo:"Resolución", numero:"4369", anio:2026, fecha:"2026-05-27", titulo:"4369/2026 - Tiene por formalmente interpuesto el recurso de reconsideración deducido por la agente Andrea Borkowski.", pdf:"1228-digesto.pdf"},
+  {id:1229, tipo:"Resolución", numero:"4370", anio:2026, fecha:"2026-06-04", titulo:"4370/2026 - Rechaza el reclamo administrativo deducido por el Sr. Oscar M. Lares.", pdf:"1229-digesto.pdf"},
+  {id:1230, tipo:"Resolución", numero:"4372", anio:26, fecha:"0026-06-18", titulo:"4372/2026 - Actuaciones sumariales con carácter reservado.", pdf:null},
+  {id:1231, tipo:"Resolución", numero:"4373", anio:2026, fecha:"2026-06-18", titulo:"4373/2026 - Establece el procedimiento de gestión interna para la respuesta a los oficios judiciales recibidos por la Municipalidad de Sunchales.", pdf:"1231-digesto.pdf"},
+  {id:1232, tipo:"Resolución", numero:"4374", anio:2026, fecha:"2026-06-18", titulo:"4374/2026 - Tiene por recibido y firme el dictamen de la Junta Médica de fecha 06/06/2026, que califica apto al agente Flamenco, para el desempeño de sus tareas.", pdf:"1232-digesto.pdf"},
+  {id:1234, tipo:"Resolución", numero:"4375", anio:2026, fecha:"2026-06-23", titulo:"4375/2026 - Rechaza en todos sus términos el planteo de nulidad formulado por el agente Pronotti.", pdf:"1234-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
