@@ -13,7 +13,7 @@ permissions:
 
 # Evita que dos corridas de ESTE workflow se solapen entre sí.
 concurrency:
-  group: descargar-pdfs-concejo
+  group: push-main
   cancel-in-progress: false
 
 jobs:
