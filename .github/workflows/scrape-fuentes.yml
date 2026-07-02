@@ -23,7 +23,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: scrape-fuentes
+  group: push-main
   cancel-in-progress: false
 
 jobs:
