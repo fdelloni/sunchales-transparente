@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-01T12:07:28.004Z",
+  "actualizado": "2026-07-02T11:36:46.442Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13124,9 +13124,37 @@
       "descargadoEl": "2026-06-20T11:19:08.573Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.849.VALOR UCM.pdf",
+      "categoria": "ucm",
+      "categoriaDescripcion": "Ordenanzas que actualizan la Unidad de Cuenta Municipal (UCM)",
+      "rutaLocal": "transparencia-economica/ucm/link.849.VALOR UCM.pdf",
+      "nombreArchivo": "link.849.VALOR UCM.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 589353,
+      "hashSha256": "bb438adfbf7b8962f97504e0e137615c6367342088a216935ea2d0d12c0bc381",
+      "descargadoEl": "2026-07-02T11:34:31.954Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 71
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5726.3286 2026.pdf",
+      "categoria": "ucm",
+      "categoriaDescripcion": "Ordenanzas que actualizan la Unidad de Cuenta Municipal (UCM)",
+      "rutaLocal": "transparencia-economica/ucm/link.5726.3286 2026.pdf",
+      "nombreArchivo": "link.5726.3286 2026.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 23933,
+      "hashSha256": "1bc19a313af7d273f3e283c200d7ef408937c6e9ea330f748b28cf26660307c1",
+      "descargadoEl": "2026-07-02T11:34:32.153Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 779
     }
   ],
-  "totalPdfs": 937,
-  "procesado": "2026-07-01T12:07:37.088Z",
-  "totalConTexto": 937
+  "totalPdfs": 939,
+  "procesado": "2026-07-02T11:37:53.832Z",
+  "totalConTexto": 939
 }
