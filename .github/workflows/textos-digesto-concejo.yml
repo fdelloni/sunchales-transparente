@@ -43,7 +43,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: textos-digesto-concejo
+  group: push-main
   cancel-in-progress: false
 
 jobs:
