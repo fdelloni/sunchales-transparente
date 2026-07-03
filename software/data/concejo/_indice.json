@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-02T11:36:46.442Z",
+  "actualizado": "2026-07-03T11:34:59.490Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": null,
+      "fechaContexto": "02/07/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13152,9 +13152,51 @@
       "descargadoEl": "2026-07-02T11:34:32.153Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 779
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5731.3115DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5731.3115DEM.pdf",
+      "nombreArchivo": "link.5731.3115DEM.pdf",
+      "textoEnlace": "02/07/26 - Expte. N°3115. P. de O. Aprueba contrato de comodato entre la Municipalidad de Sunchales y la Asoc. Civil Misión Owen.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1140896,
+      "hashSha256": "175506454fc29cbe8f0dbe1a9a1b8c337b33dec695ecea87741ce745ccde788c",
+      "descargadoEl": "2026-07-03T11:33:11.618Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 12528
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5732.3121DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5732.3121DEM.pdf",
+      "nombreArchivo": "link.5732.3121DEM.pdf",
+      "textoEnlace": "02/07/26 - Expte. N°3121. P. de O. Dispone la realización del proyecto \"Recambio de Alumbrado Público Etapa 6\" y crea una contribución por mejoras destinada a la financiación parcial de la obra.-",
+      "fechaContexto": "02/07/26",
+      "tamanioBytes": 1247975,
+      "hashSha256": "efc608b46d4c7250fe79cc5d4214785161c9eace7bc71036c28e57a30c7441b1",
+      "descargadoEl": "2026-07-03T11:33:11.822Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 37021
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5730.3116NO.pdf",
+      "categoria": "normativa-ambiental",
+      "categoriaDescripcion": "Normativa ambiental",
+      "rutaLocal": "normativa-ambiental/ordenanzas/link.5730.3116NO.pdf",
+      "nombreArchivo": "link.5730.3116NO.pdf",
+      "textoEnlace": "Informe abril-junio 2026.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1251232,
+      "hashSha256": "951c7d1c3a8be53d925a328c025475cf8ec59680d022000b539da4f355faf295",
+      "descargadoEl": "2026-07-03T11:34:43.660Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 939,
-  "procesado": "2026-07-02T11:37:53.832Z",
-  "totalConTexto": 939
+  "totalPdfs": 942,
+  "procesado": "2026-07-03T11:36:08.144Z",
+  "totalConTexto": 942
 }
