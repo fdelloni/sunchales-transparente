@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-07-03T11:27:23.105Z
+// Última sincronización: 2026-07-04T10:49:59.746Z
 // Total licitaciones extraídas: 65
 
 export type ProcedimientoOficial =
@@ -63,7 +63,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
       {
         "nombre": "DECRETO N° 3588/2026-Pliego de Bases y Condiciones.",
         "tipo": "pliego",
-        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/06/Decreto-3588-2026-Llamado-a-Lic.-Publica-01-2026.pdf"
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Decreto-3588-2026-Licitacion-Publica-N-01-2026.pdf"
       },
       {
         "nombre": "Columna de iluminacion doble quiebre – Opción 1.",
@@ -2199,7 +2199,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-07-03T11:27:23.105Z",
+  sincronizadoEl: "2026-07-04T10:49:59.746Z",
   total: 65,
   porAnio: {
   "2016": 8,
