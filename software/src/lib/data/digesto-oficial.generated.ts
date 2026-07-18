@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-07-17
+ * Generado el: 2026-07-18
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1019,6 +1019,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1231, tipo:"Resolución", numero:"4373", anio:2026, fecha:"2026-06-18", titulo:"4373/2026 - Establece el procedimiento de gestión interna para la respuesta a los oficios judiciales recibidos por la Municipalidad de Sunchales.", pdf:"1231-digesto.pdf"},
   {id:1232, tipo:"Resolución", numero:"4374", anio:2026, fecha:"2026-06-18", titulo:"4374/2026 - Tiene por recibido y firme el dictamen de la Junta Médica de fecha 06/06/2026, que califica apto al agente Flamenco, para el desempeño de sus tareas.", pdf:"1232-digesto.pdf"},
   {id:1234, tipo:"Resolución", numero:"4375", anio:2026, fecha:"2026-06-23", titulo:"4375/2026 - Rechaza en todos sus términos el planteo de nulidad formulado por el agente Pronotti.", pdf:"1234-digesto.pdf"},
+  {id:1239, tipo:"Decreto", numero:"3599", anio:2026, fecha:"2026-07-16", titulo:"3599/2026 - Promulga la Ordenanza N.º 3288/2026, por la cual se aprueba, en todos sus términos, el preacuerdo conciliatorio y de pago celebrado entre la Municipalidad de Sunchales y el Banco de la Nación Argentina.", pdf:"1239-digesto.pdf"},
+  {id:1240, tipo:"Decreto", numero:"3600", anio:2026, fecha:"2026-07-16", titulo:"3600/2026 - Promulga la Ordenanza N.º 3289/2026, por la cual se modifica el artículo 49° inciso 10) de la Ordenanza Tributaria N° 2989 y se incorpora un nuevo inciso al artículo 53° de la misma.", pdf:"1240-digesto.pdf"},
+  {id:1241, tipo:"Ordenanza", numero:"3288", anio:2026, fecha:"2026-07-16", titulo:"3288/2026 - Aprueba, en todos sus términos, el preacuerdo conciliatorio y de pago celebrado entre la Municipalidad de Sunchales y el Banco de la Nación Argentina.", pdf:"1241-digesto.pdf"},
+  {id:1242, tipo:"Ordenanza", numero:"3289", anio:2026, fecha:"2026-07-16", titulo:"3289/2026 - Modifica artículos de la Ordenanza N° 2989.", pdf:"1242-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =

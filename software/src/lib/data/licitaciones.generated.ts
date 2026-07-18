@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-07-17T10:39:47.479Z
+// Última sincronización: 2026-07-18T10:12:11.981Z
 // Total licitaciones extraídas: 65
 
 export type ProcedimientoOficial =
@@ -58,7 +58,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
     "decreto": "Decreto N° 3588/2026",
     "objeto": null,
     "presupuestoOficial": 43000000,
-    "fechaApertura": "2026-07-27T00:00:00.000Z",
+    "fechaApertura": "2026-08-03T00:00:00.000Z",
     "documentos": [
       {
         "nombre": "DECRETO N° 3588/2026-Pliego de Bases y Condiciones.",
@@ -66,9 +66,19 @@ export const licitacionesOficiales: LicitacionOficial[] = [
         "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Decreto-3588-2026-Licitacion-Publica-N-01-2026.pdf"
       },
       {
-        "nombre": "Columna de iluminacion doble quiebre – Opción 1.",
+        "nombre": "Enmienda N° 1 – Licitación Pública 01-2026.",
+        "tipo": "enmienda",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Enmienda-N°-1-Licitacion-Publica-01-2026.pdf"
+      },
+      {
+        "nombre": "Detalle 01.",
         "tipo": "otro",
-        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Columna-de-iluminacion-doble-quiebre-Opcion-1.pdf"
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Detalle-01.pdf"
+      },
+      {
+        "nombre": "Detalle 02.",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/07/Detalle-02.pdf"
       }
     ],
     "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
@@ -2199,7 +2209,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-07-17T10:39:47.479Z",
+  sincronizadoEl: "2026-07-18T10:12:11.981Z",
   total: 65,
   porAnio: {
   "2016": 8,
