@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-07-20
+ * Generado el: 2026-07-21
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1023,6 +1023,16 @@ export const normasOficiales: NormaOficial[] = [
   {id:1240, tipo:"Decreto", numero:"3600", anio:2026, fecha:"2026-07-16", titulo:"3600/2026 - Promulga la Ordenanza N.º 3289/2026, por la cual se modifica el artículo 49° inciso 10) de la Ordenanza Tributaria N° 2989 y se incorpora un nuevo inciso al artículo 53° de la misma.", pdf:"1240-digesto.pdf"},
   {id:1241, tipo:"Ordenanza", numero:"3288", anio:2026, fecha:"2026-07-16", titulo:"3288/2026 - Aprueba, en todos sus términos, el preacuerdo conciliatorio y de pago celebrado entre la Municipalidad de Sunchales y el Banco de la Nación Argentina.", pdf:"1241-digesto.pdf"},
   {id:1242, tipo:"Ordenanza", numero:"3289", anio:2026, fecha:"2026-07-16", titulo:"3289/2026 - Modifica artículos de la Ordenanza N° 2989.", pdf:"1242-digesto.pdf"},
+  {id:1243, tipo:"Decreto", numero:"3597", anio:2026, fecha:"2026-07-01", titulo:"3597/2026 - Declara de Interés Municipal del 20 Aniversario de la creación de la Cooperativa Escolar \"UPA\" Unidos para Ayudar, de la Escuela Primaria N° 379 \"Florentino Ameghino\".", pdf:"1243-digesto.pdf"},
+  {id:1244, tipo:"Decreto", numero:"3598", anio:2026, fecha:"2026-07-01", titulo:"3598/2026 - Declara de Interés Municipal el 20 Aniversario de la creación de la Cooperativa Escolar \"Sunchalita Ltda.\", de la Escuela de Educación Secundaria Particular Incorporada N° 8107 \"San José\".", pdf:"1244-digesto.pdf"},
+  {id:1245, tipo:"Resolución", numero:"4376", anio:2026, fecha:"2026-06-30", titulo:"4376/2026 - Contrata personal para las distintas Secretarías y Subsecretarías, desde el 01/07/2026 al 30/09/2026.", pdf:"1245-digesto.pdf"},
+  {id:1246, tipo:"Resolución", numero:"4377", anio:2026, fecha:"2026-07-06", titulo:"4377/2026 - Dispone la suspensión preventiva de los agentes José Pinardelli y Juan Ringelstein.", pdf:"1246-digesto.pdf"},
+  {id:1247, tipo:"Resolución", numero:"4378", anio:2026, fecha:"2026-07-06", titulo:"4378/2026 - Autoriza, por única vez y con motivo del partido que disputará la Selección Argentina de Fútbol el día 07/07/2026, el retiro del personal municipal a las 12:30 hs.", pdf:"1247-digesto.pdf"},
+  {id:1248, tipo:"Resolución", numero:"4379", anio:2026, fecha:"2026-07-06", titulo:"4379/2026 - Exime de pago de la tasa prevista en el artículo 130, inciso b) de la Ordenanza Tributaria Municipal N° 2989/2022, a los certificados de libre deuda que se expidan con destino exclusivo a la primera escritura traslativa de dominio en relación al Programa SunchaLote.", pdf:"1248-digesto.pdf"},
+  {id:1249, tipo:"Resolución", numero:"4380", anio:2026, fecha:"2026-07-06", titulo:"4380/2026 - Determina la integración de la Junta de Protección Civil Municipal.", pdf:"1249-digesto.pdf"},
+  {id:1250, tipo:"Resolución", numero:"4381", anio:2026, fecha:"2026-07-13", titulo:"4381/2026 - Condona los intereses punitorios devengados sobre las cuotas N° 1 a 38 de la contribución por mejoras correspondiente a la obra de pavimento que grava el inmueble de titularidad del Obispado de Rafaela.", pdf:"1250-digesto.pdf"},
+  {id:1251, tipo:"Resolución", numero:"4382", anio:2026, fecha:"2026-07-13", titulo:"4382/2026 - Autoriza a la firma \"Abatidaga Claudia Fernanda\" a efectuar el volcamiento de los residuos industriales líquidos generados en su actividad a la red cloacal.", pdf:"1251-digesto.pdf"},
+  {id:1252, tipo:"Resolución", numero:"4383", anio:2026, fecha:"2026-07-17", titulo:"4383/2026 - Aprueba el \"Manual Operativo de Protección Civil y Gestión Integral del Riesgo\" en relación al \"Fenómeno ENOS y Otras Emergencias Hidrometeorológicas\".", pdf:"1252-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
