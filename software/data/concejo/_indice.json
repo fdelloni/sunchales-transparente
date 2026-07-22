@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-21T11:10:44.750Z",
+  "actualizado": "2026-07-22T11:21:13.017Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13194,9 +13194,23 @@
       "descargadoEl": "2026-07-03T11:34:43.660Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5740.JUNIO.pdf",
+      "categoria": "ejecucion-presupuestaria",
+      "categoriaDescripcion": "Ejecución partida presupuestaria mensual",
+      "rutaLocal": "transparencia-economica/ejecucion-presupuestaria/link.5740.JUNIO.pdf",
+      "nombreArchivo": "link.5740.JUNIO.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 533974,
+      "hashSha256": "c40524bb2b662ac5531b18a5e7c1c9d943ef67e4a0970df7c7a674e4430aba2f",
+      "descargadoEl": "2026-07-22T11:11:56.882Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 10710
     }
   ],
-  "totalPdfs": 942,
-  "procesado": "2026-07-21T11:11:55.831Z",
-  "totalConTexto": 942
+  "totalPdfs": 943,
+  "procesado": "2026-07-22T11:22:16.748Z",
+  "totalConTexto": 943
 }
