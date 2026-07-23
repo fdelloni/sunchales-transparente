@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-21T11:46:06.466Z",
+  "actualizado": "2026-07-23T11:49:28.853Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -3913,6 +3913,22 @@
       "chars": 843,
       "sha256Pdf": "ec805082077d6578",
       "extraidoEl": "2026-07-03T12:08:37.001Z"
+    },
+    "5391": {
+      "estado": "sin-texto",
+      "titulo": "Ordenanza 3288/2026",
+      "anio": 2026,
+      "paginas": 8,
+      "pdfBytes": 166944
+    },
+    "5392": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3289/2026",
+      "anio": 2026,
+      "paginas": 7,
+      "chars": 14749,
+      "sha256Pdf": "e540b030111b24d5",
+      "extraidoEl": "2026-07-23T11:49:28.439Z"
     }
   }
 }
