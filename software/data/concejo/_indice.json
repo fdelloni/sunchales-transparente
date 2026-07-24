@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-23T11:12:08.874Z",
+  "actualizado": "2026-07-24T11:20:07.996Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13174,7 +13174,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5732.3121DEM.pdf",
       "nombreArchivo": "link.5732.3121DEM.pdf",
       "textoEnlace": "02/07/26 - Expte. N°3121. P. de O. Dispone la realización del proyecto \"Recambio de Alumbrado Público Etapa 6\" y crea una contribución por mejoras destinada a la financiación parcial de la obra.-",
-      "fechaContexto": "02/07/26",
+      "fechaContexto": "23/07/26",
       "tamanioBytes": 1247975,
       "hashSha256": "efc608b46d4c7250fe79cc5d4214785161c9eace7bc71036c28e57a30c7441b1",
       "descargadoEl": "2026-07-03T11:33:11.822Z",
@@ -13208,9 +13208,23 @@
       "descargadoEl": "2026-07-22T11:11:56.882Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 10710
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5747.3127DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5747.3127DEM.pdf",
+      "nombreArchivo": "link.5747.3127DEM.pdf",
+      "textoEnlace": "23/07/26 - Expte. N°3127. P. de O. Dispone modificaciones a los ARTÍCULOS 6 y 13 de la Ordenanza N°2989.-",
+      "fechaContexto": null,
+      "tamanioBytes": 3260470,
+      "hashSha256": "6cad68a1db6ab8dacc252a360b735c4345e29951ad76d9b25f110395e715ece2",
+      "descargadoEl": "2026-07-24T11:13:45.919Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 943,
-  "procesado": "2026-07-23T11:13:13.822Z",
-  "totalConTexto": 943
+  "totalPdfs": 944,
+  "procesado": "2026-07-24T11:21:14.386Z",
+  "totalConTexto": 944
 }
