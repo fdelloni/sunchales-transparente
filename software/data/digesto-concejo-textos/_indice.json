@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-23T11:49:28.853Z",
+  "actualizado": "2026-07-25T11:08:31.634Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -3929,6 +3929,60 @@
       "chars": 14749,
       "sha256Pdf": "e540b030111b24d5",
       "extraidoEl": "2026-07-23T11:49:28.439Z"
+    },
+    "5393": {
+      "estado": "ok",
+      "titulo": "Minuta 1374/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1153,
+      "sha256Pdf": "395c204bdddce851",
+      "extraidoEl": "2026-07-25T11:08:28.638Z"
+    },
+    "5394": {
+      "estado": "ok",
+      "titulo": "Minuta 1375/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1686,
+      "sha256Pdf": "f11c011fcd752b99",
+      "extraidoEl": "2026-07-25T11:08:29.212Z"
+    },
+    "5395": {
+      "estado": "ok",
+      "titulo": "Declaración 546/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 875,
+      "sha256Pdf": "e67507debd0e91fa",
+      "extraidoEl": "2026-07-25T11:08:29.710Z"
+    },
+    "5396": {
+      "estado": "ok",
+      "titulo": "Declaración 547/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 858,
+      "sha256Pdf": "4f4378465521d208",
+      "extraidoEl": "2026-07-25T11:08:30.240Z"
+    },
+    "5397": {
+      "estado": "ok",
+      "titulo": "Declaración 548/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 846,
+      "sha256Pdf": "30e171610709d187",
+      "extraidoEl": "2026-07-25T11:08:30.725Z"
+    },
+    "5398": {
+      "estado": "ok",
+      "titulo": "Resolución 888/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "chars": 2007,
+      "sha256Pdf": "422a55821ac3ebcc",
+      "extraidoEl": "2026-07-25T11:08:31.234Z"
     }
   }
 }
