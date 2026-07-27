@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-26T10:48:34.836Z",
+  "actualizado": "2026-07-27T12:26:48.350Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13222,9 +13222,23 @@
       "descargadoEl": "2026-07-24T11:13:45.919Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5748.Boletín Informativo Período Mayo - Junio.pdf",
+      "categoria": "boletines-bimestrales",
+      "categoriaDescripcion": "Boletín informativo bimestral del Concejo",
+      "rutaLocal": "boletines-bimestrales/link.5748.Boletín Informativo Período Mayo - Junio.pdf",
+      "nombreArchivo": "link.5748.Boletín Informativo Período Mayo - Junio.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": "27/07/26",
+      "tamanioBytes": 2671252,
+      "hashSha256": "19021b4afe7bc8f1e4a11c6dadb796d5fa08030fa3bb1cd9d3b5a14e2a6e699b",
+      "descargadoEl": "2026-07-27T12:21:56.132Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 7899
     }
   ],
-  "totalPdfs": 944,
-  "procesado": "2026-07-26T10:49:44.084Z",
-  "totalConTexto": 944
+  "totalPdfs": 945,
+  "procesado": "2026-07-27T12:27:56.993Z",
+  "totalConTexto": 945
 }
