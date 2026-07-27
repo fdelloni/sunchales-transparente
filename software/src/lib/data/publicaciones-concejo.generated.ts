@@ -5,8 +5,8 @@
 //   https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx
 //   https://concejosunchales.gob.ar/resumen-anual.aspx
 //
-// Última sincronización: 2026-07-26T10:38:00.193Z
-// Boletines bimestrales: 67
+// Última sincronización: 2026-07-27T12:13:30.391Z
+// Boletines bimestrales: 68
 // Resúmenes anuales: 14
 
 export type TipoPublicacionConcejo = "boletin_bimestral" | "resumen_anual";
@@ -24,6 +24,14 @@ export type PublicacionConcejo = {
 };
 
 export const publicacionesConcejo: PublicacionConcejo[] = [
+  {
+    "tipo": "boletin_bimestral",
+    "idPublicacion": 5748,
+    "titulo": "Boletín informativo correspondiente al período Mayo - Junio",
+    "fechaPublicacion": "2026-07-27",
+    "urlDetalle": "https://concejosunchales.gob.ar/boletin-informativo-bimestral-detalle.aspx?id=5748",
+    "urlPdf": "https://concejosunchales.gob.ar/Archivos/Link/link.5748.Boletín Informativo Período Mayo - Junio.pdf"
+  },
   {
     "tipo": "boletin_bimestral",
     "idPublicacion": 5692,
@@ -677,7 +685,7 @@ export const publicacionesConcejo: PublicacionConcejo[] = [
 export const publicacionesConcejoMeta = {
   fuenteBoletines: "https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx",
   fuenteResumenes: "https://concejosunchales.gob.ar/resumen-anual.aspx",
-  sincronizadoEl: "2026-07-26T10:38:00.193Z",
-  totalBoletines: 67,
+  sincronizadoEl: "2026-07-27T12:13:30.391Z",
+  totalBoletines: 68,
   totalResumenes: 14,
 } as const;
