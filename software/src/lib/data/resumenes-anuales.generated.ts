@@ -2,7 +2,7 @@
  * AUTO-GENERADO por scripts/indexar-resumenes-anuales.mjs
  * No editar a mano. Se regenera cada vez que se procesan nuevos PDFs.
  *
- * Última generación: 2026-08-02T10:45:48.363Z
+ * Última generación: 2026-08-03T12:26:20.129Z
  * Total de resúmenes: 14
  */
 
