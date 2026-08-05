@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-03T12:54:04.330Z",
+  "actualizado": "2026-08-05T11:58:39.721Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -3983,6 +3983,15 @@
       "chars": 2007,
       "sha256Pdf": "422a55821ac3ebcc",
       "extraidoEl": "2026-07-25T11:08:31.234Z"
+    },
+    "5399": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3290/2026",
+      "anio": 2026,
+      "paginas": 5,
+      "chars": 10275,
+      "sha256Pdf": "187375d326595eec",
+      "extraidoEl": "2026-08-05T11:58:39.307Z"
     }
   }
 }
