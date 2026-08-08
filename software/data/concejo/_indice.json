@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-07T10:04:37.994Z",
+  "actualizado": "2026-08-08T09:40:22.337Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13059,7 +13059,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5710.3101LLA.pdf",
       "nombreArchivo": "link.5710.3101LLA.pdf",
       "textoEnlace": "04/06/26 - Expte. N°3101. P. de O. Regula el sistema de registración de vehículos oficiales y responsabiliza personalmente a los funcionarios y agentes por su uso.-",
-      "fechaContexto": null,
+      "fechaContexto": "06/08/26",
       "tamanioBytes": 200204,
       "hashSha256": "8c1a39a4378f01cbbdae6cfd289afa3e58b9f6d2bc0bc11f736abe56c581c766",
       "descargadoEl": "2026-06-05T12:08:29.064Z",
@@ -13174,7 +13174,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5732.3121DEM.pdf",
       "nombreArchivo": "link.5732.3121DEM.pdf",
       "textoEnlace": "02/07/26 - Expte. N°3121. P. de O. Dispone la realización del proyecto \"Recambio de Alumbrado Público Etapa 6\" y crea una contribución por mejoras destinada a la financiación parcial de la obra.-",
-      "fechaContexto": "23/07/26",
+      "fechaContexto": "06/08/26",
       "tamanioBytes": 1247975,
       "hashSha256": "efc608b46d4c7250fe79cc5d4214785161c9eace7bc71036c28e57a30c7441b1",
       "descargadoEl": "2026-07-03T11:33:11.822Z",
@@ -13236,9 +13236,65 @@
       "descargadoEl": "2026-07-27T12:21:56.132Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 7899
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5758.3138DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5758.3138DEM.pdf",
+      "nombreArchivo": "link.5758.3138DEM.pdf",
+      "textoEnlace": "06/08/26 - Expte. N°3138. P. de O. Autoriza a solicitar al gobierno provincial el cien por ciento del fondo de obras menores año 2025 con destino al proyecto denominado \"Pavimentación de calle Falucho\".-",
+      "fechaContexto": null,
+      "tamanioBytes": 6305371,
+      "hashSha256": "34ec1a761d63ececa293d217865ae1087eedcea40a34c3f17c5bfb42cbc3dd0d",
+      "descargadoEl": "2026-08-08T09:38:04.451Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 26761
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5759.3140DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5759.3140DEM.pdf",
+      "nombreArchivo": "link.5759.3140DEM.pdf",
+      "textoEnlace": "06/08/26 - Expte. N°3140. P. de O. Faculta al Sr. Intendente a realizar los actos necesarios para la instrumentación de convenios con la Dirección Provincial de Vialidad.-",
+      "fechaContexto": "06/08/26",
+      "tamanioBytes": 10655590,
+      "hashSha256": "437f787cba31008534eb67d3742a9ca3aa89f9cca131c824e08bcde255e518b6",
+      "descargadoEl": "2026-08-08T09:38:05.067Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5760.3142LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5760.3142LLA.pdf",
+      "nombreArchivo": "link.5760.3142LLA.pdf",
+      "textoEnlace": "06/08/26 - Expte. N°3142. P. de O. Declara el estado de emergencia económica, financiera y administrativa de la Municipalidad de Sunchales por el término de ciento ochenta días corridos.-",
+      "fechaContexto": null,
+      "tamanioBytes": 191430,
+      "hashSha256": "d9f6c1582d57f66ccbd8f8611914684663b3caee65a5f0a492ec1ed59dc6a6ce",
+      "descargadoEl": "2026-08-08T09:38:10.415Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 12990
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5761.3145LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5761.3145LLA.pdf",
+      "nombreArchivo": "link.5761.3145LLA.pdf",
+      "textoEnlace": "06/08/26 - Expte. N°3145. P. de O. Autoriza al Departamento Ejecutivo a la colocación de reductores de velocidad de tránsito vehicular sobre calle J.B. Justo, próximos a su intersección con calle Frondizi y sobre calle Frondizi, próximos a su intersección con calle J.B. Justo.-",
+      "fechaContexto": "06/08/26",
+      "tamanioBytes": 160491,
+      "hashSha256": "02b871a6e17954bb468ebccf19d0f5b9a3e6f2e22f4849650eaebd4c6e92d2d5",
+      "descargadoEl": "2026-08-08T09:38:10.677Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 1129
     }
   ],
-  "totalPdfs": 945,
-  "procesado": "2026-08-07T10:05:46.065Z",
-  "totalConTexto": 945
+  "totalPdfs": 949,
+  "procesado": "2026-08-08T09:41:30.782Z",
+  "totalConTexto": 949
 }
