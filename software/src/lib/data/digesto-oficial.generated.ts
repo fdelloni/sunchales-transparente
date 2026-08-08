@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-08-07
+ * Generado el: 2026-08-08
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1035,6 +1035,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1252, tipo:"Resolución", numero:"4383", anio:2026, fecha:"2026-07-17", titulo:"4383/2026 - Aprueba el \"Manual Operativo de Protección Civil y Gestión Integral del Riesgo\" en relación al \"Fenómeno ENOS y Otras Emergencias Hidrometeorológicas\".", pdf:"1252-digesto.pdf"},
   {id:1253, tipo:"Decreto", numero:"3602", anio:2026, fecha:"2026-07-23", titulo:"3602/2026 - Promulga la Ordenanza N° 3290, por la cual se aprueba el contrato de comodato entre la Municipalidad de Sunchales y Asociación Civil Misión Owen.", pdf:"1253-digesto.pdf"},
   {id:1254, tipo:"Ordenanza", numero:"3290", anio:2026, fecha:"2026-07-23", titulo:"3290/2026 - Apruébase el Contrato de Comodato a celebrarse entre la Municipalidad de Sunchales y la Asociación Civil Misión Owen, respecto del inmueble ubicado en calle San Juan N.° 2901.", pdf:"1254-digesto.pdf"},
+  {id:1259, tipo:"Decreto", numero:"3608", anio:2026, fecha:"2026-08-06", titulo:"3608/2026 - Promulga la Ordenanza N° 3291, por la cual se modifican los artículos 6 y 13 de la Ordenanza N° 2989.", pdf:"1259-digesto.pdf"},
+  {id:1260, tipo:"Ordenanza", numero:"3291", anio:2026, fecha:"2026-08-06", titulo:"3291/2026 - Modifica artículos de la Ordenanza N° 2989.", pdf:"1260-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
