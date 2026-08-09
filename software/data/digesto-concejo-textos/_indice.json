@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-07T10:50:53.083Z",
+  "actualizado": "2026-08-09T10:32:35.490Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -3992,6 +3992,42 @@
       "chars": 10275,
       "sha256Pdf": "187375d326595eec",
       "extraidoEl": "2026-08-05T11:58:39.307Z"
+    },
+    "5400": {
+      "estado": "ok",
+      "titulo": "Minuta 1376/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1653,
+      "sha256Pdf": "a771aa3a7aadbbd5",
+      "extraidoEl": "2026-08-09T10:32:33.492Z"
+    },
+    "5401": {
+      "estado": "ok",
+      "titulo": "Minuta 1377/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 894,
+      "sha256Pdf": "8aa284cbefbd5935",
+      "extraidoEl": "2026-08-09T10:32:34.014Z"
+    },
+    "5402": {
+      "estado": "ok",
+      "titulo": "Minuta 1378/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1038,
+      "sha256Pdf": "877995d21e3bd573",
+      "extraidoEl": "2026-08-09T10:32:34.579Z"
+    },
+    "5403": {
+      "estado": "ok",
+      "titulo": "Minuta 1379/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1083,
+      "sha256Pdf": "761bb50d5d9a379a",
+      "extraidoEl": "2026-08-09T10:32:35.089Z"
     }
   }
 }
