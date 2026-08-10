@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-08-09
+ * Generado el: 2026-08-10
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
