@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/
 //
-// Última sincronización: 2026-08-10T10:13:52.738Z
+// Última sincronización: 2026-08-11T09:57:18.648Z
 // Total PDFs detectados: 144
 // Cobertura: 2014 – 2026
 
@@ -1180,7 +1180,7 @@ export const remuneracionesPdfs: RemuneracionPdf[] = [
 
 export const remuneracionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/",
-  sincronizadoEl: "2026-08-10T10:13:52.738Z",
+  sincronizadoEl: "2026-08-11T09:57:18.648Z",
   total: 144,
   conPeriodoIdentificado: 141,
   sinPeriodo: 3,
