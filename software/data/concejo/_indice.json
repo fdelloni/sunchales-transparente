@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-13T10:08:31.148Z",
+  "actualizado": "2026-08-14T10:15:01.828Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": "02/07/26",
+      "fechaContexto": "06/08/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13272,7 +13272,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5760.3142LLA.pdf",
       "nombreArchivo": "link.5760.3142LLA.pdf",
       "textoEnlace": "06/08/26 - Expte. N°3142. P. de O. Declara el estado de emergencia económica, financiera y administrativa de la Municipalidad de Sunchales por el término de ciento ochenta días corridos.-",
-      "fechaContexto": null,
+      "fechaContexto": "13/08/26",
       "tamanioBytes": 191430,
       "hashSha256": "d9f6c1582d57f66ccbd8f8611914684663b3caee65a5f0a492ec1ed59dc6a6ce",
       "descargadoEl": "2026-08-08T09:38:10.415Z",
@@ -13292,9 +13292,51 @@
       "descargadoEl": "2026-08-08T09:38:10.677Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 1129
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5771.3160AS-PS.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5771.3160AS-PS.pdf",
+      "nombreArchivo": "link.5771.3160AS-PS.pdf",
+      "textoEnlace": "13/08/26 - Expte. N°3160. P. de O. Garantiza el derecho de las personas sordas a ser asistidas con el servicio de Lengua de Señas Argentina.-",
+      "fechaContexto": null,
+      "tamanioBytes": 175303,
+      "hashSha256": "44474918722650580a336e8eba6054df02469fd4b0e524bcdbcfa99cda7b4460",
+      "descargadoEl": "2026-08-14T10:01:56.878Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 6740
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5769.3156LLLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5769.3156LLLA.pdf",
+      "nombreArchivo": "link.5769.3156LLLA.pdf",
+      "textoEnlace": "13/08/26 - Expte. N°3156. P. de O. Crea la Comisión Municipal de Asuntos Rurales.-",
+      "fechaContexto": null,
+      "tamanioBytes": 207572,
+      "hashSha256": "d56f4621f240683b981780839364a94420735239226f464a5b0b41d8284593ba",
+      "descargadoEl": "2026-08-14T10:02:03.668Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 4569
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5770.3157LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5770.3157LLA.pdf",
+      "nombreArchivo": "link.5770.3157LLA.pdf",
+      "textoEnlace": "13/08/26 - Expte. N°3157. P. de O. Crea el Estatuto del Docente Municipal.-",
+      "fechaContexto": "13/08/26",
+      "tamanioBytes": 241601,
+      "hashSha256": "4a0eba9a41f7b0812fcd90b40a9108f5e4c88cc1b8036681cff7ede1d830a602",
+      "descargadoEl": "2026-08-14T10:02:03.893Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 22277
     }
   ],
-  "totalPdfs": 949,
-  "procesado": "2026-08-13T10:09:39.743Z",
-  "totalConTexto": 949
+  "totalPdfs": 952,
+  "procesado": "2026-08-14T10:16:08.144Z",
+  "totalConTexto": 952
 }
