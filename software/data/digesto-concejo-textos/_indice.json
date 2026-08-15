@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-13T10:59:22.179Z",
+  "actualizado": "2026-08-15T10:20:27.978Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4028,6 +4028,51 @@
       "chars": 1083,
       "sha256Pdf": "761bb50d5d9a379a",
       "extraidoEl": "2026-08-09T10:32:35.089Z"
+    },
+    "5404": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3291/2026",
+      "anio": 2026,
+      "paginas": 3,
+      "chars": 5843,
+      "sha256Pdf": "93cca1892cab4563",
+      "extraidoEl": "2026-08-15T10:20:27.577Z"
+    },
+    "5405": {
+      "estado": "ok",
+      "titulo": "Minuta 1380/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "chars": 1786,
+      "sha256Pdf": "03fc0c49ad551cd3",
+      "extraidoEl": "2026-08-15T10:20:24.910Z"
+    },
+    "5406": {
+      "estado": "ok",
+      "titulo": "Minuta 1381/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 902,
+      "sha256Pdf": "5eab92910e193f8e",
+      "extraidoEl": "2026-08-15T10:20:25.653Z"
+    },
+    "5407": {
+      "estado": "ok",
+      "titulo": "Minuta 1382/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1482,
+      "sha256Pdf": "7e2ff40e61f7390b",
+      "extraidoEl": "2026-08-15T10:20:26.379Z"
+    },
+    "5408": {
+      "estado": "ok",
+      "titulo": "Minuta 1383/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 862,
+      "sha256Pdf": "da041c83e6df7b7b",
+      "extraidoEl": "2026-08-15T10:20:26.964Z"
     }
   }
 }
