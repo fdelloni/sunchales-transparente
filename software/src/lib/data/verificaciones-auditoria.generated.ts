@@ -7,7 +7,7 @@
 //   2) Boletín Oficial: ¿cuál es el último mes publicado en las 3 plataformas?
 //   3) Farmacias de turno: ¿hay cronograma para el mes en curso?
 //
-// Última sincronización: 2026-08-15T09:22:39.010Z
+// Última sincronización: 2026-08-16T09:23:50.557Z
 //
 // Política de honestidad: si una verificación no puede determinar el estado
 // con evidencia textual del HTML servido, el resultado es "indeterminado"
@@ -45,7 +45,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "con-cv-concejales-incompletos",
     "url": "https://concejosunchales.gob.ar/concejales-actuales.aspx",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-08-15T09:22:28.165Z",
+    "fechaVerificacion": "2026-08-16T09:23:39.842Z",
     "resultado": "ok",
     "hallazgos": [
       "6 de 6 apellidos vigentes detectados en el HTML: Delmastro, Nicolau, Cattaneo, Astor, Torriri, Balduino.",
@@ -69,7 +69,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "pre-boletin-oficial-municipal",
     "url": "https://sunchales.gob.ar/boletines-oficiales | https://sunchales.miportal.ar/digesto | https://boletinoficial.sunchales.gob.ar/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-08-15T09:22:35.766Z",
+    "fechaVerificacion": "2026-08-16T09:23:47.235Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "[drupal-legacy] Último mes/año mencionado en HTML: abril de 2025. (HTTP 200)",
@@ -119,7 +119,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "sal-farmacias-turno-desactualizado",
     "url": "https://sunchales.gob.ar/farmacias-de-turno/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-08-15T09:22:39.010Z",
+    "fechaVerificacion": "2026-08-16T09:23:50.557Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "Meses mencionados en la página: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, setiembre, octubre, noviembre.",
@@ -154,7 +154,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
 ];
 
 export const verificacionesAuditoriaMeta = {
-  sincronizadoEl: "2026-08-15T09:22:39.010Z",
+  sincronizadoEl: "2026-08-16T09:23:50.557Z",
   total: 3,
   resultadosPorTipo: {
     ok: 1,
