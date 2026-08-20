@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-19T09:41:13.295Z",
+  "actualizado": "2026-08-20T09:40:40.617Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -12958,7 +12958,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5691.3086AS-PS.pdf",
       "nombreArchivo": "link.5691.3086AS-PS.pdf",
       "textoEnlace": "14/05/26 - Expte. N°3086. P. de O. Incorpora artículo nuevo a la Ordenanza N°3267.-",
-      "fechaContexto": null,
+      "fechaContexto": "13/08/26",
       "tamanioBytes": 185268,
       "hashSha256": "c3e6684704d32859552698211c0a739979b1f36c1f39636e155c09fcc017c728",
       "descargadoEl": "2026-05-15T11:21:38.528Z",
@@ -13337,6 +13337,6 @@
     }
   ],
   "totalPdfs": 952,
-  "procesado": "2026-08-19T09:42:01.885Z",
+  "procesado": "2026-08-20T09:41:52.665Z",
   "totalConTexto": 952
 }
