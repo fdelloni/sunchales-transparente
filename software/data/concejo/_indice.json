@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-20T09:40:40.617Z",
+  "actualizado": "2026-08-21T09:38:12.360Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13244,7 +13244,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5758.3138DEM.pdf",
       "nombreArchivo": "link.5758.3138DEM.pdf",
       "textoEnlace": "06/08/26 - Expte. N°3138. P. de O. Autoriza a solicitar al gobierno provincial el cien por ciento del fondo de obras menores año 2025 con destino al proyecto denominado \"Pavimentación de calle Falucho\".-",
-      "fechaContexto": null,
+      "fechaContexto": "20/08/26",
       "tamanioBytes": 6305371,
       "hashSha256": "34ec1a761d63ececa293d217865ae1087eedcea40a34c3f17c5bfb42cbc3dd0d",
       "descargadoEl": "2026-08-08T09:38:04.451Z",
@@ -13334,9 +13334,65 @@
       "descargadoEl": "2026-08-14T10:02:03.893Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 22277
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5779.3168DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5779.3168DEM.pdf",
+      "nombreArchivo": "link.5779.3168DEM.pdf",
+      "textoEnlace": "20/08/26 - Expte. N°3168. P. de O. Mantiene la actual estructura institucional del Concejo Municipal de Sunchales, integrado por seis (6) concejales.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1839170,
+      "hashSha256": "4b98b2003f517dc8683d81128529018e0ee10bb3e9c2c9e831112d6c4fdf629f",
+      "descargadoEl": "2026-08-21T09:36:21.846Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5780.3169DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5780.3169DEM.pdf",
+      "nombreArchivo": "link.5780.3169DEM.pdf",
+      "textoEnlace": "20/08/26 - Expte. N°3169. P. de O. Autoriza al Sr. Intendente Municipal a donar a la Dirección Provincial de Vivienda y Urbanismo de la Provincia de Santa Fe un inmueble con destino a la construcción de viviendas en el marco del Plan 4008.-",
+      "fechaContexto": "20/08/26",
+      "tamanioBytes": 1952256,
+      "hashSha256": "7a48c97b6d1f8ffeb6ca7e0cfc9fc83608e18a47ce33cc30a4383d2462cad16c",
+      "descargadoEl": "2026-08-21T09:36:22.098Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5781.3170DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5781.3170DEM.pdf",
+      "nombreArchivo": "link.5781.3170DEM.pdf",
+      "textoEnlace": "20/08/26 - Expte. N°3170. P. de O. Afecta al dominio público municipal, con destino a calle pública, la fracción identificada como lote 2 del plano de mensura para modificación de estado parcelario Nº245.712 en cumplimiento de lo dispuesto en el ARTÍCULO 2º de la Ordenanza Nº3236.–",
+      "fechaContexto": "20/08/26",
+      "tamanioBytes": 5126972,
+      "hashSha256": "fed9c48a117e4bda509f57e8f7feb80bd71835c291ddb8eb6acec47cdb64aef5",
+      "descargadoEl": "2026-08-21T09:36:22.409Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5778.3163MSF.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5778.3163MSF.pdf",
+      "nombreArchivo": "link.5778.3163MSF.pdf",
+      "textoEnlace": "20/08/26 - Expte. N°3163. P. de O. Regula el uso de dispositivos de lanzamiento de proyectiles accionados mediante aire comprimido o similares.-",
+      "fechaContexto": null,
+      "tamanioBytes": 257292,
+      "hashSha256": "d3e18e41d7efefeaa1abd3a888396aac84145ec50ddc6be2529f7f97ee82f4de",
+      "descargadoEl": "2026-08-21T09:36:25.028Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 12447
     }
   ],
-  "totalPdfs": 952,
-  "procesado": "2026-08-20T09:41:52.665Z",
-  "totalConTexto": 952
+  "totalPdfs": 956,
+  "procesado": "2026-08-21T09:39:16.941Z",
+  "totalConTexto": 956
 }
