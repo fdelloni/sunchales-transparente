@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-19T10:26:17.640Z",
+  "actualizado": "2026-08-21T10:27:53.732Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4073,6 +4073,33 @@
       "chars": 862,
       "sha256Pdf": "da041c83e6df7b7b",
       "extraidoEl": "2026-08-15T10:20:26.964Z"
+    },
+    "5409": {
+      "estado": "ok",
+      "titulo": "Minuta 1384/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 880,
+      "sha256Pdf": "9265b3866687bdcb",
+      "extraidoEl": "2026-08-21T10:27:52.294Z"
+    },
+    "5410": {
+      "estado": "ok",
+      "titulo": "Minuta 1385/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "chars": 1852,
+      "sha256Pdf": "276746d5329c9664",
+      "extraidoEl": "2026-08-21T10:27:52.844Z"
+    },
+    "5411": {
+      "estado": "ok",
+      "titulo": "Resolución 889/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1032,
+      "sha256Pdf": "5c564be061c634ab",
+      "extraidoEl": "2026-08-21T10:27:53.330Z"
     }
   }
 }
