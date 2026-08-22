@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-08-21
+ * Generado el: 2026-08-22
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1037,6 +1037,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1254, tipo:"Ordenanza", numero:"3290", anio:2026, fecha:"2026-07-23", titulo:"3290/2026 - Apruébase el Contrato de Comodato a celebrarse entre la Municipalidad de Sunchales y la Asociación Civil Misión Owen, respecto del inmueble ubicado en calle San Juan N.° 2901.", pdf:"1254-digesto.pdf"},
   {id:1259, tipo:"Decreto", numero:"3608", anio:2026, fecha:"2026-08-06", titulo:"3608/2026 - Promulga la Ordenanza N° 3291, por la cual se modifican los artículos 6 y 13 de la Ordenanza N° 2989.", pdf:"1259-digesto.pdf"},
   {id:1260, tipo:"Ordenanza", numero:"3291", anio:2026, fecha:"2026-08-06", titulo:"3291/2026 - Modifica artículos de la Ordenanza N° 2989.", pdf:"1260-digesto.pdf"},
+  {id:1261, tipo:"Ordenanza", numero:"3292", anio:2026, fecha:"2026-08-14", titulo:"3292/2026 - Faculta al Intendente a instrumentar convenio con la Dirección Provincial de Vialidad.", pdf:"1261-digesto.pdf"},
+  {id:1262, tipo:"Decreto", numero:"3611", anio:2026, fecha:"2026-08-14", titulo:"3611/2026- Promulga la Ordenanza N° 3292.", pdf:"1262-digesto.pdf"},
+  {id:1263, tipo:"Decreto", numero:"3612", anio:2026, fecha:"2026-08-14", titulo:"3612/2026 - Promulga la Ordenanza N° 3293.", pdf:"1263-digesto.pdf"},
+  {id:1264, tipo:"Ordenanza", numero:"3293", anio:2026, fecha:"2026-08-14", titulo:"3293/2026 - Declara de utilidad pública el proyecto de obra \"Recambio de Alumbrado Público - Etapa N° 6\".", pdf:"1264-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
