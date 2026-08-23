@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-21T10:27:53.732Z",
+  "actualizado": "2026-08-23T10:21:43.356Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4100,6 +4100,20 @@
       "chars": 1032,
       "sha256Pdf": "5c564be061c634ab",
       "extraidoEl": "2026-08-21T10:27:53.330Z"
+    },
+    "5412": {
+      "estado": "sin-texto",
+      "titulo": "Ordenanza 3292/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "pdfBytes": 1071467
+    },
+    "5413": {
+      "estado": "sin-texto",
+      "titulo": "Ordenanza 3293/2026",
+      "anio": 2026,
+      "paginas": 12,
+      "pdfBytes": 10434931
     }
   }
 }
