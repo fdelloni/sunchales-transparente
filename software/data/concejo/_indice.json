@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-26T09:43:08.626Z",
+  "actualizado": "2026-08-27T19:34:13.617Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": "06/08/26",
+      "fechaContexto": "20/08/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13342,7 +13342,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5779.3168DEM.pdf",
       "nombreArchivo": "link.5779.3168DEM.pdf",
       "textoEnlace": "20/08/26 - Expte. N°3168. P. de O. Mantiene la actual estructura institucional del Concejo Municipal de Sunchales, integrado por seis (6) concejales.-",
-      "fechaContexto": null,
+      "fechaContexto": "27/08/26",
       "tamanioBytes": 1839170,
       "hashSha256": "4b98b2003f517dc8683d81128529018e0ee10bb3e9c2c9e831112d6c4fdf629f",
       "descargadoEl": "2026-08-21T09:36:21.846Z",
@@ -13390,9 +13390,37 @@
       "descargadoEl": "2026-08-21T09:36:25.028Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 12447
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5782.JULIO.pdf",
+      "categoria": "ejecucion-presupuestaria",
+      "categoriaDescripcion": "Ejecución partida presupuestaria mensual",
+      "rutaLocal": "transparencia-economica/ejecucion-presupuestaria/link.5782.JULIO.pdf",
+      "nombreArchivo": "link.5782.JULIO.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 535622,
+      "hashSha256": "f4a7022b1cba3cbd7c9d4a9646e3c00715f8be049fd1d543392f5d4b199a2361",
+      "descargadoEl": "2026-08-27T19:28:09.616Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 10583
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5785.3172DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5785.3172DEM.pdf",
+      "nombreArchivo": "link.5785.3172DEM.pdf",
+      "textoEnlace": "27/08/26 - Expte. N°3172. P. de O. Modifica el ARTÍCULO 1° de la Ordenanza Nº2073.-",
+      "fechaContexto": null,
+      "tamanioBytes": 7340149,
+      "hashSha256": "e67b3318af46bce473c31022fe7d5e069d2e11404c7535a1c765d59e143d4b7f",
+      "descargadoEl": "2026-08-27T19:31:22.343Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 956,
-  "procesado": "2026-08-26T09:44:13.122Z",
-  "totalConTexto": 956
+  "totalPdfs": 958,
+  "procesado": "2026-08-27T19:35:18.249Z",
+  "totalConTexto": 958
 }
