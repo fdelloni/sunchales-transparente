@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-25T10:30:32.128Z",
+  "actualizado": "2026-08-27T20:08:56.155Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4114,6 +4114,24 @@
       "anio": 2026,
       "paginas": 12,
       "pdfBytes": 10434931
+    },
+    "5414": {
+      "estado": "ok",
+      "titulo": "Minuta 1386/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1269,
+      "sha256Pdf": "e2bd36bf04182167",
+      "extraidoEl": "2026-08-27T20:08:55.244Z"
+    },
+    "5415": {
+      "estado": "ok",
+      "titulo": "Declaración 549/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 966,
+      "sha256Pdf": "fbaad9de918ce358",
+      "extraidoEl": "2026-08-27T20:08:55.752Z"
     }
   }
 }
