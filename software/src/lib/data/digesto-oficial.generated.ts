@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-08-30
+ * Generado el: 2026-08-31
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1041,6 +1041,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1262, tipo:"Decreto", numero:"3611", anio:2026, fecha:"2026-08-14", titulo:"3611/2026- Promulga la Ordenanza N° 3292.", pdf:"1262-digesto.pdf"},
   {id:1263, tipo:"Decreto", numero:"3612", anio:2026, fecha:"2026-08-14", titulo:"3612/2026 - Promulga la Ordenanza N° 3293.", pdf:"1263-digesto.pdf"},
   {id:1264, tipo:"Ordenanza", numero:"3293", anio:2026, fecha:"2026-08-14", titulo:"3293/2026 - Declara de utilidad pública el proyecto de obra \"Recambio de Alumbrado Público - Etapa N° 6\".", pdf:"1264-digesto.pdf"},
+  {id:1265, tipo:"Decreto", numero:"3615", anio:2026, fecha:"2026-08-27", titulo:"3615/2026 - Promulga la Ordenanza N° 3294.", pdf:"1265-digesto.pdf"},
+  {id:1266, tipo:"Ordenanza", numero:"3294", anio:2026, fecha:"2026-08-27", titulo:"3294/2026 - Solicita al Gobierno de la Provincia de Santa Fe, el otorgamiento de un aporte no reintegrable, correspondiente a la asignación del Fondo de Obras Menores del año 2025.", pdf:"1266-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
