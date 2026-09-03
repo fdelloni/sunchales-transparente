@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-01T14:31:06.875Z",
+  "actualizado": "2026-09-03T14:08:33.354Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4132,6 +4132,15 @@
       "chars": 966,
       "sha256Pdf": "fbaad9de918ce358",
       "extraidoEl": "2026-08-27T20:08:55.752Z"
+    },
+    "5416": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3294/2026",
+      "anio": 2026,
+      "paginas": 24,
+      "chars": 28789,
+      "sha256Pdf": "fa49c370281bcc33",
+      "extraidoEl": "2026-09-03T14:08:32.940Z"
     }
   }
 }
