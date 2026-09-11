@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-10T13:23:09.576Z",
+  "actualizado": "2026-09-11T13:20:48.641Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13370,7 +13370,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5781.3170DEM.pdf",
       "nombreArchivo": "link.5781.3170DEM.pdf",
       "textoEnlace": "20/08/26 - Expte. N°3170. P. de O. Afecta al dominio público municipal, con destino a calle pública, la fracción identificada como lote 2 del plano de mensura para modificación de estado parcelario Nº245.712 en cumplimiento de lo dispuesto en el ARTÍCULO 2º de la Ordenanza Nº3236.–",
-      "fechaContexto": "20/08/26",
+      "fechaContexto": "27/08/26",
       "tamanioBytes": 5126972,
       "hashSha256": "fed9c48a117e4bda509f57e8f7feb80bd71835c291ddb8eb6acec47cdb64aef5",
       "descargadoEl": "2026-08-21T09:36:22.409Z",
@@ -13412,15 +13412,71 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5785.3172DEM.pdf",
       "nombreArchivo": "link.5785.3172DEM.pdf",
       "textoEnlace": "27/08/26 - Expte. N°3172. P. de O. Modifica el ARTÍCULO 1° de la Ordenanza Nº2073.-",
-      "fechaContexto": null,
+      "fechaContexto": "10/09/26",
       "tamanioBytes": 7340149,
       "hashSha256": "e67b3318af46bce473c31022fe7d5e069d2e11404c7535a1c765d59e143d4b7f",
       "descargadoEl": "2026-08-27T19:31:22.343Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5798.3178DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5798.3178DEM.pdf",
+      "nombreArchivo": "link.5798.3178DEM.pdf",
+      "textoEnlace": "10/09/26 - Expte. N°3178. P. de O. Declara la baja de las obras de pavimentación de calle Balbín dispuesta por Ordenanzas N°3062 y 3073 y ordena la devolución a los contribuyentes de las sumas recaudadas .-",
+      "fechaContexto": null,
+      "tamanioBytes": 654672,
+      "hashSha256": "277895c69ccc4845aa525696bef879adaadd68a38bd9065b77dfad4aff928ca2",
+      "descargadoEl": "2026-09-11T13:18:34.014Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5800.3184DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5800.3184DEM.pdf",
+      "nombreArchivo": "link.5800.3184DEM.pdf",
+      "textoEnlace": "10/09/26 - Expte. N°3184. P. de O. Adhiere a la ley provincial N°14477 por la que se declara el estado de emergencia hídrica en el territorio de la provincia de Santa Fe.-",
+      "fechaContexto": "10/09/26",
+      "tamanioBytes": 4543736,
+      "hashSha256": "d0bf1ec9e3c06651268fc14e115478d85c30728855b9205ecbf42b47af0e4530",
+      "descargadoEl": "2026-09-11T13:18:34.884Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5801.3185DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5801.3185DEM.pdf",
+      "nombreArchivo": "link.5801.3185DEM.pdf",
+      "textoEnlace": "10/09/26 - Expte. N°3185. P. de O. Determina el aumento de la unidad de cuenta municipal a partir del 1° de octubre de 2026.-",
+      "fechaContexto": "10/09/26",
+      "tamanioBytes": 2076011,
+      "hashSha256": "4b112dce0590738193f56d8c3dc7a7bc29c9a6ccba70aa6bd123d6d1dcfb307a",
+      "descargadoEl": "2026-09-11T13:18:35.366Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5799.3180DB.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5799.3180DB.pdf",
+      "nombreArchivo": "link.5799.3180DB.pdf",
+      "textoEnlace": "- Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales.-",
+      "fechaContexto": null,
+      "tamanioBytes": 2194121,
+      "hashSha256": "655a7f819e1f56128103ef1a7f6ba69615f937933b62339a2eea7f4956d0e086",
+      "descargadoEl": "2026-09-11T13:18:47.096Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 61540
     }
   ],
-  "totalPdfs": 958,
-  "procesado": "2026-09-10T13:24:17.964Z",
-  "totalConTexto": 958
+  "totalPdfs": 962,
+  "procesado": "2026-09-11T13:21:52.853Z",
+  "totalConTexto": 962
 }
