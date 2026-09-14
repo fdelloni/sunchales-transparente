@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-09-12T12:32:38.319Z
-// Total licitaciones extraídas: 65
+// Última sincronización: 2026-09-14T15:31:23.010Z
+// Total licitaciones extraídas: 66
 
 export type ProcedimientoOficial =
   | "licitacion_publica"
@@ -49,6 +49,35 @@ export type LicitacionOficial = {
 };
 
 export const licitacionesOficiales: LicitacionOficial[] = [
+  {
+    "id": "lp-02-2026",
+    "titulo": "Licitación Pública N° 02/2026",
+    "procedimiento": "licitacion_publica",
+    "numero": "02/2026",
+    "anio": 2026,
+    "decreto": "Decreto N° 3617/2026",
+    "objeto": null,
+    "presupuestoOficial": null,
+    "fechaApertura": "2026-09-14T00:00:00.000Z",
+    "documentos": [
+      {
+        "nombre": "Decreto N° 3617-2026",
+        "tipo": "decreto",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/09/Decreto-N°-3617-2026.pdf"
+      },
+      {
+        "nombre": "Pliego de Bases y Condiciones",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/09/Pliego-de-Bases-y-Condiciones.pdf"
+      },
+      {
+        "nombre": "Enmienda N° 1",
+        "tipo": "enmienda",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/09/Enmienda-N°-1.pdf"
+      }
+    ],
+    "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
   {
     "id": "lp-01-2026",
     "titulo": "Licitación Pública N° 01/2026",
@@ -2209,8 +2238,8 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-09-12T12:32:38.319Z",
-  total: 65,
+  sincronizadoEl: "2026-09-14T15:31:23.010Z",
+  total: 66,
   porAnio: {
   "2016": 8,
   "2017": 6,
@@ -2222,9 +2251,9 @@ export const licitacionesMeta = {
   "2023": 7,
   "2024": 3,
   "2025": 4,
-  "2026": 1
+  "2026": 2
 },
   porProcedimiento: {
-  "licitacion_publica": 65
+  "licitacion_publica": 66
 },
 } as const;
