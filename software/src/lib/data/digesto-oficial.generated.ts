@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-09-14
+ * Generado el: 2026-09-15
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1043,6 +1043,29 @@ export const normasOficiales: NormaOficial[] = [
   {id:1264, tipo:"Ordenanza", numero:"3293", anio:2026, fecha:"2026-08-14", titulo:"3293/2026 - Declara de utilidad pública el proyecto de obra \"Recambio de Alumbrado Público - Etapa N° 6\".", pdf:"1264-digesto.pdf"},
   {id:1265, tipo:"Decreto", numero:"3615", anio:2026, fecha:"2026-08-27", titulo:"3615/2026 - Promulga la Ordenanza N° 3294.", pdf:"1265-digesto.pdf"},
   {id:1266, tipo:"Ordenanza", numero:"3294", anio:2026, fecha:"2026-08-27", titulo:"3294/2026 - Solicita al Gobierno de la Provincia de Santa Fe, el otorgamiento de un aporte no reintegrable, correspondiente a la asignación del Fondo de Obras Menores del año 2025.", pdf:"1266-digesto.pdf"},
+  {id:1267, tipo:"Decreto", numero:"3601", anio:2026, fecha:"2026-07-21", titulo:"3601/2026 - Declara de Interés Municipal el 60° Aniversario de la Asociación de Bomberos Voluntarios de Sunchales.", pdf:"1267-digesto.pdf"},
+  {id:1268, tipo:"Decreto", numero:"3603", anio:2026, fecha:"2026-07-21", titulo:"3603/2026 - Reglamenta el artículo 11 de la Ordenanza N° 3244/2025", pdf:"1268-digesto.pdf"},
+  {id:1269, tipo:"Decreto", numero:"3604", anio:2026, fecha:"2026-07-27", titulo:"3604/2026 - Designa a la agente María Emilia Chiappero para subrogar las funciones de Jefa de Patentamiento.", pdf:"1269-digesto.pdf"},
+  {id:1270, tipo:"Decreto", numero:"3605", anio:2026, fecha:"2026-07-28", titulo:"3605/2026 - Declara de Interés Municipal la celebración del 85° Aniversario del Club de Bochas Belgrano.", pdf:"1270-digesto.pdf"},
+  {id:1271, tipo:"Decreto", numero:"3606", anio:2026, fecha:"2026-08-05", titulo:"3606/2026 - Aprueba el dictamen de la Comisión de Selección del Dereto 3581/2026 y designa a Melina Ballari en el cargo de Subdirectora de Asesoría Legal y Técnica.", pdf:"1271-digesto.pdf"},
+  {id:1272, tipo:"Decreto", numero:"3607", anio:2026, fecha:"2026-08-05", titulo:"3607/2026 - Aprueba el dictamen de la Comisión de Selección y designa a María Florencia Nuñez en el cargo de Asesora de Normativas y Procesos Jurídicos Administrativos.", pdf:"1272-digesto.pdf"},
+  {id:1273, tipo:"Decreto", numero:"3609", anio:2026, fecha:"2026-08-11", titulo:"3609/2026 - Aprueba el dictamen de la Comisión de Selección y designa a Manzo Gonzalo Claudio en el cargo de Auxiliar de Compras.", pdf:"1273-digesto.pdf"},
+  {id:1274, tipo:"Decreto", numero:"3610", anio:2026, fecha:"2026-08-14", titulo:"3610/2026 - Declara de Interés Municipal la primera \"Fiesta de la Buseca y el Budín de Pan\".", pdf:"1274-digesto.pdf"},
+  {id:1275, tipo:"Decreto", numero:"3613", anio:2026, fecha:"2026-08-24", titulo:"3613/2026 - Establece, para el personal de la Municipalidad de Sunchales, un incremento salarial total del 11% sobre las asignaciones correspondientes al mes de junio 2026.", pdf:"1275-digesto.pdf"},
+  {id:1276, tipo:"Decreto", numero:"3614", anio:2026, fecha:"2026-08-25", titulo:"3614/2026 - Aprueba el informe de la Comisión de Preadjudicación y Adjudica la Licitación Pública N° 01/2026.", pdf:"1276-digesto.pdf"},
+  {id:1277, tipo:"Decreto", numero:"3616", anio:2026, fecha:"2026-08-31", titulo:"3616/2026 - Declara de Interés Municipal la realización del ciclo \"Conversaciones urgentes\".", pdf:"1277-digesto.pdf"},
+  {id:1278, tipo:"Decreto", numero:"3617", anio:2026, fecha:"2026-08-31", titulo:"3617/2026 - Llama a Licitación Pública Nacionla N° 02/2026 para la adquisición de materiales para la ejecución del proyecto: \"Pavimentación calles urbanas\".", pdf:"1278-digesto.pdf"},
+  {id:1283, tipo:"Decreto", numero:"3618", anio:2026, fecha:"2026-09-02", titulo:"3618/2026 - Llama a concurso interno para la cobertura de una vacante del cargo de Jefe de Alumbrado Público", pdf:"1283-digesto.pdf"},
+  {id:1284, tipo:"Decreto", numero:"3619", anio:2026, fecha:"2026-09-02", titulo:"3619/2026 - Llama a concurso interno para la cobertura de una vacante del cargo de Jefe de Estaciones de Bombeo", pdf:"1284-digesto.pdf"},
+  {id:1285, tipo:"Decreto", numero:"3620", anio:2026, fecha:"2026-09-02", titulo:"3620/2026 - Llama a concurso interno para la cobertura de una vacante del cargo de Agente de Inspección.", pdf:"1285-digesto.pdf"},
+  {id:1286, tipo:"Decreto", numero:"3621", anio:2026, fecha:"2026-09-03", titulo:"3621/2026 - Promulga la Ordenanza N° 3295.", pdf:"1286-digesto.pdf"},
+  {id:1287, tipo:"Decreto", numero:"3622", anio:2026, fecha:"2026-09-14", titulo:"3622/2026 - Declara de Interés Municipal la \"Jornada de Arte por la Paz\", organizada por Casa de la Cultura, Nodo Sunchales.", pdf:"1287-digesto.pdf"},
+  {id:1288, tipo:"Decreto", numero:"3624", anio:2026, fecha:"2026-09-14", titulo:"3624/2026 - Promulga la Ordenanza N° 3297.", pdf:"1288-digesto.pdf"},
+  {id:1289, tipo:"Resolución", numero:"4384", anio:2026, fecha:"2026-07-20", titulo:"4384/2026 - Declara extinguida por confusión y dispone la baja total, de la deuda registrada bajo el padrón N° 006151U, en concepto de Contribución de Mejoras por Pavimento.", pdf:"1289-digesto.pdf"},
+  {id:1290, tipo:"Resolución", numero:"4386", anio:2026, fecha:"2026-07-28", titulo:"4386/2026 - Rechaza el reclamo administrativo ingresado por la agente Nirvia M. del V. Mina.", pdf:"1290-digesto.pdf"},
+  {id:1291, tipo:"Resolución", numero:"4387", anio:2026, fecha:"2026-08-11", titulo:"4387/2026 - Afecta al agente Facundo E. Marengo a las funciones de Agente Administrativo Asuntos Rurales e Industriales.", pdf:"1291-digesto.pdf"},
+  {id:1292, tipo:"Resolución", numero:"4388", anio:2026, fecha:"2026-08-12", titulo:"4388/2026 - Acepta, a partir del 31/07 la renuncia presentada por la agente Andrea S. Borkowski al cargo de Subdirectora de Contaduría.", pdf:"1292-digesto.pdf"},
+  {id:1293, tipo:"Resolución", numero:"4389", anio:2026, fecha:"2026-08-21", titulo:"4389/2026 - Dispone, a partir del 01/08/2026, la subrogancia del cargo de Subdirector de Sistemas a favor del agente Santigo Quiroga.", pdf:"1293-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
