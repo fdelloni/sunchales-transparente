@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-09-15
+ * Generado el: 2026-09-16
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1066,6 +1066,14 @@ export const normasOficiales: NormaOficial[] = [
   {id:1291, tipo:"Resolución", numero:"4387", anio:2026, fecha:"2026-08-11", titulo:"4387/2026 - Afecta al agente Facundo E. Marengo a las funciones de Agente Administrativo Asuntos Rurales e Industriales.", pdf:"1291-digesto.pdf"},
   {id:1292, tipo:"Resolución", numero:"4388", anio:2026, fecha:"2026-08-12", titulo:"4388/2026 - Acepta, a partir del 31/07 la renuncia presentada por la agente Andrea S. Borkowski al cargo de Subdirectora de Contaduría.", pdf:"1292-digesto.pdf"},
   {id:1293, tipo:"Resolución", numero:"4389", anio:2026, fecha:"2026-08-21", titulo:"4389/2026 - Dispone, a partir del 01/08/2026, la subrogancia del cargo de Subdirector de Sistemas a favor del agente Santigo Quiroga.", pdf:"1293-digesto.pdf"},
+  {id:1294, tipo:"Resolución", numero:"4391", anio:2026, fecha:"2026-08-25", titulo:"4391/2026 - Rechaza el reclamo administrativo formulado por Rosana B. Montagna y Roberto C. Montagna.", pdf:"1294-digesto.pdf"},
+  {id:1295, tipo:"Ordenanza", numero:"3295", anio:2026, fecha:"2026-09-03", titulo:"3295/2026 - Modifica por sustitución el ANEXO I dispuesto en el Artículo 1° de la Ordenanza N° 3282.", pdf:"1295-digesto.pdf"},
+  {id:1296, tipo:"Ordenanza", numero:"3297", anio:2026, fecha:"2026-09-14", titulo:"3297/2026 - Conserva la estructura institucional del Concejo Municipal de Sunchales por seis concejales.", pdf:"1296-digesto.pdf"},
+  {id:1297, tipo:"Resolución", numero:"4392", anio:2026, fecha:"2026-09-04", titulo:"4392/2026 - No hace lugar al reclamo administrativo formulado por la Sra. Verónica A. Ponte.", pdf:"1297-digesto.pdf"},
+  {id:1298, tipo:"Resolución", numero:"4390", anio:2026, fecha:"2026-08-24", titulo:"4390/2026 - Delega en quien ejerce el cargo de Responsable de Gestión de Cobranzas, la facultad de emitir y suscribir las liquidaciones de deuda correspondientes a obligaciones vencidas e impagas en concepto de TGIU.", pdf:"1298-digesto.pdf"},
+  {id:1299, tipo:"Resolución", numero:"4385", anio:2026, fecha:"2026-07-15", titulo:"4385/2026 - Contrata al Ing. Agrónomo Jonatan A. Camperi para desempeñarse como Órgano Técnico de Aplicación de la Ordenanza N° 2405.", pdf:"1299-digesto.pdf"},
+  {id:1300, tipo:"Decreto", numero:"3625", anio:2026, fecha:"2026-09-14", titulo:"3625/2026 - Promulga la Ordenanza N° 3298.", pdf:"1300-digesto.pdf"},
+  {id:1301, tipo:"Ordenanza", numero:"3298", anio:2026, fecha:"2026-09-14", titulo:"3298/2026 - Autorizase al Sr. Intendente Municipal, a efectuar la donación a favor de la Dirección Provincial de Vivienda y Urbanismo de la Provincia de Santa Fe, del inmueble de propiedad municipal.", pdf:"1301-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
