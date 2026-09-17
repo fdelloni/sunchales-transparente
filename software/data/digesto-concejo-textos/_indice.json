@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-15T14:38:16.566Z",
+  "actualizado": "2026-09-17T14:41:18.901Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4168,6 +4168,15 @@
       "chars": 809,
       "sha256Pdf": "b14557162891b598",
       "extraidoEl": "2026-09-11T14:03:26.229Z"
+    },
+    "5420": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3295/2026",
+      "anio": 2026,
+      "paginas": 40,
+      "chars": 85102,
+      "sha256Pdf": "7d4ca77262df1cfb",
+      "extraidoEl": "2026-09-17T14:41:18.486Z"
     }
   }
 }
