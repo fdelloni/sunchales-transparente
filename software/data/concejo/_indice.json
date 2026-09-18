@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-17T14:11:39.498Z",
+  "actualizado": "2026-09-18T13:28:05.586Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -6084,7 +6084,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5513.2903DEM.pdf",
       "nombreArchivo": "link.5513.2903DEM.pdf",
       "textoEnlace": "18/09/25 - Expte. N°: 2903. P. de O. Crea el Sistema Municipal de Archivo.-",
-      "fechaContexto": "27/02/26",
+      "fechaContexto": "05/03/26",
       "tamanioBytes": 236474,
       "hashSha256": "2b4663b59159f224d556617cfd74b16332414c88ada5ee3e1b1195d6b0507e6f",
       "descargadoEl": "2026-05-03T10:05:31.543Z",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": "20/08/26",
+      "fechaContexto": "27/08/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13426,7 +13426,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5798.3178DEM.pdf",
       "nombreArchivo": "link.5798.3178DEM.pdf",
       "textoEnlace": "10/09/26 - Expte. N°3178. P. de O. Declara la baja de las obras de pavimentación de calle Balbín dispuesta por Ordenanzas N°3062 y 3073 y ordena la devolución a los contribuyentes de las sumas recaudadas .-",
-      "fechaContexto": null,
+      "fechaContexto": "17/09/26",
       "tamanioBytes": 654672,
       "hashSha256": "277895c69ccc4845aa525696bef879adaadd68a38bd9065b77dfad4aff928ca2",
       "descargadoEl": "2026-09-11T13:18:34.014Z",
@@ -13474,9 +13474,37 @@
       "descargadoEl": "2026-09-11T13:18:47.096Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 61540
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5806.3191AS-PS.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5806.3191AS-PS.pdf",
+      "nombreArchivo": "link.5806.3191AS-PS.pdf",
+      "textoEnlace": "17/09/26 - Expte. N°3191. P. de O. Crea el Sistema Local de Educación Inicial y Cuidado Integral.-",
+      "fechaContexto": null,
+      "tamanioBytes": 225517,
+      "hashSha256": "2a408e7f55654500f870490b0e98eb5cf36c8547c1ded9027cdb2740a9238a79",
+      "descargadoEl": "2026-09-18T13:26:01.898Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 24266
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5807.3193DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5807.3193DEM.pdf",
+      "nombreArchivo": "link.5807.3193DEM.pdf",
+      "textoEnlace": "17/09/26 - Expte. N°3193. P. de O. Regula con carácter general y complementario el uso de servicios dispuestos en la Ordenanza N°2310.-",
+      "fechaContexto": null,
+      "tamanioBytes": 313858,
+      "hashSha256": "284263c45e3671093e0f6e9b90b2952901d814e7b8a953fe58df42ba6dc4f1f5",
+      "descargadoEl": "2026-09-18T13:26:03.432Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 962,
-  "procesado": "2026-09-17T14:12:43.824Z",
-  "totalConTexto": 962
+  "totalPdfs": 964,
+  "procesado": "2026-09-18T13:28:57.851Z",
+  "totalConTexto": 964
 }
