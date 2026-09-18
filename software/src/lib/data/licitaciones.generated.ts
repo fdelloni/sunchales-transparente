@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-09-17T14:00:03.458Z
+// Última sincronización: 2026-09-18T13:17:10.487Z
 // Total licitaciones extraídas: 66
 
 export type ProcedimientoOficial =
@@ -74,6 +74,11 @@ export const licitacionesOficiales: LicitacionOficial[] = [
         "nombre": "Enmienda N° 1",
         "tipo": "enmienda",
         "url": "https://sunchales.gob.ar/wp-content/uploads/2026/09/Enmienda-N°-1.pdf"
+      },
+      {
+        "nombre": "Planos",
+        "tipo": "anexo",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/09/0_Anexo.pdf"
       }
     ],
     "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
@@ -2238,7 +2243,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-09-17T14:00:03.458Z",
+  sincronizadoEl: "2026-09-18T13:17:10.487Z",
   total: 66,
   porAnio: {
   "2016": 8,
