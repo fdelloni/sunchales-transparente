@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-17T14:41:18.901Z",
+  "actualizado": "2026-09-19T13:41:43.190Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4177,6 +4177,51 @@
       "chars": 85102,
       "sha256Pdf": "7d4ca77262df1cfb",
       "extraidoEl": "2026-09-17T14:41:18.486Z"
+    },
+    "5421": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3296/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1368,
+      "sha256Pdf": "57ccb3ab9bd05a3a",
+      "extraidoEl": "2026-09-19T13:41:41.865Z"
+    },
+    "5422": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3297/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 863,
+      "sha256Pdf": "8b06a57d1c7c79e2",
+      "extraidoEl": "2026-09-19T13:41:42.318Z"
+    },
+    "5423": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3298/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 2188,
+      "sha256Pdf": "16480a29d57bf44e",
+      "extraidoEl": "2026-09-19T13:41:42.788Z"
+    },
+    "5426": {
+      "estado": "ok",
+      "titulo": "Minuta 1390/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1345,
+      "sha256Pdf": "552464ec1c82c6c4",
+      "extraidoEl": "2026-09-19T13:41:40.886Z"
+    },
+    "5427": {
+      "estado": "ok",
+      "titulo": "Minuta 1391/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1149,
+      "sha256Pdf": "36431d9e911181ed",
+      "extraidoEl": "2026-09-19T13:41:41.408Z"
     }
   }
 }
