@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-09-20
+ * Generado el: 2026-09-21
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1074,6 +1074,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1299, tipo:"Resolución", numero:"4385", anio:2026, fecha:"2026-07-15", titulo:"4385/2026 - Contrata al Ing. Agrónomo Jonatan A. Camperi para desempeñarse como Órgano Técnico de Aplicación de la Ordenanza N° 2405.", pdf:"1299-digesto.pdf"},
   {id:1300, tipo:"Decreto", numero:"3625", anio:2026, fecha:"2026-09-14", titulo:"3625/2026 - Promulga la Ordenanza N° 3298.", pdf:"1300-digesto.pdf"},
   {id:1301, tipo:"Ordenanza", numero:"3298", anio:2026, fecha:"2026-09-14", titulo:"3298/2026 - Autorizase al Sr. Intendente Municipal, a efectuar la donación a favor de la Dirección Provincial de Vivienda y Urbanismo de la Provincia de Santa Fe, del inmueble de propiedad municipal.", pdf:"1301-digesto.pdf"},
+  {id:1302, tipo:"Decreto", numero:"3626", anio:2026, fecha:"2026-09-17", titulo:"3626/2026 - PROMULGA ORDENANZA 3299", pdf:"1302-digesto.pdf"},
+  {id:1303, tipo:"Decreto", numero:"3627", anio:2026, fecha:"2026-09-17", titulo:"3627/2026- PROMULGA ORDENANZA N° 3300", pdf:"1303-digesto.pdf"},
+  {id:1304, tipo:"Ordenanza", numero:"3299", anio:2026, fecha:"2026-09-17", titulo:"3299/2026 - Afecta una fracción al dominio público municipal y tiene por cumplidas obras de infraestructura.", pdf:"1304-digesto.pdf"},
+  {id:1305, tipo:"Ordenanza", numero:"3300", anio:2026, fecha:"2026-09-19", titulo:"3300/2026- modifica la Ordenanza N.º 1294, incorporando al Distrito Equipamiento Recreativo (ER), el Uso Residencial UR4: Hotelería", pdf:"1305-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
