@@ -5,7 +5,7 @@
 //   https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx
 //   https://concejosunchales.gob.ar/resumen-anual.aspx
 //
-// Última sincronización: 2026-09-23T13:59:29.110Z
+// Última sincronización: 2026-09-24T13:56:46.780Z
 // Boletines bimestrales: 68
 // Resúmenes anuales: 14
 
@@ -685,7 +685,7 @@ export const publicacionesConcejo: PublicacionConcejo[] = [
 export const publicacionesConcejoMeta = {
   fuenteBoletines: "https://concejosunchales.gob.ar/boletin-informativo-bimestral.aspx",
   fuenteResumenes: "https://concejosunchales.gob.ar/resumen-anual.aspx",
-  sincronizadoEl: "2026-09-23T13:59:29.110Z",
+  sincronizadoEl: "2026-09-24T13:56:46.780Z",
   totalBoletines: 68,
   totalResumenes: 14,
 } as const;
