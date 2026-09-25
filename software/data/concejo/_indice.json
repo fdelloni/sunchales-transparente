@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-24T14:06:47.862Z",
+  "actualizado": "2026-09-25T14:30:37.821Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13328,7 +13328,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5770.3157LLA.pdf",
       "nombreArchivo": "link.5770.3157LLA.pdf",
       "textoEnlace": "13/08/26 - Expte. N°3157. P. de O. Crea el Estatuto del Docente Municipal.-",
-      "fechaContexto": "13/08/26",
+      "fechaContexto": "24/09/26",
       "tamanioBytes": 241601,
       "hashSha256": "4a0eba9a41f7b0812fcd90b40a9108f5e4c88cc1b8036681cff7ede1d830a602",
       "descargadoEl": "2026-08-14T10:02:03.893Z",
@@ -13426,7 +13426,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5798.3178DEM.pdf",
       "nombreArchivo": "link.5798.3178DEM.pdf",
       "textoEnlace": "10/09/26 - Expte. N°3178. P. de O. Declara la baja de las obras de pavimentación de calle Balbín dispuesta por Ordenanzas N°3062 y 3073 y ordena la devolución a los contribuyentes de las sumas recaudadas .-",
-      "fechaContexto": "17/09/26",
+      "fechaContexto": null,
       "tamanioBytes": 654672,
       "hashSha256": "277895c69ccc4845aa525696bef879adaadd68a38bd9065b77dfad4aff928ca2",
       "descargadoEl": "2026-09-11T13:18:34.014Z",
@@ -13502,9 +13502,37 @@
       "descargadoEl": "2026-09-18T13:26:03.432Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5815.AGOSTO.pdf",
+      "categoria": "ejecucion-presupuestaria",
+      "categoriaDescripcion": "Ejecución partida presupuestaria mensual",
+      "rutaLocal": "transparencia-economica/ejecucion-presupuestaria/link.5815.AGOSTO.pdf",
+      "nombreArchivo": "link.5815.AGOSTO.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 534049,
+      "hashSha256": "cb3565f644a5db40b8983b6e291d4c7d9b279b043b5bcc5566e58563959b7c01",
+      "descargadoEl": "2026-09-25T14:26:59.427Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 10705
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5814.3198LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5814.3198LLA.pdf",
+      "nombreArchivo": "link.5814.3198LLA.pdf",
+      "textoEnlace": "24/09/26 - Expte. N°3198. P. de O. Crea el “Régimen Municipal de Incentivo a las Inversiones Productivas”.-",
+      "fechaContexto": null,
+      "tamanioBytes": 225624,
+      "hashSha256": "96e62b70a5c6a637a6d7027375b33507d3860a8a78deb6a1731169b86bd74ec8",
+      "descargadoEl": "2026-09-25T14:28:35.027Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 9644
     }
   ],
-  "totalPdfs": 964,
-  "procesado": "2026-09-24T14:07:56.771Z",
-  "totalConTexto": 964
+  "totalPdfs": 966,
+  "procesado": "2026-09-25T14:31:46.687Z",
+  "totalConTexto": 966
 }
