@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-23T14:41:29.972Z",
+  "actualizado": "2026-09-25T14:59:39.586Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4240,6 +4240,15 @@
       "chars": 2548,
       "sha256Pdf": "40d5571044829d24",
       "extraidoEl": "2026-09-23T14:41:29.571Z"
+    },
+    "5430": {
+      "estado": "ok",
+      "titulo": "Declaración 552/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 812,
+      "sha256Pdf": "d93f3ced755d146a",
+      "extraidoEl": "2026-09-25T14:59:39.171Z"
     }
   }
 }
