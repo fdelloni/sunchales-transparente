@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-09-28
+ * Generado el: 2026-09-29
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1078,6 +1078,12 @@ export const normasOficiales: NormaOficial[] = [
   {id:1303, tipo:"Decreto", numero:"3627", anio:2026, fecha:"2026-09-17", titulo:"3627/2026- PROMULGA ORDENANZA N° 3300", pdf:"1303-digesto.pdf"},
   {id:1304, tipo:"Ordenanza", numero:"3299", anio:2026, fecha:"2026-09-17", titulo:"3299/2026 - Afecta una fracción al dominio público municipal y tiene por cumplidas obras de infraestructura.", pdf:"1304-digesto.pdf"},
   {id:1305, tipo:"Ordenanza", numero:"3300", anio:2026, fecha:"2026-09-19", titulo:"3300/2026- modifica la Ordenanza N.º 1294, incorporando al Distrito Equipamiento Recreativo (ER), el Uso Residencial UR4: Hotelería", pdf:"1305-digesto.pdf"},
+  {id:1306, tipo:"Decreto", numero:"3631", anio:2026, fecha:"2026-09-28", titulo:"3631/2026 - Promulga la Ordenanza N° 3301.", pdf:"1306-digesto.pdf"},
+  {id:1307, tipo:"Ordenanza", numero:"3301", anio:2026, fecha:"2026-09-24", titulo:"3301/2026 - Determina a partir del 01/10/206, el valor de la Unidad de Cuenta Municipal (UCM) en la suma de pesos doscientos doce ($212,00).", pdf:"1307-digesto.pdf"},
+  {id:1308, tipo:"Decreto", numero:"3635", anio:2026, fecha:"2026-09-29", titulo:"3635/2026 - Establece para el personal de la Municipalidad de Sunchales, un incremento sobre las asignaciones de categoría.", pdf:"1308-digesto.pdf"},
+  {id:1309, tipo:"Decreto", numero:"3634", anio:2026, fecha:"2026-09-29", titulo:"3634/2026 - Declara de Interés Municipal el 135° Aniversario de la Asociación Italiana de Socorros Mutuos Alfredo Cappellini", pdf:"1309-digesto.pdf"},
+  {id:1310, tipo:"Ordenanza", numero:"3302", anio:2026, fecha:"2026-09-24", titulo:"3302/2026 - Admite, con carácter general y complementario al uso de servicios previstos en la Ordenanza N° 2310, la habilitación de actividades productivas.", pdf:"1310-digesto.pdf"},
+  {id:1311, tipo:"Ordenanza", numero:"3532", anio:2026, fecha:"2026-09-28", titulo:"3532/2026 - Promulga la Ordenanza N° 3302.", pdf:"1311-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
