@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-09-29
+ * Generado el: 2026-09-30
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1080,10 +1080,15 @@ export const normasOficiales: NormaOficial[] = [
   {id:1305, tipo:"Ordenanza", numero:"3300", anio:2026, fecha:"2026-09-19", titulo:"3300/2026- modifica la Ordenanza N.º 1294, incorporando al Distrito Equipamiento Recreativo (ER), el Uso Residencial UR4: Hotelería", pdf:"1305-digesto.pdf"},
   {id:1306, tipo:"Decreto", numero:"3631", anio:2026, fecha:"2026-09-28", titulo:"3631/2026 - Promulga la Ordenanza N° 3301.", pdf:"1306-digesto.pdf"},
   {id:1307, tipo:"Ordenanza", numero:"3301", anio:2026, fecha:"2026-09-24", titulo:"3301/2026 - Determina a partir del 01/10/206, el valor de la Unidad de Cuenta Municipal (UCM) en la suma de pesos doscientos doce ($212,00).", pdf:"1307-digesto.pdf"},
-  {id:1308, tipo:"Decreto", numero:"3635", anio:2026, fecha:"2026-09-29", titulo:"3635/2026 - Establece para el personal de la Municipalidad de Sunchales, un incremento sobre las asignaciones de categoría.", pdf:"1308-digesto.pdf"},
   {id:1309, tipo:"Decreto", numero:"3634", anio:2026, fecha:"2026-09-29", titulo:"3634/2026 - Declara de Interés Municipal el 135° Aniversario de la Asociación Italiana de Socorros Mutuos Alfredo Cappellini", pdf:"1309-digesto.pdf"},
   {id:1310, tipo:"Ordenanza", numero:"3302", anio:2026, fecha:"2026-09-24", titulo:"3302/2026 - Admite, con carácter general y complementario al uso de servicios previstos en la Ordenanza N° 2310, la habilitación de actividades productivas.", pdf:"1310-digesto.pdf"},
-  {id:1311, tipo:"Ordenanza", numero:"3532", anio:2026, fecha:"2026-09-28", titulo:"3532/2026 - Promulga la Ordenanza N° 3302.", pdf:"1311-digesto.pdf"},
+  {id:1312, tipo:"Decreto", numero:"3635", anio:2026, fecha:"2026-09-29", titulo:"3635/2026 - Establece para el personal de la Municipalidad de Sunchales, un incremento sobre las asignaciones de categoría.", pdf:"1312-digesto.pdf"},
+  {id:1313, tipo:"Decreto", numero:"3632", anio:2026, fecha:"2026-09-28", titulo:"3632/2026 - Promulga la Ordenanza N° 3302/2026", pdf:"1313-digesto.pdf"},
+  {id:1314, tipo:"Decreto", numero:"3628", anio:2026, fecha:"2026-09-18", titulo:"3628/2026 - Declara de Interés Municipal la realización de la Gran Final Argentina de Rotax Racing.", pdf:"1314-digesto.pdf"},
+  {id:1315, tipo:"Decreto", numero:"3629", anio:2026, fecha:"2026-09-21", titulo:"3629/2026 - Dispone la cesantía del agente Cristian E. M. Lezcano.", pdf:"1315-digesto.pdf"},
+  {id:1316, tipo:"Decreto", numero:"3623", anio:2026, fecha:"2026-09-14", titulo:"3623/2026 - Promulga la Ordenanza N° 3296.", pdf:"1316-digesto.pdf"},
+  {id:1317, tipo:"Decreto", numero:"3630", anio:2026, fecha:"2026-09-25", titulo:"3630/2026 - Declara de Interés Municipal el encuentro Sunchales Tango.", pdf:"1317-digesto.pdf"},
+  {id:1318, tipo:"Ordenanza", numero:"3296", anio:2026, fecha:"2026-09-03", titulo:"3296/2026 - Dispone y autoriza al Departamento Ejecutivo Municipal a efectuar modificaciones en la calzada vehicular en la intersección de calles Frondizi y Juan B. Justo.", pdf:"1318-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
