@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T16:20:00.555Z",
+  "actualizado": "2026-10-01T16:53:05.001Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4249,6 +4249,24 @@
       "chars": 812,
       "sha256Pdf": "d93f3ced755d146a",
       "extraidoEl": "2026-09-25T14:59:39.171Z"
+    },
+    "5431": {
+      "estado": "ok",
+      "titulo": "Declaración 553/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 883,
+      "sha256Pdf": "51a8c5220161de13",
+      "extraidoEl": "2026-10-01T16:53:03.908Z"
+    },
+    "5432": {
+      "estado": "ok",
+      "titulo": "Declaración 554/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1345,
+      "sha256Pdf": "cdeac847eea21b34",
+      "extraidoEl": "2026-10-01T16:53:04.599Z"
     }
   }
 }
