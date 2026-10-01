@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-30T15:43:26.982Z",
+  "actualizado": "2026-10-01T16:04:10.980Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13300,7 +13300,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5771.3160AS-PS.pdf",
       "nombreArchivo": "link.5771.3160AS-PS.pdf",
       "textoEnlace": "13/08/26 - Expte. N°3160. P. de O. Garantiza el derecho de las personas sordas a ser asistidas con el servicio de Lengua de Señas Argentina.-",
-      "fechaContexto": null,
+      "fechaContexto": "17/09/26",
       "tamanioBytes": 175303,
       "hashSha256": "44474918722650580a336e8eba6054df02469fd4b0e524bcdbcfa99cda7b4460",
       "descargadoEl": "2026-08-14T10:01:56.878Z",
@@ -13482,7 +13482,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5806.3191AS-PS.pdf",
       "nombreArchivo": "link.5806.3191AS-PS.pdf",
       "textoEnlace": "17/09/26 - Expte. N°3191. P. de O. Crea el Sistema Local de Educación Inicial y Cuidado Integral.-",
-      "fechaContexto": null,
+      "fechaContexto": "01/10/26",
       "tamanioBytes": 225517,
       "hashSha256": "2a408e7f55654500f870490b0e98eb5cf36c8547c1ded9027cdb2740a9238a79",
       "descargadoEl": "2026-09-18T13:26:01.898Z",
@@ -13530,9 +13530,23 @@
       "descargadoEl": "2026-09-25T14:28:35.027Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 9644
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5820.3203AS-PS.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5820.3203AS-PS.pdf",
+      "nombreArchivo": "link.5820.3203AS-PS.pdf",
+      "textoEnlace": "01/10/26 - Expte. N°3203. P. de O. Crea el sistema municipal de archivo.-",
+      "fechaContexto": null,
+      "tamanioBytes": 311441,
+      "hashSha256": "d28fdf85d549032fffa9304f8046407e852a4a02928706fc85e4b73cf551bb38",
+      "descargadoEl": "2026-10-01T16:02:03.567Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 11018
     }
   ],
-  "totalPdfs": 966,
-  "procesado": "2026-09-30T15:44:36.573Z",
-  "totalConTexto": 966
+  "totalPdfs": 967,
+  "procesado": "2026-10-01T16:05:22.502Z",
+  "totalConTexto": 967
 }
