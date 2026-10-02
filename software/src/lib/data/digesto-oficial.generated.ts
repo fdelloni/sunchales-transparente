@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-01
+ * Generado el: 2026-10-02
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1089,6 +1089,9 @@ export const normasOficiales: NormaOficial[] = [
   {id:1316, tipo:"Decreto", numero:"3623", anio:2026, fecha:"2026-09-14", titulo:"3623/2026 - Promulga la Ordenanza N° 3296.", pdf:"1316-digesto.pdf"},
   {id:1317, tipo:"Decreto", numero:"3630", anio:2026, fecha:"2026-09-25", titulo:"3630/2026 - Declara de Interés Municipal el encuentro Sunchales Tango.", pdf:"1317-digesto.pdf"},
   {id:1318, tipo:"Ordenanza", numero:"3296", anio:2026, fecha:"2026-09-03", titulo:"3296/2026 - Dispone y autoriza al Departamento Ejecutivo Municipal a efectuar modificaciones en la calzada vehicular en la intersección de calles Frondizi y Juan B. Justo.", pdf:"1318-digesto.pdf"},
+  {id:1323, tipo:"Decreto", numero:"3637", anio:2026, fecha:"2026-10-01", titulo:"3637/2026 - Promulga la Ordenanza N° 3303.", pdf:"1323-digesto.pdf"},
+  {id:1324, tipo:"Ordenanza", numero:"3303", anio:2026, fecha:"2026-10-01", titulo:"3303/2026 - Declara el Estado de Emergencia Hídrica en el territorio de la ciudad de Sunchales.", pdf:"1324-digesto.pdf"},
+  {id:1325, tipo:"Resolución", numero:"4398", anio:2026, fecha:"2026-10-01", titulo:"4398/2026 - Exime a las Comisiones Vecinales del pago del Sellado Municipal correspondiente a la Tasa Administrativa prevista en el Artículo 130, inciso C), de la Ordenanza N° 2989/2022", pdf:"1325-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =

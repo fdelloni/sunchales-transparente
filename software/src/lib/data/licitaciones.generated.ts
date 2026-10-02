@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-10-01T15:52:39.150Z
-// Total licitaciones extraídas: 66
+// Última sincronización: 2026-10-02T15:13:43.993Z
+// Total licitaciones extraídas: 67
 
 export type ProcedimientoOficial =
   | "licitacion_publica"
@@ -49,6 +49,25 @@ export type LicitacionOficial = {
 };
 
 export const licitacionesOficiales: LicitacionOficial[] = [
+  {
+    "id": "lp-03-2026",
+    "titulo": "Licitación Pública N° 03/2026",
+    "procedimiento": "licitacion_publica",
+    "numero": "03/2026",
+    "anio": 2026,
+    "decreto": "Decreto N° 3617/2026",
+    "objeto": null,
+    "presupuestoOficial": 174660000,
+    "fechaApertura": "2026-10-28T00:00:00.000Z",
+    "documentos": [
+      {
+        "nombre": "Decreto N° 3636-2026 – Pliego Bases y Condiciones",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/10/Decreto-N°-3636-2026.pdf"
+      }
+    ],
+    "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
   {
     "id": "lp-02-2026",
     "titulo": "Licitación Pública N° 02/2026",
@@ -2243,8 +2262,8 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-10-01T15:52:39.150Z",
-  total: 66,
+  sincronizadoEl: "2026-10-02T15:13:43.993Z",
+  total: 67,
   porAnio: {
   "2016": 8,
   "2017": 6,
@@ -2256,9 +2275,9 @@ export const licitacionesMeta = {
   "2023": 7,
   "2024": 3,
   "2025": 4,
-  "2026": 2
+  "2026": 3
 },
   porProcedimiento: {
-  "licitacion_publica": 66
+  "licitacion_publica": 67
 },
 } as const;
