@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-05T19:03:32.906Z",
+  "actualizado": "2026-10-07T17:15:30.443Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4267,6 +4267,22 @@
       "chars": 1345,
       "sha256Pdf": "cdeac847eea21b34",
       "extraidoEl": "2026-10-01T16:53:04.599Z"
+    },
+    "5433": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3301/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 821,
+      "sha256Pdf": "46ee7e06c4157050",
+      "extraidoEl": "2026-10-07T17:15:29.407Z"
+    },
+    "5434": {
+      "estado": "sin-texto",
+      "titulo": "Ordenanza 3302/2026",
+      "anio": 2026,
+      "paginas": 4,
+      "pdfBytes": 159656
     }
   }
 }
