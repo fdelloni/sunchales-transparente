@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-07T16:10:39.585Z",
+  "actualizado": "2026-10-08T16:13:02.245Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13014,7 +13014,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5713.3106DEM.pdf",
       "nombreArchivo": "link.5713.3106DEM.pdf",
       "textoEnlace": "05/06/26 - Expte. N°3106. P. de O. Crea el programa municipal de fortalecimiento de la seguridad pública local.-",
-      "fechaContexto": "27/08/26",
+      "fechaContexto": "10/09/26",
       "tamanioBytes": 4736297,
       "hashSha256": "0895b54d97f6a9209799fdfae6dceb95527e16bf82a8c54f1c284a3cc170550d",
       "descargadoEl": "2026-06-05T12:08:27.349Z",
@@ -13426,7 +13426,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5798.3178DEM.pdf",
       "nombreArchivo": "link.5798.3178DEM.pdf",
       "textoEnlace": "10/09/26 - Expte. N°3178. P. de O. Declara la baja de las obras de pavimentación de calle Balbín dispuesta por Ordenanzas N°3062 y 3073 y ordena la devolución a los contribuyentes de las sumas recaudadas .-",
-      "fechaContexto": null,
+      "fechaContexto": "08/10/26",
       "tamanioBytes": 654672,
       "hashSha256": "277895c69ccc4845aa525696bef879adaadd68a38bd9065b77dfad4aff928ca2",
       "descargadoEl": "2026-09-11T13:18:34.014Z",
@@ -13524,7 +13524,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5814.3198LLA.pdf",
       "nombreArchivo": "link.5814.3198LLA.pdf",
       "textoEnlace": "24/09/26 - Expte. N°3198. P. de O. Crea el “Régimen Municipal de Incentivo a las Inversiones Productivas”.-",
-      "fechaContexto": null,
+      "fechaContexto": "08/10/26",
       "tamanioBytes": 225624,
       "hashSha256": "96e62b70a5c6a637a6d7027375b33507d3860a8a78deb6a1731169b86bd74ec8",
       "descargadoEl": "2026-09-25T14:28:35.027Z",
@@ -13544,9 +13544,37 @@
       "descargadoEl": "2026-10-01T16:02:03.567Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 11018
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5824.3204DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5824.3204DEM.pdf",
+      "nombreArchivo": "link.5824.3204DEM.pdf",
+      "textoEnlace": "08/10/26 - Expte. N°3204. P. de O. Establece regulaciones relativas al expendio de medicamentos.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1377089,
+      "hashSha256": "782e8b440d69fd63de95cb3505ff9c951a5c7144f92648ac12511f498854b5e6",
+      "descargadoEl": "2026-10-08T16:10:33.315Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5825.3205LLA.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5825.3205LLA.pdf",
+      "nombreArchivo": "link.5825.3205LLA.pdf",
+      "textoEnlace": "08/10/26 - Expte. N°3205. P. de O. Modifica el ARTÍCULO 6° de la Ordenanza N°3303.-",
+      "fechaContexto": null,
+      "tamanioBytes": 177108,
+      "hashSha256": "d87ef785d516eb5f19d8378c9feb86fb6ee5ce61fa688ce100990ed29c068779",
+      "descargadoEl": "2026-10-08T16:10:38.306Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 1710
     }
   ],
-  "totalPdfs": 967,
-  "procesado": "2026-10-07T16:11:50.893Z",
-  "totalConTexto": 967
+  "totalPdfs": 969,
+  "procesado": "2026-10-08T16:14:11.672Z",
+  "totalConTexto": 969
 }
