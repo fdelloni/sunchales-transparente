@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/
 //
-// Última sincronización: 2026-10-07T16:01:16.256Z
-// Total PDFs detectados: 145
+// Última sincronización: 2026-10-08T16:03:39.454Z
+// Total PDFs detectados: 147
 // Cobertura: 2014 – 2026
 
 export type RemuneracionPdf = {
@@ -24,6 +24,22 @@ export type RemuneracionPdf = {
 };
 
 export const remuneracionesPdfs: RemuneracionPdf[] = [
+  {
+    "periodo": "2026-09",
+    "anio": 2026,
+    "mes": 9,
+    "sac": false,
+    "label": "Septiembre 2026",
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/10/Sueldos-funcionarios-septiembre-2026.pdf"
+  },
+  {
+    "periodo": "2026-08",
+    "anio": 2026,
+    "mes": 8,
+    "sac": false,
+    "label": "Agosto 2026",
+    "urlPdf": "https://sunchales.gob.ar/wp-content/uploads/2026/10/Sueldos-funcionarios-agosto-2026.pdf"
+  },
   {
     "periodo": "2026-04",
     "anio": 2026,
@@ -1188,9 +1204,9 @@ export const remuneracionesPdfs: RemuneracionPdf[] = [
 
 export const remuneracionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/remuneraciones-de-funcionarios-municipales/",
-  sincronizadoEl: "2026-10-07T16:01:16.256Z",
-  total: 145,
-  conPeriodoIdentificado: 141,
+  sincronizadoEl: "2026-10-08T16:03:39.454Z",
+  total: 147,
+  conPeriodoIdentificado: 143,
   sinPeriodo: 4,
   porAnio: {
   "2014": 12,
@@ -1204,6 +1220,6 @@ export const remuneracionesMeta = {
   "2023": 13,
   "2024": 14,
   "2025": 13,
-  "2026": 4
+  "2026": 6
 },
 } as const;
