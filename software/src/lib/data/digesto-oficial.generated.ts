@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-08
+ * Generado el: 2026-10-09
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1092,6 +1092,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1323, tipo:"Decreto", numero:"3637", anio:2026, fecha:"2026-10-01", titulo:"3637/2026 - Promulga la Ordenanza N° 3303.", pdf:"1323-digesto.pdf"},
   {id:1324, tipo:"Ordenanza", numero:"3303", anio:2026, fecha:"2026-10-01", titulo:"3303/2026 - Declara el Estado de Emergencia Hídrica en el territorio de la ciudad de Sunchales.", pdf:"1324-digesto.pdf"},
   {id:1325, tipo:"Resolución", numero:"4398", anio:2026, fecha:"2026-10-01", titulo:"4398/2026 - Exime a las Comisiones Vecinales del pago del Sellado Municipal correspondiente a la Tasa Administrativa prevista en el Artículo 130, inciso C), de la Ordenanza N° 2989/2022", pdf:"1325-digesto.pdf"},
+  {id:1326, tipo:"Decreto", numero:"3642", anio:2026, fecha:"2026-10-08", titulo:"3642/26 PROMULGA ORDENAZA 3304", pdf:"1326-digesto.pdf"},
+  {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:"2026-10-08", titulo:"3304/2026 - CREA LA COMISIÓN DE ASUNTOS RURALES", pdf:"1327-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
