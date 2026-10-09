@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-07T17:15:30.443Z",
+  "actualizado": "2026-10-09T16:48:41.680Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4283,6 +4283,33 @@
       "anio": 2026,
       "paginas": 4,
       "pdfBytes": 159656
+    },
+    "5435": {
+      "estado": "ok",
+      "titulo": "Declaración 555/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 978,
+      "sha256Pdf": "934634484d4d9e2a",
+      "extraidoEl": "2026-10-09T16:48:40.141Z"
+    },
+    "5436": {
+      "estado": "ok",
+      "titulo": "Minuta 1392/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1423,
+      "sha256Pdf": "62631f0f2a1b2ca3",
+      "extraidoEl": "2026-10-09T16:48:40.751Z"
+    },
+    "5437": {
+      "estado": "ok",
+      "titulo": "Minuta 1393/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 913,
+      "sha256Pdf": "13b5961897b9d161",
+      "extraidoEl": "2026-10-09T16:48:41.278Z"
     }
   }
 }
