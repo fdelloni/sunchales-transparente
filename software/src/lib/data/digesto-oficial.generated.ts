@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-12
+ * Generado el: 2026-10-13
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1094,6 +1094,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1325, tipo:"Resolución", numero:"4398", anio:2026, fecha:"2026-10-01", titulo:"4398/2026 - Exime a las Comisiones Vecinales del pago del Sellado Municipal correspondiente a la Tasa Administrativa prevista en el Artículo 130, inciso C), de la Ordenanza N° 2989/2022", pdf:"1325-digesto.pdf"},
   {id:1326, tipo:"Decreto", numero:"3642", anio:2026, fecha:"2026-10-08", titulo:"3642/26 PROMULGA ORDENAZA 3304", pdf:"1326-digesto.pdf"},
   {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:"2026-10-08", titulo:"3304/2026 - CREA LA COMISIÓN DE ASUNTOS RURALES", pdf:"1327-digesto.pdf"},
+  {id:1328, tipo:"Decreto", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3643/2026 Promulga la Ordenanza 3305", pdf:"1328-digesto.pdf"},
+  {id:1329, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3305/2026 Modifica O. N° 2073- Parque Renacer", pdf:"1329-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
