@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-13T17:21:35.009Z",
+  "actualizado": "2026-10-15T14:40:17.220Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4310,6 +4310,33 @@
       "chars": 913,
       "sha256Pdf": "13b5961897b9d161",
       "extraidoEl": "2026-10-09T16:48:41.278Z"
+    },
+    "5438": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3303/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "chars": 4156,
+      "sha256Pdf": "b41e46339b4bfc76",
+      "extraidoEl": "2026-10-15T14:40:16.255Z"
+    },
+    "5439": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3304/2026",
+      "anio": 2026,
+      "paginas": 3,
+      "chars": 4715,
+      "sha256Pdf": "dd17f601b7ac6abb",
+      "extraidoEl": "2026-10-15T14:40:16.818Z"
+    },
+    "5440": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3305/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1272,
+      "sha256Pdf": "2fc43c607f2f3fa4",
+      "extraidoEl": "2026-10-15T14:40:15.606Z"
     }
   }
 }
