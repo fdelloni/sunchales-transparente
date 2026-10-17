@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-15T14:40:17.220Z",
+  "actualizado": "2026-10-17T13:27:44.002Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4337,6 +4337,15 @@
       "chars": 1272,
       "sha256Pdf": "2fc43c607f2f3fa4",
       "extraidoEl": "2026-10-15T14:40:15.606Z"
+    },
+    "5441": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3306/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1308,
+      "sha256Pdf": "424b5f0ba880a61d",
+      "extraidoEl": "2026-10-17T13:27:43.585Z"
     }
   }
 }
