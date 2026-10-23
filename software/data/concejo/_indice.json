@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-22T14:37:00.223Z",
+  "actualizado": "2026-10-23T14:21:13.635Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13467,13 +13467,13 @@
       "categoriaDescripcion": "Proyectos en estado parlamentario",
       "rutaLocal": "proyectos/en-tratamiento/link.5799.3180DB.pdf",
       "nombreArchivo": "link.5799.3180DB.pdf",
-      "textoEnlace": "- Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales.-",
+      "textoEnlace": "10/09/26 - Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales.-",
       "fechaContexto": null,
-      "tamanioBytes": 2194121,
-      "hashSha256": "655a7f819e1f56128103ef1a7f6ba69615f937933b62339a2eea7f4956d0e086",
+      "tamanioBytes": 5000112,
+      "hashSha256": "ca9afccb271d0f79d9b197015d2345bdfb32975af6df7a6fbbf7bf9a3b962344",
       "descargadoEl": "2026-09-11T13:18:47.096Z",
       "textoExtraido": true,
-      "tamanioTextoBytes": 61540
+      "tamanioTextoBytes": 170348
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5806.3191AS-PS.pdf",
@@ -13524,7 +13524,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5814.3198LLA.pdf",
       "nombreArchivo": "link.5814.3198LLA.pdf",
       "textoEnlace": "24/09/26 - Expte. N°3198. P. de O. Crea el “Régimen Municipal de Incentivo a las Inversiones Productivas”.-",
-      "fechaContexto": "08/10/26",
+      "fechaContexto": null,
       "tamanioBytes": 225624,
       "hashSha256": "96e62b70a5c6a637a6d7027375b33507d3860a8a78deb6a1731169b86bd74ec8",
       "descargadoEl": "2026-09-25T14:28:35.027Z",
@@ -13572,9 +13572,37 @@
       "descargadoEl": "2026-10-08T16:10:38.306Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 1710
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5835.SEPTIEMBRE.pdf",
+      "categoria": "ejecucion-presupuestaria",
+      "categoriaDescripcion": "Ejecución partida presupuestaria mensual",
+      "rutaLocal": "transparencia-economica/ejecucion-presupuestaria/link.5835.SEPTIEMBRE.pdf",
+      "nombreArchivo": "link.5835.SEPTIEMBRE.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 534071,
+      "hashSha256": "5bbe33ec6533090996a040088abb93f3207370913ef78c3988308d0f7550e3bf",
+      "descargadoEl": "2026-10-23T14:05:12.273Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 10710
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5833.3212NO.pdf",
+      "categoria": "normativa-ambiental",
+      "categoriaDescripcion": "Normativa ambiental",
+      "rutaLocal": "normativa-ambiental/ordenanzas/link.5833.3212NO.pdf",
+      "nombreArchivo": "link.5833.3212NO.pdf",
+      "textoEnlace": "Informe julio-septiembre 2026.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1173250,
+      "hashSha256": "312c8d4e17cca5e77fddca355370a8f0058f895a86a6b1afcb6e25d45df0c118",
+      "descargadoEl": "2026-10-23T14:10:11.646Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 13026
     }
   ],
-  "totalPdfs": 969,
-  "procesado": "2026-10-22T14:38:08.555Z",
-  "totalConTexto": 969
+  "totalPdfs": 971,
+  "procesado": "2026-10-23T14:22:18.930Z",
+  "totalConTexto": 971
 }
