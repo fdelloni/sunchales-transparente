@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-22
+ * Generado el: 2026-10-23
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1093,9 +1093,12 @@ export const normasOficiales: NormaOficial[] = [
   {id:1324, tipo:"Ordenanza", numero:"3303", anio:2026, fecha:"2026-10-01", titulo:"3303/2026 - Declara el Estado de Emergencia Hídrica en el territorio de la ciudad de Sunchales.", pdf:"1324-digesto.pdf"},
   {id:1325, tipo:"Resolución", numero:"4398", anio:2026, fecha:"2026-10-01", titulo:"4398/2026 - Exime a las Comisiones Vecinales del pago del Sellado Municipal correspondiente a la Tasa Administrativa prevista en el Artículo 130, inciso C), de la Ordenanza N° 2989/2022", pdf:"1325-digesto.pdf"},
   {id:1326, tipo:"Decreto", numero:"3642", anio:2026, fecha:"2026-10-08", titulo:"3642/26 PROMULGA ORDENAZA 3304", pdf:"1326-digesto.pdf"},
-  {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:"2026-10-08", titulo:"3304/2026 - CREA LA COMISIÓN DE ASUNTOS RURALES", pdf:"1327-digesto.pdf"},
+  {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:null, titulo:"3304/2026 - CREA LA COMISIÓN DE ASUNTOS RURALES", pdf:"1327-digesto.pdf"},
   {id:1328, tipo:"Decreto", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3643/2026 Promulga la Ordenanza 3305", pdf:"1328-digesto.pdf"},
   {id:1329, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3305/2026 Modifica O. N° 2073- Parque Renacer", pdf:"1329-digesto.pdf"},
+  {id:1330, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-15", titulo:"3306/2026 Designación de calles y del espacio verde del barrio Malvinas Argentinas", pdf:"1330-digesto.pdf"},
+  {id:1331, tipo:"Ordenanza", numero:"", anio:2026, fecha:null, titulo:"3307/2026- Modifica Ordenanza 3294- FOM 2025 \"Proyecto Calle Falucho\"", pdf:"1331-digesto.pdf"},
+  {id:1332, tipo:"Decreto", numero:"", anio:2026, fecha:null, titulo:"3644/2026 Promulga Ordenanza 3306 que nombra calles y espacios del Barrio Malvinas Argentinas", pdf:"1332-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
