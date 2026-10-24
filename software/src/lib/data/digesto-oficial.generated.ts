@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-23
+ * Generado el: 2026-10-24
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1099,6 +1099,7 @@ export const normasOficiales: NormaOficial[] = [
   {id:1330, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-15", titulo:"3306/2026 Designación de calles y del espacio verde del barrio Malvinas Argentinas", pdf:"1330-digesto.pdf"},
   {id:1331, tipo:"Ordenanza", numero:"", anio:2026, fecha:null, titulo:"3307/2026- Modifica Ordenanza 3294- FOM 2025 \"Proyecto Calle Falucho\"", pdf:"1331-digesto.pdf"},
   {id:1332, tipo:"Decreto", numero:"", anio:2026, fecha:null, titulo:"3644/2026 Promulga Ordenanza 3306 que nombra calles y espacios del Barrio Malvinas Argentinas", pdf:"1332-digesto.pdf"},
+  {id:1333, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-22", titulo:"3308- Modifica Art. 6to Ordenanza 3303- Fondo de Emergencia Hídrica", pdf:"1333-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
