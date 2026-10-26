@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-25T13:52:04.909Z",
+  "actualizado": "2026-10-26T16:07:01.078Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13133,8 +13133,8 @@
       "nombreArchivo": "link.849.VALOR UCM.pdf",
       "textoEnlace": "Descargar",
       "fechaContexto": null,
-      "tamanioBytes": 589353,
-      "hashSha256": "bb438adfbf7b8962f97504e0e137615c6367342088a216935ea2d0d12c0bc381",
+      "tamanioBytes": 585240,
+      "hashSha256": "02d2df947219732b7b482b7bcb19cfbafce7e5b143ea102da1e1bd5e94ba00c4",
       "descargadoEl": "2026-07-02T11:34:31.954Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 71
@@ -13467,7 +13467,7 @@
       "categoriaDescripcion": "Proyectos en estado parlamentario",
       "rutaLocal": "proyectos/en-tratamiento/link.5799.3180DB.pdf",
       "nombreArchivo": "link.5799.3180DB.pdf",
-      "textoEnlace": "10/09/26 - Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales.-",
+      "textoEnlace": "10/09/26 - Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales. Ac. Exptes. N°3217NO y 3215NP",
       "fechaContexto": null,
       "tamanioBytes": 5000112,
       "hashSha256": "ca9afccb271d0f79d9b197015d2345bdfb32975af6df7a6fbbf7bf9a3b962344",
@@ -13600,9 +13600,23 @@
       "descargadoEl": "2026-10-23T14:10:11.646Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 13026
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5836.O 3301 2026.pdf",
+      "categoria": "ucm",
+      "categoriaDescripcion": "Ordenanzas que actualizan la Unidad de Cuenta Municipal (UCM)",
+      "rutaLocal": "transparencia-economica/ucm/link.5836.O 3301 2026.pdf",
+      "nombreArchivo": "link.5836.O 3301 2026.pdf",
+      "textoEnlace": "Descargar",
+      "fechaContexto": null,
+      "tamanioBytes": 25499,
+      "hashSha256": "46ee7e06c41570506c9f49121700dac4c1c588c2df1220e7c7cdbd4d09636f67",
+      "descargadoEl": "2026-10-26T15:53:49.199Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 825
     }
   ],
-  "totalPdfs": 971,
-  "procesado": "2026-10-25T13:52:57.351Z",
-  "totalConTexto": 971
+  "totalPdfs": 972,
+  "procesado": "2026-10-26T16:08:04.884Z",
+  "totalConTexto": 972
 }
