@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-10-26
+ * Generado el: 2026-10-27
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1093,13 +1093,35 @@ export const normasOficiales: NormaOficial[] = [
   {id:1324, tipo:"Ordenanza", numero:"3303", anio:2026, fecha:"2026-10-01", titulo:"3303/2026 - Declara el Estado de Emergencia Hídrica en el territorio de la ciudad de Sunchales.", pdf:"1324-digesto.pdf"},
   {id:1325, tipo:"Resolución", numero:"4398", anio:2026, fecha:"2026-10-01", titulo:"4398/2026 - Exime a las Comisiones Vecinales del pago del Sellado Municipal correspondiente a la Tasa Administrativa prevista en el Artículo 130, inciso C), de la Ordenanza N° 2989/2022", pdf:"1325-digesto.pdf"},
   {id:1326, tipo:"Decreto", numero:"3642", anio:2026, fecha:"2026-10-08", titulo:"3642/26 PROMULGA ORDENAZA 3304", pdf:"1326-digesto.pdf"},
-  {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:null, titulo:"3304/2026 - CREA LA COMISIÓN DE ASUNTOS RURALES", pdf:"1327-digesto.pdf"},
+  {id:1327, tipo:"Ordenanza", numero:"3304", anio:2026, fecha:"2026-10-22", titulo:"3304/2026 - Crea la Comisión de Asuntos Rurales.", pdf:"1327-digesto.pdf"},
   {id:1328, tipo:"Decreto", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3643/2026 Promulga la Ordenanza 3305", pdf:"1328-digesto.pdf"},
   {id:1329, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-08", titulo:"3305/2026 Modifica O. N° 2073- Parque Renacer", pdf:"1329-digesto.pdf"},
   {id:1330, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-15", titulo:"3306/2026 Designación de calles y del espacio verde del barrio Malvinas Argentinas", pdf:"1330-digesto.pdf"},
   {id:1331, tipo:"Ordenanza", numero:"", anio:2026, fecha:null, titulo:"3307/2026- Modifica Ordenanza 3294- FOM 2025 \"Proyecto Calle Falucho\"", pdf:"1331-digesto.pdf"},
   {id:1332, tipo:"Decreto", numero:"", anio:2026, fecha:null, titulo:"3644/2026 Promulga Ordenanza 3306 que nombra calles y espacios del Barrio Malvinas Argentinas", pdf:"1332-digesto.pdf"},
-  {id:1333, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-22", titulo:"3308- Modifica Art. 6to Ordenanza 3303- Fondo de Emergencia Hídrica", pdf:"1333-digesto.pdf"},
+  {id:1333, tipo:"Ordenanza", numero:"", anio:2026, fecha:"2026-10-22", titulo:"3308/2026 - Modifica Art. 6to Ordenanza 3303- Fondo de Emergencia Hídrica", pdf:"1333-digesto.pdf"},
+  {id:1334, tipo:"Decreto", numero:"3636", anio:2026, fecha:"2026-09-29", titulo:"3636/2026 - Llama a Licitación Pública N° 03/2026 para la adquisición de un chasis camión.", pdf:"1334-digesto.pdf"},
+  {id:1335, tipo:"Decreto", numero:"3638", anio:2026, fecha:"2026-10-01", titulo:"3638/2026 - Dispone la enajenación del aluminio limpio en desuso proveniente del despiece de equipos de alumbrado público", pdf:"1335-digesto.pdf"},
+  {id:1336, tipo:"Decreto", numero:"3639", anio:2026, fecha:"2026-10-05", titulo:"3639/2026 - Declara de Interés Municipal la celebración del 85° Aniversario del Club de Bochas 12 de Octubre de Sunchales.", pdf:"1336-digesto.pdf"},
+  {id:1337, tipo:"Decreto", numero:"3640", anio:2026, fecha:"2026-10-06", titulo:"3640/2026 - Declara de Interés Municipal la visita a la ciudad de Sunchales de la delegación de la Cooperativa de Crédito Sicredi Pionera de la ciudad hermana de Nova Petrópolis.", pdf:"1337-digesto.pdf"},
+  {id:1338, tipo:"Decreto", numero:"3641", anio:2026, fecha:"2026-10-08", titulo:"3641/2026 - Declara de Interés Municipal, Deportivo, Cultural y Social la 41° Edición de la Fiesta Nacional del Fútbol Infantil.", pdf:"1338-digesto.pdf"},
+  {id:1339, tipo:"Decreto", numero:"3645", anio:2026, fecha:"2026-10-15", titulo:"3645/2026 - Declara de Interés Municipal el 55° Aniversario de la creación de la Comisión Vecinal del Barrio Cristóbal Colón.", pdf:"1339-digesto.pdf"},
+  {id:1340, tipo:"Decreto", numero:"3646", anio:2026, fecha:"2026-10-15", titulo:"3646/2026 - Declara de Interés Municipal el 50° Aniversario de la creación de la Comisión Vecinal del Barrio Cooperativo.", pdf:"1340-digesto.pdf"},
+  {id:1341, tipo:"Decreto", numero:"3647", anio:2026, fecha:"2026-10-22", titulo:"3647/2026 - Reemplaza el Anexo I del Decreto N° 3635/2026 por el Anexo I del presente.", pdf:"1341-digesto.pdf"},
+  {id:1342, tipo:"Decreto", numero:"3648", anio:2026, fecha:"2026-10-22", titulo:"3648/2026 - Declara de Interés Municipal el Curso Intensivo de Diseño de Autos de Alta Performance.", pdf:"1342-digesto.pdf"},
+  {id:1343, tipo:"Decreto", numero:"3649", anio:2026, fecha:"2026-10-22", titulo:"3649/2026 - Promulga la Ordenanza N° 3307.", pdf:"1343-digesto.pdf"},
+  {id:1344, tipo:"Decreto", numero:"3650", anio:2026, fecha:"2026-10-22", titulo:"3650/2026 - Promulga la Ordenanza N° 3308", pdf:"1344-digesto.pdf"},
+  {id:1345, tipo:"Resolución", numero:"4393", anio:2026, fecha:"2026-09-11", titulo:"4393/2026 - Dispone la remoción total de los elementos existentes sobre el inmueble de propiedad de la Municipalidad de Sunchales.", pdf:"1345-digesto.pdf"},
+  {id:1346, tipo:"Resolución", numero:"4394", anio:2026, fecha:"2026-09-24", titulo:"4394/2026 - Otorga a SanCor Cooperativas Unidas Limitadas, en quiebra, habilitación provisoria y condicionada.", pdf:"1346-digesto.pdf"},
+  {id:1347, tipo:"Resolución", numero:"4395", anio:2026, fecha:"2026-09-28", titulo:"4395/2026 - Hace lugar al reclamo formulado por el Sr. Andrés D. O. Ursprung en el Expte. 1601/2026 por daños ocasionados a su vehículo.", pdf:"1347-digesto.pdf"},
+  {id:1348, tipo:"Resolución", numero:"4396", anio:2026, fecha:"2026-09-28", titulo:"4396/2026 - Rechaza el recurso de reconsideración interpuesto por la Sra. Verónica A. Ponte contra la Resolución N° 4392/2026.", pdf:"1348-digesto.pdf"},
+  {id:1349, tipo:"Resolución", numero:"4397", anio:2026, fecha:"2026-09-30", titulo:"4397/2026 - Rechaza el reclamo formulado por la Sra. María Laura Heit, tramitado mediante Expte. 1346/2026.", pdf:"1349-digesto.pdf"},
+  {id:1350, tipo:"Resolución", numero:"4400", anio:2026, fecha:"2026-10-01", titulo:"4400/2026 - Dispone la adscripción de la agente Miriam A. Marin al Área de Habilitaciones de la Municipalidad de Sunchales.", pdf:"1350-digesto.pdf"},
+  {id:1351, tipo:"Resolución", numero:"4401", anio:2026, fecha:"2026-10-08", titulo:"4401/2026 - Designa como integrante del Concejo de Administración del S.A.M.Co Sunchales, en representación de la Municipalidad, a la Subsecretaria de Promoción de Derechos y al Subsecretaria de Hacienda y Finanzas.", pdf:"1351-digesto.pdf"},
+  {id:1352, tipo:"Resolución", numero:"4402", anio:2026, fecha:"2026-10-08", titulo:"4402/2026 - Autoriza el pago de las sumas correspondientes a la liquidación final del agente municipal Emiliano Torres.", pdf:"1352-digesto.pdf"},
+  {id:1353, tipo:"Resolución", numero:"4403", anio:2026, fecha:"2026-10-13", titulo:"4403/2026 - Establece el costo de la credencial habilitante de feriante prevista en el artículo 11 de la Ordenanza N° 3209/2024.", pdf:"1353-digesto.pdf"},
+  {id:1354, tipo:"Resolución", numero:"4404", anio:2026, fecha:"2026-10-13", titulo:"4404/2026 - Acepta la renuncia presentada por el Sr. Santiago Pinotti al cargo de Director de la Secretaría Privada de Intendencia de la Municipalidad de Sunchales, con efectos al día 31/10/2026 inclusive.", pdf:"1354-digesto.pdf"},
+  {id:1355, tipo:"Resolución", numero:"4406", anio:2026, fecha:"2026-10-20", titulo:"4406/2026 - Otorga el cese en forma definitiva, a partir del 01/11/2026, al agente Jorge D. Veiga.", pdf:"1355-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
