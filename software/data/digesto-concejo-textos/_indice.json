@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-25T14:05:53.958Z",
+  "actualizado": "2026-10-27T15:43:40.596Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4409,6 +4409,24 @@
       "chars": 1063,
       "sha256Pdf": "f74a84ef26ee94ff",
       "extraidoEl": "2026-10-25T14:05:53.558Z"
+    },
+    "5449": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3307/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1315,
+      "sha256Pdf": "54a8f5d16fad7e9e",
+      "extraidoEl": "2026-10-27T15:43:39.683Z"
+    },
+    "5450": {
+      "estado": "ok",
+      "titulo": "Ordenanza 3308/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 2032,
+      "sha256Pdf": "c4a0eb03466bbbdd",
+      "extraidoEl": "2026-10-27T15:43:40.195Z"
     }
   }
 }
