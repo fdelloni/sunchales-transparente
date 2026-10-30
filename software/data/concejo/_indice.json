@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-29T16:07:13.474Z",
+  "actualizado": "2026-10-30T15:53:16.572Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -12958,7 +12958,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5691.3086AS-PS.pdf",
       "nombreArchivo": "link.5691.3086AS-PS.pdf",
       "textoEnlace": "14/05/26 - Expte. N°3086. P. de O. Incorpora artículo nuevo a la Ordenanza N°3267.-",
-      "fechaContexto": "13/08/26",
+      "fechaContexto": "17/09/26",
       "tamanioBytes": 185268,
       "hashSha256": "c3e6684704d32859552698211c0a739979b1f36c1f39636e155c09fcc017c728",
       "descargadoEl": "2026-05-15T11:21:38.528Z",
@@ -12971,13 +12971,13 @@
       "categoriaDescripcion": "Proyectos en estado parlamentario",
       "rutaLocal": "proyectos/en-tratamiento/link.5689.3078DEM.pdf",
       "nombreArchivo": "link.5689.3078DEM.pdf",
-      "textoEnlace": "14/05/26 - Expte. N°3078. P. de O. Establece un régimen transitorio de retiro especial para algunos empleados municipales.- AC. 3086AS-PS",
+      "textoEnlace": "14/05/26 - Expte. N°3078. P. de O. Establece un régimen transitorio de retiro especial para algunos empleados municipales.- AC. 3086AS-PS y 3222NI",
       "fechaContexto": "05/06/26",
-      "tamanioBytes": 4829932,
-      "hashSha256": "11601886db7d52cbc16797d9781816eb00adac1ab0c2b7967d8a44a60cbeb000",
+      "tamanioBytes": 5074619,
+      "hashSha256": "69ed33e067f7a37df5fa1a6d81b4941671004a508dd69e6a0c819f5c4217ff2c",
       "descargadoEl": "2026-05-15T11:21:39.724Z",
       "textoExtraido": true,
-      "tamanioTextoBytes": 0
+      "tamanioTextoBytes": 7988
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5690.3085LLA.pdf",
@@ -13552,7 +13552,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5824.3204DEM.pdf",
       "nombreArchivo": "link.5824.3204DEM.pdf",
       "textoEnlace": "08/10/26 - Expte. N°3204. P. de O. Establece regulaciones relativas al expendio de medicamentos.-",
-      "fechaContexto": null,
+      "fechaContexto": "29/10/26",
       "tamanioBytes": 1377089,
       "hashSha256": "782e8b440d69fd63de95cb3505ff9c951a5c7144f92648ac12511f498854b5e6",
       "descargadoEl": "2026-10-08T16:10:33.315Z",
@@ -13614,9 +13614,51 @@
       "descargadoEl": "2026-10-26T15:53:49.199Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 825
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5840.3226DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5840.3226DEM.pdf",
+      "nombreArchivo": "link.5840.3226DEM.pdf",
+      "textoEnlace": "29/10/26 - Expte. N°3226. P. de O. Dispone un incremento del veinte por ciento (20%) sobre la tasa testigo fijada por la Provincia de Santa Fe para la determinación del Impuesto Patente Única sobre Vehículos para el ejercicio fiscal 2027 conforme ley provincial Nº12306.-",
+      "fechaContexto": null,
+      "tamanioBytes": 1402817,
+      "hashSha256": "57775c1f43fe7c7c36acaef13d327f853aea41e7b47b8e9d7a62b5ec945aba9c",
+      "descargadoEl": "2026-10-30T15:39:07.658Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5841.3227DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5841.3227DEM.pdf",
+      "nombreArchivo": "link.5841.3227DEM.pdf",
+      "textoEnlace": "29/10/26 - Expte. N°3227. P. de O. Modifica el ARTÍCULO 6° de la Ordenanza N°2989.-",
+      "fechaContexto": "29/10/26",
+      "tamanioBytes": 2381864,
+      "hashSha256": "ad2f78ba8d95a79d9fc20d57f0409f310d06e701739cb7ae0a16e9176d146cf4",
+      "descargadoEl": "2026-10-30T15:39:08.342Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5842.3228DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5842.3228DEM.pdf",
+      "nombreArchivo": "link.5842.3228DEM.pdf",
+      "textoEnlace": "29/10/26 - Expte. N°3228. P. de O. Dispone la actualización del régimen tarifario del servicio de agua potable.-",
+      "fechaContexto": "29/10/26",
+      "tamanioBytes": 3313383,
+      "hashSha256": "828f73b6af82302027e93f7baf603068c4bf447648aea8feadea130ed5f614ef",
+      "descargadoEl": "2026-10-30T15:39:09.155Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
     }
   ],
-  "totalPdfs": 972,
-  "procesado": "2026-10-29T16:08:06.272Z",
-  "totalConTexto": 972
+  "totalPdfs": 975,
+  "procesado": "2026-10-30T15:53:57.704Z",
+  "totalConTexto": 975
 }
