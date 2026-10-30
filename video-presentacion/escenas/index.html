@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sunchales Transparente — escenas del video</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:#0A4316}
+  body{font-family:"Segoe UI",system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+  #lienzo{position:absolute;inset:0;overflow:hidden}
+  #fondo{position:absolute;inset:0;background:radial-gradient(1500px 950px at 28% 22%,#1A7A2E 0%,#0F5E1F 44%,#0A4316 100%)}
+  #luz{position:absolute;width:1700px;height:1700px;border-radius:50%;background:radial-gradient(circle,rgba(252,200,29,.11) 0%,rgba(252,200,29,0) 62%)}
+  #vineta{position:absolute;inset:0;background:radial-gradient(1400px 900px at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.28) 100%)}
+  #franja{position:absolute;left:0;right:0;bottom:0;height:14px}
+  #franja i{display:block;height:7px}
+  #negro{position:absolute;inset:0;background:#000;pointer-events:none}
+
+  .escena{position:absolute;inset:0;display:none;transform-origin:50% 50%}
+  .kicker{font-size:22px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#FCC81D}
+  .titulo{font-family:Georgia,serif;font-weight:700;line-height:1.04;letter-spacing:-.01em;color:#fff}
+  .oro{color:#FCC81D}
+  .cuerpo{font-size:30px;line-height:1.42;color:rgba(255,255,255,.84)}
+  .chips{display:flex;flex-wrap:wrap;gap:14px}
+  .chip{display:inline-flex;align-items:center;gap:12px;padding:13px 24px;border-radius:999px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);font-size:25px;font-weight:600;color:#fff;white-space:nowrap}
+  .chip::before{content:"";width:10px;height:10px;border-radius:50%;background:#FCC81D;flex:none}
+  .badge-ok,.badge-pend{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:21px;letter-spacing:.12em;padding:9px 16px;border-radius:8px;white-space:nowrap}
+  .badge-ok{background:#ADCF3D;color:#0F5E1F}
+  .badge-pend{background:#FCC81D;color:#5A4400}
+  .badge-ok svg,.badge-pend svg{width:22px;height:22px}
+  .logo{border-radius:24%;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+  .logo svg{display:block;width:100%;height:100%}
+  .ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  .navegador{position:absolute;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 34px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.1)}
+  .navegador .barra{height:50px;background:#EEF1EC;display:flex;align-items:center;gap:9px;padding:0 18px;border-bottom:1px solid #DDE2DA}
+  .navegador .punto{width:13px;height:13px;border-radius:50%}
+  .navegador .url{margin-left:18px;flex:1;height:32px;border-radius:16px;background:#fff;display:flex;align-items:center;gap:9px;padding:0 16px;font-size:17px;color:#5B6A5E}
+  .navegador .url b{color:#0F5E1F;font-weight:600}
+  .navegador .url svg{width:15px;height:15px;color:#3F9430}
+  .navegador .vista{position:absolute;top:50px;left:0;right:0;bottom:0;overflow:hidden;background:#fff}
+  .navegador .vista img{width:100%;display:block}
+
+  .url-grande{display:inline-flex;align-items:center;gap:16px;background:#FCC81D;color:#0F5E1F;font-weight:800;font-size:46px;padding:16px 36px 16px 30px;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.28);letter-spacing:-.01em}
+  .url-grande svg{width:40px;height:40px}
+
+  /* 1 · pregunta */
+  .s1-signo{position:absolute;right:-40px;top:-230px;font-family:Georgia,serif;font-weight:700;font-size:1350px;line-height:1;color:rgba(255,255,255,.035)}
+  .s1-centro{position:absolute;left:0;right:0;top:280px;text-align:center}
+  .s1-l{font-size:116px}
+  .s1-preguntas{margin-top:70px;display:flex;justify-content:center;gap:56px;font-family:Georgia,serif;font-style:italic;font-size:56px;color:#FCC81D}
+
+  /* 3 · presupuesto */
+  .s3-monto{font-family:Georgia,serif;font-weight:700;color:#FCC81D;font-size:196px;line-height:1;margin-top:22px;white-space:nowrap}
+  .s3-monto .signo{font-size:120px;vertical-align:52px;margin-right:6px}
+  .s3-unidad{font-family:Georgia,serif;font-size:50px;font-weight:700;margin-top:6px}
+  .s3-fila{display:flex;align-items:center;gap:18px;margin-top:30px}
+  .s3-fuente{font-size:22px;line-height:1.35;color:rgba(255,255,255,.75)}
+
+  /* 6 · asistente */
+  .tel{position:absolute;width:450px;height:840px;border-radius:62px;background:#0B1F10;padding:14px;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.08)}
+  .tel-pantalla{position:relative;width:100%;height:100%;border-radius:49px;overflow:hidden;background:#F5F0E6}
+  .tel-cab{height:118px;background:#0F5E1F;display:flex;align-items:flex-end;gap:14px;padding:0 22px 18px;border-bottom:4px solid #FCC81D}
+  .tel-cab b{display:block;font-size:22px}
+  .tel-cab small{display:block;font-size:16px;color:rgba(255,255,255,.75);margin-top:2px}
+  .tel-chat{padding:26px 20px;display:flex;flex-direction:column;gap:18px}
+  .msg{font-size:23px;line-height:1.38;color:#1D2B20;padding:14px 18px;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+  .msg.yo{margin-left:auto;max-width:82%;background:#EAF3CC;border-radius:22px 22px 6px 22px}
+  .msg.bot{max-width:90%;background:#fff;border-radius:22px 22px 22px 6px}
+  .msg .hora{display:block;text-align:right;font-size:14px;color:#6E7D70;margin-top:4px}
+  .msg.escribiendo{display:flex;gap:8px;padding:20px 22px;width:max-content}
+  .msg.escribiendo i{display:block;width:12px;height:12px;border-radius:50%;background:#3F9430}
+  .msg .fuente{display:flex;gap:10px;align-items:flex-start;margin-top:12px;padding:10px 12px;border-radius:12px;background:#FFF4D9;font-size:17px;line-height:1.35;color:#5A4400}
+  .msg .fuente svg{width:22px;height:22px;flex:none;margin-top:1px}
+  .msg .badge-ok{font-size:14px;padding:6px 10px;margin-top:12px}
+  .msg .badge-ok svg{width:16px;height:16px}
+  .tel-input{position:absolute;left:16px;right:16px;bottom:22px;height:60px;border-radius:30px;background:#fff;display:flex;align-items:center;padding:0 24px;font-size:20px;color:#8A968C;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+
+  /* 7 · honestidad */
+  .tarjeta{position:absolute;top:440px;width:500px;height:390px;border-radius:24px;background:#FFFDF6;color:#0F5E1F;padding:42px 40px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+  .tarjeta .num{font-family:Georgia,serif;font-weight:700;font-size:30px;color:#9A7400}
+  .tarjeta .ic{width:64px;height:64px;border-radius:18px;background:#EAF3CC;color:#0F5E1F;display:flex;align-items:center;justify-content:center;position:absolute;right:40px;top:36px}
+  .tarjeta .ic svg{width:36px;height:36px}
+  .tarjeta h3{font-family:Georgia,serif;font-size:40px;line-height:1.1;margin-top:30px}
+  .tarjeta p{font-size:25px;line-height:1.4;color:#3B4A3E;margin-top:16px}
+  .tarjeta .insignias{display:flex;gap:12px;margin-top:22px}
+
+  /* 8 · brechas */
+  .s8-fila{display:flex;align-items:center;gap:34px;margin-top:14px}
+  .s8-num{font-family:Georgia,serif;font-weight:700;font-size:330px;line-height:.95;color:#FCC81D;width:400px}
+  .s8-etiqueta{font-family:Georgia,serif;font-size:46px;font-weight:700;line-height:1.12;width:380px}
+
+  /* 9 · datos */
+  .mosaico{position:absolute;width:450px;height:330px;border-radius:26px;background:rgba(255,255,255,.075);border:1.5px solid rgba(255,255,255,.17);padding:40px}
+  .mosaico .ic{width:78px;height:78px;border-radius:50%;background:#FCC81D;color:#0F5E1F;display:flex;align-items:center;justify-content:center}
+  .mosaico .ic svg{width:40px;height:40px}
+  .mosaico h3{font-family:Georgia,serif;font-size:38px;margin-top:28px}
+  .mosaico p{font-size:25px;line-height:1.4;color:rgba(255,255,255,.8);margin-top:10px}
+
+  /* 10 · independiente */
+  .s10-red{position:absolute;inset:0}
+  .s10-red line{stroke:#ADCF3D;stroke-width:2;opacity:.35}
+  .s10-red circle{fill:#FCC81D}
+  .s10-centro{position:absolute;left:0;right:0;top:300px;text-align:center}
+  .s10-icono{display:inline-flex;width:120px;height:120px;border-radius:30px;background:#FCC81D;color:#0F5E1F;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+  .s10-icono svg{width:66px;height:66px}
+
+  /* 11 · cierre */
+  .s11-centro{position:absolute;left:0;right:0;top:190px;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .s11-frase{font-family:Georgia,serif;font-style:italic;font-size:58px;color:rgba(255,255,255,.92)}
+  .s11-verbos{display:flex;gap:40px;margin-top:46px;font-family:Georgia,serif;font-weight:700;font-size:46px;color:#ADCF3D}
+  .s11-pie{margin-top:40px;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+
+  #marca{position:absolute;left:64px;top:44px;display:flex;align-items:center;gap:14px}
+  #marca span{font-family:Georgia,serif;font-weight:700;font-size:25px;color:rgba(255,255,255,.88)}
+  #marca-url{position:absolute;right:64px;top:54px;font-size:23px;font-weight:700;color:#FCC81D;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<div id="lienzo">
+  <div id="fondo"></div>
+  <div id="luz"></div>
+
+  <!-- 1 · pregunta -->
+  <section class="escena" data-id="pregunta">
+    <div class="s1-signo">$</div>
+    <div class="s1-centro">
+      <div class="titulo s1-l">¿Sabés en qué se gasta</div>
+      <div class="titulo s1-l">cada <span class="oro">peso público</span></div>
+      <div class="titulo s1-l">de Sunchales?</div>
+      <div class="s1-preguntas"><span>¿Quién lo decide?</span><span>¿Cuándo?</span><span>¿Con qué norma?</span></div>
+    </div>
+  </section>
+
+  <!-- 2 · presentación -->
+  <section class="escena" data-id="presentacion">
+    <div style="position:absolute;left:140px;top:190px;width:820px">
+      <div class="logo s2-logo" style="width:124px;height:124px"></div>
+      <div class="kicker s2-k" style="margin-top:42px">Plataforma cívica · Sunchales, Santa Fe</div>
+      <div class="titulo s2-t" style="font-size:116px;margin-top:18px">Sunchales<br>Transparente</div>
+      <div class="cuerpo s2-c" style="margin-top:26px;width:720px">Abierta y gratuita, para que cualquier vecino pueda seguir de cerca la gestión de su ciudad.</div>
+      <div class="s2-u" style="margin-top:42px"><span class="url-grande"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>ciudadan.com</span></div>
+    </div>
+    <div class="navegador s2-nav" style="left:1030px;top:170px;width:790px;height:710px" data-url="ciudadan.com" data-img="inicio"></div>
+  </section>
+
+  <!-- 3 · presupuesto -->
+  <section class="escena" data-id="presupuesto">
+    <div style="position:absolute;left:140px;top:205px;width:740px">
+      <div class="kicker s3-k">Presupuesto 2026</div>
+      <div class="s3-monto"><span class="signo">$</span><span class="s3-num">30,94</span></div>
+      <div class="s3-unidad">mil millones de pesos</div>
+      <div class="s3-fila"><span class="badge-ok"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:3"><path d="M5 12l5 5 9-10"/></svg>VERIFICADO</span><span class="s3-fuente">Gastos previstos · proyecto remitido<br>al Concejo Municipal</span></div>
+      <div class="chips s3-chips" style="margin-top:46px">
+        <span class="chip">Gráficos por finalidad</span><span class="chip">Partida por partida</span><span class="chip">Descarga CSV y JSON</span>
+      </div>
+    </div>
+    <div class="navegador s3-nav" style="left:940px;top:150px;width:880px;height:760px" data-url="ciudadan.com/presupuesto" data-img="presupuesto"></div>
+  </section>
+
+  <!-- 4 · contrataciones y personal -->
+  <section class="escena" data-id="contrataciones">
+    <div style="position:absolute;left:140px;top:250px;width:640px">
+      <div class="kicker s4-k">Contrataciones · Personal</div>
+      <div class="titulo s4-t" style="font-size:78px;margin-top:22px">Cada compra y cada cargo, con su documento.</div>
+      <div class="chips s4-chips" style="margin-top:44px">
+        <span class="chip">Licitaciones y compras</span><span class="chip">Cargos políticos</span><span class="chip">Remuneraciones 2014–2026</span>
+      </div>
+    </div>
+    <div class="navegador s4-a" style="left:850px;top:120px;width:760px;height:600px" data-url="ciudadan.com/contrataciones" data-img="contrataciones"></div>
+    <div class="navegador s4-b" style="left:1140px;top:350px;width:680px;height:560px" data-url="ciudadan.com/personal" data-img="personal"></div>
+  </section>
+
+  <!-- 5 · normativa y Concejo -->
+  <section class="escena" data-id="normativa">
+    <div class="navegador s5-a" style="left:100px;top:120px;width:760px;height:600px" data-url="ciudadan.com/digesto" data-img="digesto"></div>
+    <div class="navegador s5-b" style="left:390px;top:350px;width:680px;height:560px" data-url="ciudadan.com/concejo" data-img="concejo"></div>
+    <div style="position:absolute;left:1180px;top:250px;width:620px">
+      <div class="kicker s5-k">Normativa · Concejo Municipal</div>
+      <div class="titulo s5-t" style="font-size:78px;margin-top:22px">Las normas y quién las hace, a la vista.</div>
+      <div class="chips s5-chips" style="margin-top:44px">
+        <span class="chip">Ordenanzas y decretos</span><span class="chip">Concejales y comisiones</span><span class="chip">Proyectos en tratamiento</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · asistente -->
+  <section class="escena" data-id="asistente">
+    <div style="position:absolute;left:140px;top:250px;width:860px">
+      <div class="kicker s6-k">Asistente ciudadano · Inteligencia artificial</div>
+      <div class="titulo s6-t" style="font-size:84px;margin-top:22px">Preguntá con tus propias palabras.</div>
+      <div class="chips s6-chips" style="margin-top:46px;width:780px">
+        <span class="chip">En la web y por WhatsApp</span><span class="chip">A cualquier hora</span><span class="chip">Solo datos verificados</span><span class="chip">Siempre con la fuente</span>
+      </div>
+    </div>
+    <div class="tel s6-tel" style="left:1250px;top:80px">
+      <div class="tel-pantalla">
+        <div class="tel-cab">
+          <div class="logo" style="width:56px;height:56px;box-shadow:none"></div>
+          <div><b>Asistente Ciudadano</b><small>Sunchales Transparente · en línea</small></div>
+        </div>
+        <div class="tel-chat">
+          <div class="msg yo s6-yo">¿Cuál es el presupuesto 2026?<span class="hora">10:24</span></div>
+          <div class="msg bot escribiendo s6-esc"><i></i><i></i><i></i></div>
+          <div class="msg bot s6-resp">El proyecto de Presupuesto 2026 prevé gastos por <b>$30,94 mil millones</b>.
+            <div class="fuente"><svg class="ico" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg><span>Fuente: proyecto de Presupuesto 2026 remitido al Concejo Municipal.</span></div>
+            <span class="badge-ok"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:3"><path d="M5 12l5 5 9-10"/></svg>VERIFICADO</span>
+          </div>
+        </div>
+        <div class="tel-input">Escribí tu consulta…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · honestidad -->
+  <section class="escena" data-id="honestidad">
+    <div style="position:absolute;left:0;right:0;top:170px;text-align:center">
+      <div class="kicker s7-k">Cómo abordamos los datos</div>
+      <div class="titulo s7-t" style="font-size:100px;margin-top:22px">Acá no se inventa nada.</div>
+    </div>
+    <div class="tarjeta s7-c1" style="left:160px">
+      <div class="num">01</div>
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div>
+      <h3>Trazabilidad total</h3>
+      <p>Cada dato cita su fuente oficial, con fecha de consulta y enlace.</p>
+    </div>
+    <div class="tarjeta s7-c2" style="left:710px">
+      <div class="num">02</div>
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+      <h3>Etiquetado honesto</h3>
+      <div class="insignias">
+        <span class="badge-ok"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:3"><path d="M5 12l5 5 9-10"/></svg>VERIFICADO</span>
+        <span class="badge-pend"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>PENDIENTE</span>
+      </div>
+      <p>Lo que todavía no es oficial, se marca como pendiente.</p>
+    </div>
+    <div class="tarjeta s7-c3" style="left:1260px">
+      <div class="num">03</div>
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
+      <h3>Privacidad protegida</h3>
+      <p>Sin datos personales sensibles: la granularidad se ajusta al fin público.</p>
+    </div>
+  </section>
+
+  <!-- 8 · brechas -->
+  <section class="escena" data-id="brechas">
+    <div style="position:absolute;left:140px;top:175px;width:820px">
+      <div class="kicker s8-k">Principio rector · Brechas de transparencia</div>
+      <div class="titulo s8-t" style="font-size:82px;margin-top:20px">La omisión nunca se oculta.</div>
+      <div class="s8-fila s8-f">
+        <div class="s8-num">0</div>
+        <div class="s8-etiqueta">brechas de transparencia declaradas</div>
+      </div>
+      <div class="cuerpo s8-c" style="font-size:27px;margin-top:10px;width:780px">Información que el municipio debe publicar y aún no expone, cada una con su fundamento legal y la vía formal para pedirla.</div>
+    </div>
+    <div class="navegador s8-nav" style="left:1010px;top:150px;width:810px;height:760px" data-url="ciudadan.com/brechas" data-img="brechas"></div>
+  </section>
+
+  <!-- 9 · datos abiertos y alertas -->
+  <section class="escena" data-id="datos">
+    <div style="position:absolute;left:140px;top:290px;width:640px">
+      <div class="kicker s9-k">Siempre al día · Datos abiertos</div>
+      <div class="titulo s9-t" style="font-size:84px;margin-top:22px">Se actualiza sola, todos los días.</div>
+      <div class="cuerpo s9-c" style="margin-top:28px">Sincronizada con las fuentes oficiales del municipio y del Concejo.</div>
+    </div>
+    <div class="mosaico s9-m1" style="left:860px;top:150px">
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg></div>
+      <h3>Actualización diaria</h3><p>Automática, sin cargas manuales.</p>
+    </div>
+    <div class="mosaico s9-m2" style="left:1340px;top:150px">
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></div>
+      <h3>Datos abiertos</h3><p>CSV y JSON con licencia CC-BY-4.0.</p>
+    </div>
+    <div class="mosaico s9-m3" style="left:860px;top:510px">
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+      <h3>API documentada</h3><p>Para conectar tus propias aplicaciones.</p>
+    </div>
+    <div class="mosaico s9-m4" style="left:1340px;top:510px">
+      <div class="ic"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 8 2.5 8h-17S6 15 6 9"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></div>
+      <h3>Alertas</h3><p>Por email o WhatsApp, de cada nueva contratación.</p>
+    </div>
+  </section>
+
+  <!-- 10 · independiente -->
+  <section class="escena" data-id="independiente">
+    <svg class="s10-red" viewBox="0 0 1920 1080"></svg>
+    <div class="s10-centro">
+      <div class="s10-icono s10-i"><svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></div>
+      <div class="titulo s10-t" style="font-size:104px;margin-top:40px">Proyecto cívico independiente</div>
+      <div class="cuerpo s10-c" style="margin-top:24px;font-size:32px">De código abierto, pensado para que cualquier ciudad lo pueda replicar.</div>
+      <div class="chips s10-chips" style="justify-content:center;margin-top:46px">
+        <span class="chip">Código abierto · Licencia MIT</span><span class="chip">Datos CC-BY-4.0</span><span class="chip">Replicable en otros municipios</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · cierre -->
+  <section class="escena" data-id="cierre">
+    <div class="s11-centro">
+      <div class="s11-frase s11-f">La información pública es de todos.</div>
+      <div class="logo s11-logo" style="width:136px;height:136px;margin-top:54px"></div>
+      <div class="titulo s11-n" style="font-size:92px;margin-top:30px">Sunchales Transparente</div>
+      <div class="s11-u" style="margin-top:38px"><span class="url-grande" style="font-size:58px;padding:18px 44px 18px 36px"><svg class="ico" viewBox="0 0 24 24" style="width:50px;height:50px"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>ciudadan.com</span></div>
+      <div class="s11-verbos"><span>Explorá.</span><span>Preguntá.</span><span>Compartí.</span></div>
+    </div>
+  </section>
+
+  <div id="marca"><div class="logo" style="width:46px;height:46px;box-shadow:none"></div><span>Sunchales Transparente</span></div>
+  <div id="marca-url">ciudadan.com</div>
+
+  <div id="vineta"></div>
+  <div id="franja"><i style="background:#FCC81D"></i><i style="background:#ADCF3D"></i></div>
+  <div id="negro"></div>
+</div>
+
+<script src="tiempos.js"></script>
+<script>
+// Logo PWA del sitio (bandera oro/verde + "S"), en versión para el video.
+const LOGO = `<svg viewBox="0 0 512 512"><rect width="512" height="256" fill="#FCC81D"/><rect y="256" width="512" height="256" fill="#ADCF3D"/><circle cx="256" cy="256" r="170" fill="#fff" opacity=".96"/><text x="256" y="262" text-anchor="middle" dominant-baseline="central" font-family="Georgia,serif" font-size="280" font-weight="bold" fill="#0F5E1F">S</text><rect x="180" y="370" width="152" height="10" rx="5" fill="#9A7400"/></svg>`;
+const CANDADO = `<svg class="ico" viewBox="0 0 24 24" style="stroke-width:2.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
+
+document.querySelectorAll(".logo").forEach((e) => (e.innerHTML = LOGO));
+document.querySelectorAll(".navegador").forEach((n) => {
+  const [dominio, ...resto] = n.dataset.url.split("/");
+  const ruta = resto.length ? "/" + resto.join("/") : "";
+  n.innerHTML = `<div class="barra"><span class="punto" style="background:#FF5F57"></span><span class="punto" style="background:#FEBC2E"></span><span class="punto" style="background:#28C840"></span><div class="url">${CANDADO}<span>${dominio}<b>${ruta}</b></span></div></div><div class="vista"><img src="capturas/${n.dataset.img}.jpg"></div>`;
+});
+
+// Red de ciudades (escena 10): un anillo de nodos alrededor del texto.
+const red = document.querySelector(".s10-red");
+const NODOS = [];
+for (let i = 0; i < 18; i++) {
+  const a = (i / 18) * Math.PI * 2 + 0.15;
+  const r = 1 + 0.07 * Math.sin(i * 2.7);
+  NODOS.push([960 + Math.cos(a) * 880 * r, 540 + Math.sin(a) * 450 * r]);
+}
+const siguiente = (i) => NODOS[(i + 1) % NODOS.length];
+red.innerHTML = NODOS.map(([x, y]) => `<line x1="${x}" y1="${y}" x2="${x}" y2="${y}"/>`).join("") +
+  NODOS.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="9"/>`).join("");
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const suave = (x) => 1 - Math.pow(1 - x, 3);
+const vaiven = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const rebote = (x) => { const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+
+function entra(el, lt, t0, { d = 0.75, dx = 0, dy = 36, s = 1, ease = suave } = {}) {
+  if (!el) return;
+  const x = clamp((lt - t0) / d);
+  const p = ease(x);
+  el.style.opacity = clamp(x * 1.6);
+  el.style.transform = `translate(${dx * (1 - p)}px,${dy * (1 - p)}px) scale(${s + (1 - s) * p})`;
+}
+function entranTodos(sel, lt, t0, paso, opts) {
+  $$(sel).forEach((el, i) => entra(el, lt, t0 + i * paso, opts));
+}
+// Desplaza la captura dentro de la ventana. desde/hasta en px de la captura
+// original (1440 de ancho).
+function desplaza(nav, lt, dur, desde, hasta, t0 = 0.8) {
+  const img = nav.querySelector("img");
+  const k = nav.clientWidth / 1440;
+  const p = vaiven(clamp((lt - t0) / Math.max(1, dur - t0 - 0.4)));
+  img.style.transform = `translateY(${-(desde + (hasta - desde) * p) * k}px)`;
+}
+const coma = (n, dec) => n.toFixed(dec).replace(".", ",");
+
+// w("palabra") → segundo (local a la escena) en que la voz dice esa palabra,
+// estimado dentro de su frase por la posición en letras.
+window.FALTAN = new Set();
+function enLaVoz(esc) {
+  return (palabra, extra = 0) => {
+    const p = palabra.toLowerCase();
+    for (const f of esc.frases || []) {
+      const i = f.texto.toLowerCase().indexOf(p);
+      if (i >= 0) return f.inicio + (i / f.texto.length) * (f.fin - f.inicio) + extra;
+    }
+    window.FALTAN.add(`${esc.id}: ${palabra}`);
+    return extra;
+  };
+}
+
+const ANIM = {
+  pregunta(lt, dur, w) {
+    $$(".s1-l").forEach((el, i) => entra(el, lt, 0.15 + i * 0.32, { dy: 50, d: 0.9 }));
+    const p = $$(".s1-preguntas span");
+    entra(p[0], lt, w("quién lo decide", -0.1), { dy: 24, d: 0.6 });
+    entra(p[1], lt, w("cuándo", -0.1), { dy: 24, d: 0.6 });
+    entra(p[2], lt, w("con qué norma", -0.1), { dy: 24, d: 0.6 });
+    $(".s1-signo").style.transform = `translateY(${lt * -6}px)`;
+  },
+  presentacion(lt, dur, w) {
+    entra($(".s2-logo"), lt, 0.1, { dy: 0, s: 0.6, ease: rebote, d: 0.8 });
+    entra($(".s2-k"), lt, 0.35);
+    entra($(".s2-t"), lt, 0.5, { dy: 50, d: 0.9 });
+    entra($(".s2-c"), lt, w("abierta y gratuita", -0.2));
+    entra($(".s2-u"), lt, w("está en", -0.1), { dy: 0, s: 0.7, ease: rebote, d: 0.7 });
+    const nav = $(".s2-nav");
+    entra(nav, lt, 0.7, { dx: 140, dy: 0, d: 1.1 });
+    desplaza(nav, lt, dur, 0, 380, 1.4);
+  },
+  presupuesto(lt, dur, w) {
+    entra($(".s3-k"), lt, 0.1);
+    entra($(".s3-monto"), lt, 0.25, { dy: 30 });
+    // El contador llega a la cifra cuando la voz la dice.
+    const llega = Math.max(1.6, w("millones de pesos"));
+    $(".s3-num").textContent = coma(30.94 * suave(clamp((lt - 0.3) / (llega - 0.3))), 2);
+    entra($(".s3-unidad"), lt, 0.5);
+    entra($(".s3-fila"), lt, llega - 0.2);
+    const chips = $$(".s3-chips .chip");
+    entra(chips[0], lt, w("explicado en gráficos"), { dy: 20 });
+    entra(chips[1], lt, w("partida por partida"), { dy: 20 });
+    entra(chips[2], lt, w("partida por partida", 0.6), { dy: 20 });
+    const nav = $(".s3-nav");
+    entra(nav, lt, 0.3, { dx: 120, dy: 0, d: 1 });
+    desplaza(nav, lt, dur, 0, 420, 1.2);
+  },
+  contrataciones(lt, dur, w) {
+    entra($(".s4-k"), lt, 0.1);
+    entra($(".s4-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    const chips = $$(".s4-chips .chip");
+    entra(chips[0], lt, w("licitaciones", 0.3), { dy: 20 });
+    entra(chips[1], lt, w("cargos políticos"), { dy: 20 });
+    entra(chips[2], lt, w("remuneraciones"), { dy: 20 });
+    const a = $(".s4-a"), b = $(".s4-b");
+    const tb = w("los cargos", -0.2);
+    entra(a, lt, 0.3, { dx: 110, dy: 0, d: 1 });
+    desplaza(a, lt, dur, 0, 640, 1.0);
+    entra(b, lt, tb, { dx: 0, dy: 90, d: 1 });
+    desplaza(b, lt, dur, 120, 760, tb + 0.8);
+  },
+  normativa(lt, dur, w) {
+    entra($(".s5-k"), lt, 0.1);
+    entra($(".s5-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    const chips = $$(".s5-chips .chip");
+    entra(chips[0], lt, w("ordenanzas", 0.3), { dy: 20 });
+    entra(chips[1], lt, w("sus concejales"), { dy: 20 });
+    entra(chips[2], lt, w("los proyectos"), { dy: 20 });
+    const a = $(".s5-a"), b = $(".s5-b");
+    const tb = w("la actividad del concejo", -0.2);
+    entra(a, lt, 0.3, { dx: -110, dy: 0, d: 1 });
+    desplaza(a, lt, dur, 0, 520, 1.0);
+    entra(b, lt, tb, { dx: 0, dy: 90, d: 1 });
+    desplaza(b, lt, dur, 60, 520, tb + 0.8);
+  },
+  asistente(lt, dur, w) {
+    entra($(".s6-k"), lt, 0.1);
+    entra($(".s6-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    const chips = $$(".s6-chips .chip");
+    entra(chips[0], lt, w("en la web"), { dy: 20 });
+    entra(chips[1], lt, w("a cualquier hora"), { dy: 20 });
+    entra(chips[2], lt, w("solo con datos"), { dy: 20 });
+    entra(chips[3], lt, w("siempre te dice"), { dy: 20 });
+    entra($(".s6-tel"), lt, 0.1, { dx: 0, dy: 120, d: 1.0 });
+    entra($(".s6-yo"), lt, w("una duda", 0.2), { dy: 20, s: 0.9, d: 0.5 });
+    const t1 = w("preguntale", 0.4), t2 = Math.max(t1 + 0.8, w("responde", -0.1));
+    const esc = $(".s6-esc");
+    esc.style.display = lt > t1 && lt < t2 ? "flex" : "none";
+    entra(esc, lt, t1, { dy: 10, d: 0.3 });
+    esc.querySelectorAll("i").forEach((p, i) => {
+      p.style.transform = `translateY(${-6 * Math.max(0, Math.sin(lt * 9 - i * 0.9))}px)`;
+    });
+    const resp = $(".s6-resp");
+    resp.style.display = lt >= t2 ? "block" : "none";
+    entra(resp, lt, t2, { dy: 24, s: 0.94, d: 0.6 });
+  },
+  honestidad(lt, dur, w) {
+    entra($(".s7-k"), lt, 0.1);
+    entra($(".s7-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    entra($(".s7-c1"), lt, w("cada dato cita", -0.2), { dy: 70, d: 0.9 });
+    entra($(".s7-c2"), lt, w("lo verificado", -0.2), { dy: 70, d: 0.9 });
+    entra($(".s7-c3"), lt, w("se marca como pendiente", 0.8), { dy: 70, d: 0.9 });
+  },
+  brechas(lt, dur, w) {
+    entra($(".s8-k"), lt, 0.1);
+    entra($(".s8-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    // El contador llega a 59 cuando la voz lo dice.
+    const t0 = w("hoy son", -0.3), llega = Math.max(t0 + 0.8, w("brechas de transparencia"));
+    entra($(".s8-f"), lt, t0 - 0.3, { dy: 30 });
+    $(".s8-num").textContent = Math.round(59 * suave(clamp((lt - t0) / (llega - t0))));
+    entra($(".s8-c"), lt, w("cada una con su fundamento", -0.2));
+    const nav = $(".s8-nav");
+    entra(nav, lt, 0.3, { dx: 120, dy: 0, d: 1 });
+    desplaza(nav, lt, dur, 0, 900, 1.0);
+  },
+  datos(lt, dur, w) {
+    entra($(".s9-k"), lt, 0.1);
+    entra($(".s9-t"), lt, 0.25, { dy: 44, d: 0.9 });
+    entra($(".s9-c"), lt, 0.9);
+    entra($(".s9-m1"), lt, w("todos los días", -0.3), { dy: 50 });
+    entra($(".s9-m2"), lt, w("descargar los datos"), { dy: 50 });
+    entra($(".s9-m3"), lt, w("conectarlos"), { dy: 50 });
+    entra($(".s9-m4"), lt, w("suscribirte"), { dy: 50 });
+  },
+  independiente(lt, dur, w) {
+    entra($(".s10-i"), lt, 0.1, { dy: 0, s: 0.6, ease: rebote, d: 0.8 });
+    entra($(".s10-t"), lt, 0.3, { dy: 44, d: 0.9 });
+    entra($(".s10-c"), lt, w("de código abierto", -0.3));
+    const chips = $$(".s10-chips .chip");
+    entra(chips[0], lt, w("código abierto", 0.2), { dy: 20 });
+    entra(chips[1], lt, w("código abierto", 0.6), { dy: 20 });
+    entra(chips[2], lt, w("replicar", -0.3), { dy: 20 });
+    const lineas = red.querySelectorAll("line"), puntos = red.querySelectorAll("circle");
+    const red0 = w("cualquier otra ciudad", -0.3);
+    NODOS.forEach(([x, y], i) => {
+      const t0 = red0 + i * 0.12;
+      const p = suave(clamp((lt - t0 - 0.25) / 0.6));
+      const [x2, y2] = siguiente(i);
+      lineas[i].setAttribute("x2", x + (x2 - x) * p);
+      lineas[i].setAttribute("y2", y + (y2 - y) * p);
+      lineas[i].style.opacity = 0.45 * clamp(p * 3);
+      puntos[i].setAttribute("r", 9 * rebote(clamp((lt - t0) / 0.5)));
+    });
+  },
+  cierre(lt, dur, w) {
+    entra($(".s11-f"), lt, 0.1, { dy: 30, d: 0.9 });
+    const tu = w("entrá a", -0.5);
+    entra($(".s11-logo"), lt, tu - 0.5, { dy: 0, s: 0.6, ease: rebote, d: 0.8 });
+    entra($(".s11-n"), lt, tu - 0.25, { dy: 40, d: 0.9 });
+    entra($(".s11-u"), lt, tu + 0.1, { dy: 0, s: 0.75, ease: rebote, d: 0.8 });
+    const v = $$(".s11-verbos span");
+    entra(v[0], lt, w("explorá", -0.1), { dy: 24 });
+    entra(v[1], lt, w("preguntá", -0.1), { dy: 24 });
+    entra(v[2], lt, w("compartilo", -0.1), { dy: 24 });
+  },
+};
+
+// El teléfono de la escena "asistente" ocupa la esquina de la marca.
+const MARCA_EN = ["presupuesto", "contrataciones", "normativa", "honestidad", "brechas", "datos"];
+const FUNDIDO = 0.5;
+const escenasDom = Object.fromEntries($$(".escena").map((e) => [e.dataset.id, e]));
+let TL = window.TIEMPOS;
+
+window.configurar = (tl) => { TL = tl; };
+
+window.seek = (t) => {
+  const { escenas, total } = TL;
+  let marca = 0;
+  for (const esc of escenas) {
+    const el = escenasDom[esc.id];
+    const entrada = esc === escenas[0] ? 1 : clamp((t - (esc.inicio - FUNDIDO / 2)) / FUNDIDO);
+    const salida = esc === escenas[escenas.length - 1] ? 1 : clamp((esc.fin + FUNDIDO / 2 - t) / FUNDIDO);
+    const v = Math.min(entrada, salida);
+    if (v <= 0) { el.style.display = "none"; continue; }
+    el.style.display = "block";
+    el.style.opacity = v;
+    const lt = t - esc.inicio, dur = esc.fin - esc.inicio;
+    el.style.transform = `scale(${1 + 0.018 * clamp(lt / dur) + (1 - salida) * 0.02})`;
+    ANIM[esc.id](lt, dur, enLaVoz(esc));
+    if (MARCA_EN.includes(esc.id)) marca = Math.max(marca, v);
+  }
+  $("#marca").style.opacity = marca;
+  $("#marca-url").style.opacity = marca;
+  $("#luz").style.transform = `translate(${-300 + 260 * Math.sin(t * 0.07)}px,${-500 + 180 * Math.cos(t * 0.05)}px)`;
+  $("#negro").style.opacity = Math.max(clamp(1 - t / 0.6), clamp((t - (total - 1.0)) / 1.0));
+};
+
+window.listo = Promise.all([
+  document.fonts.ready,
+  ...[...document.images].map((im) => (im.complete ? 1 : new Promise((r) => { im.onload = im.onerror = r; }))),
+]);
+
+// Vista rápida en un navegador: index.html?t=12.5 congela ese instante;
+// index.html?play reproduce en tiempo real.
+const q = new URLSearchParams(location.search);
+window.listo.then(() => {
+  if (q.has("t")) window.seek(parseFloat(q.get("t")));
+  else if (q.has("play")) {
+    const t0 = performance.now();
+    const paso = () => { const t = (performance.now() - t0) / 1000; window.seek(t % TL.total); requestAnimationFrame(paso); };
+    paso();
+  } else window.seek(0);
+});
+</script>
+</body>
+</html>
