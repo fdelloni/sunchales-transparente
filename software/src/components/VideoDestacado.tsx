@@ -3,7 +3,7 @@
 /**
  * Banda destacada en la home con el video institucional de Sunchales Transparente.
  *
- * Estrategia de carga: "click-to-play". El archivo mp4 (~35 MB) NO se descarga
+ * Estrategia de carga: "click-to-play". El archivo mp4 (~17 MB) NO se descarga
  * con la página: sólo se muestra el póster (imagen liviana). El <video> recién
  * se monta cuando el ciudadano toca "reproducir". Así la home carga rápido y el
  * video se sirve desde el propio sitio (public/videos), sin terceros ni rastreo
@@ -17,7 +17,7 @@ import { useState } from "react";
 
 const VIDEO_SRC = "/videos/sunchales-transparente.mp4";
 const POSTER = "/videos/poster.jpg";
-const DURACION = "8:43";
+const DURACION = "1:47";
 
 export default function VideoDestacado() {
   const [reproduciendo, setReproduciendo] = useState(false);
