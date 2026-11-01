@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-31T15:36:46.886Z",
+  "actualizado": "2026-11-01T16:34:39.644Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4427,6 +4427,15 @@
       "chars": 2032,
       "sha256Pdf": "c4a0eb03466bbbdd",
       "extraidoEl": "2026-10-27T15:43:40.195Z"
+    },
+    "5451": {
+      "estado": "ok",
+      "titulo": "Declaración 559/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 1048,
+      "sha256Pdf": "c9efa011daa6ec6e",
+      "extraidoEl": "2026-11-01T16:34:39.233Z"
     }
   }
 }
