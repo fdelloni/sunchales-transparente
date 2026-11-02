@@ -4,7 +4,7 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-11-01T15:38:28.852Z
+// Última sincronización: 2026-11-02T19:00:07.244Z
 // Total licitaciones extraídas: 67
 
 export type ProcedimientoOficial =
@@ -55,7 +55,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
     "procedimiento": "licitacion_publica",
     "numero": "03/2026",
     "anio": 2026,
-    "decreto": "Decreto N° 3617/2026",
+    "decreto": "Decreto N° 3636/2026",
     "objeto": null,
     "presupuestoOficial": 174660000,
     "fechaApertura": "2026-10-28T00:00:00.000Z",
@@ -2262,7 +2262,7 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-11-01T15:38:28.852Z",
+  sincronizadoEl: "2026-11-02T19:00:07.244Z",
   total: 67,
   porAnio: {
   "2016": 8,
