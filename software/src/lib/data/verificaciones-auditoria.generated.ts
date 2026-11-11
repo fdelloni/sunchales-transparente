@@ -7,7 +7,7 @@
 //   2) Boletín Oficial: ¿cuál es el último mes publicado en las 3 plataformas?
 //   3) Farmacias de turno: ¿hay cronograma para el mes en curso?
 //
-// Última sincronización: 2026-11-10T16:45:14.419Z
+// Última sincronización: 2026-11-11T16:52:07.633Z
 //
 // Política de honestidad: si una verificación no puede determinar el estado
 // con evidencia textual del HTML servido, el resultado es "indeterminado"
@@ -44,14 +44,23 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "id": "concejales-actuales",
     "brechaIdRelacionada": "con-cv-concejales-incompletos",
     "url": "https://concejosunchales.gob.ar/concejales-actuales.aspx",
-    "estadoHttp": 503,
-    "fechaVerificacion": "2026-11-10T16:45:08.134Z",
-    "resultado": "error",
+    "estadoHttp": 200,
+    "fechaVerificacion": "2026-11-11T16:52:01.516Z",
+    "resultado": "ok",
     "hallazgos": [
-      "No se pudo acceder a la página: HTTP 503 Service Unavailable."
+      "6 de 6 apellidos vigentes detectados en el HTML: Delmastro, Nicolau, Cattaneo, Astor, Torriri, Balduino.",
+      "0 de 3 apellidos cesados todavía aparecen en el HTML: ninguno.",
+      "Los 6 apellidos vigentes aparecen y ningún cesado figura: composición consistente con jura 03-mar-2026."
     ],
     "meta": {
-      "concejalesVigentesDetectados": [],
+      "concejalesVigentesDetectados": [
+        "Delmastro",
+        "Nicolau",
+        "Cattaneo",
+        "Astor",
+        "Torriri",
+        "Balduino"
+      ],
       "concejalesCesadosDetectados": []
     }
   },
@@ -60,7 +69,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "pre-boletin-oficial-municipal",
     "url": "https://sunchales.gob.ar/boletines-oficiales | https://sunchales.miportal.ar/digesto | https://boletinoficial.sunchales.gob.ar/",
     "estadoHttp": 404,
-    "fechaVerificacion": "2026-11-10T16:45:12.599Z",
+    "fechaVerificacion": "2026-11-11T16:52:05.829Z",
     "resultado": "indeterminado",
     "hallazgos": [
       "[drupal-legacy] HTTP 404 Not Found (HTTP 404)",
@@ -103,7 +112,7 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
     "brechaIdRelacionada": "sal-farmacias-turno-desactualizado",
     "url": "https://sunchales.gob.ar/farmacias-de-turno/",
     "estadoHttp": 200,
-    "fechaVerificacion": "2026-11-10T16:45:14.419Z",
+    "fechaVerificacion": "2026-11-11T16:52:07.633Z",
     "resultado": "desactualizado",
     "hallazgos": [
       "Meses mencionados en la página: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, setiembre, octubre, noviembre.",
@@ -138,13 +147,13 @@ export const verificacionesAuditoria: VerificacionAuditoria[] = [
 ];
 
 export const verificacionesAuditoriaMeta = {
-  sincronizadoEl: "2026-11-10T16:45:14.419Z",
+  sincronizadoEl: "2026-11-11T16:52:07.633Z",
   total: 3,
   resultadosPorTipo: {
-    ok: 0,
+    ok: 1,
     desactualizado: 1,
     indeterminado: 1,
-    error: 1,
+    error: 0,
   },
 } as const;
 
