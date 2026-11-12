@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-11T17:08:23.337Z",
+  "actualizado": "2026-11-12T17:36:48.451Z",
   "pdfs": [
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5615.Boletín Informativo Período Noviembre Diciembre.pdf",
@@ -13467,13 +13467,13 @@
       "categoriaDescripcion": "Proyectos en estado parlamentario",
       "rutaLocal": "proyectos/en-tratamiento/link.5799.3180DB.pdf",
       "nombreArchivo": "link.5799.3180DB.pdf",
-      "textoEnlace": "10/09/26 - Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales. Ac. Exptes. N°3217NO y 3215NP",
+      "textoEnlace": "10/09/26 - Expte. N°3180. P. de O. Crea el Programa Integral de Movilidad Segura y Conectividad Urbana de Sunchales. Ac. Exptes. N°3217NO, 3215NP, 3229NP",
       "fechaContexto": null,
-      "tamanioBytes": 5000112,
-      "hashSha256": "ca9afccb271d0f79d9b197015d2345bdfb32975af6df7a6fbbf7bf9a3b962344",
+      "tamanioBytes": 5312059,
+      "hashSha256": "4cc678d0fff4499956ff88107096e02f17c042afc130a9ecfa71877a26898870",
       "descargadoEl": "2026-09-11T13:18:47.096Z",
       "textoExtraido": true,
-      "tamanioTextoBytes": 170348
+      "tamanioTextoBytes": 201541
     },
     {
       "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5806.3191AS-PS.pdf",
@@ -13622,7 +13622,7 @@
       "rutaLocal": "proyectos/en-tratamiento/link.5840.3226DEM.pdf",
       "nombreArchivo": "link.5840.3226DEM.pdf",
       "textoEnlace": "29/10/26 - Expte. N°3226. P. de O. Dispone un incremento del veinte por ciento (20%) sobre la tasa testigo fijada por la Provincia de Santa Fe para la determinación del Impuesto Patente Única sobre Vehículos para el ejercicio fiscal 2027 conforme ley provincial Nº12306.-",
-      "fechaContexto": null,
+      "fechaContexto": "12/11/26",
       "tamanioBytes": 1402817,
       "hashSha256": "57775c1f43fe7c7c36acaef13d327f853aea41e7b47b8e9d7a62b5ec945aba9c",
       "descargadoEl": "2026-10-30T15:39:07.658Z",
@@ -13684,9 +13684,37 @@
       "descargadoEl": "2026-11-06T16:41:44.029Z",
       "textoExtraido": true,
       "tamanioTextoBytes": 10755
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5852.3232DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5852.3232DEM.pdf",
+      "nombreArchivo": "link.5852.3232DEM.pdf",
+      "textoEnlace": "12/11/26 - Expte. N°3232. P. de O. Prohíbe en la vía pública las actividades de cuidacoches, reserva de estacionamiento y lavado de vehículos, en el marco de la Ley Provincial N°14486, y deroga la Ordenanza N°2501.-",
+      "fechaContexto": null,
+      "tamanioBytes": 2740318,
+      "hashSha256": "1fa054763c221cb8b29173e00fbc51e54992758684ab9e780b2eec83b9bd9104",
+      "descargadoEl": "2026-11-12T17:24:07.776Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 0
+    },
+    {
+      "urlOriginal": "https://concejosunchales.gob.ar/Archivos/Link/link.5853.3239DEM.pdf",
+      "categoria": "proyectos-en-tratamiento",
+      "categoriaDescripcion": "Proyectos en estado parlamentario",
+      "rutaLocal": "proyectos/en-tratamiento/link.5853.3239DEM.pdf",
+      "nombreArchivo": "link.5853.3239DEM.pdf",
+      "textoEnlace": "12/11/26 - Expte. N°3239. P. de O. Determina el Presupuesto General de la Municipalidad de Sunchales para el ejercicio 2027.-",
+      "fechaContexto": "12/11/26",
+      "tamanioBytes": 17000380,
+      "hashSha256": "3d9e48c8ab72e3f668f21f50e40dae6003fe949a84271f65280f395c89a8c11f",
+      "descargadoEl": "2026-11-12T17:24:09.521Z",
+      "textoExtraido": true,
+      "tamanioTextoBytes": 156094
     }
   ],
-  "totalPdfs": 977,
-  "procesado": "2026-11-11T17:08:58.153Z",
-  "totalConTexto": 977
+  "totalPdfs": 979,
+  "procesado": "2026-11-12T17:37:27.564Z",
+  "totalConTexto": 979
 }
