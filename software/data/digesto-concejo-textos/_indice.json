@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-11T17:45:34.814Z",
+  "actualizado": "2026-11-13T17:30:07.352Z",
   "normas": {
     "4943": {
       "estado": "ok",
@@ -4436,6 +4436,40 @@
       "chars": 1048,
       "sha256Pdf": "c9efa011daa6ec6e",
       "extraidoEl": "2026-11-01T16:34:39.233Z"
+    },
+    "5452": {
+      "estado": "ok",
+      "titulo": "Declaración 560/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 906,
+      "sha256Pdf": "e3ba6fe9ab16cbaa",
+      "extraidoEl": "2026-11-13T17:30:05.110Z"
+    },
+    "5453": {
+      "estado": "ok",
+      "titulo": "Declaración 561/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 897,
+      "sha256Pdf": "ccef15cf072f1cf7",
+      "extraidoEl": "2026-11-13T17:30:05.714Z"
+    },
+    "5454": {
+      "estado": "ok",
+      "titulo": "Declaración 562/2026",
+      "anio": 2026,
+      "paginas": 1,
+      "chars": 900,
+      "sha256Pdf": "176228c321fd9f00",
+      "extraidoEl": "2026-11-13T17:30:06.232Z"
+    },
+    "5455": {
+      "estado": "sin-texto",
+      "titulo": "Ordenanza 3309/2026",
+      "anio": 2026,
+      "paginas": 2,
+      "pdfBytes": 1151505
     }
   }
 }
