@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-11-15
+ * Generado el: 2026-11-16
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1122,6 +1122,23 @@ export const normasOficiales: NormaOficial[] = [
   {id:1353, tipo:"Resolución", numero:"4403", anio:2026, fecha:"2026-10-13", titulo:"4403/2026 - Establece el costo de la credencial habilitante de feriante prevista en el artículo 11 de la Ordenanza N° 3209/2024.", pdf:"1353-digesto.pdf"},
   {id:1354, tipo:"Resolución", numero:"4404", anio:2026, fecha:"2026-10-13", titulo:"4404/2026 - Acepta la renuncia presentada por el Sr. Santiago Pinotti al cargo de Director de la Secretaría Privada de Intendencia de la Municipalidad de Sunchales, con efectos al día 31/10/2026 inclusive.", pdf:"1354-digesto.pdf"},
   {id:1355, tipo:"Resolución", numero:"4406", anio:2026, fecha:"2026-10-20", titulo:"4406/2026 - Otorga el cese en forma definitiva, a partir del 01/11/2026, al agente Jorge D. Veiga.", pdf:"1355-digesto.pdf"},
+  {id:1360, tipo:"Decreto", numero:"3655", anio:2026, fecha:"2026-11-02", titulo:"3655/2026 - Promulga la Ordenanza N° 3655/2026", pdf:"1360-digesto.pdf"},
+  {id:1361, tipo:"Ordenanza", numero:"3309", anio:2026, fecha:"2026-11-02", titulo:"3309/2026 - La Municipalidad de Sunchales garantiza que toda persona sorda en la ciudad pueda ser asistida con el servicio de Lengua de Señas Argentina Español.", pdf:"1361-digesto.pdf"},
+  {id:1362, tipo:"Decreto", numero:"3651", anio:2026, fecha:"2026-10-27", titulo:"3651/2026 - Reglamenta la Ordenanza N° 2740/2018", pdf:"1362-digesto.pdf"},
+  {id:1363, tipo:"Decreto", numero:"3653", anio:2026, fecha:"2026-10-30", titulo:"3653/2026 - Expresa reconocimiento y agradecimiento de la Municipalidad de Sunchales al Ing. Fernando Saccone, por su participación como integrante de la Comisión de Selección de los concursos internos.", pdf:"1363-digesto.pdf"},
+  {id:1364, tipo:"Decreto", numero:"3654", anio:2026, fecha:"2026-11-02", titulo:"3654/2026 - Declara asueto administrativo para el personal de la Municipalidad de Sunchales el día viernes 13/11/2026.", pdf:"1364-digesto.pdf"},
+  {id:1365, tipo:"Decreto", numero:"3656", anio:2026, fecha:"2026-11-04", titulo:"3656/2026 - Declara de Interés Municipal Cultural y Social el 3° Festival Nacional de Teatro Maquinarte sunchales.", pdf:"1365-digesto.pdf"},
+  {id:1366, tipo:"Decreto", numero:"3657", anio:2026, fecha:"2026-11-05", titulo:"3657/2026 - Declara de Interés Municipal el 65 aniversario de \"Zapatería Sergio\".", pdf:"1366-digesto.pdf"},
+  {id:1367, tipo:"Decreto", numero:"3658", anio:2026, fecha:"2026-11-06", titulo:"3658/2026 - Declara de Interés Municipal el 55 aniversario de la creación de la Comisión Vecinal del Barrio Sur.", pdf:"1367-digesto.pdf"},
+  {id:1368, tipo:"Decreto", numero:"3659", anio:2026, fecha:"2026-11-06", titulo:"3659/2026 - Llama a concurso interno para la cobertura de una (1) vacante del cargo de Jefe/a del Área de Discapacidad.", pdf:"1368-digesto.pdf"},
+  {id:1369, tipo:"Decreto", numero:"3660", anio:2026, fecha:"2026-11-06", titulo:"3660/2026 - Llama a concurso interno para la cobertura de una (1) vacante del cargo de Auditor/a Local de Seguridad Alimentaria.", pdf:"1369-digesto.pdf"},
+  {id:1370, tipo:"Decreto", numero:"3661", anio:2026, fecha:"2026-11-06", titulo:"3661/2026 - Llama a concurso abierto de antecedentes y oposición para la cobertura de una (1) vacante del cargo de Responsable Técnico/a de Arbolado Urbano.", pdf:"1370-digesto.pdf"},
+  {id:1371, tipo:"Resolución", numero:"4405", anio:2026, fecha:"2026-10-20", titulo:"4405/2026 - Reduce al 50% el monto de la multa aplicada a CASA COOPERATIVA DE SUMINISTRO SUNCHALES.", pdf:"1371-digesto.pdf"},
+  {id:1372, tipo:"Resolución", numero:"4407", anio:2026, fecha:"2026-10-27", titulo:"4407/2026 - Dispone, a partir del 01/10/2026, la subrogancia del cargo vacante en la Subdirección de Personal, por Mariana F. Riboldi.", pdf:"1372-digesto.pdf"},
+  {id:1373, tipo:"Resolución", numero:"4408", anio:2026, fecha:"2026-10-30", titulo:"4408/2026 - Dispone la cesantía de los agentes José F. Pinardelli y Juan R. Ringelstein.", pdf:"1373-digesto.pdf"},
+  {id:1374, tipo:"Resolución", numero:"4409", anio:2026, fecha:"2026-10-30", titulo:"4409/2026 - Rechaza el recurso de apelación interpuesto por la agente Eliana Orecchia contra el acto administrativo notificado el 15/10/2026.", pdf:"1374-digesto.pdf"},
+  {id:1375, tipo:"Resolución", numero:"4411", anio:2026, fecha:"2026-11-03", titulo:"4411/2026 - Dispone la cesantía del agente Benito A. Perez.", pdf:"1375-digesto.pdf"},
+  {id:1376, tipo:"Resolución", numero:"4412", anio:2026, fecha:"2026-11-11", titulo:"4412/2026 - Acepta la renuncia presentada por la agente Gabriela I. Ocampo, a partir del 31/12/2026.", pdf:"1376-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
