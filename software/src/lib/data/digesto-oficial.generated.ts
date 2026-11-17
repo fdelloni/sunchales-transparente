@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-11-16
+ * Generado el: 2026-11-17
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1139,6 +1139,10 @@ export const normasOficiales: NormaOficial[] = [
   {id:1374, tipo:"Resolución", numero:"4409", anio:2026, fecha:"2026-10-30", titulo:"4409/2026 - Rechaza el recurso de apelación interpuesto por la agente Eliana Orecchia contra el acto administrativo notificado el 15/10/2026.", pdf:"1374-digesto.pdf"},
   {id:1375, tipo:"Resolución", numero:"4411", anio:2026, fecha:"2026-11-03", titulo:"4411/2026 - Dispone la cesantía del agente Benito A. Perez.", pdf:"1375-digesto.pdf"},
   {id:1376, tipo:"Resolución", numero:"4412", anio:2026, fecha:"2026-11-11", titulo:"4412/2026 - Acepta la renuncia presentada por la agente Gabriela I. Ocampo, a partir del 31/12/2026.", pdf:"1376-digesto.pdf"},
+  {id:1377, tipo:"Decreto", numero:"3652", anio:2026, fecha:"2026-10-27", titulo:"3652/2026 - Declara de Interés Municipal Científico el 2° Encuentro Internacional de Técnicos en Radioterapia Oncológica.", pdf:"1377-digesto.pdf"},
+  {id:1378, tipo:"Decreto", numero:"3662", anio:2026, fecha:"2026-11-12", titulo:"3662/2026 - Declara Huésped de Honor de la ciudad de Sunchales al Sr. Víctor Laplace.", pdf:"1378-digesto.pdf"},
+  {id:1379, tipo:"Decreto", numero:"3663", anio:2026, fecha:"2026-11-12", titulo:"3663/2026 - Declara de Interés Municipal cultural y Social la presencia del Sr. Gastón Ricaud en el Tercer Festival Nacional de Teatro \"Maquinarte sujnchales\".", pdf:"1379-digesto.pdf"},
+  {id:1380, tipo:"Resolución", numero:"4410", anio:2026, fecha:"2026-10-30", titulo:"4410/2026 - Ratifica el convenio celebrado con la empresa BHY S.A.", pdf:"1380-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
