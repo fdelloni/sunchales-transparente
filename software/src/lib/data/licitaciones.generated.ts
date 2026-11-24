@@ -4,8 +4,8 @@
 // Fuente oficial:
 // https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/
 //
-// Última sincronización: 2026-11-23T20:45:14.381Z
-// Total licitaciones extraídas: 67
+// Última sincronización: 2026-11-24T19:49:48.219Z
+// Total licitaciones extraídas: 68
 
 export type ProcedimientoOficial =
   | "licitacion_publica"
@@ -49,6 +49,155 @@ export type LicitacionOficial = {
 };
 
 export const licitacionesOficiales: LicitacionOficial[] = [
+  {
+    "id": "lp-04-2026",
+    "titulo": "Licitación Pública N° 04/2026",
+    "procedimiento": "licitacion_publica",
+    "numero": "04/2026",
+    "anio": 2026,
+    "decreto": "Decreto N° 3666/2026",
+    "objeto": null,
+    "presupuestoOficial": 806500000,
+    "fechaApertura": "2026-12-21T00:00:00.000Z",
+    "documentos": [
+      {
+        "nombre": "Decreto N° 3666-2026",
+        "tipo": "decreto",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/Decreto-N°-3666-2026.pdf"
+      },
+      {
+        "nombre": "Pliego de Especificaciones técnicas particulares_REHABILITACIÓN DEL PREDIO FERROVIARIO DE LA CIUDAD",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/Pliego-de-Especificaciones-tecnicas-particulares_REHABILITACION-DEL-PREDIO-FERROVIARIO-DE-LA-CIUDAD.pdf"
+      },
+      {
+        "nombre": "Pliego de Especificaciones técnicas generales_REHABILITACIÓN DEL PREDIO FERROVIARIO DE LA CIUDAD",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/Pliego-de-Especificaciones-tecnicas-generales_REHABILITACION-DEL-PREDIO-FERROVIARIO-DE-LA-CIUDAD.pdf"
+      },
+      {
+        "nombre": "Pliego de Bases y Condiciones_REHABILITACIÓN DEL PREDIO FERROVIARIO DE LA CIUDAD",
+        "tipo": "pliego",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/Pliego-de-Bases-y-Condiciones_REHABILITACION-DEL-PREDIO-FERROVIARIO-DE-LA-CIUDAD.pdf"
+      },
+      {
+        "nombre": "01_BR_ARQ_RE_PL_PLANTA EXISTENTE",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/01_BR_ARQ_RE_PL_PLANTA-EXISTENTE.pdf"
+      },
+      {
+        "nombre": "02_BR_ARQ_RE_PL_PLANTA GENERAL",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/02_BR_ARQ_RE_PL_PLANTA-GENERAL.pdf"
+      },
+      {
+        "nombre": "03_BR_ARQ_RE_PL_PLAZA SECA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/03_BR_ARQ_RE_PL_PLAZA-SECA.pdf"
+      },
+      {
+        "nombre": "04_BR_ARQ_RE_AX_PLAZA SECA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/04_BR_ARQ_RE_AX_PLAZA-SECA.pdf"
+      },
+      {
+        "nombre": "05_BR_ARQ_RE_PL_DEMOLICION",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/05_BR_ARQ_RE_PL_DEMOLICION.pdf"
+      },
+      {
+        "nombre": "06_BR_ARQ_RE_PL_DEMOLICION",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/06_BR_ARQ_RE_PL_DEMOLICION.pdf"
+      },
+      {
+        "nombre": "07_BR_ARQ_RE_PL_MOV.DE SUELOS",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/07_BR_ARQ_RE_PL_MOV.DE-SUELOS.pdf"
+      },
+      {
+        "nombre": "08_BR_ARQ_RE_PL_ENTUBADO",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/08_BR_ARQ_RE_PL_ENTUBADO.pdf"
+      },
+      {
+        "nombre": "09_BR_ARQ_RE_PL_BICISENDA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/09_BR_ARQ_RE_PL_BICISENDA.pdf"
+      },
+      {
+        "nombre": "10_BR_ARQ_RE_DET_BICISENDA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/10_BR_ARQ_RE_DET_BICISENDA.pdf"
+      },
+      {
+        "nombre": "11_BR_ARQ_RE_AX_BICISENDA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/11_BR_ARQ_RE_AX_BICISENDA.pdf"
+      },
+      {
+        "nombre": "12_BR_ARQ_RE_PL_GALPON NORTE",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/12_BR_ARQ_RE_PL_GALPON-NORTE.pdf"
+      },
+      {
+        "nombre": "13_BR_ARQ_RE_CO_GALPON NORTE",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/13_BR_ARQ_RE_CO_GALPON-NORTE.pdf"
+      },
+      {
+        "nombre": "14_BR_ARQ_RE_VI_GALPON NORTE",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/14_BR_ARQ_RE_VI_GALPON-NORTE.pdf"
+      },
+      {
+        "nombre": "15_BR_ARQ_RE_VI_GALPON NORTE",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/15_BR_ARQ_RE_VI_GALPON-NORTE.pdf"
+      },
+      {
+        "nombre": "16_BR_ARQ_RE_PL_GALPON SUR",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/16_BR_ARQ_RE_PL_GALPON-SUR.pdf"
+      },
+      {
+        "nombre": "17_BR_EQ_RE_PL_EQUIPAMIENTO URBANO GENERAL",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/17_BR_EQ_RE_PL_EQUIPAMIENTO-URBANO-GENERAL.pdf"
+      },
+      {
+        "nombre": "18_BR_EQ_RE_PL_EQUIPAMIENTO URBANO SECTOR",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/18_BR_EQ_RE_PL_EQUIPAMIENTO-URBANO-SECTOR.pdf"
+      },
+      {
+        "nombre": "19_BR_EQ_RE_PL_LETRAS CORPOREAS",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/19_BR_EQ_RE_PL_LETRAS-CORPOREAS.pdf"
+      },
+      {
+        "nombre": "20_BR_IE_RE_PL_ELECTRICA GENERAL",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/20_BR_IE_RE_PL_ELECTRICA-GENERAL.pdf"
+      },
+      {
+        "nombre": "21_BR_IE_RE_PL_ELECTRICA LUMINARIAS",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/21_BR_IE_RE_PL_ELECTRICA-LUMINARIAS.pdf"
+      },
+      {
+        "nombre": "22_BR_IE_RE_PL_ELECTRICA SECTOR PLAZA SECA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/22_BR_IE_RE_PL_ELECTRICA-SECTOR-PLAZA-SECA.pdf"
+      },
+      {
+        "nombre": "23_BR_IS_RE_PL_SANITARIAS SECTOR PLAZA SECA",
+        "tipo": "otro",
+        "url": "https://sunchales.gob.ar/wp-content/uploads/2026/11/23_BR_IS_RE_PL_SANITARIAS-SECTOR-PLAZA-SECA.pdf"
+      }
+    ],
+    "fuenteUrl": "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/"
+  },
   {
     "id": "lp-03-2026",
     "titulo": "Licitación Pública N° 03/2026",
@@ -2262,8 +2411,8 @@ export const licitacionesOficiales: LicitacionOficial[] = [
 
 export const licitacionesMeta = {
   fuenteUrl: "https://sunchales.gob.ar/gestion/sunchales-impulsa/municipio-transparente/licitaciones-y-contrataciones/",
-  sincronizadoEl: "2026-11-23T20:45:14.381Z",
-  total: 67,
+  sincronizadoEl: "2026-11-24T19:49:48.219Z",
+  total: 68,
   porAnio: {
   "2016": 8,
   "2017": 6,
@@ -2275,9 +2424,9 @@ export const licitacionesMeta = {
   "2023": 7,
   "2024": 3,
   "2025": 4,
-  "2026": 3
+  "2026": 4
 },
   porProcedimiento: {
-  "licitacion_publica": 67
+  "licitacion_publica": 68
 },
 } as const;

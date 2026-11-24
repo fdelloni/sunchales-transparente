@@ -3,7 +3,7 @@
  * Fuente: https://sunchales.miportal.ar/digesto
  * API:    https://api.miportal.ar/sunchales/digInicio (accion=primerIngreso)
  *
- * Generado el: 2026-11-23
+ * Generado el: 2026-11-24
  *
  * Estos datos son sincronizados directamente del sistema oficial del municipio.
  * El campo "estado" (vigente / modificada / derogada) NO existe en el modelo
@@ -1144,6 +1144,8 @@ export const normasOficiales: NormaOficial[] = [
   {id:1379, tipo:"Decreto", numero:"3663", anio:2026, fecha:"2026-11-12", titulo:"3663/2026 - Declara de Interés Municipal cultural y Social la presencia del Sr. Gastón Ricaud en el Tercer Festival Nacional de Teatro \"Maquinarte sujnchales\".", pdf:"1379-digesto.pdf"},
   {id:1380, tipo:"Resolución", numero:"4410", anio:2026, fecha:"2026-10-30", titulo:"4410/2026 - Ratifica el convenio celebrado con la empresa BHY S.A.", pdf:"1380-digesto.pdf"},
   {id:1381, tipo:"Resolución", numero:"4399", anio:2026, fecha:"2026-10-01", titulo:"4399/2026 - Contrata personal para las diferentes Secretarías y Subsecretarías.", pdf:"1381-digesto.pdf"},
+  {id:1382, tipo:"Decreto", numero:"3666", anio:2026, fecha:"2026-11-17", titulo:"3666/2026 - Llama a Licitación Pública N° 4/2026 para la ejecución de la obra \"REHABILITACIÓN DEL PREDIO FERROVIARIO DE LA CIUDAD - MUNICIPALIDAD DE SUNCHALES - DEPARTAMENTO CASTELLANOS\"", pdf:"1382-digesto.pdf"},
+  {id:1383, tipo:"Decreto", numero:"3665", anio:2026, fecha:"2026-11-17", titulo:"3665/2026 - Aprueba el Informe de la Comisión de Preadjudicación y adjudica la Licitación Pública N° 03/2026.", pdf:"1383-digesto.pdf"},
 ];
 
 export const conteoPorTipo: Record<TipoNormaOficial, number> =
